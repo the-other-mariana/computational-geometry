@@ -33,9 +33,16 @@ class Line:
         self.a = a
         self.b = b
         self.c = c
+        if b == 0:
+            self.slope = 1000000
+        else:
+            self.slope = -1 * ((a * 1.0) / b)
 
     def __str__(self):
         return "{A}x + {B}y + {C} = 0".format(A=self.a, B=self.b, C=self.c)
+
+    def isParallelTo(self, other):
+        return (self.slope - other.slope) < eps
 
 d = 1.4142
 theta = 45
@@ -49,7 +56,14 @@ print(p2)
 print(distance(p1, p3)) # 1.4142
 print(p1.rotate(90))
 
-# LINES
-p1 = Point(0,0)
-p2 = Point(1,1)
-print(points2Line(p1, p2))
+# LINE from 2 POINT
+p1 = Point(3,0)
+p2 = Point(3,1)
+line1 = points2Line(p1, p2)
+print(line1)
+
+# CHECK PARALLEL LINES
+p3 = Point(4,1)
+p4 = Point(4,3)
+line2 = points2Line(p3, p4)
+print(line1.isParallelTo(line2))
