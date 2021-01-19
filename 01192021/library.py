@@ -15,6 +15,9 @@ class Point:
     def __str__(self):
         return "({x}, {y})".format(x=self.x, y=self.y)
 
+def distance(p1, p2):
+    return sqrt((p2.x - p1.x)**2 + (p2.y - p1.y)**2)
+
 d = 1.4142
 theta = 45
 p1 = Point(1, 1)
@@ -23,4 +26,4 @@ p3 = Point(2, 2)
 
 print(p2 == p3)
 print(p2)
-#print("({x}, {y})".format(x=p2.x, y=p2.y))
+print(distance(p1, p3)) # 1.4142
