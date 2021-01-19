@@ -1,6 +1,10 @@
 from math import sin, cos, sqrt, pi
 
 eps = 10**-4
+
+def distance(p1, p2):
+    return sqrt((p2.x - p1.x)**2 + (p2.y - p1.y)**2)
+
 class Point:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -15,8 +19,8 @@ class Point:
     def __str__(self):
         return "({x}, {y})".format(x=self.x, y=self.y)
 
-def distance(p1, p2):
-    return sqrt((p2.x - p1.x)**2 + (p2.y - p1.y)**2)
+    def rotate(self, deg):
+        return Point(self.x * cos(deg * pi/180) - self.y * sin(deg * pi/180), self.x * sin(deg * pi/180) + self.y * cos(deg * pi/180))
 
 d = 1.4142
 theta = 45
@@ -27,3 +31,4 @@ p3 = Point(2, 2)
 print(p2 == p3)
 print(p2)
 print(distance(p1, p3)) # 1.4142
+print(p1.rotate(90))
