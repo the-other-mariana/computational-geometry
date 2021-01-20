@@ -11,7 +11,7 @@ The `.py` file contains the following: <br />
   - Equals override
   - String override
   - rotation
-- Line
+- Line 2D
   - Constructor
   - String override
   - Parallel
