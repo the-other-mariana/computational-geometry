@@ -44,6 +44,16 @@ class Line:
     def isParallelTo(self, other):
         return (self.slope - other.slope) < eps
 
+    def intersects(self, other):
+        denom = (self.a * other.b) - (other.a * self.b)
+        if denom == 0:
+            return False
+        else:
+            x = ((other.c * self.b) - (self.c * other.b)) / denom
+            y = ((self.a * other.c) - (other.a * self.c)) / ((other.a * self.b) - (self.a * other.b))
+            return Point(x, y)
+
+
 d = 1.4142
 theta = 45
 p1 = Point(1, 1)
@@ -56,7 +66,7 @@ print(p2)
 print(distance(p1, p3)) # 1.4142
 print(p1.rotate(90))
 
-# LINE from 2 POINT
+# LINE FROM 2 POINTS
 p1 = Point(3,0)
 p2 = Point(3,1)
 line1 = points2Line(p1, p2)
@@ -67,3 +77,11 @@ p3 = Point(4,1)
 p4 = Point(4,3)
 line2 = points2Line(p3, p4)
 print(line1.isParallelTo(line2))
+
+# CHECK INTERSECTION
+line1 = points2Line(Point(0, 0), Point(1, 1))
+line2 = points2Line(Point(1, 0), Point(1, 2))
+
+line1 = points2Line(Point(15, 10), Point(49, 25))
+line2 = points2Line(Point(29, 5), Point(32, 32))
+print("Intersection:", line1.intersects(line2))
