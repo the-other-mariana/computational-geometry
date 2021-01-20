@@ -56,14 +56,16 @@ class Line:
     def isEquivalent(self, other):
         if self.a != 0:
             num = other.a / self.a
-            if ((self.b * num) == other.b) and ((self.c * num) == other.c):
+            if abs((self.b * num) - other.b) < eps and abs((self.c * num) - other.c) < eps:
                 return True
+            else:
+                return False
         elif self.b != 0:
             num = other.b / self.b
-            if ((self.c * num) == other.c):
+            if abs((self.c * num) - other.c) < eps:
                 return True
-        else:
-            return False
+            else:
+                return False
 
 
 d = 1.4142
