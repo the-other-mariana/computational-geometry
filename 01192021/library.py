@@ -30,11 +30,11 @@ class Point:
 
 class Line:
     def __init__(self, a=0, b=0, c=0):
-        self.a = a
-        self.b = b
-        self.c = c
+        self.a = a * 1.0
+        self.b = b * 1.0
+        self.c = c * 1.0
         if b == 0:
-            self.slope = 1000000
+            self.slope = 1000000.0
         else:
             self.slope = -1 * ((a * 1.0) / b)
 
@@ -53,6 +53,18 @@ class Line:
             y = ((self.a * other.c) - (other.a * self.c)) / ((other.a * self.b) - (self.a * other.b))
             return Point(x, y)
 
+    def isEquivalent(self, other):
+        if self.a != 0:
+            num = other.a / self.a
+            if ((self.b * num) == other.b) and ((self.c * num) == other.c):
+                return True
+        elif self.b != 0:
+            num = other.b / self.b
+            if ((self.c * num) == other.c):
+                return True
+        else:
+            return False
+
 
 d = 1.4142
 theta = 45
@@ -63,20 +75,20 @@ p3 = Point(2, 2)
 # POINTS
 print(p2 == p3)
 print(p2)
-print(distance(p1, p3)) # 1.4142
-print(p1.rotate(90))
+print("Point distance:", distance(p1, p3)) # 1.4142
+print("Point rotation:", p1.rotate(90))
 
 # LINE FROM 2 POINTS
 p1 = Point(3,0)
 p2 = Point(3,1)
 line1 = points2Line(p1, p2)
-print(line1)
+print("Line from 2 points:", line1)
 
 # CHECK PARALLEL LINES
 p3 = Point(4,1)
 p4 = Point(4,3)
 line2 = points2Line(p3, p4)
-print(line1.isParallelTo(line2))
+print("Is Paralel:", line1.isParallelTo(line2))
 
 # CHECK INTERSECTION
 line1 = points2Line(Point(0, 0), Point(1, 1))
@@ -85,3 +97,9 @@ line2 = points2Line(Point(1, 0), Point(1, 2))
 line1 = points2Line(Point(15, 10), Point(49, 25))
 line2 = points2Line(Point(29, 5), Point(32, 32))
 print("Intersection:", line1.intersects(line2))
+
+# CHECK EQUIVALENT
+line1 = Line(1, 2, 3)
+line2 = Line(2, 4, 6)
+print("Equivalent:", line1.isEquivalent(line2))
+print("Equivalent:", line2.isEquivalent(line1))
