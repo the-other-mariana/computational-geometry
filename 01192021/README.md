@@ -4,7 +4,9 @@ This is a first exercise where a custom library is to be done in order to perfor
 
 ## Content
 
-The `.py` file contains the following: <br />
+The `tests.py` file uses `glibrary.py` file as library to perform geometric operations. <br />
+
+The `glibrary.py` file contains the following: <br />
 
 - Points 2D
   - Constructor
