@@ -1,4 +1,4 @@
-from math import sin, cos, sqrt, pi
+from math import sin, cos, sqrt, pi, acos
 
 eps = 10**-4
 
@@ -67,6 +67,72 @@ class Line:
             else:
                 return False
 
+    @staticmethod
+    def point2LineDist(a, b, p):
+        ap = Vector.toVector(a, p)
+        ab = Vector.toVector(a, b)
+        # perpendicular proyection of p over line
+        u = (Vector.dot(ap, ab)) / Vector.squareNorm(ab)
+        # point perpendicularly under p
+        c = Vector.translate(a, ab.scale(u))
+        return distance(p, c)
+
+
+class Vector:
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __str__(self):
+        return "<{X}, {Y}>".format(X=self.x, Y=self.y)
+
+    def scale(self, s):
+        return Vector((s * self.x), (s * self.y))
+
+    @staticmethod
+    def translate(p, v):
+        return Point((p.x + v.x), (p.y + v.y))
+
+    @staticmethod
+    def toVector(p1, p2):
+        return Vector((p2.x - p1.x), (p2.y - p1.y))
+
+    @staticmethod
+    def dot(u, v):
+        return ((u.x * v.x) + (u.y * v.y))
+
+    @staticmethod
+    def cross(a, b):
+        # returns the length of cross product vector
+        return ((a.x * b.y) - (a.y * b.x))
+
+    @staticmethod
+    def squareNorm(v):
+        return ((v.x * v.x) + (v.y * v.y))
+
+    @staticmethod
+    def angle(a, o, b, deg=False):
+        oa = Vector.toVector(o, a)
+        ob = Vector.toVector(o, b)
+        theta = acos(Vector.dot(oa, ob) / sqrt(Vector.squareNorm(oa) * Vector.squareNorm(ob)))
+        f = 1.0
+        if deg == True:
+            f = (180.0 / pi)
+        return theta * f
+
+    @staticmethod
+    def ccw(p, q, r):
+        pq = Vector.toVector(p, q)
+        pr = Vector.toVector(p, r)
+        return (Vector.cross(pq, pr) > 0)
+
+    @staticmethod
+    def areCollinear(p, q, r):
+        pq = Vector.toVector(p, q)
+        pr = Vector.toVector(p, r)
+        return (abs(Vector.cross(pq, pr)) < eps)
+
+
 
 d = 1.4142
 theta = 45
@@ -81,8 +147,8 @@ print("Point distance:", distance(p1, p3)) # 1.4142
 print("Point rotation:", p1.rotate(90))
 
 # LINE FROM 2 POINTS
-p1 = Point(3,0)
-p2 = Point(3,1)
+p1 = Point(2,2)
+p2 = Point(2,4)
 line1 = points2Line(p1, p2)
 print("Line from 2 points:", line1)
 
@@ -105,3 +171,8 @@ line1 = Line(1, 2, 3)
 line2 = Line(2, 4, 6)
 print("Equivalent:", line1.isEquivalent(line2))
 print("Equivalent:", line2.isEquivalent(line1))
+
+# CHECK VECTOR FROM POINTS
+p1 = Point(2, 3)
+p2 = Point(10, 7)
+print("Points to Vector:", Vector.points2Vector(p1, p2))
