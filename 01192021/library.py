@@ -77,7 +77,23 @@ class Line:
         u = (Vector.dot(ap, ab)) / Vector.squareNorm(ab)
         # point perpendicularly under p
         c = Vector.translate(a, ab.scale(u))
-        return distance(p, c)
+        return Point.distance(p, c)
+
+    @staticmethod
+    def point2SegDist(a, b, p):
+        ap = Vector.toVector(a, p)
+        ab = Vector.toVector(a, b)
+        u = (Vector.dot(ap, ab)) / Vector.squareNorm(ab)
+        # if point is closest to a but outside ab
+        if u < 0:
+            return Point.distance(p, a)
+        # if point is inside ab
+        if u >= 0 and u <= 1:
+            c = Vector.translate(a, ab.scale(u))
+            return Point.distance(p, c)
+        # if point is closest to b but outside ab
+        if u > 1:
+            return Point.distance(p, b)
 
 
 class Vector:
@@ -134,7 +150,7 @@ class Vector:
         pr = Vector.toVector(p, r)
         return (abs(Vector.cross(pq, pr)) < eps)
 
-
+# TESTS
 
 d = 1.4142
 theta = 45

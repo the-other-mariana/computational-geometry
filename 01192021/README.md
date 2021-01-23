@@ -19,6 +19,8 @@ The `.py` file contains the following: <br />
   - Parallel
   - Intersection
   - Equivalence
+  - Distance from Point to Line (static)
+  - Distance from Point to Segment (static)
 - Vector 2D
   - Constructor
   - Points2Vector (static)
