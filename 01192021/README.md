@@ -10,13 +10,23 @@ The `.py` file contains the following: <br />
   - Constructor
   - Equals override
   - String override
-  - rotation
+  - Rotation
+  - Distance (static)
 - Line 2D
   - Constructor
   - String override
+  - Points2Line (static)
   - Parallel
   - Intersection
   - Equivalence
-- Static Functions
-  - Distance (2 points)
-  - Line (2 points)
+- Vector 2D
+  - Constructor
+  - Points2Vector (static)
+  - Scale
+  - Translate (static, returns Point)
+  - Dot Product (static)
+  - Cross Product (static)
+  - Square Norm (static)
+  - Angle (static)
+  - Counter Clock Wise (static)
+  - Collinear (static)
