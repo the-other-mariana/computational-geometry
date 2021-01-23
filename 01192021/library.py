@@ -2,15 +2,6 @@ from math import sin, cos, sqrt, pi, acos
 
 eps = 10**-4
 
-def distance(p1, p2):
-    return sqrt((p2.x - p1.x)**2 + (p2.y - p1.y)**2)
-
-def points2Line(p1, p2):
-    A = p2.y - p1.y
-    B = p1.x - p2.x
-    C = (p2.x * p1.y) - (p1.x*p2.y)
-    return Line(A, B, C)
-
 class Point:
     def __init__(self, x=0, y=0):
         self.x = x
@@ -28,6 +19,10 @@ class Point:
     def rotate(self, deg):
         return Point(self.x * cos(deg * pi/180) - self.y * sin(deg * pi/180), self.x * sin(deg * pi/180) + self.y * cos(deg * pi/180))
 
+    @staticmethod
+    def distance(p1, p2):
+        return sqrt((p2.x - p1.x)**2 + (p2.y - p1.y)**2)
+
 class Line:
     def __init__(self, a=0, b=0, c=0):
         self.a = a * 1.0
@@ -40,6 +35,13 @@ class Line:
 
     def __str__(self):
         return "{A}x + {B}y + {C} = 0".format(A=self.a, B=self.b, C=self.c)
+
+    @staticmethod
+    def points2Line(p1, p2):
+        A = p2.y - p1.y
+        B = p1.x - p2.x
+        C = (p2.x * p1.y) - (p1.x*p2.y)
+        return Line(A, B, C)
 
     def isParallelTo(self, other):
         return (self.slope - other.slope) < eps
@@ -143,27 +145,27 @@ p3 = Point(2, 2)
 # POINTS
 print(p2 == p3)
 print(p2)
-print("Point distance:", distance(p1, p3)) # 1.4142
+print("Point distance:", Point.distance(p1, p3)) # 1.4142
 print("Point rotation:", p1.rotate(90))
 
 # LINE FROM 2 POINTS
 p1 = Point(2,2)
 p2 = Point(2,4)
-line1 = points2Line(p1, p2)
+line1 = Line.points2Line(p1, p2)
 print("Line from 2 points:", line1)
 
 # CHECK PARALLEL LINES
 p3 = Point(4,1)
 p4 = Point(4,3)
-line2 = points2Line(p3, p4)
+line2 = Line.points2Line(p3, p4)
 print("Is Paralel:", line1.isParallelTo(line2))
 
 # CHECK INTERSECTION
-line1 = points2Line(Point(0, 0), Point(1, 1))
-line2 = points2Line(Point(1, 0), Point(1, 2))
+line1 = Line.points2Line(Point(0, 0), Point(1, 1))
+line2 = Line.points2Line(Point(1, 0), Point(1, 2))
 
-line1 = points2Line(Point(15, 10), Point(49, 25))
-line2 = points2Line(Point(29, 5), Point(32, 32))
+line1 = Line.points2Line(Point(15, 10), Point(49, 25))
+line2 = Line.points2Line(Point(29, 5), Point(32, 32))
 print("Intersection:", line1.intersects(line2))
 
 # CHECK EQUIVALENT
@@ -175,4 +177,4 @@ print("Equivalent:", line2.isEquivalent(line1))
 # CHECK VECTOR FROM POINTS
 p1 = Point(2, 3)
 p2 = Point(10, 7)
-print("Points to Vector:", Vector.points2Vector(p1, p2))
+print("Points to Vector:", Vector.toVector(p1, p2))
