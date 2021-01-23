@@ -70,14 +70,23 @@ class Line:
                 return False
 
     @staticmethod
-    def point2LineDist(a, b, p):
-        ap = Vector.toVector(a, p)
-        ab = Vector.toVector(a, b)
-        # perpendicular proyection of p over line
-        u = (Vector.dot(ap, ab)) / Vector.squareNorm(ab)
-        # point perpendicularly under p
-        c = Vector.translate(a, ab.scale(u))
-        return Point.distance(p, c)
+    def point2LineDist(a, b, p, option):
+        if option == True:
+            ap = Vector.toVector(a, p)
+            ab = Vector.toVector(a, b)
+            # perpendicular proyection of p over line
+            u = (Vector.dot(ap, ab)) / Vector.squareNorm(ab)
+            # point perpendicularly under p
+            c = Vector.translate(a, ab.scale(u))
+            return Point.distance(p, c)
+
+        if option == False:
+            line1 = Line.points2Line(a, b)
+            nv = Vector(line1.a, line1.b)
+            p2 = Vector.translate(p, nv)
+            line2 = Line.points2Line(p, p2)
+            intersection = line2.intersects(line1)
+            return Point.distance(p, intersection)
 
     @staticmethod
     def point2SegDist(a, b, p):
@@ -151,7 +160,6 @@ class Vector:
         return (abs(Vector.cross(pq, pr)) < eps)
 
 # TESTS
-
 d = 1.4142
 theta = 45
 p1 = Point(1, 1)
@@ -194,3 +202,9 @@ print("Equivalent:", line2.isEquivalent(line1))
 p1 = Point(2, 3)
 p2 = Point(10, 7)
 print("Points to Vector:", Vector.toVector(p1, p2))
+
+# CHECK DISTANCE FROM POINT TO LINE
+p = Point(2, 3)
+a = Point(0, 1.0/4.0)
+b = Point(-1.0/3.0, 0)
+print("Distance point to line:", Line.point2LineDist(a, b, p, True))
