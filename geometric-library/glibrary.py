@@ -104,7 +104,6 @@ class Line:
         if u > 1:
             return Point.distance(p, b)
 
-
 class Vector:
     def __init__(self, x=0, y=0):
         self.x = x
