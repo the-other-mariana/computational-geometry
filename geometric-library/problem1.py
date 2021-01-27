@@ -3,7 +3,7 @@ from matplotlib import collections  as mc
 import numpy as np
 from glibrary import eps, Point, Line, Vector
 
-file1 = open('1.in', 'r')
+file1 = open('2.in', 'r')
 flines = file1.readlines()
 
 pointsNumber = int(flines[0])
@@ -23,6 +23,7 @@ for i in mountains:
 
 peaks_x = []
 peaks_y = []
+distances = []
 sun_lows_x = []
 sun_lows_y = []
 sunny_segs = []
@@ -55,6 +56,8 @@ for i in range(1,len(mountains), 2):
         sun_lows_x.append(hit_point.x)
         sun_lows_y.append(hit_point.y)
 
+        distances.append([Point.distance(peak_point, low_point), peak_point])
+
 
 fig = plt.figure()
 fig.add_axes()
@@ -67,6 +70,11 @@ ax1.scatter(peaks_x,peaks_y, s=100, marker="P", color='red')
 ax1.scatter(sun_lows_x,sun_lows_y, s=100, marker="P", color='red')
 
 ax1.add_collection(mc.LineCollection(sunny_segs, color='red', linewidths=5))
+
+for i in range(len(distances)):
+    coord = tuple([distances[i][1].x, distances[i][1].y])
+    coordt = tuple([distances[i][1].x + 50, distances[i][1].y + 50])
+    ax1.annotate("d={a:.2f}".format(a=distances[i][0]), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
 
 #ax1.arrow(.1, 1, 0.3, -0.3, width=.015, head_width=0.05, head_length=0.05)
 #ax1.annotate("l1", xy=(.1, 1), xytext=(.25, .9), size=12)
