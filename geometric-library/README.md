@@ -34,3 +34,11 @@ The `glibrary.py` file contains the following: <br />
   - Angle (static)
   - Counter Clock Wise (static)
   - Collinear (static)
+
+## Problem Set 01
+
+### Problem 1
+
+Given a set of mountain peak coordinates (x,y) return an image that shows the mountain segments that are illuminated by a sun on the right, that functions as a horizontal *directional light* from right to left. <br />
+
+![image]()
