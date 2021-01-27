@@ -41,4 +41,10 @@ The `glibrary.py` file contains the following: <br />
 
 Given a set of mountain peak coordinates (x,y) return an image that shows the mountain segments that are illuminated by a sun on the right, that functions as a horizontal *directional light* from right to left. <br />
 
-![image]()
+#### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/1.in)
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output/output_p1_i1.png?raw=true) <br />
+
+#### Test Case 2: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/2.in)
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output/output_p1_i2.png?raw=true) <br />
