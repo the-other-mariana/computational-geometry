@@ -48,3 +48,15 @@ Given a set of mountain peak coordinates (x,y) return an image that shows the mo
 #### Test Case 2: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/2.in)
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p1_i2.png?raw=true) <br />
+
+### Problem 1
+
+Given a set of points that join a train track and a robber's position, show the shortest point in the train tracks to the robber's hiding place. <br />
+
+#### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/3.in)
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p2_i1.png?raw=true) <br />
+
+#### Test Case 2: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/4.in)
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p2_i2.png?raw=true) <br />

@@ -23,6 +23,10 @@ class Point:
     def distance(p1, p2):
         return sqrt((p2.x - p1.x)**2 + (p2.y - p1.y)**2)
 
+    @staticmethod
+    def midPoint(p1, p2):
+        return Point((p1.x + p2.x)/2.0, (p1.y + p2.y)/2.0)
+
 class Line:
     def __init__(self, a=0, b=0, c=0):
         self.a = a * 1.0
@@ -103,6 +107,14 @@ class Line:
         # if point is closest to b but outside ab
         if u > 1:
             return Point.distance(p, b)
+    @staticmethod
+    def perpPoint2Line(a, b, p):
+        line1 = Line.points2Line(a, b)
+        nv = Vector(line1.a, line1.b)
+        p2 = Vector.translate(p, nv)
+        line2 = Line.points2Line(p, p2)
+        intersection = line2.intersects(line1)
+        return intersection
 
 class Vector:
     def __init__(self, x=0, y=0):
