@@ -108,13 +108,20 @@ class Line:
         if u > 1:
             return Point.distance(p, b)
     @staticmethod
-    def perpPoint2Line(a, b, p):
-        line1 = Line.points2Line(a, b)
-        nv = Vector(line1.a, line1.b)
-        p2 = Vector.translate(p, nv)
-        line2 = Line.points2Line(p, p2)
-        intersection = line2.intersects(line1)
-        return intersection
+    def perpPoint2Seg(a, b, p):
+        ap = Vector.toVector(a, p)
+        ab = Vector.toVector(a, b)
+        u = (Vector.dot(ap, ab)) / Vector.squareNorm(ab)
+        # if point is closest to a but outside ab
+        if u < 0:
+            return a
+        # if point is inside ab
+        if u >= 0 and u <= 1:
+            c = Vector.translate(a, ab.scale(u))
+            return c
+        # if point is closest to b but outside ab
+        if u > 1:
+            return b
 
 class Vector:
     def __init__(self, x=0, y=0):

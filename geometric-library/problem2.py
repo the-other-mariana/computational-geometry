@@ -3,7 +3,7 @@ from matplotlib import collections  as mc
 import numpy as np
 from glibrary import eps, Point, Line, Vector
 
-file1 = open('4.in', 'r')
+file1 = open('3.in', 'r')
 flines = file1.readlines()
 hide_point = Point(float(flines[0]), float(flines[1]))
 
@@ -27,7 +27,7 @@ fig.add_axes()
 ax1 = plt.gca()
 
 ax1.plot(x,y, color="green")
-ax1.scatter(hide_point.x,hide_point.y, s=100, marker="P", color='red')
+ax1.scatter(hide_point.x,hide_point.y, s=100, marker="P", color='blue')
 
 for i in range(len(x) - 1):
     p1 = Point(x[i], y[i])
@@ -40,7 +40,7 @@ for i in range(len(x) - 1):
         ax1.scatter(p2.x,p2.y, s=100, marker="o", color="green")
     if dist <= min_dist:
         min_dist = dist
-        perpPoint = Line.perpPoint2Line(p1, p2, hide_point)
+        perpPoint = Line.perpPoint2Seg(p1, p2, hide_point)
 
 
 seg.append([tuple([hide_point.x, hide_point.y]), tuple([perpPoint.x, perpPoint.y])])

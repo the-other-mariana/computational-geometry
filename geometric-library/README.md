@@ -49,7 +49,7 @@ Given a set of mountain peak coordinates (x,y) return an image that shows the mo
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output-p1-i2.png?raw=true) <br />
 
-### Problem 1
+### Problem 2
 
 Given a set of points that join a train track and a robber's position, show the shortest point in the train tracks to the robber's hiding place. <br />
 
