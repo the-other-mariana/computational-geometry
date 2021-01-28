@@ -55,8 +55,8 @@ Given a set of points that join a train track and a robber's position, show the 
 
 #### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/3.in)
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p2_i1.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output-p2-i1.png?raw=true) <br />
 
 #### Test Case 2: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/4.in)
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p2_i2.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output-p2-i2.png?raw=true) <br />
