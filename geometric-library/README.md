@@ -43,11 +43,11 @@ Given a set of mountain peak coordinates (x,y) return an image that shows the mo
 
 #### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/1.in)
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p1_i1.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output-p1-i1.png?raw=true) <br />
 
 #### Test Case 2: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/2.in)
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output_p1_i2.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/geometric-library/output-img/output-p1-i2.png?raw=true) <br />
 
 ### Problem 1
 

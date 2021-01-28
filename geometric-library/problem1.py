@@ -56,7 +56,7 @@ for i in range(1,len(mountains), 2):
         sun_lows_x.append(hit_point.x)
         sun_lows_y.append(hit_point.y)
 
-        distances.append([Point.distance(peak_point, low_point), peak_point])
+        distances.append([Point.distance(peak_point, low_point), peak_point, hit_point])
 
 
 fig = plt.figure()
@@ -72,8 +72,9 @@ ax1.scatter(sun_lows_x,sun_lows_y, s=100, marker="P", color='red')
 ax1.add_collection(mc.LineCollection(sunny_segs, color='red', linewidths=5))
 
 for i in range(len(distances)):
-    coord = tuple([distances[i][1].x, distances[i][1].y])
-    coordt = tuple([distances[i][1].x + 50, distances[i][1].y + 50])
+    mid = Point.midPoint(distances[i][1], distances[i][2])
+    coord = tuple([mid.x, mid.y])
+    coordt = tuple([mid.x + 50, mid.y + 50])
     ax1.annotate("d={a:.2f}".format(a=distances[i][0]), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
 
 #ax1.arrow(.1, 1, 0.3, -0.3, width=.015, head_width=0.05, head_length=0.05)
