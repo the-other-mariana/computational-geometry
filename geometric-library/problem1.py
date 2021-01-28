@@ -3,7 +3,7 @@ from matplotlib import collections  as mc
 import numpy as np
 from glibrary import eps, Point, Line, Vector
 
-file1 = open('2.in', 'r')
+file1 = open('1.in', 'r')
 flines = file1.readlines()
 
 pointsNumber = int(flines[0])
@@ -29,7 +29,12 @@ sun_lows_y = []
 sunny_segs = []
 max_peak = tuple([0,0])
 
-for i in range(1,len(mountains), 2):
+odd = 0 # odds are peaks if 1
+if (len(x) > 1):
+    if y[0] < y[1]:
+        odd = 1
+
+for i in range(odd,len(mountains), 2):
     curr_peak = mountains[i][1]
     max_peak = tuple([0,0])
     sun = True
