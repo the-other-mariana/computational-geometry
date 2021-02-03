@@ -8,6 +8,8 @@ Now, using the `glibrary.py` functions, the code `convex-hull.py` plots a convex
 
 Given a set of points (x,y), each on N different lines, plot their convex hull. <br />
 
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/output/points-i1.png?raw=true) <br />
+
 #### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/1.in)
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/output/output-i1.png?raw=true) <br />

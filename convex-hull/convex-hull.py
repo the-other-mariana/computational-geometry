@@ -64,6 +64,6 @@ ax1 = plt.gca()
 
 
 ax1.scatter(x2,y2, s=100, marker="x")
-ax1.scatter(x,y, s=100, marker="o", color="red")
-ax1.add_collection(mc.LineCollection(ch_segs, color='red', linewidths=3))
+#ax1.scatter(x,y, s=100, marker="o", color="red")
+#ax1.add_collection(mc.LineCollection(ch_segs, color='red', linewidths=3))
 plt.show()
