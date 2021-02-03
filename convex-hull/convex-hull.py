@@ -1,5 +1,6 @@
 from glibrary import Point, Line, Vector, eps
 import matplotlib.pyplot as plt
+from matplotlib import collections  as mc
 
 n = int(input())
 pts = []
@@ -19,7 +20,7 @@ print("sorted ", sorted_lex)
 
 L = []
 U = []
-
+ch_segs = []
 x2 = []
 y2 = []
 x2 = [tup[0] for tup in sorted_lex]
@@ -50,6 +51,9 @@ del L[len(L) - 1]
 CH = U + L
 print("Convex Hull points: ", CH)
 
+for i in range(len(CH)):
+    ch_segs.append([tuple([CH[i].x, CH[i].y]), tuple([CH[(i + 1) % len(CH)].x, CH[(i + 1) % len(CH)].y])])
+
 # PLOTTING
 x = [p.x for p in CH]
 y = [p.y for p in CH]
@@ -61,4 +65,5 @@ ax1 = plt.gca()
 
 ax1.scatter(x2,y2, s=100, marker="x")
 ax1.scatter(x,y, s=100, marker="o", color="red")
+ax1.add_collection(mc.LineCollection(ch_segs, color='red', linewidths=3))
 plt.show()
