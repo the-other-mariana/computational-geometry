@@ -231,4 +231,6 @@ for i in range(len(CH)):
         if dist > cmax:
             cmax = dist
     maxs.append(cmax)
-print(str(round(min(maxs), 2)))
+
+res = min(maxs)
+print("{:0.2f}".format(res))
