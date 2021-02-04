@@ -43,19 +43,18 @@ for i in range(n - 3, -1, -1):
 del L[0]
 del L[len(L) - 1]
 CH = U + L
-print("Convex Hull points: ", CH)
 
-pivot = CH[0]
-pair = Point(0,0)
-max_dist = 0
-for i in range(1, len(CH)):
-    if i == 1:
-        max_dist = Point.distance(pivot, CH[i])
-        pair = CH[i]
-    if Point.distance(pivot, CH[i]) > max_dist:
-        max_dist = Point.distance(pivot, CH[i])
-        pair = CH[i]
-dx = abs(pair.x - pivot.x)
-dy = abs(pair.y - pivot.y)
-c = math.sqrt(dx**2 + dy**2) # same as max_dist
-print(str(round(c, 2)))
+maxs = []
+for i in range(len(CH)):
+    p1 = Point(CH[i].x, CH[i].y)
+    p2 = Point(CH[(i + 1) % len(CH)].x, CH[(i + 1) % len(CH)].y)
+    remaining_pts = [p for p in CH if p != p1 and p != p2]
+    cmax = 0
+    for k in range(len(remaining_pts)):
+        dist = Line.point2LineDist(p1, p2, remaining_pts[k])
+        if k == 0:
+            cmax = dist
+        if dist > cmax:
+            cmax = dist
+    maxs.append(cmax)
+print(round(min(maxs), 2))

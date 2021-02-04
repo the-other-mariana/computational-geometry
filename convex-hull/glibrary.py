@@ -74,7 +74,7 @@ class Line:
                 return False
 
     @staticmethod
-    def point2LineDist(a, b, p, option):
+    def point2LineDist(a, b, p, option=True):
         if option == True:
             ap = Vector.toVector(a, p)
             ab = Vector.toVector(a, b)
