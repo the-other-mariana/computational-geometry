@@ -221,8 +221,7 @@ for i in range(len(CH)):
     p1 = Point(CH[i].x, CH[i].y)
     p2 = Point(CH[(i + 1) % len(CH)].x, CH[(i + 1) % len(CH)].y)
     #print(p1, "->", p2)
-    remaining_pts = CH
-    #remaining_pts = [p for p in CH if p != p1 and p != p2]
+    remaining_pts = [p for p in CH if p != p1 and p != p2]
     cmax = 0
     for k in range(len(remaining_pts)):
         dist = Line.point2LineDist(p1, p2, remaining_pts[k])
