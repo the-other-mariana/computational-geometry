@@ -1,5 +1,4 @@
 from glibrary import Point, Vector, Line, eps
-import math
 
 n = int(input())
 pts = []
