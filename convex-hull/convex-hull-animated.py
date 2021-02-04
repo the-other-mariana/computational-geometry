@@ -71,7 +71,7 @@ for p in reversed(sorted_lex[len(sorted_lex) - 2:]):
 
 print(L)
 
-for i in range(n - 3, 0, -1):
+for i in range(n - 3, -1, -1):
     L.append(Point(sorted_lex[i][0], sorted_lex[i][1]))
     xs = [p.x for p in (U + L)]
     ys = [p.y for p in (U + L)]

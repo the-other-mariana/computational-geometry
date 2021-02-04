@@ -1,6 +1,5 @@
-from glibrary import Point, Line, Vector, eps
-import matplotlib.pyplot as plt
-from matplotlib import collections  as mc
+from glibrary import Point, Vector, Line, eps
+import math
 
 n = int(input())
 pts = []
@@ -9,14 +8,13 @@ x = []
 y = []
 for i in range(n):
     row = str(input()).split()
-    newPoint = Point(int(row[0]), int(row[1]))
+    newPoint = Point(float(row[0]), float(row[1]))
     pts.append(newPoint)
     tuples.append(tuple([newPoint.x,newPoint.y]))
     x.append(newPoint.x)
     y.append(newPoint.y)
 
 sorted_lex = sorted(tuples, key=lambda k: (k[0], k[1]))
-print("sorted ", sorted_lex)
 
 L = []
 U = []
@@ -29,8 +27,6 @@ y2 = [tup[1] for tup in sorted_lex]
 for p in sorted_lex[:2]:
     U.append(Point(p[0], p[1]))
 
-print(U)
-
 for i in range(2,n):
     U.append(Point(sorted_lex[i][0], sorted_lex[i][1]))
     while len(U) > 2 and Vector.ccw(U[len(U) - 2], U[len(U) - 1], U[len(U) - 3]):
@@ -38,8 +34,6 @@ for i in range(2,n):
 
 for p in reversed(sorted_lex[len(sorted_lex) - 2:]):
     L.append(Point(p[0], p[1]))
-
-print(L)
 
 for i in range(n - 3, -1, -1):
     L.append(Point(sorted_lex[i][0], sorted_lex[i][1]))
@@ -51,19 +45,17 @@ del L[len(L) - 1]
 CH = U + L
 print("Convex Hull points: ", CH)
 
-for i in range(len(CH)):
-    ch_segs.append([tuple([CH[i].x, CH[i].y]), tuple([CH[(i + 1) % len(CH)].x, CH[(i + 1) % len(CH)].y])])
-
-# PLOTTING
-x = [p.x for p in CH]
-y = [p.y for p in CH]
-
-fig = plt.figure()
-fig.add_subplot()
-ax1 = plt.gca()
-
-
-ax1.scatter(x2,y2, s=100, marker="x")
-ax1.scatter(x,y, s=100, marker="o", color="red")
-ax1.add_collection(mc.LineCollection(ch_segs, color='red', linewidths=3))
-plt.show()
+pivot = CH[0]
+pair = Point(0,0)
+max_dist = 0
+for i in range(1, len(CH)):
+    if i == 1:
+        max_dist = Point.distance(pivot, CH[i])
+        pair = CH[i]
+    if Point.distance(pivot, CH[i]) > max_dist:
+        max_dist = Point.distance(pivot, CH[i])
+        pair = CH[i]
+dx = abs(pair.x - pivot.x)
+dy = abs(pair.y - pivot.y)
+c = math.sqrt(dx**2 + dy**2) # same as max_dist
+print(str(round(c, 2)))
