@@ -18,12 +18,16 @@ Their convex hull: <br />
 
 #### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/1.in)
 
+#### Test Case 2: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/2.in)
+
+#### Test Case 3: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/3.in)
+
 ### Problem 2
 
 Given a set of points (x,y), each on N different lines, plot their convex hull animation, showing how the points are removed and the convex hull gets constructed. <br />
 
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/output/convex-hull-gif.gif) <br />
+
 ## Handy Links
 
 [Convex Hull Pseudo-Code](https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain) <br />
-
-[Animation Example](https://riptutorial.com/matplotlib/example/23558/basic-animation-with-funcanimation) <br />
