@@ -2,6 +2,7 @@ from glibrary import Point, Line, Vector, eps
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
+write_points = True
 n = int(input())
 pts = []
 tuples = []
@@ -62,8 +63,12 @@ fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
-
+pts_str = [str(p) for p in CH]
 ax1.scatter(x2,y2, s=100, marker="x")
 ax1.scatter(x,y, s=100, marker="o", color="red")
 ax1.add_collection(mc.LineCollection(ch_segs, color='red', linewidths=3))
+if write_points == True:
+    for i in range(len(CH)):
+        coord = tuple([CH[i].x, CH[i].y])
+        ax1.annotate("d={a}".format(a=pts_str[i]), xy=coord, xytext=coord, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
 plt.show()
