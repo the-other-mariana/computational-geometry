@@ -46,6 +46,8 @@ You are given a set of furniture pieces. The input will start with a line that d
 
 #### Output: 6.00
 
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/output/output-p4-i1.png?raw=true) <br />
+
 ## Handy Links
 
 [Convex Hull Pseudo-Code](https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain) <br />
