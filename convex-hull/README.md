@@ -38,6 +38,14 @@ Given a set of points of a polygon (not necesarily convex), calculate the smalle
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/output/output-p3-i1.png?raw=true) <br />
 
+### Problem 4
+
+You are given a set of furniture pieces. The input will start with a line that describes the n furniture pieces you have, and will be followed by n lines, where each line contains an even number of coordinates of the vertices of **each** piece of furniture. The task is to generate one cover for all the pieces (a Convex Hull from all the points of all furniture pieces and calculate its area).
+
+#### Test Case 1: [test file](https://github.com/the-other-mariana/computational-geometry/blob/master/convex-hull/problem4/1.in)
+
+#### Output: 6.00
+
 ## Handy Links
 
 [Convex Hull Pseudo-Code](https://en.wikibooks.org/wiki/Algorithm_Implementation/Geometry/Convex_hull/Monotone_chain) <br />

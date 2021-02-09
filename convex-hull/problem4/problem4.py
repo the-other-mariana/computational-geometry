@@ -177,19 +177,25 @@ class Vector:
         pr = Vector.toVector(p, r)
         return (abs(Vector.cross(pq, pr)) < eps)
 
-n = int(input())
-pts = []
-tuples = []
-x = []
-y = []
-for i in range(n):
-    row = str(input()).split()
-    newPoint = Point(int(row[0]), int(row[1]))
-    pts.append(newPoint)
-    tuples.append(tuple([newPoint.x,newPoint.y]))
-    x.append(newPoint.x)
-    y.append(newPoint.y)
+xs = []
+ys = []
+polygons = int(input())
+for p in range(polygons):
+  values = str(input())
+  coords = values.split(" ")
+  for i in range(len(coords)):
+    if int(i) % 2 == 0:
+      xs.append(coords[i])
+    else:
+      ys.append(coords[i])
+n = len(xs)
 
+#Creating tuples list of points
+tuples = []
+for point in range(len(xs)):
+  tuples.append(tuple([int(xs[point]),int(ys[point])]))
+
+#Sorting tuples lexicographic
 sorted_lex = sorted(tuples, key=lambda k: (k[0], k[1]))
 
 # Convex Hull starts
@@ -217,20 +223,13 @@ del L[len(L) - 1]
 CH = U + L
 # Convex Hull ends
 
-maxs = []
-for i in range(len(CH)):
-    p1 = Point(CH[i].x, CH[i].y)
-    p2 = Point(CH[(i + 1) % len(CH)].x, CH[(i + 1) % len(CH)].y)
-    #print(p1, "->", p2)
-    remaining_pts = [p for p in CH if p != p1 and p != p2]
-    cmax = 0
-    for k in range(len(remaining_pts)):
-        dist = Line.point2LineDist(p1, p2, remaining_pts[k])
-        if k == 0:
-            cmax = dist
-        if dist > cmax:
-            cmax = dist
-    maxs.append(cmax)
+#Area of a convex polygon using Gauss Determinant: https://www.universoformulas.com/matematicas/geometria/area-pentagono-irregular/
+area = 0.0
+for i in range(len(CH)-1,-1,-1):
+  if i == 0:
+    area += (CH[i].x * CH[len(CH)-1].y) - (CH[i].y * CH[len(CH)-1].x)
+  else:
+    area += (CH[i].x * CH[i-1].y) - (CH[i].y * CH[i-1].x)
 
-res = min(maxs)
-print("{:0.2f}".format(res))
+area = area / 2
+print("{:0.2f}".format(area))
