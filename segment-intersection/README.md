@@ -40,7 +40,7 @@ If, for example, we delete the root node as below: <br />
 11
 ```
 Giving us the following tree now: <br/>
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/tree-deleted.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/tree-delete.png?raw=true) <br />
 
 *Note: the printBST() function prints an inorder traversed tree, so if we see the values in order, our tree works fine.*
 
