@@ -84,11 +84,11 @@ Code: [ptree.py](https://github.com/the-other-mariana/computational-geometry/blo
 
 Test script: [ptree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ptree-test.py)
 
-Now we changed the basic data structure to store Point objects instead of simple numbers. BST uses **comparisons** which we need to override so that the three stores left and right values following the rule below. <br />
+Now we changed the basic data structure to store Point objects instead of simple numbers. BST uses **comparisons** which we need to override for Point objects so that the three stores left and right values (points) following the rule below. <br />
 
 ----
 
-## **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x**
+### **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x**
 
 ----
 
@@ -108,6 +108,15 @@ Now if we test it as follows: <br />
 Which gives us the tree below.<br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ptree.png?raw=true) <br />
+
+which we can also balance. <br />
+```python
+>>> bTreeRoot = BST.getBalancedBST(in_array, 0, len(in_array) - 1)
+>>> pre_array = BST.preorder(bTreeRoot)
+>>> print(pre_array)
+[(10, 5), (10, 6), (9, 3)] # preorder
+```
+Which in reality ends up being the same result because ptree is already balanced. <br />
 
 ## Handy Links
 
