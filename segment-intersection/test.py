@@ -21,6 +21,7 @@ tree2.insert(6)
 tree2.insert(5)
 
 in_array = BST.inorder(tree2.root)
+print(in_array)
 bTreeRoot = BST.getBalancedBST(in_array, 0, len(in_array) - 1)
 pre_array = BST.preorder(bTreeRoot)
 print(pre_array)

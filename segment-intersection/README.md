@@ -58,7 +58,7 @@ Using this idea, if we simply create the following: <br />
 >>> tree2.insert(6)
 >>> tree2.insert(5)
 >>> in_array = BST.inorder(tree2.root)
-[4, 6, 9, 10, 11] # same output as printBST(), inorder
+[5, 6, 7, 8, 10] # same output as printBST(), inorder
 ```
 We have this tree: <br />
 
