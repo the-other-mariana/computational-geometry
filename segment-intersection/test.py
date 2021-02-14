@@ -26,3 +26,5 @@ bTreeRoot = BST.getBalancedBST(in_array, 0, len(in_array) - 1)
 pre_array = BST.preorder(bTreeRoot)
 print(pre_array)
 print(bTreeRoot.value) # 7
+myBalancedBST = BST()
+myBalancedBST.root = bTreeRoot # now is saved as proper tree

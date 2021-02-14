@@ -5,6 +5,8 @@
 
 Code: [tree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/tree.py)
 
+Test script: [test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/test.py)
+
 ### 1.1 Simple BST
 
 A binary search tree is a data structure that groups nodes. The first node inserted becomes the root, and then the next value inserted will be added in the left (if the value is smaller that the root/parent node) or in the right (if the value is smaller that the root/parent node) child node of the node that is a leaf (no children). <br />
@@ -76,7 +78,39 @@ And now we have a balanced BST.
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/balanced.png?raw=true) <br />
 
+### 1.3 Point Binary Search Tree
+
+Code: [ptree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ptree.py)
+
+Test script: [ptree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ptree-test.py)
+
+Now we changed the basic data structure to store Point objects instead of simple numbers. BST uses **comparisons** which we need to override so that the three stores left and right values following the rule below. <br />
+
+----
+
+## **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x**
+
+----
+
+Now if we test it as follows: <br />
+
+```python
+>>> from ptree import BST
+>>> from glibrary import Point, Vector, Line
+>>> ptree = BST()
+>>> ptree.insert(Point(10, 5))
+>>> ptree.insert(Point(10, 6))
+>>> ptree.insert(Point(9, 3))
+>>> in_array = BST.inorder(ptree.root)
+>>> print(in_array)
+[(10, 6), (10, 5), (9, 3)] # now 'sorted' order means bigger y's in front
+```
+Which gives us the tree below.<br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ptree.png?raw=true) <br />
+
 ## Handy Links
 
 [BST Basics](https://www.youtube.com/watch?v=Zaf8EOVa72I) <br />
-[BST Balanced](https://www.youtube.com/watch?v=VCTP81Ij-EM)
+[BST Balanced](https://www.youtube.com/watch?v=VCTP81Ij-EM) <br />
+[BST to balanced](https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/)
