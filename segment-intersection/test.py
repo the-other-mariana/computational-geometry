@@ -24,3 +24,4 @@ in_array = BST.inorder(tree2.root)
 bTreeRoot = BST.getBalancedBST(in_array, 0, len(in_array) - 1)
 pre_array = BST.preorder(bTreeRoot)
 print(pre_array)
+print(bTreeRoot.value) # 7
