@@ -46,4 +46,5 @@ Giving us the following tree now: <br/>
 
 ## Handy Links
 
-[BST Basics](https://www.youtube.com/watch?v=Zaf8EOVa72I)
+[BST Basics](https://www.youtube.com/watch?v=Zaf8EOVa72I) <br />
+[BST Balanced](https://www.youtube.com/watch?v=VCTP81Ij-EM)

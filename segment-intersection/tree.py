@@ -1,3 +1,5 @@
+""" Implementation of a classic Binary Search Tree """
+
 eps = 10**-4
 
 class Node:
@@ -134,10 +136,8 @@ class BST:
 			self.delete_node(successor)
 
 	def printBST(self):
-		print("---------")
 		if self.root != None:
 			self._printBST(self.root)
-		print("---------")
 
 	def _printBST(self, curr_node):
 		# in order traversal printing: all numbers sorted
@@ -145,3 +145,47 @@ class BST:
 			self._printBST(curr_node.left_child)
 			print(curr_node.value)
 			self._printBST(curr_node.right_child)
+
+	@staticmethod
+	def inorder(root):
+		a = []
+		if root != None:
+			BST._inorder(root, a)
+		return a
+
+	def _inorder(curr_node, array):
+		if curr_node != None:
+			BST._inorder(curr_node.left_child, array)
+			array.append(curr_node.value)
+			BST._inorder(curr_node.right_child, array)
+
+	@staticmethod
+	def preorder(root):
+		a = []
+		if root != None:
+			BST._preorder(root, a)
+		return a
+		'''
+		if not root:
+	        return
+	    print("{} ".format(root.value),end="")
+	    BST.preorder(root.left_child)
+	    BST.preorder(root.right_child)
+		'''
+
+	def _preorder(curr_node, array):
+		if curr_node != None:
+			array.append(curr_node.value)
+			BST._preorder(curr_node.left_child, array)
+			BST._preorder(curr_node.right_child, array)
+
+	@staticmethod
+	def getBalancedBST(array, start, end, parent=None):
+		if start > end: return None
+		mid = int((start + end) / 2)
+		root = Node(array[mid])
+		root.parent = parent
+		root.left_child = BST.getBalancedBST(array, start, mid - 1, root)
+		root.right_child = BST.getBalancedBST(array, mid + 1, end, root)
+
+		return root
