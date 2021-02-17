@@ -118,7 +118,9 @@ which we can also balance. <br />
 ```
 Which in reality ends up being the same result because ptree is already balanced. <br />
 
-### 1.4 Event Binary Search Tree (DATA STRUCTURE A)
+### 1.4 Event Binary Search Tree
+
+----
 
 Code: [etree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree.py)
 
@@ -159,16 +161,30 @@ Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 t
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree.png?raw=true) <br />
 
-You delete nodes from an etree by **Point Object** values. <br />
+You delete nodes from an etree by **Point Object** values or by **Node Object**. <br />
 
+
+#### Delete by Point
 ```python
 >>> etree.deleteValue(Point(14, 1))
 >>> in_array = BST.inorder(etree.root)
 >>> print(in_array)
 [E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (10, 5) Seg: 0 isEnd: False], E[Point: (9, 3) Seg: 1 isEnd: False]]
 ```
+#### Delete by Node
+```python
+>>> etree.deleteNode(etree.root)
+>>> in_array = BST.inorder(etree.root)
+>>> print(in_array)
+[E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (9, 3) Seg: 1 isEnd: False], E[Point: (14, 1) Seg: 1 isEnd: True]]
+```
+Giving us the tree below. <br />
 
-### 1.5 Event Binary Search Tree (DATA STRUCTURE B)
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-delete-node.png?raw=true) <br />
+
+### 1.5 Event Binary Search Tree
+
+----
 
 This is the **other specific data strcture** that will be used for the Segment Algorithm. This now will also store **Point Objects** inside the event, but will be ordered according to **p** point Y value. <br />
 
