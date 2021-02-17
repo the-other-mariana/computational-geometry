@@ -118,7 +118,7 @@ which we can also balance. <br />
 ```
 Which in reality ends up being the same result because ptree is already balanced. <br />
 
-### 1.4 Event Binary Search Tree
+### 1.4 Event Binary Search Tree (DATA STRUCTURE A)
 
 Code: [etree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree.py)
 
@@ -158,6 +158,10 @@ This tree will act as a **Queue of Events** but will be faster because of the BS
 Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 that goes from (9, 3) to (14, 1). This event tree will look like the diagram below. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree.png?raw=true) <br />
+
+### 1.5 Event Binary Search Tree (DATA STRUCTURE B)
+
+This is the **other specific data strcture** that will be used for the Segment Algorithm. This now will also store **Point Objects** inside the event, but will be ordered according to **p** point Y value. <br />
 
 ## Handy Links
 
