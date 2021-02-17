@@ -159,6 +159,15 @@ Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 t
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree.png?raw=true) <br />
 
+You delete nodes from an etree by **Point Object** values. <br />
+
+```python
+>>> etree.deleteValue(Point(14, 1))
+>>> in_array = BST.inorder(etree.root)
+>>> print(in_array)
+[E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (10, 5) Seg: 0 isEnd: False], E[Point: (9, 3) Seg: 1 isEnd: False]]
+```
+
 ### 1.5 Event Binary Search Tree (DATA STRUCTURE B)
 
 This is the **other specific data strcture** that will be used for the Segment Algorithm. This now will also store **Point Objects** inside the event, but will be ordered according to **p** point Y value. <br />
