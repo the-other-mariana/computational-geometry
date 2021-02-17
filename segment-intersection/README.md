@@ -3,9 +3,9 @@
 
 ### 1. Binary Search Tree
 
-Code: [tree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/tree.py)
+Code: [tree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/tree.py)
 
-Test script: [test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/test.py)
+Test script: [test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/test.py)
 
 ### 1.1 Simple BST
 
@@ -80,9 +80,9 @@ And now we have a balanced BST.
 
 ### 1.3 Point Binary Search Tree
 
-Code: [ptree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ptree.py)
+Code: [ptree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/ptree.py)
 
-Test script: [ptree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ptree-test.py)
+Test script: [ptree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/ptree-test.py)
 
 Now we changed the basic data structure to store Point objects instead of simple numbers. BST uses **comparisons** which we need to override for Point objects so that the three stores left and right values (points) following the rule below. <br />
 
