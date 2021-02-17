@@ -1,4 +1,4 @@
-""" Implementation of a Binary Tree that stores points (x,y) as values """
+""" Implementation of a Binary Tree that stores Events as values """
 from glibrary import Point, Vector, Line
 eps = 10**-4
 
@@ -9,9 +9,13 @@ class Event():
 		self.isEnd = isEnd
 
 	def __repr__(self):
+		if self == None:
+			return "Null Event"
 		return f"E[Point: ({self.point.x}, {self.point.y}) Seg: {self.seg} isEnd: {self.isEnd}]"
 
 	def __str__(self):
+		if self == None:
+			return "Null Event"
 		return "E[Point: ({x}, {y}) Seg: {s} isEnd: {i}]".format(x=self.point.x, y=self.point.y, s=self.seg, i=self.isEnd)
 
 class Node:

@@ -165,6 +165,7 @@ This is the **other specific data strcture** that will be used for the Segment A
 
 ## Handy Links
 
-[BST Basics](https://www.youtube.com/watch?v=Zaf8EOVa72I) <br />
-[BST Balanced](https://www.youtube.com/watch?v=VCTP81Ij-EM) <br />
-[BST to balanced](https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/)
+- [BST Basics](https://www.youtube.com/watch?v=Zaf8EOVa72I) <br />
+- [BST Balanced](https://www.youtube.com/watch?v=VCTP81Ij-EM) <br />
+- [BST to balanced](https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/) <br />
+- [Traversal inorder](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm#:~:text=values%20it%20contains.-,In%2Dorder%20Traversal,values%20in%20an%20ascending%20order.) <br />
