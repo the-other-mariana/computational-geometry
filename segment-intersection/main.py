@@ -18,6 +18,7 @@ flines = file1.readlines()
 
 N = int(flines[0])
 
+tot_seg = []
 ev = []
 for line in flines[1:]:
     pts = line.split(' ')
@@ -30,8 +31,9 @@ for line in flines[1:]:
         #ev.append(e)
     seg_sorted = sorted(seg, key=lambda x: x.y, reverse=True)
     for i in range(len(seg_sorted)):
-        e = Event(seg_sorted[i], segment, bool(i))
+        e = Event(seg_sorted[i], segment, i)
         ev.append(e)
+    tot_seg.append(seg)
 [print(e) for e in ev]
 print(len(ev))
 

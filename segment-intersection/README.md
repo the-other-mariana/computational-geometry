@@ -137,7 +137,7 @@ This is one of the **actual** data structures that we will use for the Segment A
 An **Event Object** is simply a group of 3 values: 
 - `point`: Point Object
 - `seg`: Integer that determines the index of the segment that contains this point.
-- `isEnd`: Boolean that determines whether this point is the start or end point of the segment it belongs to.
+- `pos`: Integer that determines the index position of the point in its segment (0 starts the segment).
 
 Every **Event** instance will represent the `value` of a Node inside the tree.
 
@@ -147,19 +147,19 @@ This tree will act as a **Queue of Events** but will be faster because of the BS
 >>> from etree import *
 >>> from glibrary import Point, Vector, Line
 >>> etree = BST()
->>> e1 = Event(Point(10, 5), 0, False)
+>>> e1 = Event(Point(10, 5), 0, 0)
 >>> etree.insert(e1)
->>> e2 = Event(Point(10, 6), 0, True)
+>>> e2 = Event(Point(10, 6), 0, 1)
 >>> etree.insert(e2)
->>> etree.insert(Event(Point(9, 3), 1, False))
->>> etree.insert(Event(Point(14, 1), 1, True))
+>>> etree.insert(Event(Point(9, 3), 1, 0))
+>>> etree.insert(Event(Point(14, 1), 1, 1))
 >>> in_array = BST.inorder(etree.root)
 >>> print(in_array)
-[E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (10, 5) Seg: 0 isEnd: False], E[Point: (9, 3) Seg: 1 isEnd: False], E[Point: (14, 1) Seg: 1 isEnd: True]]
+[E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (10, 5) Seg: 0 Pos: 0], E[Point: (9, 3) Seg: 1 Pos: 0], E[Point: (14, 1) Seg: 1 Pos: 1]]
 ```
 Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 that goes from (9, 3) to (14, 1). This event tree will look like the diagram below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-02.png?raw=true) <br />
 
 You delete nodes from an etree by **Point Object** values or by **Node Object**. <br />
 
@@ -169,18 +169,18 @@ You delete nodes from an etree by **Point Object** values or by **Node Object**.
 >>> etree.deleteValue(Point(14, 1))
 >>> in_array = BST.inorder(etree.root)
 >>> print(in_array)
-[E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (10, 5) Seg: 0 isEnd: False], E[Point: (9, 3) Seg: 1 isEnd: False]]
+[E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (10, 5) Seg: 0 Pos: 0], E[Point: (9, 3) Seg: 1 Pos: 0]]
 ```
 #### Delete by Node
 ```python
 >>> etree.deleteNode(etree.root)
 >>> in_array = BST.inorder(etree.root)
 >>> print(in_array)
-[E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (9, 3) Seg: 1 isEnd: False], E[Point: (14, 1) Seg: 1 isEnd: True]]
+[E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (9, 3) Seg: 1 Pos: 0], E[Point: (14, 1) Seg: 1 Pos: 1]]
 ```
 Giving us the tree below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-delete-node.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-delete-node-02.png?raw=true) <br />
 
 ### 1.5 Event Binary Search Tree
 
