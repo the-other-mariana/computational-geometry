@@ -3,13 +3,16 @@ from glibrary import Point, Vector, Line
 eps = 10**-4
 
 class Event():
-	def __init__(self, p=Point(), seg=0, idx=0):
+	def __init__(self, p=Point(), seg=0, isEnd=False):
 		self.point = p
 		self.seg = seg
-		self.idx = idx
+		self.isEnd = isEnd
+
+	def __repr__(self):
+		return f"E[Point: ({self.point.x}, {self.point.y}) Seg: {self.seg} isEnd: {self.isEnd}]"
 
 	def __str__(self):
-		return "Point: ({x}, {y})\nSeg: {s}\nIdx: {i}\n".format(x=self.value.point.x, y=self.value.point.y, s=self.value.seg, i=self.value.idx)
+		return "E[Point: ({x}, {y}) Seg: {s} isEnd: {i}]".format(x=self.point.x, y=self.point.y, s=self.seg, i=self.isEnd)
 
 class Node:
 	def __init__(self, value=Event()):

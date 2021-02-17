@@ -118,6 +118,47 @@ which we can also balance. <br />
 ```
 Which in reality ends up being the same result because ptree is already balanced. <br />
 
+### 1.4 Event Binary Search Tree
+
+Code: [etree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree.py)
+
+Test script: [etree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree-test.py)
+
+This is one of the **actual** data structures that we will use for the Segment Algorithm. The difference now is simply that instead of storing **Point Objects**, the tree will store **Event Objects**, but the rule of insertion will still be the same.
+
+----
+
+### **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x**
+
+----
+
+An **Event Object** is simply a group of 3 values: 
+- `point`: Point Object
+- `seg`: Integer that determines the index of the segment that contains this point.
+- `isEnd`: Boolean that determines whether this point is the start or end point of the segment it belongs to.
+
+Every **Event** instance will represent the `value` of a Node inside the tree.
+
+This tree will act as a **Queue of Events** but will be faster because of the BST nature when searching. Now if we construct an example as the following:
+
+```python
+>>> from etree import *
+>>> from glibrary import Point, Vector, Line
+>>> etree = BST()
+>>> e1 = Event(Point(10, 5), 0, False)
+>>> etree.insert(e1)
+>>> e2 = Event(Point(10, 6), 0, True)
+>>> etree.insert(e2)
+>>> etree.insert(Event(Point(9, 3), 1, False))
+>>> etree.insert(Event(Point(14, 1), 1, True))
+>>> in_array = BST.inorder(etree.root)
+>>> print(in_array)
+[E[Point: (10, 6) Seg: 0 isEnd: True], E[Point: (10, 5) Seg: 0 isEnd: False], E[Point: (9, 3) Seg: 1 isEnd: False], E[Point: (14, 1) Seg: 1 isEnd: True]]
+```
+Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 that goes from (9, 3) to (14, 1). This event tree will look like the diagram below. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree.png?raw=true) <br />
+
 ## Handy Links
 
 [BST Basics](https://www.youtube.com/watch?v=Zaf8EOVa72I) <br />
