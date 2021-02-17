@@ -71,40 +71,40 @@ class BST:
 		right_height = self._height(curr_node.right_child, curr_height + 1)
 		return max(left_height, right_height)
 
-	def search(self, value):
+	def search(self, point):
 		if self.root != None:
-			return self._search(value, self.root)
+			return self._search(point, self.root)
 		else:
 			return False
 
-	def _search(self, value, curr_node):
-		if value.point == curr_node.value.point:
+	def _search(self, point, curr_node):
+		if point == curr_node.value.point:
 			return True
-		elif BST.isLessThan(value.point, curr_node.value.point) and curr_node.left_child != None:
-			return self._search(value, curr_node.left_child)
-		elif not BST.isLessThan(value.point, curr_node.value.point) and curr_node.right_child != None:
-			return self._search(value, curr_node.right_child)
+		elif BST.isLessThan(point, curr_node.value.point) and curr_node.left_child != None:
+			return self._search(point, curr_node.left_child)
+		elif not BST.isLessThan(point, curr_node.value.point) and curr_node.right_child != None:
+			return self._search(point, curr_node.right_child)
 		return False
 
-	def find(self, value):
+	def find(self, point):
 		if self.root != None:
-			return self._find(value, self.root)
+			return self._find(point, self.root)
 		else:
 			return None
 
-	def _find(self, value, curr_node):
-		if value.point == curr_node.value.point:
+	def _find(self, point, curr_node):
+		if point == curr_node.value.point:
 			return curr_node
-		elif BST.isLessThan(value.point, curr_node.value.point) and curr_node.left_child != None:
-			return self._find(value, curr_node.left_child)
-		elif not BST.isLessThan(value.point, curr_node.value.point) and curr_node.right_child != None:
-			return self._find(value, curr_node.right_child)
+		elif BST.isLessThan(point, curr_node.value.point) and curr_node.left_child != None:
+			return self._find(point, curr_node.left_child)
+		elif not BST.isLessThan(point, curr_node.value.point) and curr_node.right_child != None:
+			return self._find(point, curr_node.right_child)
 
-	def delete_value(self,value):
-		return self.delete_node(self.find(value))
+	def deleteValue(self, point):
+		return self.deleteNode(self.find(point))
 
-	def delete_node(self,node):
-		if node == None or self.find(node.value) == None:
+	def deleteNode(self, node):
+		if node == None or self.find(node.value.point) == None:
 			print("Node is not found to delete")
 			return None
 		# returns the node with min value in tree rooted at input node
@@ -158,7 +158,7 @@ class BST:
 			successor = min_value_node(node.right_child)
 			node.value = successor.value
 			# delete the inorder successor now that value is saved
-			self.delete_node(successor)
+			self.deleteNode(successor)
 
 	def printBST(self):
 		if self.root != None:
