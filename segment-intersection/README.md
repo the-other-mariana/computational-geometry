@@ -216,7 +216,7 @@ The implementation of this T tree is used like follows. <br />
 
 Which visually is the tree below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ttree?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ttree.png?raw=true) <br />
 
 ## Handy Links
 
