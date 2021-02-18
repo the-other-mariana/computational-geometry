@@ -16,6 +16,13 @@ print(etree.root.right_child.value)
 print(etree.root.right_child.right_child.value)
 #etree.deleteValue(Point(14, 1))
 #etree.deleteValue(Point(10, 5))
+'''
 etree.deleteNode(etree.root)
 in_array = Q.inorder(etree.root)
 print(in_array, etree.root.value)
+'''
+#node = etree.find(Point(10,6))
+#print(node.value)
+node = etree.find(Point(10, 5))
+next = etree.getNextInorder(node)
+print("next: ", next.value)

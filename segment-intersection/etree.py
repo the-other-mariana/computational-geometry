@@ -160,6 +160,27 @@ class Q:
 			# delete the inorder successor now that value is saved
 			self.deleteNode(successor)
 
+	def getFirstRightParent(self, node):
+		if node.parent == None:
+			return None
+		while node.parent != None and node.parent.left_child != node:
+			node = node.parent
+		return node.parent
+
+	def getLeftMostRightChild(self, node):
+		# get left-most node from the right sub tree
+		if node.right_child != None:
+			node = node.right_child
+		while node.left_child != None:
+			node = node.left_child
+		return node
+
+	def getNextInorder(self, node):
+		if node.right_child != None:
+			return self.getLeftMostRightChild(node)
+		else:
+			return self.getFirstRightParent(node)
+
 	def printQ(self):
 		if self.root != None:
 			self._printQ(self.root)
