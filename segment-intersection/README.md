@@ -1,4 +1,4 @@
-# Segment Intersection Algorithm
+# Segment Intersection Sweep Line Algorithm
 ## Data Structures Needed
 
 ### 1. Binary Search Tree
@@ -86,11 +86,9 @@ Test script: [ptree-test.py](https://github.com/the-other-mariana/computational-
 
 Now we changed the basic data structure to store Point objects instead of simple numbers. BST uses **comparisons** which we need to override for Point objects so that the three stores left and right values (points) following the rule below. <br />
 
-----
 
-### **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x**
-
-----
+| **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** *|
+|     :---:      |
 
 Now if we test it as follows: <br />
 
@@ -126,13 +124,10 @@ Code: [etree.py](https://github.com/the-other-mariana/computational-geometry/blo
 
 Test script: [etree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree-test.py)
 
-This is one of the **actual** data structures that we will use for the Segment Algorithm. The difference now is simply that instead of storing **Point Objects**, the tree will store **Event Objects**, but the rule of insertion will still be the same.
+This is one of the **actual** data structures that we will use for the Segment Algorithm. The difference now is simply that instead of storing **Point Objects**, the tree will store **Event Objects**, but the rule of insertion will still be the same. We will call it Q formally.
 
-----
-
-### **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x**
-
-----
+| **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** *|
+|     :---:      |
 
 An **Event Object** is simply a group of 3 values: 
 - `point`: Point Object
@@ -182,11 +177,15 @@ Giving us the tree below. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-delete-node-02.png?raw=true) <br />
 
-### 1.5 Event Binary Search Tree
+### 1.5 Line Status Binary Search Tree
 
 ----
 
-This is the **other specific data strcture** that will be used for the Segment Algorithm. This now will also store **Point Objects** inside the event, but will be ordered according to **p** point Y value. <br />
+Code: [ttree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ttree.py)
+
+Test script: [ttree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ttree-test.py)
+
+This is the **other specific data structure** that will be used for the Segment Algorithm, and we will call it T formally. The **segments** in T will be ordered according to P point's Y value, because that is the Y level of the Horizontal Sweep Line T. P is then the active event in the Q BST.
 
 ## Handy Links
 
@@ -194,3 +193,6 @@ This is the **other specific data strcture** that will be used for the Segment A
 - [BST Balanced](https://www.youtube.com/watch?v=VCTP81Ij-EM) <br />
 - [BST to balanced](https://www.geeksforgeeks.org/convert-normal-bst-balanced-bst/) <br />
 - [Traversal inorder](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm#:~:text=values%20it%20contains.-,In%2Dorder%20Traversal,values%20in%20an%20ascending%20order.) <br />
+- [Tree Traversals](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/) <br />
+- [Bentley-Ottmann Algorithm](https://en.wikipedia.org/wiki/Bentley%E2%80%93Ottmann_algorithm) <br />
+- [Successors and Predecessors in BST](https://stackoverflow.com/questions/12643305/bentley-ottmann-algorithm-in-lua)
