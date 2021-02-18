@@ -1,5 +1,6 @@
 from glibrary import Point
 from etree import *
+from ttree import *
 
 etree = Q()
 e1 = Event(Point(10, 5), 0, 0)
@@ -26,3 +27,19 @@ print(in_array, etree.root.value)
 node = etree.find(Point(10, 5))
 next = etree.getNextInorder(node)
 print("next: ", next.value)
+
+tline = T()
+t1 = Point(5,15)
+s1 = Segment(Point(10,5), Point(10,6))
+s2 = Segment(Point(-1,3), Point(3,5))
+s3 = Segment(Point(1,1), Point(-2,10))
+tline.insert(s1, t1)
+tline.insert(s2, t1)
+tline.insert(s3, t1)
+in_array = T.inorder(tline.root)
+[print(type(s)) for s in in_array]
+print(tline.search(s1,t1))
+print(in_array)
+print(tline.root.value)
+print(tline.root.left_child.value)
+print(tline.root.right_child.value)

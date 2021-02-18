@@ -87,7 +87,7 @@ Test script: [ptree-test.py](https://github.com/the-other-mariana/computational-
 Now we changed the basic data structure to store Point objects instead of simple numbers. BST uses **comparisons** which we need to override for Point objects so that the three stores left and right values (points) following the rule below. <br />
 
 
-| **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** *|
+| **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** |
 |     :---:      |
 
 Now if we test it as follows: <br />
@@ -126,7 +126,7 @@ Test script: [etree-test.py](https://github.com/the-other-mariana/computational-
 
 This is one of the **actual** data structures that we will use for the Segment Algorithm, we will call it Q formally. The difference now is simply that instead of storing **Point Objects**, the BS tree will store **Event Objects**, but the rule of insertion will still be the same. 
 
-| **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** *|
+| **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** |
 |     :---:      |
 
 An **Event Object** is simply a group of 3 values: 
@@ -185,7 +185,38 @@ Code: [ttree.py](https://github.com/the-other-mariana/computational-geometry/blo
 
 Test script: [ttree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ttree-test.py)
 
-This is the **other specific data structure** that will be used for the Segment Algorithm, and we will call it T formally. The **segments** in T will be ordered according to P point's Y value, because that is the Y level of the Horizontal Sweep Line T. P is then the active event in the Q BST.
+This is the **other specific data structure** that will be used for the Segment Algorithm, and we will call it T formally. 
+
+T will also be a BST, but in this case instead of storing **Event Objects** as node values, it will store **Segment Objects** as node values. The rule for inserting a segment in T will be a bit more complex, so the *insert()* function will need the parameters:
+
+- `t1`: point representing the active event (P in the algorithm).
+- `s1`: segment 1, contains start and end point objects.
+
+The comparison rule that T will do to insert `s1` will work as follows: in order for the T tree to know whether `s1 < si`, we need to build three lines: the first will be a **horizontal line** `tline` that passes at level t1.Y value and is actually the *sweep line* of the algorithm; the second, `line1` that passes through s1.start and s1.end points; and `line2`, which passes through si.start and si.end points. Then, we compute `hit1` which will be the **point of intersection** between `line1` and `tline`, also we compute `hit2` which will be the **point of intersection** between `line2` and `tline`. Finally, s1 is less than si if `hit1`.X < `hit2`.X.
+
+| In other words, let s1 and si be two segments, s1 < si if the x coordinate of s1 line intersection with the sweep line at t1 (or P) is less than the x coordinate of si line intersection with the sweep line at t1 (or P). |
+|     :---:      |
+
+The implementation of this T tree is used like follows. <br />
+
+```python
+>>> from ttree import *
+>>> tline = T()
+>>> t1 = Point(5,15)
+>>> s1 = Segment(Point(10,5), Point(10,6))
+>>> s2 = Segment(Point(-1,3), Point(3,5))
+>>> s3 = Segment(Point(1,1), Point(-2,10))
+>>> tline.insert(s1, t1)
+>>> tline.insert(s2, t1)
+>>> tline.insert(s3, t1)
+>>> in_array = T.inorder(tline.root)
+>>> print(in_array)
+[S[start:(1, 1) end:(-2, 10)], S[start:(10, 5) end:(10, 6)], S[start:(-1, 3) end:(3, 5)]]
+```
+
+Which visually is the tree below. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ttree?raw=true) <br />
 
 ## Handy Links
 

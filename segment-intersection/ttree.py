@@ -5,19 +5,16 @@ eps = 10**-4
 class Segment():
 	def __init__(self, p1=Point(), p2=Point()):
 		self.start = p1
-        self.end = p2
+		self.end = p2
 
 	def __repr__(self):
-		if self == None:
-			return "Null Segment"
-		return f"S[start:{self.p1} end:{self.p2}]"
+		return f"S[start:{self.start} end:{self.end}]"
 
 	def __str__(self):
-		if self == None:
-			return "Null Event"
-		return "E[start: {s} end: {e}]".format(s=self.p1, e=self.p2)
-    def __eq__(self, other):
-        return (self.start == other.start and self.end == other.end)
+		return "S[start:{s} end: {e}]".format(s=self.start, e=self.end)
+
+	def __eq__(self, other):
+		return (self.start == other.start and self.end == other.end)
 
 class Node:
 	def __init__(self, value=Segment()):
@@ -31,37 +28,37 @@ class T:
 		self.root = None
 
 	@staticmethod
-    # returns whether s1 < s2
+	# returns whether s1 < s2
 	def isLessThan(s1, s2, t1):
 		t2 = Point(t1.x + 1, t1.y)
-        tline = Line.points2Line(t1, t2)
-        hit1 = tline.intersects(Line.points2Line(s1.start, s1.end))
-        hit2 = tline.intersects(Line.points2Line(s2.start, s2.end))
-        if hit1.x < hit2.x:
-            return True
-        else:
-            return False
+		tline = Line.points2Line(t1, t2)
+		hit1 = tline.intersects(Line.points2Line(s1.start, s1.end))
+		hit2 = tline.intersects(Line.points2Line(s2.start, s2.end))
+		if hit1.x < hit2.x:
+			return True
+		else:
+			return False
 
 
-	def insert(self, value):
+	def insert(self, value, t1):
 		if self.root == None:
 			self.root = Node(value)
 		else:
-			self._insert(value, self.root)
+			self._insert(value, self.root, t1)
 
-	def _insert(self, value, curr_node):
-		if T.isLessThan(value, curr_node.value):
+	def _insert(self, value, curr_node, t1):
+		if T.isLessThan(value, curr_node.value, t1):
 			if curr_node.left_child == None:
 				curr_node.left_child = Node(value)
 				curr_node.left_child.parent = curr_node
 			else:
-				self._insert(value, curr_node.left_child)
-		elif not T.isLessThan(value, curr_node.value):
+				self._insert(value, curr_node.left_child, t1)
+		elif not T.isLessThan(value, curr_node.value, t1):
 			if curr_node.right_child == None:
 				curr_node.right_child = Node(value)
 				curr_node.right_child.parent = curr_node
 			else:
-				self._insert(value, curr_node.right_child)
+				self._insert(value, curr_node.right_child, t1)
 		else:
 			print("Value repeated.")
 
@@ -77,40 +74,40 @@ class T:
 		right_height = self._height(curr_node.right_child, curr_height + 1)
 		return max(left_height, right_height)
 
-	def search(self, segment):
+	def search(self, segment, t1):
 		if self.root != None:
-			return self._search(segment, self.root)
+			return self._search(segment, self.root, t1)
 		else:
 			return False
 
-	def _search(self, segment, curr_node):
+	def _search(self, segment, curr_node, t1):
 		if segment == curr_node.value:
 			return True
-		elif T.isLessThan(segment, curr_node.value) and curr_node.left_child != None:
-			return self._search(segment, curr_node.left_child)
-		elif not T.isLessThan(segment, curr_node.value) and curr_node.right_child != None:
-			return self._search(segment, curr_node.right_child)
+		elif T.isLessThan(segment, curr_node.value, t1) and curr_node.left_child != None:
+			return self._search(segment, curr_node.left_child, t1)
+		elif not T.isLessThan(segment, curr_node.value, t1) and curr_node.right_child != None:
+			return self._search(segment, curr_node.right_child, t1)
 		return False
 
-	def find(self, segment):
+	def find(self, segment, t1):
 		if self.root != None:
-			return self._find(segment, self.root)
+			return self._find(segment, self.root, t1)
 		else:
 			return None
 
-	def _find(self, segment, curr_node):
+	def _find(self, segment, curr_node, t1):
 		if segment == curr_node.value:
 			return curr_node
-		elif T.isLessThan(segment, curr_node.value) and curr_node.left_child != None:
-			return self._find(segment, curr_node.left_child)
-		elif not T.isLessThan(segment, curr_node.value) and curr_node.right_child != None:
-			return self._find(segment, curr_node.right_child)
+		elif T.isLessThan(segment, curr_node.value, t1) and curr_node.left_child != None:
+			return self._find(segment, curr_node.left_child, t1)
+		elif not T.isLessThan(segment, curr_node.value, t1) and curr_node.right_child != None:
+			return self._find(segment, curr_node.right_child, t1)
 
-	def deleteValue(self, segment):
-		return self.deleteNode(self.find(segment))
+	def deleteValue(self, segment, t1):
+		return self.deleteNode(self.find(segment, t1))
 
-	def deleteNode(self, node):
-		if node == None or self.find(node.value) == None:
+	def deleteNode(self, node, t1):
+		if node == None or self.find(node.value, t1) == None:
 			print("Node is not found to delete")
 			return None
 		# returns the node with min value in tree rooted at input node
@@ -164,7 +161,7 @@ class T:
 			successor = min_value_node(node.right_child)
 			node.value = successor.value
 			# delete the inorder successor now that value is saved
-			self.deleteNode(successor)
+			self.deleteNode(successor, t1)
 
 	def getFirstRightParent(self, node):
 		if node.parent == None:
