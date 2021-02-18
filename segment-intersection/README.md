@@ -124,7 +124,7 @@ Code: [etree.py](https://github.com/the-other-mariana/computational-geometry/blo
 
 Test script: [etree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree-test.py)
 
-This is one of the **actual** data structures that we will use for the Segment Algorithm. The difference now is simply that instead of storing **Point Objects**, the tree will store **Event Objects**, but the rule of insertion will still be the same. We will call it Q formally.
+This is one of the **actual** data structures that we will use for the Segment Algorithm, we will call it Q formally. The difference now is simply that instead of storing **Point Objects**, the BS tree will store **Event Objects**, but the rule of insertion will still be the same. 
 
 | **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** *|
 |     :---:      |
@@ -141,14 +141,14 @@ This tree will act as a **Queue of Events** but will be faster because of the BS
 ```python
 >>> from etree import *
 >>> from glibrary import Point, Vector, Line
->>> etree = BST()
+>>> etree = Q()
 >>> e1 = Event(Point(10, 5), 0, 0)
 >>> etree.insert(e1)
 >>> e2 = Event(Point(10, 6), 0, 1)
 >>> etree.insert(e2)
 >>> etree.insert(Event(Point(9, 3), 1, 0))
 >>> etree.insert(Event(Point(14, 1), 1, 1))
->>> in_array = BST.inorder(etree.root)
+>>> in_array = Q.inorder(etree.root)
 >>> print(in_array)
 [E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (10, 5) Seg: 0 Pos: 0], E[Point: (9, 3) Seg: 1 Pos: 0], E[Point: (14, 1) Seg: 1 Pos: 1]]
 ```
@@ -162,14 +162,14 @@ You delete nodes from an etree by **Point Object** values or by **Node Object**.
 #### Delete by Point
 ```python
 >>> etree.deleteValue(Point(14, 1))
->>> in_array = BST.inorder(etree.root)
+>>> in_array = Q.inorder(etree.root)
 >>> print(in_array)
 [E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (10, 5) Seg: 0 Pos: 0], E[Point: (9, 3) Seg: 1 Pos: 0]]
 ```
 #### Delete by Node
 ```python
 >>> etree.deleteNode(etree.root)
->>> in_array = BST.inorder(etree.root)
+>>> in_array = Q.inorder(etree.root)
 >>> print(in_array)
 [E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (9, 3) Seg: 1 Pos: 0], E[Point: (14, 1) Seg: 1 Pos: 1]]
 ```

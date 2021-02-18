@@ -25,7 +25,7 @@ class Node:
 		self.right_child = None
 		self.parent = None
 
-class BST:
+class Q:
 	def __init__(self):
 		self.root = None
 
@@ -44,13 +44,13 @@ class BST:
 			self._insert(value, self.root)
 
 	def _insert(self, value, curr_node):
-		if BST.isLessThan(value.point, curr_node.value.point):
+		if Q.isLessThan(value.point, curr_node.value.point):
 			if curr_node.left_child == None:
 				curr_node.left_child = Node(value)
 				curr_node.left_child.parent = curr_node
 			else:
 				self._insert(value, curr_node.left_child)
-		elif not BST.isLessThan(value.point, curr_node.value.point):
+		elif not Q.isLessThan(value.point, curr_node.value.point):
 			if curr_node.right_child == None:
 				curr_node.right_child = Node(value)
 				curr_node.right_child.parent = curr_node
@@ -80,9 +80,9 @@ class BST:
 	def _search(self, point, curr_node):
 		if point == curr_node.value.point:
 			return True
-		elif BST.isLessThan(point, curr_node.value.point) and curr_node.left_child != None:
+		elif Q.isLessThan(point, curr_node.value.point) and curr_node.left_child != None:
 			return self._search(point, curr_node.left_child)
-		elif not BST.isLessThan(point, curr_node.value.point) and curr_node.right_child != None:
+		elif not Q.isLessThan(point, curr_node.value.point) and curr_node.right_child != None:
 			return self._search(point, curr_node.right_child)
 		return False
 
@@ -95,9 +95,9 @@ class BST:
 	def _find(self, point, curr_node):
 		if point == curr_node.value.point:
 			return curr_node
-		elif BST.isLessThan(point, curr_node.value.point) and curr_node.left_child != None:
+		elif Q.isLessThan(point, curr_node.value.point) and curr_node.left_child != None:
 			return self._find(point, curr_node.left_child)
-		elif not BST.isLessThan(point, curr_node.value.point) and curr_node.right_child != None:
+		elif not Q.isLessThan(point, curr_node.value.point) and curr_node.right_child != None:
 			return self._find(point, curr_node.right_child)
 
 	def deleteValue(self, point):
@@ -160,50 +160,50 @@ class BST:
 			# delete the inorder successor now that value is saved
 			self.deleteNode(successor)
 
-	def printBST(self):
+	def printQ(self):
 		if self.root != None:
-			self._printBST(self.root)
+			self._printQ(self.root)
 
-	def _printBST(self, curr_node):
+	def _printQ(self, curr_node):
 		# in order traversal printing: all numbers sorted
 		if curr_node != None:
-			self._printBST(curr_node.left_child)
+			self._printQ(curr_node.left_child)
 			print(curr_node.value)
-			self._printBST(curr_node.right_child)
+			self._printQ(curr_node.right_child)
 
 	@staticmethod
 	def inorder(root):
 		a = []
 		if root != None:
-			BST._inorder(root, a)
+			Q._inorder(root, a)
 		return a
 
 	def _inorder(curr_node, array):
 		if curr_node != None:
-			BST._inorder(curr_node.left_child, array)
+			Q._inorder(curr_node.left_child, array)
 			array.append(curr_node.value)
-			BST._inorder(curr_node.right_child, array)
+			Q._inorder(curr_node.right_child, array)
 
 	@staticmethod
 	def preorder(root):
 		a = []
 		if root != None:
-			BST._preorder(root, a)
+			Q._preorder(root, a)
 		return a
 
 	def _preorder(curr_node, array):
 		if curr_node != None:
 			array.append(curr_node.value)
-			BST._preorder(curr_node.left_child, array)
-			BST._preorder(curr_node.right_child, array)
+			Q._preorder(curr_node.left_child, array)
+			Q._preorder(curr_node.right_child, array)
 
 	@staticmethod
-	def getBalancedBST(array, start, end, parent=None):
+	def getBalancedQ(array, start, end, parent=None):
 		if start > end: return None
 		mid = int((start + end) / 2)
 		root = Node(array[mid])
 		root.parent = parent
-		root.left_child = BST.getBalancedBST(array, start, mid - 1, root)
-		root.right_child = BST.getBalancedBST(array, mid + 1, end, root)
+		root.left_child = Q.getBalancedQ(array, start, mid - 1, root)
+		root.right_child = Q.getBalancedQ(array, mid + 1, end, root)
 
 		return root
