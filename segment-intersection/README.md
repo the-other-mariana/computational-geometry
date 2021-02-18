@@ -183,7 +183,7 @@ Giving us the tree below. <br />
 
 Code: [ttree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ttree.py)
 
-Test script: [ttree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ttree-test.py)
+Test script: [etree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/ttree-test.py)
 
 This is the **other specific data structure** that will be used for the Segment Algorithm, and we will call it T formally. 
 
