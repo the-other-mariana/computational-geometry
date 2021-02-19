@@ -181,6 +181,11 @@ class Q:
 		else:
 			return self.getFirstRightParent(node)
 
+	def getFirst(self, node):
+		if node.left_child != None:
+			return self.getFirst(node.left_child)
+		return node
+
 	def printQ(self):
 		if self.root != None:
 			self._printQ(self.root)
@@ -191,6 +196,25 @@ class Q:
 			self._printQ(curr_node.left_child)
 			print(curr_node.value)
 			self._printQ(curr_node.right_child)
+
+	def isEmpty(self):
+		if self.root == None:
+			return True
+		else:
+			return False
+
+	def getNext(self):
+		n = []
+		if self.root != None:
+			Q._getNext(self.root, n)
+		return n
+
+	def _getNext(curr_node, n):
+		if len(n) == 1:
+			return
+		if curr_node != None:
+			Q._getNext(curr_node.left_child, n)
+			n.append(curr_node.value)
 
 	@staticmethod
 	def inorder(root):

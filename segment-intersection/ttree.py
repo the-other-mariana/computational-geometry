@@ -1,4 +1,4 @@
-""" Implementation of a Binary Tree that stores Events as values """
+""" Implementation of a Binary Tree that stores Segments as values """
 from glibrary import Point, Vector, Line
 eps = 10**-4
 
