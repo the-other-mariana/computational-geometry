@@ -1,13 +1,13 @@
 # Segment Intersection Sweep Line Algorithm
-## Data Structures Needed
+## 1. Introduction
 
-### 1. Binary Search Tree
+### 1.1 Binary Search Tree
 
 Code: [tree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/tree.py)
 
 Test script: [test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/test.py)
 
-### 1.1 Simple BST
+### 1.1.1 Simple BST
 
 A binary search tree is a data structure that groups nodes. The first node inserted becomes the root, and then the next value inserted will be added in the left (if the value is smaller that the root/parent node) or in the right (if the value is smaller that the root/parent node) child node of the node that is a leaf (no children). <br />
 
@@ -48,7 +48,7 @@ Giving us the following tree now: <br/>
 
 *Note: the printBST() function prints an inorder traversed tree, so if we see the values in order, our tree works fine.*
 
-### 1.2 Balanced BST
+### 1.1.2 Balanced BST
 
 Using this idea, if we simply create the following: <br />
 ```python
@@ -78,7 +78,7 @@ And now we have a balanced BST.
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/balanced.png?raw=true) <br />
 
-### 1.3 Point Binary Search Tree
+### 1.2  Point Binary Search Tree
 
 Code: [ptree.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/bst/ptree.py)
 
@@ -116,7 +116,9 @@ which we can also balance. <br />
 ```
 Which in reality ends up being the same result because ptree is already balanced. <br />
 
-### 1.4 Event Binary Search Tree
+## 2. Data Structures Needed
+
+### 2.1 Event Binary Search Tree
 
 ----
 
@@ -177,7 +179,7 @@ Giving us the tree below. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-delete-node-02.png?raw=true) <br />
 
-### 1.5 Line Status Binary Search Tree
+### 2.2 Line Status Binary Search Tree
 
 ----
 
