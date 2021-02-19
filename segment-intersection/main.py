@@ -44,15 +44,16 @@ print(in_array)
 tLine = T()
 
 node = first
-p = first
-print("pull:", p.value, "root:", etree.root.value)
+#p = first
+#print("pull:", p.value, "root:", etree.root.value)
 while not etree.isEmpty():
-    p = etree.getNextInorder(node)
+    #p = etree.getNextInorder(node)
+    p = etree.getFirst(etree.root)
     if p == None: break
     print("pull:", p.value, "root:", etree.root.value)
     etree.deleteNode(p)
-print("root:", etree.root.value) # last is root
-etree.deleteNode(etree.root)
+#print("root:", etree.root.value) # last is root
+#etree.deleteNode(etree.root)
 print(etree.isEmpty()) # true
 
 # PLOTTING
