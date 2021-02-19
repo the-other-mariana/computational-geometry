@@ -220,9 +220,9 @@ Which visually is the tree below. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ttree.png?raw=true) <br />
 
-## 2. Implementation
+## 3. Implementation
 
-### 2.1 Input
+### 3.1 Input
 
 The input from the file [0.in](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in) is plotted as follows. <br />
 
