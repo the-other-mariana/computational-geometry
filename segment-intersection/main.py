@@ -43,17 +43,11 @@ print(in_array)
 # init sweep line as empty
 tLine = T()
 
-node = first
-#p = first
-#print("pull:", p.value, "root:", etree.root.value)
 while not etree.isEmpty():
-    #p = etree.getNextInorder(node)
     p = etree.getFirst(etree.root)
-    #if p == None: break
     print("pull:", p.value, "root:", etree.root.value)
     etree.deleteNode(p)
-#print("root:", etree.root.value) # last is root
-#etree.deleteNode(etree.root)
+
 print(etree.isEmpty()) # true
 
 # PLOTTING
@@ -68,7 +62,6 @@ fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
-#ax1.scatter(x2,y2, s=100, marker="x")
 ax1.scatter(x,y, s=100, marker="o")
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 plt.show()
