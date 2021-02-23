@@ -21,7 +21,7 @@ class Segment():
 		return hash((self.start, self.end))
 
 
-	def inBounds(p):
+	def inBounds(self, p):
 		tempsX = [self.start, self.end]
 		tempsX = sorted(tempsX, key=lambda p: p.x, reverse=False)
 		tempsY = [self.start, self.end]
@@ -32,7 +32,7 @@ class Segment():
 			return True
 		return False
 
-	def isInSegment(p):
+	def isInSegment(self, p):
 		sline = Line.points2Line(self.start, self.end)
 		result = (sline.a * p.x) + (sline.b * p.y) + sline.c
 		if result == 0:
@@ -79,7 +79,7 @@ class T:
 			self._findByPoint(p, U, C, L, self.root)
 		return U, C, L
 
-	def _findByPoint(p, U, C, L, curr_node):
+	def _findByPoint(self, p, U, C, L, curr_node):
 		if curr_node == None:
 			return
 		if curr_node != None:

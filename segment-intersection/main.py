@@ -7,8 +7,10 @@ from matplotlib import collections  as mc
 def processEvent(p):
     global tot_seg
     global tLine
-    p = p.value.point
+    global R
+    global R_sets
 
+    p = p.value.point
     U = [s for s in tot_seg if s.start == p]
     U2, C, L = tLine.findByPoint(p)
     U = U + U2
@@ -19,12 +21,22 @@ def processEvent(p):
     L = set(L)
     UCL = (U.union(C)).union(L)
     print("UCL: {0}".format(UCL))
+    if len(UCL) > 1:
+        R.append(p)
+    for s in (L.union(C)):
+        tLine.deleteValue(s)
+    for s in (U.union(C)):
+        tLine.insert(s, p)
+    #if len(U.union(C)) == 0:
+
+
 
 file1 = open('input/0.in', 'r')
 flines = file1.readlines()
 
 N = int(flines[0])
 R = []
+R_segs = []
 
 tot_seg = [] # total segments
 ev = []
@@ -67,6 +79,7 @@ while not etree.isEmpty():
     processEvent(p)
 
 print(etree.isEmpty()) # true
+print(R)
 
 # PLOTTING
 plt_segs = []
@@ -75,11 +88,15 @@ for i in range(len(tot_seg)):
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]
+xr = [p.x for p in R]
+yr = [p.y for p in R]
+
 
 fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
 ax1.scatter(x,y, s=100, marker="o")
+ax1.scatter(xr,yr, s=100, marker="P", color="red")
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 plt.show()
