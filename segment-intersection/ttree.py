@@ -14,7 +14,12 @@ class Segment():
 		return "S[start:{s} end: {e}]".format(s=self.start, e=self.end)
 
 	def __eq__(self, other):
+		if not isinstance(other, type(self)): return NotImplemented
 		return (self.start == other.start and self.end == other.end)
+
+	def __hash__(self):
+		return hash((self.start, self.end))
+
 
 	def inBounds(p):
 		tempsX = [self.start, self.end]

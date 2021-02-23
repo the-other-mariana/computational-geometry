@@ -13,6 +13,12 @@ def processEvent(p):
     U2, C, L = tLine.findByPoint(p)
     U = U + U2
     print("U: {u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
+    # lists to sets
+    U = set(U)
+    C = set(C)
+    L = set(L)
+    UCL = (U.union(C)).union(L)
+    print("UCL: {0}".format(UCL))
 
 file1 = open('input/0.in', 'r')
 flines = file1.readlines()
