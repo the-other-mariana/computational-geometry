@@ -18,9 +18,9 @@ class Segment():
 
 	def inBounds(p):
 		tempsX = [self.start, self.end]
-		tempsX = sorted(temps, key=lambda p: p.x, reverse=False)
+		tempsX = sorted(tempsX, key=lambda p: p.x, reverse=False)
 		tempsY = [self.start, self.end]
-		tempsY = sorted(temps, key=lambda p: p.y, reverse=False)
+		tempsY = sorted(tempsY, key=lambda p: p.y, reverse=False)
 		# temps[0] = temp start
 
 		if p.x < tempsX[1].x and p.x > tempsX[0].x and p.y < tempsY[1].y and p.y > tempsY[0].y:
@@ -31,7 +31,7 @@ class Segment():
 		sline = Line.points2Line(self.start, self.end)
 		result = (sline.a * p.x) + (sline.b * p.y) + sline.c
 		if result == 0:
-			if inBounds(p):
+			if self.inBounds(p):
 				if p == self.start:
 					return 0
 				elif p == self.end:
@@ -66,24 +66,58 @@ class T:
 		else:
 			return False
 
-	def findByPoint(p, U, C, L, curr_node):
+	def findByPoint(self, p):
+		U = []
+		C = []
+		L = []
+		if self.root != None:
+			self._findByPoint(p, U, C, L, self.root)
+		return U, C, L
+
+	def _findByPoint(p, U, C, L, curr_node):
+		if curr_node == None:
+			return
 		if curr_node != None:
 			# if p in segment (0,1,2), node to solution and recursive on its subtree
-			# if p not in subtree, node not to sol and keep checking on the
+			# if p not in subtree (-1), node not to sol and keep checking on the
 			# side of the segment it was
 			where = curr_node.value.isInSegment(p)
 			if where == 0:
 				# p = start case
-				U.append(curr_node.value)
+				# U.append(curr_node.value)
+				if curr_node.right_child != None:
+					self._findByPoint(p, U, C, L, curr_node.right_child)
+				if curr_node.left_child != None:
+					self._findByPoint(p, U, C, L, curr_node.left_child)
 			elif where == 1:
 				# p = end case
 				L.append(curr_node.value)
+				if curr_node.right_child != None:
+					self._findByPoint(p, U, C, L, curr_node.right_child)
+				if curr_node.left_child != None:
+					self._findByPoint(p, U, C, L, curr_node.left_child)
 			elif where == 2:
 				# p is in middle case
 				C.append(curr_node.value)
+				if curr_node.right_child != None:
+					self._findByPoint(p, U, C, L, curr_node.right_child)
+				if curr_node.left_child != None:
+					self._findByPoint(p, U, C, L, curr_node.left_child)
 			elif where == -1:
-				# mandas recursion al lado que este y el nodo no es sol
-
+				# send recursion to the x side it is and node not to sol
+				# 1. find out on which side of seg s point p is (horizontally)
+				tempsX = [curr_node.value.start, curr_node.value.end]
+				tempsX = sorted(tempsX, key=lambda p: p.x, reverse=False)
+				start2end = Vector.toVector(tempsX[0], tempsX[1])
+				start2p = Vector.toVector(tempsX[0], p)
+				u = (Vector.dot(start2p, start2end)) / Vector.squareNorm(start2end)
+				# 2. send recursion to the side subtree where p is
+				if u < 0:
+					# p is closest to start but outside seg (left tree)
+					self._findByPoint(p, U, C, L, curr_node.left_child)
+				if u > 1:
+					# p is closest to end but outside seg (right tree)
+					self._findByPoint(p, U, C, L, curr_node.right_child)
 
 
 	def insert(self, value, t1):

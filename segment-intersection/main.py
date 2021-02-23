@@ -10,8 +10,9 @@ def processEvent(p):
     p = p.value.point
 
     U = [s for s in tot_seg if s.start == p]
-    print("U:", U)
-    U = set(U)
+    U2, C, L = tLine.findByPoint(p)
+    U = U + U2
+    print("U: {u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
 
 file1 = open('input/0.in', 'r')
 flines = file1.readlines()
@@ -35,10 +36,12 @@ for line in flines[1:]:
     s = Segment(seg_sorted[0], seg_sorted[1])
     tot_seg.append(s)
 
+'''
 print("Events: {0}".format(len(ev)))
 [print(e) for e in ev]
 print("Segments: {0}".format(len(tot_seg)))
 [print(s) for s in tot_seg]
+'''
 
 # init event queue inserting all extremes of segments
 etree = Q()
