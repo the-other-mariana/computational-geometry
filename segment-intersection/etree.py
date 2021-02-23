@@ -51,13 +51,14 @@ class Q:
 			else:
 				self._insert(value, curr_node.left_child)
 		elif not Q.isLessThan(value.point, curr_node.value.point):
+			if value.point ==  curr_node.value.point:
+				print("Value repeated:", value.point)
 			if curr_node.right_child == None:
 				curr_node.right_child = Node(value)
 				curr_node.right_child.parent = curr_node
 			else:
 				self._insert(value, curr_node.right_child)
-		else:
-			print("Value repeated.")
+
 
 	def height(self):
 		if self.root != None:

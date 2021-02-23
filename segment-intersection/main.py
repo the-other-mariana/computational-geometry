@@ -49,7 +49,7 @@ node = first
 while not etree.isEmpty():
     #p = etree.getNextInorder(node)
     p = etree.getFirst(etree.root)
-    if p == None: break
+    #if p == None: break
     print("pull:", p.value, "root:", etree.root.value)
     etree.deleteNode(p)
 #print("root:", etree.root.value) # last is root
