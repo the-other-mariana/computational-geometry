@@ -1,9 +1,17 @@
 from glibrary import Point, Vector, Line
 from etree import *
 from ttree import *
-
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
+
+def processEvent(p):
+    global tot_seg
+    global tLine
+    p = p.value.point
+
+    U = [s for s in tot_seg if s.start == p]
+    print("U:", U)
+    U = set(U)
 
 file1 = open('input/0.in', 'r')
 flines = file1.readlines()
@@ -11,7 +19,7 @@ flines = file1.readlines()
 N = int(flines[0])
 R = []
 
-tot_seg = []
+tot_seg = [] # total segments
 ev = []
 for line in flines[1:]:
     pts = line.split(' ')
@@ -47,6 +55,7 @@ while not etree.isEmpty():
     p = etree.getFirst(etree.root)
     print("pull:", p.value, "root:", etree.root.value)
     etree.deleteNode(p)
+    processEvent(p)
 
 print(etree.isEmpty()) # true
 

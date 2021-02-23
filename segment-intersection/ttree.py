@@ -16,6 +16,33 @@ class Segment():
 	def __eq__(self, other):
 		return (self.start == other.start and self.end == other.end)
 
+	def inBounds(p):
+		tempsX = [self.start, self.end]
+		tempsX = sorted(temps, key=lambda p: p.x, reverse=False)
+		tempsY = [self.start, self.end]
+		tempsY = sorted(temps, key=lambda p: p.y, reverse=False)
+		# temps[0] = temp start
+
+		if p.x < tempsX[1].x and p.x > tempsX[0].x and p.y < tempsY[1].y and p.y > tempsY[0].y:
+			return True
+		return False
+
+	def isInSegment(p):
+		sline = Line.points2Line(self.start, self.end)
+		result = (sline.a * p.x) + (sline.b * p.y) + sline.c
+		if result == 0:
+			if inBounds(p):
+				if p == self.start:
+					return 0
+				elif p == self.end:
+					return 1
+				else:
+					return 2
+			else:
+				# point in segment line but not in segment
+				return -1
+
+
 class Node:
 	def __init__(self, value=Segment()):
 		self.value = value # now a segment
@@ -38,6 +65,25 @@ class T:
 			return True
 		else:
 			return False
+
+	def findByPoint(p, U, C, L, curr_node):
+		if curr_node != None:
+			# if p in segment (0,1,2), node to solution and recursive on its subtree
+			# if p not in subtree, node not to sol and keep checking on the
+			# side of the segment it was
+			where = curr_node.value.isInSegment(p)
+			if where == 0:
+				# p = start case
+				U.append(curr_node.value)
+			elif where == 1:
+				# p = end case
+				L.append(curr_node.value)
+			elif where == 2:
+				# p is in middle case
+				C.append(curr_node.value)
+			elif where == -1:
+				# mandas recursion al lado que este y el nodo no es sol
+
 
 
 	def insert(self, value, t1):
