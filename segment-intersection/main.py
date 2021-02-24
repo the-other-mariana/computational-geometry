@@ -72,7 +72,7 @@ def processEvent(p):
 		findEvent(s_bprime, s_right.value, p)
 
 
-file1 = open('input/test.in', 'r')
+file1 = open('input/0.in', 'r')
 flines = file1.readlines()
 
 N = int(flines[0])
@@ -129,7 +129,6 @@ plt_segs = []
 for i in range(len(tot_seg)):
 	begin = tuple([tot_seg[i].start.x, tot_seg[i].start.y])
 	end = tuple([tot_seg[i].end.x, tot_seg[i].end.y])
-	print("begin", begin, "end", end)
 	plt_segs.append([begin, end])
 
 x = [e.point.x for e in ev]

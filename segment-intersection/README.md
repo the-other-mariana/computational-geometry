@@ -126,12 +126,12 @@ Code: [etree.py](https://github.com/the-other-mariana/computational-geometry/blo
 
 Test script: [etree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree-test.py)
 
-This is one of the **actual** data structures that we will use for the Segment Algorithm, we will call it Q formally. The difference now is simply that instead of storing **Point Objects**, the BS tree will store **Event Objects**, but the rule of insertion will still be the same. 
+This is one of the **actual** data structures that we will use for the Segment Algorithm, we will call it Q formally. The difference now is simply that instead of storing **Point Objects**, the BS tree will store **Event Objects**, but the rule of insertion will still be the same.
 
 | **(p1 < p2) ->  if p1.y > p2.y or if p1.y == p2.y and p1.x < p2.x** |
 |     :---:      |
 
-An **Event Object** is simply a group of 3 values: 
+An **Event Object** is simply a group of 3 values:
 - `point`: Point Object
 - `seg`: Integer that determines the index of the segment that contains this point.
 - `pos`: Integer that determines the index position of the point in its segment (0 starts the segment).
@@ -187,7 +187,7 @@ Code: [ttree.py](https://github.com/the-other-mariana/computational-geometry/blo
 
 Test script: [etree-test.py](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/etree-test.py)
 
-This is the **other specific data structure** that will be used for the Segment Algorithm, and we will call it T formally. 
+This is the **other specific data structure** that will be used for the Segment Algorithm, and we will call it T formally.
 
 T will also be a BST, but in this case instead of storing **Event Objects** as node values, it will store **Segment Objects** as node values. The rule for inserting a segment in T will be a bit more complex, so the *insert()* function will need the parameters:
 
@@ -226,7 +226,7 @@ Which visually is the tree below. <br />
 
 The input from the file [0.in](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in) is plotted as follows. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/out-i0-p1.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/out-i0-p1-fixed.png?raw=true) <br />
 
 ## Handy Links
 
