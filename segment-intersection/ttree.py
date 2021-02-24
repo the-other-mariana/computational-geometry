@@ -282,8 +282,22 @@ class T:
 			elif node.parent.left_child.value == node.value:
 				node = node.parent
 			else:
+				# move to the first right child
 				node = node.parent.left_child
 				break
+		# is leaf
+		if node.right_child == None and node.left_child == None:
+			return node
+		# has right children
+		while node.right_child != None:
+			node = node.right_child
+		# has no right children, move left all you can until a right child
+		while node.left_child != None:
+			node = node.left_child
+			if node.right_child != None:
+				node = node.right_child
+				break
+		# then move right when you find a right child
 		while node.right_child != None:
 			node = node.right_child
 		return node
@@ -299,8 +313,22 @@ class T:
 			elif node.parent.right_child.value == node.value:
 				node = node.parent
 			else:
+				# move to the first right child
 				node = node.parent.right_child
 				break
+		# is leaf
+		if node.left_child == None and node.right_child == None:
+			return node
+		# has left children
+		while node.left_child != None:
+			node = node.left_child
+		# has no left children, move right all you can until a left child
+		while node.right_child != None:
+			node = node.right_child
+			if node.left_child != None:
+				node = node.left_child
+				break
+		# then move left when you find a left child
 		while node.left_child != None:
 			node = node.left_child
 		return node
