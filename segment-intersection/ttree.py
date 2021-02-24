@@ -273,65 +273,87 @@ class T:
 
 	def getLeftNeighbour(self, s, p):
 		sNode = self.find(s, p)
-		if sNode.left_child != None: # ask teacher
-			return sNode.left_child
 		node = sNode
-		while node.parent != None:
-			if node.parent.left_child == None:
-				node = node.parent
-			elif node.parent.left_child.value == node.value:
-				node = node.parent
-			else:
-				# move to the first right child
-				node = node.parent.left_child
-				break
-		# is leaf
-		if node.right_child == None and node.left_child == None:
-			return node
-		# has right children
-		while node.right_child != None:
-			node = node.right_child
-		# has no right children, move left all you can until a right child
-		while node.left_child != None:
-			node = node.left_child
-			if node.right_child != None:
+		# if node has children ask teacher
+		if node.left_child != None or node.right_child != None:
+			while node.left_child != None:
+				node = node.left_child
+				if node.right_child == None:
+					continue
+				else:
+					node = node.right_child
+					break
+			while node.right_child != None:
 				node = node.right_child
-				break
-		# then move right when you find a right child
-		while node.right_child != None:
-			node = node.right_child
-		return node
+			return node
+		else:
+			# if node is leaf
+			while node.parent != None:
+				if node.parent.left_child == None:
+					node = node.parent
+				elif node.parent.left_child.value == node.value:
+					node = node.parent
+				else:
+					# move to the first left child
+					node = node.parent.left_child
+					break
+			if node.right_child != None:
+				# has right children
+				while node.right_child != None:
+					node = node.right_child
+			else:
+				# has no right children, move left all you can until a right child
+				while node.left_child != None:
+					node = node.left_child
+					if node.right_child != None:
+						node = node.right_child
+						break
+				# then move left when you find a left child
+				while node.right_child != None:
+					node = node.right_child
+			return node
 
 	def getRightNeighbour(self, s, p):
 		sNode = self.find(s, p)
-		if sNode.right_child != None: # ask teacher
-			return sNode.right_child
 		node = sNode
-		while node.parent != None:
-			if node.parent.right_child == None:
-				node = node.parent
-			elif node.parent.right_child.value == node.value:
-				node = node.parent
-			else:
-				# move to the first right child
-				node = node.parent.right_child
-				break
-		# is leaf
-		if node.left_child == None and node.right_child == None:
-			return node
-		# has left children
-		while node.left_child != None:
-			node = node.left_child
-		# has no left children, move right all you can until a left child
-		while node.right_child != None:
-			node = node.right_child
-			if node.left_child != None:
+		# if node has children # ask teacher
+		if node.left_child != None or node.right_child != None:
+			while node.right_child != None:
+				node = node.right_child
+				if node.left_child == None:
+					continue
+				else:
+					node = node.left_child
+					break
+			while node.left_child != None:
 				node = node.left_child
-				break
-		# then move left when you find a left child
-		while node.left_child != None:
-			node = node.left_child
-		return node
+			return node
+		else:
+			# if node is leaf
+			while node.parent != None:
+				if node.parent.right_child == None:
+					node = node.parent
+				elif node.parent.right_child.value == node.value:
+					node = node.parent
+				else:
+					# move to the first right child
+					node = node.parent.right_child
+					break
+			if node.left_child != None:
+				# has left children
+				while node.left_child != None:
+					node = node.left_child
+			else:
+				# has no left children, move right all you can until a left child
+				while node.right_child != None:
+					node = node.right_child
+					if node.left_child != None:
+						node = node.left_child
+						break
+				# then move left when you find a left child
+				while node.left_child != None:
+					node = node.left_child
+			return node
 
 	def printT(self):
 		if self.root != None:
