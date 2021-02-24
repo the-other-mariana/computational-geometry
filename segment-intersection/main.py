@@ -61,7 +61,7 @@ def processEvent(p):
 
 		# UC in T (ordered horizontally)
 		hits = sorted(hits, key=lambda p: p[0].x, reverse=False)
-		
+
 		s_prime = tot_seg[hits[0][1]]
 		s_left = tLine.getLeftNeighbour(s_prime, p)
 		print("left neighbour:", s_left.value)
@@ -72,7 +72,7 @@ def processEvent(p):
 		findEvent(s_bprime, s_right.value, p)
 
 
-file1 = open('input/0.in', 'r')
+file1 = open('input/test.in', 'r')
 flines = file1.readlines()
 
 N = int(flines[0])
@@ -96,12 +96,13 @@ for line in flines[1:]:
 	s = Segment(seg_sorted[0], seg_sorted[1], segment)
 	tot_seg.append(s)
 
-'''
+print("------------------")
 print("Events: {0}".format(len(ev)))
 [print(e) for e in ev]
 print("Segments: {0}".format(len(tot_seg)))
 [print(s) for s in tot_seg]
-'''
+print("------------------")
+
 
 # init event queue inserting all extremes of segments
 etree = Q()
@@ -121,12 +122,15 @@ while not etree.isEmpty():
 	processEvent(p)
 
 print(etree.isEmpty()) # true
-print(R)
+print("Output", R)
 
 # PLOTTING
 plt_segs = []
 for i in range(len(tot_seg)):
-	plt_segs.append([tuple([tot_seg[i].start.x, tot_seg[i].start.y]), tuple([tot_seg[(i + 1) % len(tot_seg)].end.x, tot_seg[(i + 1) % len(tot_seg)].end.y])])
+	begin = tuple([tot_seg[i].start.x, tot_seg[i].start.y])
+	end = tuple([tot_seg[i].end.x, tot_seg[i].end.y])
+	print("begin", begin, "end", end)
+	plt_segs.append([begin, end])
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]
