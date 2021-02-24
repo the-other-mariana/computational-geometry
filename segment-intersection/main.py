@@ -5,29 +5,45 @@ import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
 def processEvent(p):
-    global tot_seg
-    global tLine
-    global R
-    global R_sets
+	global tot_seg
+	global tLine
+	global R
+	global R_sets
 
-    p = p.value.point
-    U = [s for s in tot_seg if s.start == p]
-    U2, C, L = tLine.findByPoint(p)
-    U = U + U2
-    print("U: {u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
-    # lists to sets
-    U = set(U)
-    C = set(C)
-    L = set(L)
-    UCL = (U.union(C)).union(L)
-    print("UCL: {0}".format(UCL))
-    if len(UCL) > 1:
-        R.append(p)
-    for s in (L.union(C)):
-        tLine.deleteValue(s)
-    for s in (U.union(C)):
-        tLine.insert(s, p)
-    #if len(U.union(C)) == 0:
+	p = p.value.point
+	U = [s for s in tot_seg if s.start == p]
+	U2, C, L = tLine.findByPoint(p)
+	U = U + U2
+	print("U: {u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
+	# lists to sets
+	U = set(U)
+	C = set(C)
+	L = set(L)
+	UCL = (U.union(C)).union(L)
+	UC = U.union(C)
+	print("UCL: {0}".format(UCL))
+	if len(UCL) > 1:
+		R.append(p)
+	for s in (L.union(C)):
+		tLine.deleteValue(s)
+	for s in (UC):
+		tLine.insert(s, p)
+	if len(UC) == 0:
+		print("step missing")
+	else:
+		uc = list(UC)
+		hits = []
+		for s in uc:
+			t2 = Point(p.x + 1, p.y)
+			tempLine = Line.points2Line(p, t2)
+			hit = tempLine.intersects(Line.points2Line(s.start, s.end))
+			hits.append([hit, s.index])
+
+		hits = sorted(hits, key=lambda p: p[0].x, reverse=False)
+		s_prime = tot_seg[hits[0][1]]
+		s_left = tLine.getLeftNeighbour(s_prime, p)
+		print("left neighbour:", s_left.value)
+
 
 
 
@@ -40,19 +56,20 @@ R_segs = []
 
 tot_seg = [] # total segments
 ev = []
+
 for line in flines[1:]:
-    pts = line.split(' ')
-    segment = int("".join(filter(str.isdigit, pts[len(pts) - 1])))
-    seg = []
-    for i in range(0, len(pts) - 1, 2):
-        pt = Point(int(pts[i]), int(pts[i + 1]))
-        seg.append(pt)
-    seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
-    for i in range(len(seg_sorted)):
-        e = Event(seg_sorted[i], segment, i)
-        ev.append(e)
-    s = Segment(seg_sorted[0], seg_sorted[1])
-    tot_seg.append(s)
+	pts = line.split(' ')
+	segment = int("".join(filter(str.isdigit, pts[len(pts) - 1]))) - 1
+	seg = []
+	for i in range(0, len(pts) - 1, 2):
+		pt = Point(int(pts[i]), int(pts[i + 1]))
+		seg.append(pt)
+	seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
+	for i in range(len(seg_sorted)):
+		e = Event(seg_sorted[i], segment, i)
+		ev.append(e)
+	s = Segment(seg_sorted[0], seg_sorted[1], segment)
+	tot_seg.append(s)
 
 '''
 print("Events: {0}".format(len(ev)))
@@ -73,10 +90,10 @@ print(in_array)
 tLine = T()
 
 while not etree.isEmpty():
-    p = etree.getFirst(etree.root)
-    print("pull:", p.value, "root:", etree.root.value)
-    etree.deleteNode(p)
-    processEvent(p)
+	p = etree.getFirst(etree.root)
+	print("pull:", p.value, "root:", etree.root.value)
+	etree.deleteNode(p)
+	processEvent(p)
 
 print(etree.isEmpty()) # true
 print(R)
@@ -84,7 +101,7 @@ print(R)
 # PLOTTING
 plt_segs = []
 for i in range(len(tot_seg)):
-    plt_segs.append([tuple([tot_seg[i].start.x, tot_seg[i].start.y]), tuple([tot_seg[(i + 1) % len(tot_seg)].end.x, tot_seg[(i + 1) % len(tot_seg)].end.y])])
+	plt_segs.append([tuple([tot_seg[i].start.x, tot_seg[i].start.y]), tuple([tot_seg[(i + 1) % len(tot_seg)].end.x, tot_seg[(i + 1) % len(tot_seg)].end.y])])
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]

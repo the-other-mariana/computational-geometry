@@ -3,22 +3,23 @@ from glibrary import Point, Vector, Line
 eps = 10**-4
 
 class Segment():
-	def __init__(self, p1=Point(), p2=Point()):
+	def __init__(self, p1=Point(), p2=Point(), index=0):
 		self.start = p1
 		self.end = p2
+		self.index = index
 
 	def __repr__(self):
-		return f"S[start:{self.start} end:{self.end}]"
+		return f"S[start:{self.start} end:{self.end} idx:{self.index}]"
 
 	def __str__(self):
-		return "S[start:{s} end: {e}]".format(s=self.start, e=self.end)
+		return "S[start:{s} end:{e} index:{i}]".format(s=self.start, e=self.end, i=self.index)
 
 	def __eq__(self, other):
 		if not isinstance(other, type(self)): return NotImplemented
 		return (self.start == other.start and self.end == other.end)
 
 	def __hash__(self):
-		return hash((self.start, self.end))
+		return hash((self.start, self.end, self.index))
 
 
 	def inBounds(self, p):
@@ -89,7 +90,7 @@ class T:
 			where = curr_node.value.isInSegment(p)
 			if where == 0:
 				# p = start case
-				# U.append(curr_node.value)
+				#U.append(curr_node.value)
 				if curr_node.right_child != None:
 					self._findByPoint(p, U, C, L, curr_node.right_child)
 				if curr_node.left_child != None:
@@ -263,11 +264,46 @@ class T:
 			node = node.left_child
 		return node
 
-	def getNextInorder(self, node):
+	def getNextInorder(self, s, p):
+		node = self.find(s, p)
 		if node.right_child != None:
 			return self.getLeftMostRightChild(node)
 		else:
 			return self.getFirstRightParent(node)
+
+	def getLeftNeighbour(self, s, p):
+		sNode = self.find(s, p)
+		if sNode.left_child != None: # ask teacher
+			return sNode.left_child
+		node = sNode
+		while node.parent != None:
+			if node.parent.left_child == None:
+				node = node.parent
+			elif node.parent.left_child.value == node.value:
+				node = node.parent
+			else:
+				node = node.parent.left_child
+				break
+		while node.right_child != None:
+			node = node.right_child
+		return node
+
+	def getRightNeighbour(self, s, p):
+		sNode = self.find(s, p)
+		if sNode.right_child != None: # ask teacher
+			return sNode.right_child
+		node = sNode
+		while node.parent != None:
+			if node.parent.right_child == None:
+				node = node.parent
+			elif node.parent.right_child.value == node.value:
+				node = node.parent
+			else:
+				node = node.parent.right_child
+				break
+		while node.left_child != None:
+			node = node.left_child
+		return node
 
 	def printT(self):
 		if self.root != None:
