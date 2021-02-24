@@ -4,6 +4,25 @@ from ttree import *
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
+def findEvent(s_left, s_right, p):
+	global etree
+	sl_line = Line.points2Line(s_left.start, s_left.end)
+	sr_line = Line.points2Line(s_right.start, s_right.end)
+	print(sl_line)
+	print(sr_line)
+	hit = sl_line.intersects(sr_line)
+
+	# case: sr and sl are same segment, they never intersect
+	if not hit: return
+
+	isThere = etree.find(hit)
+	if hit.y < p.y and isThere == None:
+		e = Event(hit)
+		etree.insert(e)
+	elif hit.y == p.y and hit.x < p.x and isThere == None:
+		e = Event(hit)
+		etree.insert(e)
+
 def processEvent(p):
 	global tot_seg
 	global tLine
@@ -33,18 +52,24 @@ def processEvent(p):
 	else:
 		uc = list(UC)
 		hits = []
+		# UC in T
 		for s in uc:
 			t2 = Point(p.x + 1, p.y)
 			tempLine = Line.points2Line(p, t2)
 			hit = tempLine.intersects(Line.points2Line(s.start, s.end))
 			hits.append([hit, s.index])
 
+		# UC in T (ordered horizontally)
 		hits = sorted(hits, key=lambda p: p[0].x, reverse=False)
+		
 		s_prime = tot_seg[hits[0][1]]
 		s_left = tLine.getLeftNeighbour(s_prime, p)
 		print("left neighbour:", s_left.value)
-
-
+		findEvent(s_left.value, s_prime, p)
+		s_bprime = tot_seg[hits[len(hits) - 1][1]]
+		s_right = tLine.getRightNeighbour(s_bprime, p)
+		print("right neighbour:", s_right.value)
+		findEvent(s_bprime, s_right.value, p)
 
 
 file1 = open('input/0.in', 'r')
