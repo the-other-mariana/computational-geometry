@@ -230,7 +230,7 @@ The input from the file [0.in](https://github.com/the-other-mariana/computationa
 
 ## Output (W.I.P.)
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/bug02-segs.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/bug02.png?raw=true) <br />
 
 ## Handy Links
 
