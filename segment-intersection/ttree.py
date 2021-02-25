@@ -56,6 +56,12 @@ class Node:
 		self.right_child = None
 		self.parent = None
 
+	def __repr__(self):
+		return f"N[start:{self.value}]"
+
+	def __str__(self):
+		return "N[start:{s}]".format(s=self.value)
+
 class T:
 	def __init__(self):
 		self.root = None
@@ -291,13 +297,13 @@ class T:
 			while node.parent != None:
 				if node.parent.left_child == None:
 					node = node.parent
-				elif node.parent.left_child.value == node.value:
+				elif node.parent.left_child.value == sNode.value:
 					node = node.parent
 				else:
 					# move to the first left child
 					node = node.parent.left_child
 					break
-			if node.right_child != None:
+			if node.right_child != None and node.right_child.value != sNode.value and node.right_child != sNode.parent.right_child:
 				# has right children
 				while node.right_child != None:
 					node = node.right_child
@@ -333,7 +339,7 @@ class T:
 			while node.parent != None:
 				if node.parent.right_child == None:
 					node = node.parent
-				elif node.parent.right_child.value == node.value:
+				elif node.parent.right_child.value == sNode.value:
 					node = node.parent
 				else:
 					# move to the first right child
@@ -341,7 +347,7 @@ class T:
 					break
 			if node.left_child != None:
 				# has left children
-				while node.left_child != None:
+				while node.left_child != None and node.left_child.value != sNode.value and node.left_child.value != sNode.parent.left_child.value:
 					node = node.left_child
 			else:
 				# has no left children, move right all you can until a left child

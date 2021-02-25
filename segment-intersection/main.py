@@ -6,6 +6,7 @@ from matplotlib import collections  as mc
 
 def findEvent(s_left, s_right, p):
 	global etree
+	global R
 	sl_line = Line.points2Line(s_left.start, s_left.end)
 	sr_line = Line.points2Line(s_right.start, s_right.end)
 	print(sl_line)
@@ -14,11 +15,14 @@ def findEvent(s_left, s_right, p):
 
 	# case: sr and sl are same segment, they never intersect
 	if not hit: return
+	if s_left.isInSegment(hit) == -1: return
+	if s_right.isInSegment(hit) == -1: return
 
 	isThere = etree.find(hit)
 	if hit.y < p.y and isThere == None:
 		e = Event(hit)
 		etree.insert(e)
+		R.append(hit)
 	elif hit.y == p.y and hit.x < p.x and isThere == None:
 		e = Event(hit)
 		etree.insert(e)
@@ -117,7 +121,7 @@ tLine = T()
 
 while not etree.isEmpty():
 	p = etree.getFirst(etree.root)
-	print("pull:", p.value, "root:", etree.root.value)
+	print("**pull:", p.value, "root:", etree.root.value)
 	etree.deleteNode(p)
 	processEvent(p)
 
@@ -133,8 +137,8 @@ for i in range(len(tot_seg)):
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]
-xr = [p.x for p in R]
-yr = [p.y for p in R]
+xr = [p.x for p in R[:len(R) - 1]]
+yr = [p.y for p in R[:len(R) - 1]]
 
 
 fig = plt.figure()
@@ -142,6 +146,6 @@ fig.add_subplot()
 ax1 = plt.gca()
 
 ax1.scatter(x,y, s=100, marker="o")
-ax1.scatter(xr,yr, s=100, marker="P", color="red")
+ax1.scatter(xr,yr, s=100, marker="P", color="red", zorder=10)
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 plt.show()
