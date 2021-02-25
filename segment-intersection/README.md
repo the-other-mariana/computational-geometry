@@ -226,7 +226,11 @@ Which visually is the tree below. <br />
 
 The input from the file [0.in](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in) is plotted as follows. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/out-i0-p1-fixed.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/out-i0-p1-fixed.png?raw=true) <br />
+
+## Output (W.I.P.)
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/bug02-segs.png?raw=true) <br />
 
 ## Handy Links
 

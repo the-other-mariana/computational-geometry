@@ -148,4 +148,11 @@ ax1 = plt.gca()
 ax1.scatter(x,y, s=100, marker="o")
 ax1.scatter(xr,yr, s=100, marker="P", color="red", zorder=10)
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
+
+for i in range(len(tot_seg)):
+    mid = Point.midPoint(tot_seg[i].start, tot_seg[i].end)
+    coord = tuple([mid.x, mid.y])
+    coordt = tuple([mid.x + 10, mid.y])
+    ax1.annotate("S{0}".format(i), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
+
 plt.show()
