@@ -295,28 +295,18 @@ class T:
 		else:
 			# if node is leaf
 			while node.parent != None:
-				if node.parent.left_child == None:
-					node = node.parent
-				elif node.parent.left_child.value == sNode.value:
-					node = node.parent
-				else:
-					# move to the first left child
-					node = node.parent.left_child
-					break
-			if node.right_child != None and node.right_child.value != sNode.value and node.right_child != sNode.parent.right_child:
-				# has right children
-				while node.right_child != None:
-					node = node.right_child
-			else:
-				# has no right children, move left all you can until a right child
-				while node.left_child != None:
+				node = node.parent
+				if node.left_child != None and node.left_child.value != sNode.value:
 					node = node.left_child
-					if node.right_child != None:
-						node = node.right_child
-						break
-				# then move left when you find a left child
-				while node.right_child != None:
+					break
+			# has left children
+			while node.right_child == None and node.left_child != None:
+				node = node.left_child
+			while node.right_child != None and node.right_child.value != sNode.value:
+				if node.right_child != None:
 					node = node.right_child
+				if node.left_child != None:
+					node = node.left_child
 			return node
 
 	def getRightNeighbour(self, s, p):
@@ -337,27 +327,17 @@ class T:
 		else:
 			# if node is leaf
 			while node.parent != None:
-				if node.parent.right_child == None:
-					node = node.parent
-				elif node.parent.right_child.value == sNode.value:
-					node = node.parent
-				else:
-					# move to the first right child
-					node = node.parent.right_child
-					break
-			if node.left_child != None:
-				# has left children
-				while node.left_child != None and node.left_child.value != sNode.value and node.left_child.value != sNode.parent.left_child.value:
-					node = node.left_child
-			else:
-				# has no left children, move right all you can until a left child
-				while node.right_child != None:
+				node = node.parent
+				if node.right_child != None and node.right_child.value != sNode.value:
 					node = node.right_child
-					if node.left_child != None:
-						node = node.left_child
-						break
-				# then move left when you find a left child
-				while node.left_child != None:
+					break
+			# has left children
+			while node.left_child == None and node.right_child != None:
+				node = node.right_child
+			while node.left_child != None and node.left_child.value != sNode.value:
+				if node.right_child != None:
+					node = node.right_child
+				if node.left_child != None:
 					node = node.left_child
 			return node
 
