@@ -1,6 +1,6 @@
 """ Implementation of a Binary Tree that stores Segments as values """
 from glibrary import Point, Vector, Line
-eps = 10**-3
+eps = 10**-4
 
 class Segment():
 	def __init__(self, p1=Point(), p2=Point(), index=0):
@@ -88,8 +88,6 @@ class T:
 		return U, C, L
 
 	def _findByPoint(self, p, U, C, L, curr_node):
-		if curr_node == None:
-			return
 		if curr_node != None:
 			# if p in segment (0,1,2), node to solution and recursive on its subtree
 			# if p not in subtree (-1), node not to sol and keep checking on the
@@ -127,10 +125,22 @@ class T:
 				# 2. send recursion to the side subtree where p is
 				if u < 0:
 					# p is closest to start but outside seg (left tree)
-					self._findByPoint(p, U, C, L, curr_node.left_child)
+					if curr_node.left_child != None:
+						self._findByPoint(p, U, C, L, curr_node.left_child)
+					else:
+						self._findByPoint(p, U, C, L, curr_node.right_child)
 				if u > 1:
 					# p is closest to end but outside seg (right tree)
-					self._findByPoint(p, U, C, L, curr_node.right_child)
+					if curr_node.right_child != None:
+						self._findByPoint(p, U, C, L, curr_node.right_child)
+					else:
+						self._findByPoint(p, U, C, L, curr_node.left_child)
+				if u > 0.0 and u < 1.0:
+					if curr_node.right_child != None:
+						self._findByPoint(p, U, C, L, curr_node.right_child)
+					if curr_node.left_child != None:
+						self._findByPoint(p, U, C, L, curr_node.left_child)
+
 
 	def getLeftFromP(self, p, curr_node):
 		t2 = Point(p.x + 1, p.y)

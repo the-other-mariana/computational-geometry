@@ -4,6 +4,8 @@ from ttree import *
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
+INPUT_FILE = 'input/test.in'
+
 def findEvent(s_left, s_right, p):
 	global etree
 	global R
@@ -48,6 +50,7 @@ def processEvent(p):
 	print("UCL: {0}".format(UCL))
 	if len(UCL) > 1:
 		R.append(p)
+		print("hi")
 	for s in (L.union(C)):
 		tLine.deleteValue(s, p)
 	for s in (UC):
@@ -80,7 +83,7 @@ def processEvent(p):
 		findEvent(s_bprime, s_right.value, p)
 
 
-file1 = open('input/test.in', 'r')
+file1 = open(INPUT_FILE, 'r')
 flines = file1.readlines()
 
 N = int(flines[0])
@@ -88,6 +91,7 @@ R = []
 R_segs = []
 
 tot_seg = [] # total segments
+tot_pts = []
 ev = []
 
 for line in flines[1:]:
@@ -96,6 +100,7 @@ for line in flines[1:]:
 	seg = []
 	for i in range(0, len(pts) - 1, 2):
 		pt = Point(int(pts[i]), int(pts[i + 1]))
+		tot_pts.append(pt)
 		seg.append(pt)
 	seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
 	for i in range(len(seg_sorted)):
@@ -141,8 +146,8 @@ for i in range(len(tot_seg)):
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]
-xr = [p.x for p in R]
-yr = [p.y for p in R]
+xr = [p.x for p in R if not (p in tot_pts)]
+yr = [p.y for p in R if not (p in tot_pts)]
 
 
 fig = plt.figure()
