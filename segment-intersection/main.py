@@ -4,7 +4,7 @@ from ttree import *
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
-INPUT_FILE = 'input/test.in'
+INPUT_FILE = 'input/0.in'
 
 def findEvent(s_left, s_right, p):
 	global etree
@@ -24,17 +24,19 @@ def findEvent(s_left, s_right, p):
 	if hit.y < p.y and isThere == None:
 		e = Event(hit)
 		etree.insert(e)
+		print("added event:", e)
 		#R.append(hit)
 	elif hit.y == p.y and hit.x < p.x and isThere == None:
 		e = Event(hit)
 		etree.insert(e)
+		print("added event:", e)
 		#R.append(hit)
 
 def processEvent(p):
 	global tot_seg
 	global tLine
 	global R
-	global R_sets
+	global R_segs
 
 	p = p.value.point
 	U = [s for s in tot_seg if s.start == p]
@@ -50,6 +52,7 @@ def processEvent(p):
 	print("UCL: {0}".format(UCL))
 	if len(UCL) > 1:
 		R.append(p)
+		R_segs.append([s.index for s in UCL])
 		print("hi")
 	for s in (L.union(C)):
 		tLine.deleteValue(s, p)
@@ -99,7 +102,9 @@ for line in flines[1:]:
 	segment = int("".join(filter(str.isdigit, pts[len(pts) - 1]))) - 1
 	seg = []
 	for i in range(0, len(pts) - 1, 2):
-		pt = Point(int(pts[i]), int(pts[i + 1]))
+		x = float(pts[i]) if '.' in pts[i] else int(pts[i])
+		y = float(pts[i + 1]) if '.' in pts[i + 1] else int(pts[i + 1])
+		pt = Point(x, y)
 		tot_pts.append(pt)
 		seg.append(pt)
 	seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
@@ -135,7 +140,8 @@ while not etree.isEmpty():
 	processEvent(p)
 
 print(etree.isEmpty()) # true
-print("Output", R)
+R = [p for p in R if not (p in tot_pts)]
+print("Output", R, R_segs)
 
 # PLOTTING
 plt_segs = []
@@ -146,8 +152,8 @@ for i in range(len(tot_seg)):
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]
-xr = [p.x for p in R if not (p in tot_pts)]
-yr = [p.y for p in R if not (p in tot_pts)]
+xr = [p.x for p in R]
+yr = [p.y for p in R]
 
 
 fig = plt.figure()
@@ -158,11 +164,11 @@ ax1.scatter(x,y, s=100, marker="o")
 ax1.scatter(xr,yr, s=100, marker="P", color="red", zorder=10)
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 
-'''
+
 for i in range(len(tot_seg)):
     mid = Point.midPoint(tot_seg[i].start, tot_seg[i].end)
     coord = tuple([mid.x, mid.y])
-    coordt = tuple([mid.x + 10, mid.y])
+    coordt = tuple([mid.x + 2, mid.y])
     ax1.annotate("S{0}".format(i), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
-'''
+
 plt.show()
