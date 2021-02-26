@@ -1,6 +1,6 @@
 """ Implementation of a Binary Tree that stores Segments as values """
 from glibrary import Point, Vector, Line
-eps = 10**-4
+eps = 10**-3
 
 class Segment():
 	def __init__(self, p1=Point(), p2=Point(), index=0):
@@ -34,16 +34,15 @@ class Segment():
 		return False
 
 	def isInSegment(self, p):
+		if p == self.start: return 0
+		if p == self.end: return 1
+
 		sline = Line.points2Line(self.start, self.end)
 		result = (sline.a * p.x) + (sline.b * p.y) + sline.c
-		if result == 0:
+		if result < eps:
 			if self.inBounds(p):
-				if p == self.start:
-					return 0
-				elif p == self.end:
-					return 1
-				else:
-					return 2
+				# point in middle of segment
+				return 2
 			else:
 				# point in segment line but not in segment
 				return -1
@@ -131,6 +130,29 @@ class T:
 					# p is closest to end but outside seg (right tree)
 					self._findByPoint(p, U, C, L, curr_node.right_child)
 
+	def getLeftFromP(self, p, curr_node):
+		t2 = Point(p.x + 1, p.y)
+		cLine = Line.points2Line(curr_node.value.start, curr_node.value.end)
+		t = Line.points2Line(p, t2)
+		cHit = t.intersects(cLine)
+		while curr_node.left_child != None:
+			if p.x < cHit.x:
+				break
+			else:
+				curr_node = curr_node.left_child
+		return curr_node
+
+	def getRightFromP(self, p, curr_node):
+		t2 = Point(p.x + 1, p.y)
+		cLine = Line.points2Line(curr_node.value.start, curr_node.value.end)
+		t = Line.points2Line(p, t2)
+		cHit = t.intersects(cLine)
+		while curr_node.right_child != None:
+			if p.x > cHit.x:
+				break
+			else:
+				curr_node = curr_node.right_child
+		return curr_node
 
 	def insert(self, value, t1):
 		if self.root == None:
@@ -196,7 +218,7 @@ class T:
 			return self._find(segment, curr_node.right_child, t1)
 
 	def deleteValue(self, segment, t1):
-		return self.deleteNode(self.find(segment, t1))
+		return self.deleteNode(self.find(segment, t1), t1)
 
 	def deleteNode(self, node, t1):
 		if node == None or self.find(node.value, t1) == None:

@@ -22,10 +22,11 @@ def findEvent(s_left, s_right, p):
 	if hit.y < p.y and isThere == None:
 		e = Event(hit)
 		etree.insert(e)
-		R.append(hit)
+		#R.append(hit)
 	elif hit.y == p.y and hit.x < p.x and isThere == None:
 		e = Event(hit)
 		etree.insert(e)
+		#R.append(hit)
 
 def processEvent(p):
 	global tot_seg
@@ -37,7 +38,7 @@ def processEvent(p):
 	U = [s for s in tot_seg if s.start == p]
 	U2, C, L = tLine.findByPoint(p)
 	U = U + U2
-	print("U: {u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
+	print("U:{u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
 	# lists to sets
 	U = set(U)
 	C = set(C)
@@ -48,11 +49,14 @@ def processEvent(p):
 	if len(UCL) > 1:
 		R.append(p)
 	for s in (L.union(C)):
-		tLine.deleteValue(s)
+		tLine.deleteValue(s, p)
 	for s in (UC):
 		tLine.insert(s, p)
 	if len(UC) == 0:
-		print("step missing")
+		print("new step")
+		s_left = tLine.getLeftFromP(p, tLine.root)
+		s_right = tLine.getRightFromP(p, tLine.root)
+		findEvent(s_left.value, s_right.value, p)
 	else:
 		uc = list(UC)
 		hits = []
@@ -76,7 +80,7 @@ def processEvent(p):
 		findEvent(s_bprime, s_right.value, p)
 
 
-file1 = open('input/0.in', 'r')
+file1 = open('input/test.in', 'r')
 flines = file1.readlines()
 
 N = int(flines[0])
@@ -137,8 +141,8 @@ for i in range(len(tot_seg)):
 
 x = [e.point.x for e in ev]
 y = [e.point.y for e in ev]
-xr = [p.x for p in R[:len(R) - 1]]
-yr = [p.y for p in R[:len(R) - 1]]
+xr = [p.x for p in R]
+yr = [p.y for p in R]
 
 
 fig = plt.figure()
@@ -149,10 +153,11 @@ ax1.scatter(x,y, s=100, marker="o")
 ax1.scatter(xr,yr, s=100, marker="P", color="red", zorder=10)
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 
+'''
 for i in range(len(tot_seg)):
     mid = Point.midPoint(tot_seg[i].start, tot_seg[i].end)
     coord = tuple([mid.x, mid.y])
     coordt = tuple([mid.x + 10, mid.y])
     ax1.annotate("S{0}".format(i), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
-
+'''
 plt.show()
