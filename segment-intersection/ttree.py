@@ -46,6 +46,8 @@ class Segment():
 			else:
 				# point in segment line but not in segment
 				return -1
+		else:
+			return -1
 
 
 class Node:
