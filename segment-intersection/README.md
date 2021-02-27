@@ -228,9 +228,16 @@ The input from the file [0.in](https://github.com/the-other-mariana/computationa
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/out-i0-p1-fixed.png?raw=true) <br />
 
-## Output (W.I.P.)
+## Output
+The output are the corresponding intersections from the given set marked in red. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/bug02.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/bug03.png?raw=true) <br />
+
+## Algorithm
+
+This preview shows how the algorithm makes the illusion of a 'sweep line' as it works through the structures of T and Q. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif.gif) <br />
 
 ## Handy Links
 

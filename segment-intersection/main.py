@@ -78,6 +78,7 @@ def findEvent(s_left, s_right, p):
 		print("added event:", e)
 		#R.append(hit)
 	paint(p)
+	paint(p)
 
 def processEvent(p):
 	global tot_seg
@@ -86,6 +87,7 @@ def processEvent(p):
 	global R_segs
 
 	p = p.value.point
+	paint(p)
 	paint(p)
 	U = [s for s in tot_seg if s.start == p]
 	U2, C, L = tLine.findByPoint(p)
@@ -198,6 +200,7 @@ print(in_array)
 tLine = T()
 
 first_p = etree.getFirst(etree.root).value.point
+paint(Point(first_p.x, first_p.y))
 paint(Point(first_p.x, first_p.y))
 
 while not etree.isEmpty():
