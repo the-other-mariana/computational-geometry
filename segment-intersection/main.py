@@ -40,8 +40,17 @@ def processEvent(p):
 
 	p = p.value.point
 	U = [s for s in tot_seg if s.start == p]
-	U2, C, L = tLine.findByPoint(p)
-	U = U + U2
+	#U2, C, L = tLine.findByPoint(p)
+
+	in_array = tLine.inorder(tLine.root)
+	print("T line:", in_array)
+	L = [s for s in in_array if s.end == p]
+	C = []
+	for s in in_array:
+		if s.isInSegment(p) == 2:
+			C.append(s)
+
+	U = U
 	print("U:{u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
 	# lists to sets
 	U = set(U)
@@ -56,13 +65,15 @@ def processEvent(p):
 		print("hi")
 	for s in (L.union(C)):
 		tLine.deleteValue(s, p)
+		print("j")
 	for s in (UC):
 		tLine.insert(s, p)
 	if len(UC) == 0:
-		print("new step")
-		s_left = tLine.getLeftFromP(p, tLine.root)
-		s_right = tLine.getRightFromP(p, tLine.root)
-		findEvent(s_left.value, s_right.value, p)
+
+		s_l = tLine.getLeftFromP(p, tLine.root)
+		s_r = tLine.getRightFromP(p, tLine.root)
+		print("########### new step neighbours:", s_l.value, s_r.value)
+		findEvent(s_l.value, s_r.value, p)
 	else:
 		uc = list(UC)
 		hits = []
@@ -77,13 +88,17 @@ def processEvent(p):
 		hits = sorted(hits, key=lambda p: p[0].x, reverse=False)
 
 		s_prime = tot_seg[hits[0][1]]
-		s_left = tLine.getLeftNeighbour(s_prime, p)
-		print("left neighbour:", s_left.value)
-		findEvent(s_left.value, s_prime, p)
+		#s_left = tLine.getLeftNeighbour(s_prime, p)
+		s_left = tLine.getPredecessor(tLine.root, s_prime, p)
+		if s_left != None:
+			print("left neighbour:", s_left.value)
+			findEvent(s_left.value, s_prime, p)
 		s_bprime = tot_seg[hits[len(hits) - 1][1]]
-		s_right = tLine.getRightNeighbour(s_bprime, p)
-		print("right neighbour:", s_right.value)
-		findEvent(s_bprime, s_right.value, p)
+		#s_right = tLine.getRightNeighbour(s_bprime, p)
+		s_right= tLine.getSuccessor(tLine.root, s_bprime, p)
+		if s_right != None:
+			print("right neighbour:", s_right.value)
+			findEvent(s_bprime, s_right.value, p)
 
 
 file1 = open(INPUT_FILE, 'r')

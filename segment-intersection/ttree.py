@@ -29,7 +29,7 @@ class Segment():
 		tempsY = sorted(tempsY, key=lambda p: p.y, reverse=False)
 		# temps[0] = temp start
 
-		if p.x < tempsX[1].x and p.x > tempsX[0].x and p.y < tempsY[1].y and p.y > tempsY[0].y:
+		if p.x <= tempsX[1].x and p.x >= tempsX[0].x and p.y <= tempsY[1].y and p.y >= tempsY[0].y:
 			return True
 		return False
 
@@ -39,7 +39,7 @@ class Segment():
 
 		sline = Line.points2Line(self.start, self.end)
 		result = (sline.a * p.x) + (sline.b * p.y) + sline.c
-		if result < eps:
+		if abs(result) < eps:
 			if self.inBounds(p):
 				# point in middle of segment
 				return 2
@@ -51,8 +51,9 @@ class Segment():
 
 
 class Node:
-	def __init__(self, value=Segment()):
+	def __init__(self, value=Segment(), hit=Point()):
 		self.value = value # now a segment
+		self.hit = hit # hit with T
 		self.left_child = None
 		self.right_child = None
 		self.parent = None
@@ -78,6 +79,13 @@ class T:
 			return True
 		else:
 			return False
+
+	@staticmethod
+	def getSegmentHit(s, p):
+		t2 = Point(p.x + 1, p.y)
+		tline = Line.points2Line(p, t2)
+		hit = tline.intersects(Line.points2Line(s.start, s.end))
+		return hit
 
 	def findByPoint(self, p):
 		U = []
@@ -143,45 +151,52 @@ class T:
 
 
 	def getLeftFromP(self, p, curr_node):
-		t2 = Point(p.x + 1, p.y)
-		cLine = Line.points2Line(curr_node.value.start, curr_node.value.end)
-		t = Line.points2Line(p, t2)
-		cHit = t.intersects(cLine)
-		while curr_node.left_child != None:
-			if p.x < cHit.x:
-				break
-			else:
+		while curr_node.right_child != None or curr_node.left_child != None:
+
+			if p.x < curr_node.hit.x and curr_node.left_child != None:
 				curr_node = curr_node.left_child
+				continue
+			if p.x >= curr_node.hit.x and curr_node.right_child != None:
+				curr_node = curr_node.right_child
+				continue
+			if curr_node.left_child == None or curr_node.right_child == None:
+				break
 		return curr_node
 
 	def getRightFromP(self, p, curr_node):
-		t2 = Point(p.x + 1, p.y)
-		cLine = Line.points2Line(curr_node.value.start, curr_node.value.end)
-		t = Line.points2Line(p, t2)
-		cHit = t.intersects(cLine)
-		while curr_node.right_child != None:
-			if p.x > cHit.x:
-				break
-			else:
+		answer = None
+		while curr_node.right_child != None or curr_node.left_child != None:
+			if p.x < curr_node.hit.x and curr_node.left_child != None:
+				curr_node = curr_node.left_child
+				answer = curr_node
+				continue
+			if p.x >= curr_node.hit.x and curr_node.right_child != None:
 				curr_node = curr_node.right_child
-		return curr_node
+				continue
+			if curr_node.left_child == None or curr_node.right_child == None:
+				break
+		if answer != None: return answer
+		else: return curr_node
 
 	def insert(self, value, t1):
 		if self.root == None:
-			self.root = Node(value)
+			hit = T.getSegmentHit(value, t1)
+			self.root = Node(value, hit)
 		else:
 			self._insert(value, self.root, t1)
 
 	def _insert(self, value, curr_node, t1):
 		if T.isLessThan(value, curr_node.value, t1):
 			if curr_node.left_child == None:
-				curr_node.left_child = Node(value)
+				hit = T.getSegmentHit(value, t1)
+				curr_node.left_child = Node(value, hit)
 				curr_node.left_child.parent = curr_node
 			else:
 				self._insert(value, curr_node.left_child, t1)
 		elif not T.isLessThan(value, curr_node.value, t1):
 			if curr_node.right_child == None:
-				curr_node.right_child = Node(value)
+				hit = T.getSegmentHit(value, t1)
+				curr_node.right_child = Node(value, hit)
 				curr_node.right_child.parent = curr_node
 			else:
 				self._insert(value, curr_node.right_child, t1)
@@ -289,91 +304,67 @@ class T:
 			# delete the inorder successor now that value is saved
 			self.deleteNode(successor, t1)
 
-	def getFirstRightParent(self, node):
-		if node.parent == None:
-			return None
-		while node.parent != None and node.parent.left_child != node:
-			node = node.parent
-		return node.parent
-
-	def getLeftMostRightChild(self, node):
-		# get left-most node from the right sub tree
-		if node.right_child != None:
+	def findMax(self, node):
+		while node.right_child != None:
 			node = node.right_child
+		return node
+
+	# iterative function to find predecessor
+	def getPredecessor(self, root, s, p):
+		sNode = self.find(s, p)
+		predecessor = None
+
+		if (root == None):
+			return None
+		while (True):
+			# if key is less than root  traverse the left tree
+			if (sNode.hit.x < root.hit.x):
+				root = root.left_child
+			# if key is greater than root  traverse the right tree
+			elif (sNode.hit.x > root.hit.x):
+				# set the predecessor to root
+				predecessor = root
+				root = root.right_child
+			# if any node has the same value as key,the predecessor is the max value
+			# or rightmost value of its left subtree
+			else:
+				if root.left_child != None:
+					predecessor = self.findMax(root.left_child)
+				break
+			if root == None:
+				return None
+		return predecessor
+
+	def findMin(self, node):
 		while node.left_child != None:
 			node = node.left_child
 		return node
 
-	def getNextInorder(self, s, p):
-		node = self.find(s, p)
-		if node.right_child != None:
-			return self.getLeftMostRightChild(node)
-		else:
-			return self.getFirstRightParent(node)
-
-	def getLeftNeighbour(self, s, p):
+	def getSuccessor(self, root, s, p):
 		sNode = self.find(s, p)
-		node = sNode
-		# if node has children ask teacher
-		if node.left_child != None or node.right_child != None:
-			while node.left_child != None:
-				node = node.left_child
-				if node.right_child == None:
-					continue
-				else:
-					node = node.right_child
-					break
-			while node.right_child != None:
-				node = node.right_child
-			return node
-		else:
-			# if node is leaf
-			while node.parent != None:
-				node = node.parent
-				if node.left_child != None and node.left_child.value != sNode.value:
-					node = node.left_child
-					break
-			# has left children
-			while node.right_child == None and node.left_child != None:
-				node = node.left_child
-			while node.right_child != None and node.right_child.value != sNode.value:
-				if node.right_child != None:
-					node = node.right_child
-				if node.left_child != None:
-					node = node.left_child
-			return node
+		successor = None
+		# Base condition
+		if root == None:
+			return None
+		while (True):
+			# if key is less than root  traverse the left  subtree
+			if (sNode.hit.x < root.hit.x):
+				# the current node(root) is set to the successor
+				successor = root
+				root = root.left_child
+			# if key is greater than root  traverse the right subtree
+			elif (sNode.hit.x > root.hit.x):
+				root = root.right_child
+			# if any node has the same data  value as key , the successor is the min value
+			# or leftmost value of its right subtree
 
-	def getRightNeighbour(self, s, p):
-		sNode = self.find(s, p)
-		node = sNode
-		# if node has children # ask teacher
-		if node.left_child != None or node.right_child != None:
-			while node.right_child != None:
-				node = node.right_child
-				if node.left_child == None:
-					continue
-				else:
-					node = node.left_child
-					break
-			while node.left_child != None:
-				node = node.left_child
-			return node
-		else:
-			# if node is leaf
-			while node.parent != None:
-				node = node.parent
-				if node.right_child != None and node.right_child.value != sNode.value:
-					node = node.right_child
-					break
-			# has left children
-			while node.left_child == None and node.right_child != None:
-				node = node.right_child
-			while node.left_child != None and node.left_child.value != sNode.value:
-				if node.right_child != None:
-					node = node.right_child
-				if node.left_child != None:
-					node = node.left_child
-			return node
+			else:
+				if (root.right_child):
+					successor = self.findMin(root.right_child)
+				break
+			if (root == None):
+				return None
+		return successor
 
 	def printT(self):
 		if self.root != None:

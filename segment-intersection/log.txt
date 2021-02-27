@@ -1,0 +1,222 @@
+------------------
+Events: 14
+E[Point: (27, 86) Seg: 0 Pos: 0]
+E[Point: (13, 25) Seg: 0 Pos: 1]
+E[Point: (11, 75) Seg: 1 Pos: 0]
+E[Point: (31, 40) Seg: 1 Pos: 1]
+E[Point: (89, 100) Seg: 2 Pos: 0]
+E[Point: (50, 50) Seg: 2 Pos: 1]
+E[Point: (43, 65) Seg: 3 Pos: 0]
+E[Point: (50, 50) Seg: 3 Pos: 1]
+E[Point: (12, 40) Seg: 4 Pos: 0]
+E[Point: (29, 10) Seg: 4 Pos: 1]
+E[Point: (78, 60) Seg: 5 Pos: 0]
+E[Point: (26, 32) Seg: 5 Pos: 1]
+E[Point: (50, 50) Seg: 6 Pos: 0]
+E[Point: (47, 25) Seg: 6 Pos: 1]
+Segments: 7
+S[start:(27, 86) end:(13, 25) index:0]
+S[start:(11, 75) end:(31, 40) index:1]
+S[start:(89, 100) end:(50, 50) index:2]
+S[start:(43, 65) end:(50, 50) index:3]
+S[start:(12, 40) end:(29, 10) index:4]
+S[start:(78, 60) end:(26, 32) index:5]
+S[start:(50, 50) end:(47, 25) index:6]
+------------------
+Value repeated: (50, 50)
+Value repeated: (50, 50)
+Value repeated: (50, 50)
+root: E[Point: (27, 86) Seg: 0 Pos: 0]
+first: E[Point: (89, 100) Seg: 2 Pos: 0]
+[E[Point: (89, 100) Seg: 2 Pos: 0], E[Point: (27, 86) Seg: 0 Pos: 0], E[Point: (11, 75) Seg: 1 Pos: 0], E[Point: (43, 65) Seg: 3 Pos: 0], E[Point: (78, 60) Seg: 5 Pos: 0], E[Point: (50, 50) Seg: 2 Pos: 1], E[Point: (50, 50) Seg: 3 Pos:
+ 1], E[Point: (50, 50) Seg: 6 Pos: 0], E[Point: (12, 40) Seg: 4 Pos: 0], E[Point: (31, 40) Seg: 1 Pos: 1], E[Point: (26, 32) Seg: 5 Pos: 1], E[Point: (13, 25) Seg: 0 Pos: 1], E[Point: (47, 25) Seg: 6 Pos: 1], E[Point: (29, 10) Seg: 4 P
+os: 1]]
+**pull: E[Point: (89, 100) Seg: 2 Pos: 0] root: E[Point: (27, 86) Seg: 0 Pos: 0]
+T line: []
+U:[S[start:(89, 100) end:(50, 50) idx:2]]
+C:[]
+L:[]
+UCL: {S[start:(89, 100) end:(50, 50) idx:2]}
+**pull: E[Point: (27, 86) Seg: 0 Pos: 0] root: E[Point: (27, 86) Seg: 0 Pos: 0]
+T line: [S[start:(89, 100) end:(50, 50) idx:2]]
+U:[S[start:(27, 86) end:(13, 25) idx:0]]
+C:[]
+L:[]
+UCL: {S[start:(27, 86) end:(13, 25) idx:0]}
+right neighbour: S[start:(89, 100) end:(50, 50) index:2]
+-61.0x + 14.0y + 443.0 = 0
+-50.0x + 39.0y + 550.0 = 0
+**pull: E[Point: (11, 75) Seg: 1 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(89, 100) end:(50, 50) idx:2]]
+U:[S[start:(11, 75) end:(31, 40) idx:1]]
+C:[]
+L:[]
+UCL: {S[start:(11, 75) end:(31, 40) idx:1]}
+right neighbour: S[start:(27, 86) end:(13, 25) index:0]
+-35.0x + -20.0y + 1885.0 = 0
+-61.0x + 14.0y + 443.0 = 0
+added event: E[Point: (20.614035087719298, 58.175438596491226) Seg: 0 Pos: 0]
+**pull: E[Point: (43, 65) Seg: 3 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(11, 75) end:(31, 40) idx:1], S[start:(27, 86) end:(13, 25) idx:0], S[start:(89, 100) end:(50, 50) idx:2]]
+U:[S[start:(43, 65) end:(50, 50) idx:3]]
+C:[]
+L:[]
+UCL: {S[start:(43, 65) end:(50, 50) idx:3]}
+left neighbour: S[start:(27, 86) end:(13, 25) index:0]
+-61.0x + 14.0y + 443.0 = 0
+-15.0x + -7.0y + 1100.0 = 0
+right neighbour: S[start:(89, 100) end:(50, 50) index:2]
+-15.0x + -7.0y + 1100.0 = 0
+-50.0x + 39.0y + 550.0 = 0
+**pull: E[Point: (78, 60) Seg: 5 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(11, 75) end:(31, 40) idx:1], S[start:(27, 86) end:(13, 25) idx:0], S[start:(43, 65) end:(50, 50) idx:3], S[start:(89, 100) end:(50, 50) idx:2]]
+U:[S[start:(78, 60) end:(26, 32) idx:5]]
+C:[]
+L:[]
+UCL: {S[start:(78, 60) end:(26, 32) idx:5]}
+**pull: E[Point: (20.614035087719298, 58.175438596491226) Seg: 0 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(11, 75) end:(31, 40) idx:1], S[start:(27, 86) end:(13, 25) idx:0], S[start:(43, 65) end:(50, 50) idx:3], S[start:(89, 100) end:(50, 50) idx:2], S[start:(78, 60) end:(26, 32) idx:5]]
+U:[]
+C:[S[start:(11, 75) end:(31, 40) idx:1], S[start:(27, 86) end:(13, 25) idx:0]]
+L:[]
+UCL: {S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1]}
+hi
+j
+j
+right neighbour: S[start:(43, 65) end:(50, 50) index:3]
+-35.0x + -20.0y + 1885.0 = 0
+-15.0x + -7.0y + 1100.0 = 0
+**pull: E[Point: (50, 50) Seg: 2 Pos: 1] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1], S[start:(43, 65) end:(50, 50) idx:3], S[start:(89, 100) end:(50, 50) idx:2], S[start:(78, 60) end:(26, 32) idx:5]]
+U:[S[start:(50, 50) end:(47, 25) idx:6]]
+C:[]
+L:[S[start:(43, 65) end:(50, 50) idx:3], S[start:(89, 100) end:(50, 50) idx:2]]
+UCL: {S[start:(89, 100) end:(50, 50) idx:2], S[start:(43, 65) end:(50, 50) idx:3], S[start:(50, 50) end:(47, 25) idx:6]}
+hi
+j
+j
+left neighbour: S[start:(11, 75) end:(31, 40) index:1]
+-35.0x + -20.0y + 1885.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+right neighbour: S[start:(78, 60) end:(26, 32) index:5]
+-25.0x + 3.0y + 1100.0 = 0
+-28.0x + 52.0y + -936.0 = 0
+added event: E[Point: (49.348684210526315, 44.57236842105263) Seg: 0 Pos: 0]
+**pull: E[Point: (50, 50) Seg: 3 Pos: 1] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1], S[start:(50, 50) end:(47, 25) idx:6], S[start:(78, 60) end:(26, 32) idx:5]]
+U:[S[start:(50, 50) end:(47, 25) idx:6]]
+C:[]
+L:[]
+UCL: {S[start:(50, 50) end:(47, 25) idx:6]}
+left neighbour: S[start:(11, 75) end:(31, 40) index:1]
+-35.0x + -20.0y + 1885.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+right neighbour: S[start:(50, 50) end:(47, 25) index:6]
+-25.0x + 3.0y + 1100.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+**pull: E[Point: (50, 50) Seg: 6 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(78, 60) end:(26, 32) idx:5]]
+U:[S[start:(50, 50) end:(47, 25) idx:6]]
+C:[]
+L:[]
+UCL: {S[start:(50, 50) end:(47, 25) idx:6]}
+left neighbour: S[start:(11, 75) end:(31, 40) index:1]
+-35.0x + -20.0y + 1885.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+right neighbour: S[start:(50, 50) end:(47, 25) index:6]
+-25.0x + 3.0y + 1100.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+**pull: E[Point: (49.348684210526315, 44.57236842105263) Seg: 0 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(78, 60) end:(26, 32) idx:5]
+]
+U:[]
+C:[S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(78, 60) end:(26, 32) idx:5]]
+L:[]
+UCL: {S[start:(78, 60) end:(26, 32) idx:5], S[start:(50, 50) end:(47, 25) idx:6]}
+hi
+j
+j
+left neighbour: S[start:(11, 75) end:(31, 40) index:1]
+-35.0x + -20.0y + 1885.0 = 0
+-28.0x + 52.0y + -936.0 = 0
+right neighbour: S[start:(50, 50) end:(47, 25) index:6]
+-25.0x + 3.0y + 1100.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+**pull: E[Point: (12, 40) Seg: 4 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1], S[start:(78, 60) end:(26, 32) idx:5], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]
+]
+U:[S[start:(12, 40) end:(29, 10) idx:4]]
+C:[]
+L:[]
+UCL: {S[start:(12, 40) end:(29, 10) idx:4]}
+right neighbour: S[start:(27, 86) end:(13, 25) index:0]
+-30.0x + -17.0y + 1040.0 = 0
+-61.0x + 14.0y + 443.0 = 0
+added event: E[Point: (15.16197666437886, 34.420041180507894) Seg: 0 Pos: 0]
+**pull: E[Point: (31, 40) Seg: 1 Pos: 1] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(12, 40) end:(29, 10) idx:4], S[start:(27, 86) end:(13, 25) idx:0], S[start:(11, 75) end:(31, 40) idx:1], S[start:(78, 60) end:(26, 32) idx:5], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]
+, S[start:(50, 50) end:(47, 25) idx:6]]
+U:[]
+C:[]
+L:[S[start:(11, 75) end:(31, 40) idx:1]]
+UCL: {S[start:(11, 75) end:(31, 40) idx:1]}
+j
+########### new step neighbours: S[start:(78, 60) end:(26, 32) index:5] S[start:(78, 60) end:(26, 32) index:5]
+-28.0x + 52.0y + -936.0 = 0
+-28.0x + 52.0y + -936.0 = 0
+**pull: E[Point: (15.16197666437886, 34.420041180507894) Seg: 0 Pos: 0] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(12, 40) end:(29, 10) idx:4], S[start:(27, 86) end:(13, 25) idx:0], S[start:(78, 60) end:(26, 32) idx:5], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]
+]
+U:[]
+C:[S[start:(12, 40) end:(29, 10) idx:4], S[start:(27, 86) end:(13, 25) idx:0]]
+L:[]
+UCL: {S[start:(27, 86) end:(13, 25) idx:0], S[start:(12, 40) end:(29, 10) idx:4]}
+hi
+j
+j
+right neighbour: S[start:(78, 60) end:(26, 32) index:5]
+-30.0x + -17.0y + 1040.0 = 0
+-28.0x + 52.0y + -936.0 = 0
+**pull: E[Point: (26, 32) Seg: 5 Pos: 1] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(12, 40) end:(29, 10) idx:4], S[start:(78, 60) end:(26, 32) idx:5], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]
+]
+U:[]
+C:[]
+L:[S[start:(78, 60) end:(26, 32) idx:5]]
+UCL: {S[start:(78, 60) end:(26, 32) idx:5]}
+j
+########### new step neighbours: S[start:(50, 50) end:(47, 25) index:6] S[start:(50, 50) end:(47, 25) index:6]
+-25.0x + 3.0y + 1100.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+**pull: E[Point: (13, 25) Seg: 0 Pos: 1] root: E[Point: (13, 25) Seg: 0 Pos: 1]
+T line: [S[start:(27, 86) end:(13, 25) idx:0], S[start:(12, 40) end:(29, 10) idx:4], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]]
+U:[]
+C:[]
+L:[S[start:(27, 86) end:(13, 25) idx:0]]
+UCL: {S[start:(27, 86) end:(13, 25) idx:0]}
+j
+########### new step neighbours: S[start:(12, 40) end:(29, 10) index:4] S[start:(12, 40) end:(29, 10) index:4]
+-30.0x + -17.0y + 1040.0 = 0
+-30.0x + -17.0y + 1040.0 = 0
+**pull: E[Point: (47, 25) Seg: 6 Pos: 1] root: E[Point: (29, 10) Seg: 4 Pos: 1]
+T line: [S[start:(12, 40) end:(29, 10) idx:4], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]]
+U:[]
+C:[]
+L:[S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]]
+UCL: {S[start:(50, 50) end:(47, 25) idx:6]}
+j
+########### new step neighbours: S[start:(50, 50) end:(47, 25) index:6] S[start:(50, 50) end:(47, 25) index:6]
+-25.0x + 3.0y + 1100.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+**pull: E[Point: (29, 10) Seg: 4 Pos: 1] root: E[Point: (29, 10) Seg: 4 Pos: 1]
+T line: [S[start:(12, 40) end:(29, 10) idx:4], S[start:(50, 50) end:(47, 25) idx:6], S[start:(50, 50) end:(47, 25) idx:6]]
+U:[]
+C:[]
+L:[S[start:(12, 40) end:(29, 10) idx:4]]
+UCL: {S[start:(12, 40) end:(29, 10) idx:4]}
+j
+########### new step neighbours: S[start:(50, 50) end:(47, 25) index:6] S[start:(50, 50) end:(47, 25) index:6]
+-25.0x + 3.0y + 1100.0 = 0
+-25.0x + 3.0y + 1100.0 = 0
+True
+Output [(20.614035087719298, 58.175438596491226), (49.348684210526315, 44.57236842105263), (15.16197666437886, 34.420041180507894)] [[0, 1], [2, 3, 6], [5, 6], [0, 4]]
