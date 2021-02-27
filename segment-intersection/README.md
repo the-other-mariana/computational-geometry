@@ -237,7 +237,7 @@ The output are the corresponding intersections from the given set marked in red.
 
 This preview shows how the algorithm makes the illusion of a 'sweep line' as it works through the structures of T and Q. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif.gif) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-02.gif) <br />
 
 ## Handy Links
 

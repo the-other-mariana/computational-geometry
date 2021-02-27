@@ -47,9 +47,11 @@ def paint(p):
 	xlim = ax1.get_xlim()
 	#print("lim:", xlim)
 	ax1.plot(list(xlim), [p.y, p.y], color="red")
+	figure = plt.gcf()
+	figure.set_size_inches(10, 8)
 
 
-	plt.savefig("frames/anim_{0}.png".format(f),bbox_inches='tight')
+	plt.savefig("frames/anim_{0}.png".format(f),bbox_inches='tight', dpi=100)
 	f +=1
 
 def findEvent(s_left, s_right, p):
