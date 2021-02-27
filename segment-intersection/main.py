@@ -7,6 +7,51 @@ from matplotlib import collections  as mc
 INPUT_FILE = 'input/0.in'
 fast = True
 
+def paint(p):
+	global R
+	global ev
+	global f
+	global etree
+
+	plt_segs = []
+	in_array = Q.inorder(etree.root)
+	q_xs = []
+	q_ys = []
+	for e in in_array:
+		q_xs.append(e.point.x)
+		q_ys.append(e.point.y)
+
+	for i in range(len(tot_seg)):
+		begin = tuple([tot_seg[i].start.x, tot_seg[i].start.y])
+		end = tuple([tot_seg[i].end.x, tot_seg[i].end.y])
+		plt_segs.append([begin, end])
+
+	x = [e.point.x for e in ev]
+	y = [e.point.y for e in ev]
+	R_plot = [p for p in R if not (p in tot_pts)]
+
+	xr = [p.x for p in R_plot]
+	yr = [p.y for p in R_plot]
+
+	fig = plt.figure()
+	fig.add_subplot()
+	ax1 = plt.gca()
+
+	ax1.scatter(x, y, s=100, marker="x", linewidths=2)
+
+	ax1.scatter(q_xs, q_ys, s=100, marker="o", color="green", zorder=10)
+	ax1.scatter(xr, yr, s=100, marker="P", color="red", zorder=20)
+	ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
+
+	# plot sweep line
+	xlim = ax1.get_xlim()
+	#print("lim:", xlim)
+	ax1.plot(list(xlim), [p.y, p.y], color="red")
+
+
+	plt.savefig("frames/anim_{0}.png".format(f),bbox_inches='tight')
+	f +=1
+
 def findEvent(s_left, s_right, p):
 	global etree
 	global R
@@ -32,6 +77,7 @@ def findEvent(s_left, s_right, p):
 		etree.insert(e)
 		print("added event:", e)
 		#R.append(hit)
+	paint(p)
 
 def processEvent(p):
 	global tot_seg
@@ -40,6 +86,7 @@ def processEvent(p):
 	global R_segs
 
 	p = p.value.point
+	paint(p)
 	U = [s for s in tot_seg if s.start == p]
 	U2, C, L = tLine.findByPoint(p)
 	if not fast:
@@ -112,6 +159,7 @@ R_segs = []
 tot_seg = [] # total segments
 tot_pts = []
 ev = []
+f = 0
 
 for line in flines[1:]:
 	pts = line.split(' ')
@@ -149,6 +197,9 @@ print(in_array)
 # init sweep line as empty
 tLine = T()
 
+first_p = etree.getFirst(etree.root).value.point
+paint(Point(first_p.x, first_p.y))
+
 while not etree.isEmpty():
 	p = etree.getFirst(etree.root)
 	print("**pull:", p.value, "root:", etree.root.value)
@@ -160,6 +211,7 @@ R = [p for p in R if not (p in tot_pts)]
 print("Output", R, R_segs)
 
 # PLOTTING
+'''
 plt_segs = []
 
 for i in range(len(tot_seg)):
@@ -186,6 +238,7 @@ ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 xlim = ax1.get_xlim()
 print("lim:", xlim)
 ax1.plot(list(xlim), [10, 10], color = "red")
+#plt.savefig("test_{c}.png".format(c=cont),bbox_inches='tight')
 
 for i in range(len(tot_seg)):
     mid = Point.midPoint(tot_seg[i].start, tot_seg[i].end)
@@ -194,3 +247,4 @@ for i in range(len(tot_seg)):
     ax1.annotate("S{0}".format(i), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
 
 plt.show()
+'''
