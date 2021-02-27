@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
 INPUT_FILE = 'input/0.in'
+fast = True
 
 def findEvent(s_left, s_right, p):
 	global etree
@@ -40,15 +41,15 @@ def processEvent(p):
 
 	p = p.value.point
 	U = [s for s in tot_seg if s.start == p]
-	#U2, C, L = tLine.findByPoint(p)
-
-	in_array = tLine.inorder(tLine.root)
-	print("T line:", in_array)
-	L = [s for s in in_array if s.end == p]
-	C = []
-	for s in in_array:
-		if s.isInSegment(p) == 2:
-			C.append(s)
+	U2, C, L = tLine.findByPoint(p)
+	if not fast:
+		in_array = tLine.inorder(tLine.root)
+		print("T line:", in_array)
+		L = [s for s in in_array if s.end == p]
+		C = []
+		for s in in_array:
+			if s.isInSegment(p) == 2:
+				C.append(s)
 
 	U = U
 	print("U:{u}\nC:{c}\nL:{l}".format(u=U, c=C, l=L))
@@ -160,6 +161,7 @@ print("Output", R, R_segs)
 
 # PLOTTING
 plt_segs = []
+
 for i in range(len(tot_seg)):
 	begin = tuple([tot_seg[i].start.x, tot_seg[i].start.y])
 	end = tuple([tot_seg[i].end.x, tot_seg[i].end.y])
@@ -175,10 +177,15 @@ fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
+
 ax1.scatter(x,y, s=100, marker="o")
 ax1.scatter(xr,yr, s=100, marker="P", color="red", zorder=10)
 ax1.add_collection(mc.LineCollection(plt_segs, linewidths=2))
 
+# plot sweep line
+xlim = ax1.get_xlim()
+print("lim:", xlim)
+ax1.plot(list(xlim), [10, 10], color = "red")
 
 for i in range(len(tot_seg)):
     mid = Point.midPoint(tot_seg[i].start, tot_seg[i].end)

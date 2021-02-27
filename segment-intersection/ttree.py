@@ -357,7 +357,6 @@ class T:
 				root = root.right_child
 			# if any node has the same data  value as key , the successor is the min value
 			# or leftmost value of its right subtree
-
 			else:
 				if (root.right_child):
 					successor = self.findMin(root.right_child)
