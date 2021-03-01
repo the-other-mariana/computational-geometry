@@ -1,4 +1,13 @@
 # Segment Intersection Sweep Line Algorithm
+
+## Algorithm Visualization
+
+This preview shows how the algorithm makes the illusion of a 'sweep line' as it works through the structures of T and Q. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-02.gif) <br />
+
+*Note: the program computes also intersections that happen in exact endings of segments as well, its up to you if you want them included or not. This preview, for example, does not include those.*
+
 ## 1. Introduction
 
 ### 1.1 Binary Search Tree
@@ -231,13 +240,16 @@ The input from the file [0.in](https://github.com/the-other-mariana/computationa
 ## Output
 The output are the corresponding intersections from the given set marked in red. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/bug03.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/output-final.png?raw=true) <br />
 
-## Algorithm
+The output from console looks as follows. <br />
 
-This preview shows how the algorithm makes the illusion of a 'sweep line' as it works through the structures of T and Q. <br />
-
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-02.gif) <br />
+```
+Intersection at: (20.614035087719298,58.175438596491226) -> s0 s1
+Intersection at: (50,50) -> s2 s3 s6
+Intersection at: (49.348684210526315,44.57236842105263) -> s5 s6
+Intersection at: (15.16197666437886,34.420041180507894) -> s0 s4
+```
 
 ## Handy Links
 
@@ -247,4 +259,4 @@ This preview shows how the algorithm makes the illusion of a 'sweep line' as it 
 - [Traversal inorder](https://www.tutorialspoint.com/data_structures_algorithms/tree_traversal.htm#:~:text=values%20it%20contains.-,In%2Dorder%20Traversal,values%20in%20an%20ascending%20order.) <br />
 - [Tree Traversals](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/) <br />
 - [Bentley-Ottmann Algorithm](https://en.wikipedia.org/wiki/Bentley%E2%80%93Ottmann_algorithm) <br />
-- [Successors and Predecessors in BST](https://stackoverflow.com/questions/12643305/bentley-ottmann-algorithm-in-lua)
+- [Successors and Predecessors Inorder Traversal](https://www.techiedelight.com/find-inorder-predecessor-given-key-bst/)
