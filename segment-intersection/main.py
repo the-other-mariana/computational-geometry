@@ -8,7 +8,7 @@ INPUT_FILE = 'input/0.in'
 fast = False
 animated = False
 single_plot = True
-live_output = False
+live_output = True
 
 # function that creates and saves a plot frame
 def paint(p):
@@ -122,6 +122,14 @@ def processEvent(p):
 	if len(UCL) > 1:
 		R.append(p)
 		R_segs.append([s.index for s in UCL])
+		# print output on the go
+		if live_output:
+			ucl = [s.index for s in UCL]
+			segs_involved = ""
+			for j in range(len(ucl)):
+				segs_involved += "s" + str(ucl[j]) + " "
+			print(("Intersection at: ({x},{y}) -> " + segs_involved).format(x=p.x, y=p.y))
+
 	for s in (L.union(C)):
 		tLine.deleteValue(s, p)
 	for s in (UC):
@@ -248,7 +256,7 @@ if __name__ == "__main__":
 
 	# Uncomment line if you dont want intersections that are part of segment exact start/end points
 	#R = [p for p in R if not (p in tot_pts)]
-	#print("Output", R, R_segs)
+	# print output at the end instead of on the go
 	if not live_output:
 		for i in range(len(R)):
 			segs_involved = ""
