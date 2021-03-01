@@ -75,6 +75,11 @@ class T:
 		tline = Line.points2Line(t1, t2)
 		hit1 = tline.intersects(Line.points2Line(s1.start, s1.end))
 		hit2 = tline.intersects(Line.points2Line(s2.start, s2.end))
+
+		# if insert horizontal s1, insert at the end
+		if not hit1:
+			return False
+
 		if hit1.x < hit2.x:
 			return True
 		else:
@@ -314,9 +319,13 @@ class T:
 		sNode = self.find(s, p)
 		predecessor = None
 
-		if (root == None):
+		if (root == None or sNode == None):
 			return None
 		while (True):
+
+			if (root == None or sNode == None):
+				continue
+
 			# if key is less than root  traverse the left tree
 			if (sNode.hit.x < root.hit.x):
 				root = root.left_child
@@ -343,10 +352,15 @@ class T:
 	def getSuccessor(self, root, s, p):
 		sNode = self.find(s, p)
 		successor = None
+
 		# Base condition
-		if root == None:
+		if root == None or sNode == None:
 			return None
+
 		while (True):
+			if (root == None or sNode == None):
+				continue
+
 			# if key is less than root  traverse the left  subtree
 			if (sNode.hit.x < root.hit.x):
 				# the current node(root) is set to the successor

@@ -52,8 +52,8 @@ class Q:
 				self._insert(value, curr_node.left_child)
 		elif not Q.isLessThan(value.point, curr_node.value.point):
 			if value.point ==  curr_node.value.point:
-				r = 1
-				#print("Value repeated:", value.point)
+				#r = 1
+				print("Value repeated:", value.point)
 			if curr_node.right_child == None:
 				curr_node.right_child = Node(value)
 				curr_node.right_child.parent = curr_node

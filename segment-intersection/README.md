@@ -6,7 +6,7 @@ This preview shows how the algorithm makes the illusion of a 'sweep line' as it 
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-02.gif) <br />
 
-*Note: the program computes also intersections that happen in exact endings of segments as well, its up to you if you want them included or not. This preview, for example, does not include those.*
+*Note: the program computes also intersections that happen in exact endings of segments as well, its up to you if you want them included or not. This preview, for example, include those.*
 
 ## 1. Introduction
 

@@ -45,3 +45,6 @@ print(in_array)
 print(tline.root.value)
 print(tline.root.left_child.value)
 print(tline.root.right_child.value)
+
+s = int(input())
+print(s)

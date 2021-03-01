@@ -5,9 +5,10 @@ import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
 INPUT_FILE = 'input/0.in'
-fast = True
+fast = False
 animated = False
 single_plot = True
+live_output = False
 
 # function that creates and saves a plot frame
 def paint(p):
@@ -97,7 +98,8 @@ def processEvent(p):
 		paint(p)
 	U = [s for s in tot_seg if s.start == p]
 	# tree finding
-	U2, C, L = tLine.findByPoint(p)
+	if fast:
+		U2, C, L = tLine.findByPoint(p)
 	# brute force finding
 	if not fast:
 		in_array = tLine.inorder(tLine.root)
@@ -138,11 +140,14 @@ def processEvent(p):
 			t2 = Point(p.x + 1, p.y)
 			tempLine = Line.points2Line(p, t2)
 			hit = tempLine.intersects(Line.points2Line(s.start, s.end))
+			if not hit: continue
 			hits.append([hit, s.index])
 
 		# UC in T (ordered horizontally)
 		hits = sorted(hits, key=lambda p: p[0].x, reverse=False)
 
+		if len(hits) < 1:
+			return
 		s_prime = tot_seg[hits[0][1]]
 		# left neighbour is the inorder predecessor
 		s_left = tLine.getPredecessor(tLine.root, s_prime, p)
@@ -160,8 +165,17 @@ if __name__ == "__main__":
 
 	file1 = open(INPUT_FILE, 'r')
 	flines = file1.readlines()
+	N = 0
+	offset = 1
 
-	N = int(flines[0])
+	# support files with starting line with N or not
+	try:
+		N = int(flines[0])
+		offset = 1
+	except:
+		N = len(flines)
+		offset = 0
+
 	R = []
 	R_segs = []
 
@@ -169,10 +183,19 @@ if __name__ == "__main__":
 	tot_pts = []
 	ev = []
 	f = 0
+	iteration = 0
 
-	for line in flines[1:]:
+	for line in flines[offset:]:
 		pts = line.split(' ')
-		segment = int("".join(filter(str.isdigit, pts[len(pts) - 1]))) - 1
+
+		segment = iteration
+		# if file contains segment name (store it) or not (segment id is num of interation) at the end of line
+		try:
+			segment = int("".join(filter(str.isdigit, pts[len(pts) - 1]))) - 1
+		except:
+			segment = iteration
+
+
 		seg = []
 		for i in range(0, len(pts) - 1, 2):
 			x = float(pts[i]) if '.' in pts[i] else int(pts[i])
@@ -186,13 +209,17 @@ if __name__ == "__main__":
 			ev.append(e)
 		s = Segment(seg_sorted[0], seg_sorted[1], segment)
 		tot_seg.append(s)
+		iteration += 1
 
-	#print("------------------")
-	#print("Events: {0}".format(len(ev)))
-	#[print(e) for e in ev]
-	#print("Segments: {0}".format(len(tot_seg)))
-	#[print(s) for s in tot_seg]
-	#print("------------------")
+	# Uncomment to print input
+	'''
+	print("------------------")
+	print("Events: {0}".format(len(ev)))
+	[print(e) for e in ev]
+	print("Segments: {0}".format(len(tot_seg)))
+	[print(s) for s in tot_seg]
+	print("------------------")
+	'''
 
 
 	# init event queue inserting all extremes of segments
@@ -222,11 +249,12 @@ if __name__ == "__main__":
 	# Uncomment line if you dont want intersections that are part of segment exact start/end points
 	#R = [p for p in R if not (p in tot_pts)]
 	#print("Output", R, R_segs)
-	for i in range(len(R)):
-		segs_involved = ""
-		for j in range(len(R_segs[i])):
-			segs_involved += "s" + str(R_segs[i][j]) + " "
-		print(("Intersection at: ({x},{y}) -> " + segs_involved).format(x=R[i].x, y=R[i].y))
+	if not live_output:
+		for i in range(len(R)):
+			segs_involved = ""
+			for j in range(len(R_segs[i])):
+				segs_involved += "s" + str(R_segs[i][j]) + " "
+			print(("Intersection at: ({x},{y}) -> " + segs_involved).format(x=R[i].x, y=R[i].y))
 
 	# PLOTTING
 	if not animated and single_plot:
