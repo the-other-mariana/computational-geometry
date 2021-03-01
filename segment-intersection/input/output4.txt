@@ -1,3 +1,4 @@
+Value repeated: (0, 5)
 Intersection at: (-98,5) -> s98 s97
 Intersection at: (-97,5) -> s98 s96 s97
 Intersection at: (-96,5) -> s98 s95 s96 s97
@@ -294,22 +295,4 @@ Intersection at: (95,5) -> s95 s96 s98 s97 s94
 Intersection at: (96,5) -> s98 s95 s96 s97
 Intersection at: (97,5) -> s96 s98 s97
 Intersection at: (98,5) -> s98 s97
-Traceback (most recent call last):
-  File "main.py", line 226, in <module>
-    [etree.insert(e) for e in ev]
-  File "main.py", line 226, in <listcomp>
-    [etree.insert(e) for e in ev]
-  File "C:\Users\Mariana\Documents\GIT-PROJECTS\computational-geometry\segment-intersection\etree.py", line 44, in insert
-    self._insert(value, self.root)
-  File "C:\Users\Mariana\Documents\GIT-PROJECTS\computational-geometry\segment-intersection\etree.py", line 61, in _insert
-    self._insert(value, curr_node.right_child)
-  File "C:\Users\Mariana\Documents\GIT-PROJECTS\computational-geometry\segment-intersection\etree.py", line 61, in _insert
-    self._insert(value, curr_node.right_child)
-  File "C:\Users\Mariana\Documents\GIT-PROJECTS\computational-geometry\segment-intersection\etree.py", line 61, in _insert
-    self._insert(value, curr_node.right_child)
-  [Previous line repeated 991 more times]
-  File "C:\Users\Mariana\Documents\GIT-PROJECTS\computational-geometry\segment-intersection\etree.py", line 54, in _insert
-    if value.point ==  curr_node.value.point:
-  File "C:\Users\Mariana\Documents\GIT-PROJECTS\computational-geometry\segment-intersection\glibrary.py", line 11, in __eq__
-    return (abs(self.x - other.x) < eps) and (abs(self.y - other.y) < eps)
-RecursionError: maximum recursion depth exceeded while calling a Python object
+

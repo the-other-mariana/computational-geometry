@@ -139,7 +139,8 @@ def processEvent(p):
 		s_l = tLine.getLeftFromP(p, tLine.root)
 		s_r = tLine.getRightFromP(p, tLine.root)
 		#print("########### new step neighbours:", s_l.value, s_r.value)
-		findEvent(s_l.value, s_r.value, p)
+		if s_l != None and s_r != None:
+			findEvent(s_l.value, s_r.value, p)
 	else:
 		uc = list(UC)
 		hits = []
@@ -156,18 +157,19 @@ def processEvent(p):
 
 		if len(hits) < 1:
 			return
-		s_prime = tot_seg[hits[0][1]]
-		# left neighbour is the inorder predecessor
-		s_left = tLine.getPredecessor(tLine.root, s_prime, p)
-		if s_left != None:
-			#print("left neighbour:", s_left.value)
-			findEvent(s_left.value, s_prime, p)
-		s_bprime = tot_seg[hits[len(hits) - 1][1]]
-		# right neighbour is the inorder successor
-		s_right = tLine.getSuccessor(tLine.root, s_bprime, p)
-		if s_right != None:
-			#print("right neighbour:", s_right.value)
-			findEvent(s_bprime, s_right.value, p)
+		else:
+			s_prime = tot_seg[hits[0][1]]
+			# left neighbour is the inorder predecessor
+			s_left = tLine.getPredecessor(tLine.root, s_prime, p)
+			if s_left != None:
+				#print("left neighbour:", s_left.value)
+				findEvent(s_left.value, s_prime, p)
+			s_bprime = tot_seg[hits[len(hits) - 1][1]]
+			# right neighbour is the inorder successor
+			s_right = tLine.getSuccessor(tLine.root, s_bprime, p)
+			if s_right != None:
+				#print("right neighbour:", s_right.value)
+				findEvent(s_bprime, s_right.value, p)
 
 if __name__ == "__main__":
 

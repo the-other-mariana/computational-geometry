@@ -156,6 +156,7 @@ class T:
 
 
 	def getLeftFromP(self, p, curr_node):
+		if curr_node == None: return None
 		while curr_node.right_child != None or curr_node.left_child != None:
 
 			if p.x < curr_node.hit.x and curr_node.left_child != None:
@@ -169,6 +170,7 @@ class T:
 		return curr_node
 
 	def getRightFromP(self, p, curr_node):
+		if curr_node == None: return None
 		answer = None
 		while curr_node.right_child != None or curr_node.left_child != None:
 			if p.x < curr_node.hit.x and curr_node.left_child != None:
@@ -206,7 +208,8 @@ class T:
 			else:
 				self._insert(value, curr_node.right_child, t1)
 		else:
-			print("Value repeated.")
+			r = 1
+			#print("Value repeated.")
 
 	def height(self):
 		if self.root != None:
@@ -254,7 +257,7 @@ class T:
 
 	def deleteNode(self, node, t1):
 		if node == None or self.find(node.value, t1) == None:
-			print("Node is not found to delete")
+			#print("Node is not found to delete")
 			return None
 		# returns the node with min value in tree rooted at input node
 		def min_value_node(n):
