@@ -4,7 +4,7 @@ from ttree import *
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
-INPUT_FILE = 'input/0.in'
+INPUT_FILE = 'input/test.in'
 fast = False
 animated = False
 single_plot = True
@@ -194,16 +194,18 @@ if __name__ == "__main__":
 	ev = []
 	f = 0
 	iteration = 0
+	isHorizontal = True
+	yVal = 0
 
 	for line in flines[offset:]:
 		pts = line.split(' ')
 
 		segmentName = iteration
 		# if file contains segment name (store it) or not (segment id is num of interation) at the end of line
-		try:
+		if "s" in pts[len(pts) - 1]:
 			segmentName = pts[len(pts) - 1].rstrip("\n")
-		except:
-			segmentName = iteration
+		else:
+			segmentName = "s" + str(iteration)
 
 
 		seg = []
@@ -213,7 +215,14 @@ if __name__ == "__main__":
 			pt = Point(x, y)
 			tot_pts.append(pt)
 			seg.append(pt)
-		seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
+		for i in range(len(seg)):
+			if i == 0: yVal = seg[i].y
+			if seg[i].y != yVal:
+				isHorizontal = False
+		if not isHorizontal:
+			seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
+		else:
+			seg_sorted = sorted(seg, key=lambda p: p.x, reverse=False)
 		for i in range(len(seg_sorted)):
 			e = Event(seg_sorted[i], iteration, i)
 			ev.append(e)

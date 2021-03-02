@@ -1,298 +1,296 @@
-Value repeated: (0, 5)
-Intersection at: (-98,5) -> s98 s97
-Intersection at: (-97,5) -> s98 s96 s97
-Intersection at: (-96,5) -> s98 s95 s96 s97
-Intersection at: (-95,5) -> s95 s96 s98 s97 s94
-Intersection at: (-94,5) -> s95 s98 s96 s97 s94 s93
-Intersection at: (-93,5) -> s92 s95 s96 s98 s97 s94 s93
-Intersection at: (-92,5) -> s95 s92 s98 s96 s97 s91 s94 s93
-Intersection at: (-91,5) -> s95 s92 s98 s97 s96 s91 s94 s90 s93
-Intersection at: (-90,5) -> s95 s92 s98 s97 s96 s91 s89 s94 s90 s93
-Intersection at: (-89,5) -> s95 s88 s92 s98 s97 s96 s91 s89 s94 s90 s93
-Intersection at: (-88,5) -> s95 s88 s87 s92 s98 s97 s96 s91 s89 s94 s90 s93
-Intersection at: (-87,5) -> s95 s91 s88 s87 s92 s98 s97 s96 s86 s89 s94 s90 s93
-Intersection at: (-86,5) -> s95 s88 s87 s92 s98 s97 s96 s86 s91 s89 s85 s94 s90 s93
-Intersection at: (-85,5) -> s95 s94 s88 s84 s87 s92 s98 s97 s96 s91 s89 s85 s86 s90 s93
-Intersection at: (-84,5) -> s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s86 s89 s94 s93
-Intersection at: (-83,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s86 s89 s94 s93
-Intersection at: (-82,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s81 s86 s89 s94 s93
-Intersection at: (-81,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s81 s80 s86 s89 s94 s93
-Intersection at: (-80,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s81 s80 s86 s79 s89 s94 s93
-Intersection at: (-79,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s93
-Intersection at: (-78,5) -> s77 s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s93
-Intersection at: (-77,5) -> s77 s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (-76,5) -> s77 s82 s84 s83 s87 s92 s98 s97 s75 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (-75,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s75 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (-74,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s75 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s76 s94 s73 s93
-Intersection at: (-73,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s75 s91 s85 s90 s95 s73 s88 s78 s96 s81 s80 s86 s79 s89 s76 s94 s72 s93
-Intersection at: (-72,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s72 s91 s75 s85 s90 s95 s73 s88 s78 s96 s81 s80 s86 s79 s89 s76 s94 s71 s93
-Intersection at: (-71,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s72 s85 s90 s95 s73 s88 s78 s96 s81 s80 s70 s86 s79 s89 s94 s76 s93
-Intersection at: (-70,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s72 s85 s90 s69 s95 s73 s88 s78 s96 s81 s80 s70 s86 s79 s89 s94 s76 s93
-Intersection at: (-69,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s72 s85 s90 s69 s95 s73 s88 s78 s68 s96 s81 s80 s70 s86 s79 s89 s94 s76 s93
-Intersection at: (-68,5) -> s82 s74 s87 s98 s72 s91 s69 s95 s96 s80 s79 s73 s71 s77 s84 s83 s92 s97 s75 s85 s90 s67 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-67,5) -> s82 s74 s87 s98 s72 s91 s69 s95 s96 s80 s79 s73 s71 s77 s84 s83 s92 s97 s75 s85 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-66,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s80 s79 s73 s71 s77 s84 s83 s92 s97 s75 s85 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-65,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s75 s85 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-64,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-63,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-62,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-61,5) -> s82 s74 s87 s98 s72 s91 s65 s60 s69 s95 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (-60,5) -> s82 s74 s87 s98 s72 s91 s65 s60 s69 s95 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-59,5) -> s82 s74 s87 s98 s72 s91 s65 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-58,5) -> s82 s74 s87 s98 s72 s91 s65 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-57,5) -> s82 s74 s87 s98 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-56,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-55,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s54 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-54,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-53,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-52,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-51,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-50,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-49,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s48 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (-48,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s48 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
+Intersection at: (-98,5) -> s98 s99
+Intersection at: (-97,5) -> s97 s98 s99
+Intersection at: (-96,5) -> s97 s96 s98 s99
+Intersection at: (-95,5) -> s96 s99 s97 s98 s95
+Intersection at: (-94,5) -> s96 s94 s99 s97 s98 s95
+Intersection at: (-93,5) -> s96 s95 s99 s94 s97 s98 s93
+Intersection at: (-92,5) -> s94 s99 s92 s98 s96 s95 s97 s93
+Intersection at: (-91,5) -> s99 s94 s92 s98 s96 s95 s91 s97 s93
+Intersection at: (-90,5) -> s90 s94 s99 s92 s98 s96 s95 s91 s97 s93
+Intersection at: (-89,5) -> s90 s99 s94 s92 s98 s96 s89 s95 s91 s97 s93
+Intersection at: (-88,5) -> s90 s94 s99 s92 s98 s96 s89 s95 s88 s91 s97 s93
+Intersection at: (-87,5) -> s90 s99 s94 s92 s98 s96 s89 s95 s87 s88 s91 s97 s93
+Intersection at: (-86,5) -> s90 s94 s99 s92 s98 s96 s89 s95 s87 s88 s86 s91 s97 s93
+Intersection at: (-85,5) -> s90 s99 s94 s92 s98 s97 s96 s89 s95 s87 s88 s86 s85 s91 s93
+Intersection at: (-84,5) -> s90 s99 s98 s89 s88 s85 s97 s94 s92 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (-83,5) -> s90 s83 s99 s98 s89 s88 s85 s97 s94 s92 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (-82,5) -> s90 s99 s83 s98 s89 s88 s85 s97 s94 s82 s92 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (-81,5) -> s90 s83 s99 s98 s89 s88 s85 s97 s94 s82 s92 s81 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (-80,5) -> s90 s99 s83 s98 s93 s89 s88 s85 s97 s94 s82 s92 s81 s96 s95 s84 s87 s91 s86 s80
+Intersection at: (-79,5) -> s90 s83 s99 s98 s89 s88 s80 s85 s97 s94 s82 s92 s81 s79 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (-78,5) -> s90 s99 s83 s98 s89 s88 s80 s85 s78 s97 s94 s82 s92 s81 s79 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (-77,5) -> s90 s83 s99 s98 s89 s88 s80 s85 s78 s97 s94 s82 s92 s81 s79 s96 s95 s84 s87 s91 s86 s77 s93
+Intersection at: (-76,5) -> s90 s99 s83 s98 s89 s88 s80 s85 s78 s97 s94 s82 s92 s81 s76 s79 s96 s95 s84 s87 s91 s86 s77 s93
+Intersection at: (-75,5) -> s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (-74,5) -> s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (-73,5) -> s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s73 s74 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (-72,5) -> s72 s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (-71,5) -> s72 s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (-70,5) -> s72 s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s70 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (-69,5) -> s72 s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s69 s70 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (-68,5) -> s68 s72 s99 s83 s98 s88 s78 s82 s92 s81 s74 s75 s90 s89 s80 s85 s97 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93
+Intersection at: (-67,5) -> s68 s72 s83 s99 s98 s88 s78 s82 s92 s81 s74 s75 s90 s89 s80 s67 s85 s97 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93
+Intersection at: (-66,5) -> s68 s72 s99 s83 s98 s88 s78 s82 s92 s81 s74 s75 s90 s89 s80 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-65,5) -> s68 s72 s83 s99 s98 s88 s78 s82 s92 s81 s74 s75 s90 s65 s89 s80 s67 s97 s85 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-64,5) -> s68 s72 s99 s83 s98 s88 s78 s82 s92 s81 s74 s75 s90 s64 s65 s89 s80 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-63,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s92 s81 s74 s75 s90 s64 s65 s89 s80 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-62,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s64 s65 s89 s80 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-61,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s89 s80 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-60,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-59,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-58,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s58 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (-57,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s58 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-56,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s56 s75 s90 s61 s64 s65 s58 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-55,5) -> s68 s72 s83 s99 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s90 s61 s64 s65 s58 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-54,5) -> s68 s72 s99 s83 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s90 s61 s64 s65 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-53,5) -> s68 s72 s83 s99 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s90 s61 s64 s65 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-52,5) -> s68 s72 s99 s83 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s90 s61 s52 s64 s65 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-51,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s90 s61 s52 s64 s65 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-50,5) -> s68 s72 s99 s83 s98 s63 s51 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s50 s53 s90 s61 s52 s64 s65 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-49,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (-48,5) -> s68 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s82 s62 s92 s81 s74 s56 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
 
-Intersection at: (-47,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s76
- s93
-Intersection at: (-46,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s45 s49 s78 s68 s81 s70 s86 s89 s59 s94
- s76 s93
-Intersection at: (-45,5) -> s93 s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s45 s49 s78 s68 s81 s70 s86 s89 s59
- s94 s76 s44
-Intersection at: (-44,5) -> s43 s93 s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s45 s49 s78 s68 s81 s70 s86 s89
- s59 s94 s76 s44
-Intersection at: (-43,5) -> s43 s93 s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s42 s50 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s45 s49 s78 s68 s81 s70 s86
- s89 s59 s94 s76 s44
-Intersection at: (-42,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s42 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s45 s49 s78 s68 s81 s70
- s86 s89 s59 s94 s76 s44
-Intersection at: (-41,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s42 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s88 s45 s49 s78 s68 s81
- s70 s86 s89 s59 s94 s76 s44
-Intersection at: (-40,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s42 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s45 s49 s78 s68
- s81 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (-39,5) -> s43 s93 s82 s41 s74 s87 s38 s98 s55 s72 s91 s65 s56 s60 s69 s50 s42 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s45 s49 s78
- s68 s81 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (-38,5) -> s43 s93 s82 s41 s74 s87 s38 s98 s55 s72 s91 s65 s56 s60 s69 s50 s42 s95 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s45 s49 s78
- s68 s37 s81 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (-37,5) -> s43 s93 s82 s41 s74 s87 s38 s98 s55 s72 s91 s65 s56 s60 s69 s50 s42 s95 s36 s58 s47 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s45 s49
- s78 s68 s37 s81 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (-36,5) -> s43 s82 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s73 s71 s54 s35 s84 s83 s53 s97 s75 s85 s63
- s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-35,5) -> s43 s82 s34 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s73 s71 s54 s35 s84 s83 s53 s97 s75 s85
- s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-34,5) -> s43 s82 s34 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s73 s71 s54 s35 s84 s83 s53 s97 s33 s75
- s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-33,5) -> s43 s82 s34 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83 s53 s97 s33
- s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-32,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83 s53 s97
- s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-31,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83 s53
- s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-30,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83
- s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-29,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84
- s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-28,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35
- s84 s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-27,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s26 s54
- s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-26,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s26
- s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-25,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71
- s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-24,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s79 s32 s73
- s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-23,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s79 s32
- s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s45 s49 s78 s68 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-22,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s79
- s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-21,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62
- s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-20,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62
- s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-19,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62
- s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-18,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s17 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47
- s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-17,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23
- s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-16,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s24 s38 s91 s56 s69 s50 s42 s36
- s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-15,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s24 s38 s91 s56 s69 s50 s42
- s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-14,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s24 s38 s91 s56 s69 s50
- s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-13,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s24 s38 s91 s56 s69 s50
- s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s12 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-12,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s24 s38 s91 s56 s69 s50
- s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-11,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91 s56 s69
- s50 s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-10,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91 s56
-s69 s50 s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-9,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91 s56 s
-69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-8,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91 s56 s
-69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-7,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91 s56 s
-69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-6,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91 s5
-6 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-5,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91
- s56 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-4,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38
-s91 s56 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-3,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s20 s89 s76 s17 s44 s10 s24 s
-38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-2,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s89 s20 s76 s17 s44 s10 s24 s
-38 s91 s56 s69 s50 s42 s36 s23 s1 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (-1,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s20 s89 s76 s17 s44 s10 s24 s
-38 s91 s56 s69 s50 s42 s36 s23 s1 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s0 s72 s93
-Intersection at: (0,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s89 s20 s76 s17 s44 s10 s24 s3
-8 s91 s56 s69 s50 s42 s-1 s36 s23 s1 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s0 s72 s93
-Intersection at: (0,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s20 s89 s76 s17 s44 s10 s24 s3
-8 s91 s56 s69 s50 s42 s-1 s36 s23 s1 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s0 s72 s93
-Intersection at: (1,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s89 s20 s76 s17 s44 s10 s24 s3
-8 s91 s56 s69 s50 s42 s36 s23 s1 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s0 s72 s93
-Intersection at: (2,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s20 s89 s76 s17 s44 s10 s24 s3
-8 s91 s56 s69 s50 s42 s36 s23 s1 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (3,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s2 s70 s29 s89 s20 s76 s17 s44 s10 s24 s3
-8 s91 s56 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (4,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s3 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s
-91 s56 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (5,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s4 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91
-s56 s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (6,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s5 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91 s56
- s69 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s6 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (7,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91 s56 s6
-9 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s6 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (8,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91 s56 s6
-9 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s7 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (9,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91 s56 s6
-9 s50 s42 s36 s23 s47 s62 s8 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (10,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s9 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s10 s24 s38 s91 s56 s
-69 s50 s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (11,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s10 s24 s38 s91 s56 s69
-s50 s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (12,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s24 s38 s91 s56 s69 s50
-s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s12 s75 s85 s63 s90 s18 s11 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (13,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s24 s38 s91 s56 s69 s50
-s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s12 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (14,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s13 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s24 s38 s91 s56 s69 s50
-s42 s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (15,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s14 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s24 s38 s91 s56 s69 s50 s42
-s36 s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (16,5) -> s43 s82 s34 s15 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s17 s44 s24 s38 s91 s56 s69 s50 s42 s36
-s23 s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (17,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s16 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s17 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23
-s47 s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (18,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s44 s17 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47
-s62 s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (19,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62
-s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s18 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (20,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s20 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62
-s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s19 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (21,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s20 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62
-s79 s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (22,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s21 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s79
-s32 s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (23,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s22 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s79 s32
-s73 s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (24,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s23 s47 s62 s79 s32 s73
-s71 s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (25,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s24 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71
-s26 s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (26,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s25 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s26
-s54 s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (27,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s26 s54
-s35 s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (28,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s27 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35
-s84 s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (29,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s46 s48 s67 s40 s66 s39 s88 s28 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84
-s83 s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (30,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s29 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83
-s53 s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (31,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s30 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83 s53
-s97 s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (32,5) -> s43 s82 s34 s31 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83 s53 s97
-s33 s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (33,5) -> s43 s82 s34 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s32 s73 s71 s54 s35 s84 s83 s53 s97 s33
-s75 s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (34,5) -> s43 s82 s34 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s73 s71 s54 s35 s84 s83 s53 s97 s75 s33
-s85 s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (35,5) -> s43 s82 s34 s41 s74 s87 s98 s55 s65 s60 s95 s58 s96 s80 s51 s64 s77 s52 s57 s92 s61 s46 s48 s67 s40 s66 s39 s88 s70 s89 s76 s44 s38 s91 s56 s69 s50 s42 s36 s47 s62 s79 s73 s71 s54 s35 s84 s83 s53 s97 s75 s85
-s63 s90 s49 s78 s68 s45 s37 s81 s86 s59 s94 s72 s93
-Intersection at: (36,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s38 s72 s91 s65 s56 s60 s69 s50 s42 s95 s36 s58 s96 s47 s80 s62 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s35 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s49
-s78 s68 s45 s37 s81 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (37,5) -> s43 s82 s41 s74 s87 s98 s55 s38 s91 s65 s56 s60 s69 s50 s42 s95 s36 s58 s96 s47 s80 s62 s79 s51 s76 s73 s71 s64 s77 s52 s44 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s49 s78
-s68 s45 s37 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (38,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s38 s72 s91 s65 s56 s60 s69 s42 s50 s95 s58 s96 s47 s80 s62 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s49 s78 s68
-s45 s81 s37 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (39,5) -> s43 s82 s41 s74 s87 s98 s55 s38 s91 s65 s56 s60 s69 s50 s42 s95 s58 s96 s47 s80 s62 s79 s51 s76 s73 s71 s64 s77 s52 s44 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s39 s88 s49 s78 s68
-s45 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (40,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s42 s50 s95 s58 s96 s47 s80 s62 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s88 s39 s49 s78 s68 s45
-s81 s70 s86 s89 s59 s94 s76 s44
-Intersection at: (41,5) -> s43 s82 s41 s74 s87 s98 s55 s91 s65 s56 s60 s69 s50 s42 s95 s58 s96 s47 s80 s62 s79 s51 s76 s73 s71 s64 s77 s52 s44 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s40 s66 s88 s49 s78 s68 s45 s81
-s70 s86 s89 s59 s94 s72 s93
-Intersection at: (42,5) -> s43 s93 s82 s41 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s42 s50 s95 s58 s96 s47 s80 s62 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s49 s78 s68 s45 s81 s70
-s86 s89 s59 s94 s76 s44
-Intersection at: (43,5) -> s43 s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s50 s42 s95 s58 s96 s47 s80 s62 s79 s51 s76 s73 s71 s64 s77 s52 s44 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s49 s78 s68 s45 s81 s70 s86
-s89 s59 s94 s72 s93
-Intersection at: (44,5) -> s43 s93 s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s47 s80 s62 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s49 s78 s68 s45 s81 s70 s86 s89
-s59 s94 s76 s44
-Intersection at: (45,5) -> s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s50 s95 s58 s96 s47 s80 s62 s79 s51 s76 s73 s71 s64 s77 s52 s44 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s49 s78 s68 s45 s81 s70 s86 s89 s59
-s94 s72 s93
-Intersection at: (46,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s47 s80 s62 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s46 s48 s67 s66 s88 s49 s78 s68 s45 s81 s70 s86 s89 s59 s94
-s76 s93
-Intersection at: (47,5) -> s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s50 s95 s58 s96 s47 s80 s62 s79 s51 s76 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s48 s46 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s72
-s93
-Intersection at: (48,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s47 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s48 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
+Intersection at: (-47,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s48 s78 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57
+ s66
+Intersection at: (-46,5) -> s68 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93
+ s57 s66
+Intersection at: (-45,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77
+ s93 s57 s66
+Intersection at: (-44,5) -> s68 s44 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71
+ s77 s93 s57 s66
+Intersection at: (-43,5) -> s68 s44 s72 s83 s99 s98 s63 s51 s86 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s95 s84 s87 s91
+ s71 s77 s93 s57 s66
+Intersection at: (-42,5) -> s68 s44 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s95 s84 s87 s86
+ s71 s91 s77 s93 s57 s66
+Intersection at: (-41,5) -> s68 s44 s72 s83 s99 s98 s63 s41 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s95 s84 s87
+ s86 s71 s91 s77 s93 s57 s66
+Intersection at: (-40,5) -> s68 s44 s72 s99 s83 s98 s63 s41 s51 s55 s88 s48 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s95 s84
+ s87 s86 s71 s91 s77 s93 s57 s66
+Intersection at: (-39,5) -> s68 s44 s72 s83 s99 s98 s63 s41 s51 s55 s88 s48 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s75 s50 s53 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s39 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s95
+ s84 s87 s86 s71 s91 s77 s93 s57 s66
+Intersection at: (-38,5) -> s68 s44 s72 s99 s83 s98 s63 s41 s51 s55 s88 s48 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s38 s75 s50 s53 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s39 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96
+ s95 s84 s87 s86 s71 s91 s77 s93 s57 s66
+Intersection at: (-37,5) -> s68 s44 s72 s83 s99 s98 s63 s41 s51 s55 s88 s48 s37 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s38 s75 s50 s53 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s85 s97 s67 s69 s39 s60 s70 s94 s46 s73 s59 s76 s43 s79
+ s96 s95 s84 s87 s86 s71 s91 s77 s93 s57 s66
+Intersection at: (-36,5) -> s72 s55 s88 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s50 s53 s42 s52 s89
+ s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-35,5) -> s72 s55 s88 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s67 s97 s85 s69 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s50 s53 s42 s52
+ s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-34,5) -> s72 s55 s88 s34 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s50 s53 s42
+ s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-33,5) -> s72 s55 s88 s34 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s67 s97 s85 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s50 s53
+ s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-32,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s50
+ s53 s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-31,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36
+ s50 s53 s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-30,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75
+ s36 s50 s53 s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-29,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75
+ s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-28,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38
+ s75 s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-27,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92 s56 s47
+ s38 s75 s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-26,5) -> s72 s26 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92 s56
+ s47 s38 s75 s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-25,5) -> s72 s26 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92
+ s56 s47 s38 s75 s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-24,5) -> s72 s26 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s78 s82 s62
+ s92 s56 s47 s38 s75 s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-23,5) -> s72 s26 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s78 s82
+ s62 s92 s56 s47 s38 s75 s36 s50 s53 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-22,5) -> s72 s26 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s22 s48 s78
+ s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-21,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s22
+ s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-20,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s22
+ s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-19,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48
+ s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-18,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51
+ s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-17,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35
+ s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-16,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35
+ s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-15,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35
+ s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-14,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s14 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28
+ s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-13,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s14 s68 s44 s27 s99 s83 s98 s63 s24 s41
+ s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-12,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s12 s30 s57 s14 s68 s44 s27 s99 s83 s98 s63 s24
+ s41 s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-11,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s12 s14 s68 s44 s27 s99 s83 s98 s63 s24
+ s41 s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-10,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s98 s63 s24
+ s41 s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-9,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s98 s63 s24
+s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-8,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s98 s63 s
+24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-7,5) -> s72 s26 s7 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s98 s6
+3 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-6,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s98
+ s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-5,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s5 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83
+s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-4,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83
+s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-3,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83
+s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-2,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83
+s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s2 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (-1,5) -> s72 s26 s21 s7 s1 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s
+83 s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s2 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (0,5) -> s72 s26 s21 s7 s1 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s8
+3 s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s2 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s0 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (0,5) -> s72 s26 s21 s7 s1 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s8
+3 s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s2 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s0 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (1,5) -> s72 s26 s21 s7 s1 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s8
+3 s98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s2 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (2,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s
+98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s2 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (3,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s
+98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s3 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (4,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s
+98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s4 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (5,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s5 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s
+98 s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (6,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s6 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s98
+s63 s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (7,5) -> s72 s26 s21 s7 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s98 s63
+ s24 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (8,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s8 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s98 s63 s2
+4 s41 s28 s35 s51 s9 s48 s78 s22 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (9,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s98 s63 s24 s
+41 s28 s35 s51 s48 s22 s78 s9 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (10,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s12 s57 s14 s68 s44 s27 s99 s83 s98 s63 s24
+s41 s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s10 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (11,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s12 s30 s14 s68 s44 s27 s99 s83 s98 s63 s24
+s41 s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s11 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (12,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s14 s12 s68 s44 s27 s99 s83 s98 s63 s24
+s41 s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (13,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s13 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s14 s68 s44 s27 s99 s83 s98 s63 s24 s41
+s28 s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (14,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s14 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28
+s35 s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (15,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35
+s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s15 s53 s50 s16 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (16,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35
+s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s16 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (17,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s17 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35
+s51 s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (18,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s18 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51
+s48 s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (19,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s19 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48
+s22 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (20,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s22
+s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s20 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (21,5) -> s72 s26 s21 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s22
+s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (22,5) -> s72 s26 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s22 s78
+s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (23,5) -> s72 s26 s23 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s78 s82
+s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (24,5) -> s72 s26 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s24 s41 s28 s35 s51 s48 s78 s82 s62
+s92 s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (25,5) -> s72 s26 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s25 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s27 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92
+s56 s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (26,5) -> s72 s26 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s27 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92 s56
+s47 s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (27,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s99 s83 s27 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92 s56 s47
+s38 s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (28,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s30 s57 s68 s44 s99 s83 s98 s63 s41 s28 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38
+s75 s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (29,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75
+s36 s53 s50 s42 s52 s89 s29 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (30,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s30 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75
+s36 s53 s50 s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (31,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s31 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36
+s53 s50 s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (32,5) -> s72 s55 s88 s34 s37 s45 s40 s32 s81 s74 s90 s61 s64 s65 s49 s58 s54 s67 s97 s85 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53
+s50 s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (33,5) -> s72 s55 s88 s34 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s33 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50
+s42 s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (34,5) -> s72 s55 s88 s34 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s67 s97 s85 s69 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s35 s51 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42
+s52 s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (35,5) -> s72 s55 s88 s37 s45 s40 s81 s74 s90 s61 s64 s65 s49 s58 s54 s85 s97 s67 s69 s60 s46 s73 s59 s84 s87 s71 s77 s95 s57 s68 s44 s99 s83 s98 s63 s41 s51 s35 s48 s78 s82 s62 s92 s56 s47 s38 s75 s36 s53 s50 s42 s52
+s89 s80 s39 s70 s94 s76 s43 s79 s96 s91 s86 s93 s66
+Intersection at: (36,5) -> s68 s44 s72 s99 s83 s98 s63 s41 s51 s55 s88 s48 s37 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s38 s75 s36 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s80 s67 s97 s85 s69 s39 s60 s70 s94 s46 s73 s59 s76
+s43 s79 s96 s84 s87 s91 s86 s71 s77 s95 s57 s66
+Intersection at: (37,5) -> s68 s44 s72 s83 s99 s98 s63 s41 s51 s55 s88 s48 s78 s37 s45 s40 s82 s62 s92 s81 s74 s56 s47 s38 s75 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s39 s60 s70 s94 s46 s73 s59 s76 s43 s79
+s96 s84 s87 s91 s86 s71 s95 s77 s93 s57 s66
+Intersection at: (38,5) -> s68 s44 s72 s99 s83 s98 s63 s41 s51 s55 s88 s48 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s75 s38 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s67 s97 s85 s69 s39 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96
+s84 s87 s91 s86 s71 s95 s77 s80 s57 s66
+Intersection at: (39,5) -> s68 s44 s72 s83 s99 s98 s63 s41 s51 s55 s88 s48 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s39 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s84
+s87 s91 s86 s71 s95 s77 s93 s57 s66
+Intersection at: (40,5) -> s68 s44 s72 s99 s83 s98 s63 s41 s51 s55 s88 s48 s78 s45 s40 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s84 s87
+s91 s86 s71 s95 s77 s80 s57 s66
+Intersection at: (41,5) -> s68 s44 s72 s83 s99 s98 s63 s41 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s84 s87 s91
+s86 s71 s95 s77 s93 s57 s66
+Intersection at: (42,5) -> s68 s44 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s42 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s43 s79 s96 s84 s87 s91 s86
+s71 s95 s77 s80 s57 s66
+Intersection at: (43,5) -> s68 s44 s72 s83 s99 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71
+s43 s77 s93 s57 s66
+Intersection at: (44,5) -> s68 s44 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71
+s77 s80 s57 s66
+Intersection at: (45,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s48 s78 s45 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77
+s93 s57 s66
+Intersection at: (46,5) -> s68 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s67 s97 s85 s69 s60 s70 s94 s46 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80
+s57 s66
+Intersection at: (47,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s48 s78 s82 s62 s92 s81 s74 s56 s47 s75 s53 s50 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57
+s66
+Intersection at: (48,5) -> s68 s72 s99 s83 s98 s63 s51 s55 s88 s48 s78 s82 s62 s92 s81 s74 s56 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s93 s54 s89 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s57 s66
 
-Intersection at: (49,5) -> s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s79 s51 s76 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s48 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (50,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s49 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (51,5) -> s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s50 s95 s58 s96 s62 s80 s79 s51 s76 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (52,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s51 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (53,5) -> s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s76 s73 s71 s64 s77 s52 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (54,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s54 s84 s83 s53 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (55,5) -> s82 s74 s87 s98 s55 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s76 s73 s71 s64 s77 s57 s54 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (56,5) -> s82 s74 s87 s98 s55 s72 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (57,5) -> s82 s74 s87 s98 s91 s65 s56 s60 s69 s95 s58 s96 s62 s80 s79 s76 s73 s71 s64 s77 s57 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (58,5) -> s82 s74 s87 s98 s72 s91 s65 s60 s69 s95 s58 s96 s62 s80 s79 s73 s71 s64 s77 s57 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (59,5) -> s82 s74 s87 s98 s91 s65 s60 s69 s95 s58 s96 s62 s80 s79 s76 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s72 s93
-Intersection at: (60,5) -> s82 s74 s87 s98 s72 s91 s65 s60 s69 s95 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s59 s94 s76 s93
-Intersection at: (61,5) -> s82 s74 s87 s98 s91 s65 s60 s69 s95 s96 s62 s80 s79 s76 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s72 s93
-Intersection at: (62,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s62 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s61 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (63,5) -> s82 s74 s87 s98 s91 s65 s69 s95 s96 s62 s80 s79 s76 s73 s71 s64 s77 s84 s83 s92 s97 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s72 s93
-Intersection at: (64,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s80 s79 s73 s71 s64 s77 s84 s83 s92 s97 s75 s85 s63 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (65,5) -> s82 s74 s87 s98 s91 s65 s69 s95 s96 s80 s79 s76 s73 s71 s64 s77 s84 s83 s92 s97 s75 s85 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s72 s93
-Intersection at: (66,5) -> s82 s74 s87 s98 s72 s91 s65 s69 s95 s96 s80 s79 s73 s71 s77 s84 s83 s92 s97 s75 s85 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s76 s93
-Intersection at: (67,5) -> s82 s74 s87 s98 s91 s69 s95 s96 s80 s79 s76 s73 s71 s77 s84 s83 s92 s97 s75 s85 s90 s67 s66 s88 s78 s68 s81 s70 s86 s89 s94 s72 s93
-Intersection at: (68,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s85 s90 s69 s95 s67 s73 s88 s78 s68 s96 s81 s80 s70 s86 s79 s89 s76 s94 s72 s93
-Intersection at: (69,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s85 s90 s69 s95 s73 s88 s78 s68 s96 s81 s80 s70 s86 s79 s89 s76 s94 s72 s93
-Intersection at: (70,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s85 s90 s69 s95 s73 s88 s78 s96 s81 s80 s70 s86 s79 s89 s76 s94 s72 s93
-Intersection at: (71,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s71 s97 s75 s91 s85 s90 s95 s73 s88 s78 s96 s81 s80 s70 s86 s79 s89 s76 s94 s72 s93
-Intersection at: (72,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s71 s75 s91 s85 s90 s95 s73 s88 s78 s96 s81 s80 s86 s79 s89 s76 s94 s72 s93
-Intersection at: (73,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s75 s91 s72 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s76 s94 s73 s93
-Intersection at: (74,5) -> s77 s82 s84 s74 s83 s87 s92 s98 s97 s75 s91 s85 s90 s95 s73 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (75,5) -> s77 s82 s84 s83 s74 s87 s92 s98 s97 s75 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (76,5) -> s77 s82 s84 s83 s87 s92 s98 s97 s75 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (77,5) -> s77 s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s76 s93
-Intersection at: (78,5) -> s77 s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s93
-Intersection at: (79,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s78 s96 s81 s80 s86 s79 s89 s94 s93
-Intersection at: (80,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s81 s80 s86 s79 s89 s94 s93
-Intersection at: (81,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s81 s80 s86 s89 s94 s93
-Intersection at: (82,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s81 s86 s89 s94 s93
-Intersection at: (83,5) -> s82 s84 s83 s87 s92 s98 s97 s91 s85 s90 s95 s88 s96 s86 s89 s94 s93
-Intersection at: (84,5) -> s95 s94 s88 s84 s83 s87 s92 s98 s97 s96 s91 s89 s85 s86 s90 s93
-Intersection at: (85,5) -> s95 s88 s84 s87 s92 s98 s97 s96 s86 s91 s89 s85 s94 s90 s93
-Intersection at: (86,5) -> s95 s91 s88 s87 s92 s98 s97 s96 s86 s89 s85 s94 s90 s93
-Intersection at: (87,5) -> s95 s88 s87 s92 s98 s97 s96 s86 s91 s89 s94 s90 s93
-Intersection at: (88,5) -> s95 s88 s87 s92 s98 s97 s96 s91 s89 s94 s90 s93
-Intersection at: (89,5) -> s95 s88 s92 s98 s97 s96 s91 s89 s94 s90 s93
-Intersection at: (90,5) -> s95 s92 s98 s97 s96 s91 s89 s94 s90 s93
-Intersection at: (91,5) -> s95 s92 s98 s97 s96 s91 s94 s90 s93
-Intersection at: (92,5) -> s92 s95 s98 s97 s96 s91 s94 s93
-Intersection at: (93,5) -> s92 s95 s96 s98 s97 s94 s93
-Intersection at: (94,5) -> s95 s98 s96 s97 s94 s93
-Intersection at: (95,5) -> s95 s96 s98 s97 s94
-Intersection at: (96,5) -> s98 s95 s96 s97
-Intersection at: (97,5) -> s96 s98 s97
-Intersection at: (98,5) -> s98 s97
-
+Intersection at: (49,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s50 s53 s90 s61 s52 s64 s65 s49 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (50,5) -> s68 s72 s99 s83 s98 s63 s51 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s50 s90 s61 s52 s64 s65 s93 s58 s54 s89 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s57 s66
+Intersection at: (51,5) -> s68 s72 s83 s99 s98 s63 s51 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s90 s61 s52 s64 s65 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (52,5) -> s68 s72 s99 s83 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s90 s61 s52 s64 s65 s93 s58 s54 s89 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s57 s66
+Intersection at: (53,5) -> s68 s72 s83 s99 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s53 s90 s61 s64 s65 s58 s54 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (54,5) -> s68 s72 s99 s83 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s90 s61 s64 s65 s93 s58 s89 s54 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s57 s66
+Intersection at: (55,5) -> s68 s72 s83 s99 s98 s63 s55 s88 s78 s82 s62 s92 s81 s74 s56 s75 s90 s61 s64 s65 s58 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (56,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s56 s75 s90 s61 s64 s65 s93 s58 s89 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s57 s66
+Intersection at: (57,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s58 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s57 s66
+Intersection at: (58,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s93 s58 s89 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s66
+Intersection at: (59,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s89 s80 s67 s97 s85 s69 s60 s70 s94 s73 s59 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (60,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s93 s89 s67 s97 s85 s69 s60 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s66
+Intersection at: (61,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s61 s64 s65 s89 s80 s67 s97 s85 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (62,5) -> s68 s72 s99 s83 s98 s63 s88 s78 s82 s62 s92 s81 s74 s75 s90 s64 s65 s93 s89 s67 s97 s85 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s66
+Intersection at: (63,5) -> s68 s72 s83 s99 s98 s63 s88 s78 s82 s92 s81 s74 s75 s90 s64 s65 s89 s80 s67 s97 s85 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (64,5) -> s68 s72 s99 s83 s98 s88 s78 s82 s92 s81 s74 s75 s90 s64 s65 s93 s89 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s66
+Intersection at: (65,5) -> s68 s72 s83 s99 s98 s88 s78 s82 s92 s81 s74 s75 s90 s65 s89 s80 s67 s97 s85 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93 s66
+Intersection at: (66,5) -> s68 s72 s99 s83 s98 s88 s78 s82 s92 s81 s74 s75 s90 s93 s89 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s80 s66
+Intersection at: (67,5) -> s68 s72 s83 s99 s98 s88 s78 s82 s92 s81 s74 s75 s90 s89 s80 s85 s97 s67 s69 s70 s94 s73 s76 s79 s96 s95 s84 s87 s91 s86 s71 s77 s93
+Intersection at: (68,5) -> s68 s72 s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s69 s70 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (69,5) -> s72 s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s69 s70 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (70,5) -> s72 s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s70 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (71,5) -> s72 s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s71 s77 s93
+Intersection at: (72,5) -> s72 s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (73,5) -> s90 s83 s99 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s73 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (74,5) -> s90 s99 s83 s98 s89 s86 s88 s80 s85 s78 s97 s94 s82 s92 s81 s74 s76 s79 s96 s95 s75 s84 s87 s91 s77 s93
+Intersection at: (75,5) -> s90 s83 s99 s98 s89 s88 s80 s85 s78 s97 s94 s82 s92 s81 s76 s79 s96 s95 s84 s87 s91 s86 s75 s77 s93
+Intersection at: (76,5) -> s90 s99 s83 s98 s89 s88 s80 s85 s78 s97 s94 s82 s92 s81 s76 s79 s96 s95 s84 s87 s91 s86 s77 s93
+Intersection at: (77,5) -> s90 s83 s99 s98 s89 s88 s80 s85 s78 s97 s94 s82 s92 s81 s79 s96 s95 s84 s87 s91 s86 s77 s93
+Intersection at: (78,5) -> s90 s99 s83 s98 s89 s88 s80 s85 s97 s78 s94 s82 s92 s81 s79 s96 s95 s84 s87 s91 s86 s93
+Intersection at: (79,5) -> s90 s83 s99 s98 s89 s88 s80 s85 s97 s94 s82 s92 s81 s96 s79 s95 s84 s87 s91 s86 s93
+Intersection at: (80,5) -> s90 s99 s83 s98 s93 s89 s88 s80 s85 s97 s94 s82 s92 s81 s96 s84 s87 s91 s86 s95
+Intersection at: (81,5) -> s90 s83 s99 s98 s93 s89 s88 s85 s97 s94 s82 s92 s81 s96 s84 s87 s91 s86 s95
+Intersection at: (82,5) -> s90 s99 s83 s98 s93 s89 s88 s85 s97 s94 s82 s92 s96 s84 s87 s91 s86 s95
+Intersection at: (83,5) -> s90 s99 s83 s98 s93 s89 s88 s85 s97 s94 s92 s96 s84 s87 s91 s86 s95
+Intersection at: (84,5) -> s90 s99 s94 s92 s98 s96 s89 s86 s87 s95 s88 s91 s85 s97 s84 s93
+Intersection at: (85,5) -> s90 s94 s99 s92 s98 s93 s96 s89 s85 s87 s88 s86 s91 s97 s95
+Intersection at: (86,5) -> s90 s99 s94 s92 s98 s96 s89 s95 s87 s86 s88 s91 s97 s93
+Intersection at: (87,5) -> s90 s94 s99 s92 s98 s93 s96 s89 s87 s88 s91 s97 s95
+Intersection at: (88,5) -> s90 s99 s94 s92 s98 s96 s89 s95 s91 s88 s97 s93
+Intersection at: (89,5) -> s90 s94 s99 s92 s98 s93 s96 s89 s91 s97 s95
+Intersection at: (90,5) -> s90 s99 s94 s92 s98 s96 s95 s91 s97 s93
+Intersection at: (91,5) -> s94 s99 s92 s98 s93 s96 s91 s97 s95
+Intersection at: (92,5) -> s96 s92 s99 s94 s97 s98 s95 s93
+Intersection at: (93,5) -> s96 s94 s99 s97 s98 s95 s93
+Intersection at: (94,5) -> s96 s99 s94 s97 s98 s95
+Intersection at: (95,5) -> s96 s99 s97 s98 s95
+Intersection at: (96,5) -> s97 s98 s96 s99
+Intersection at: (97,5) -> s97 s98 s99
+Intersection at: (98,5) -> s98 s99

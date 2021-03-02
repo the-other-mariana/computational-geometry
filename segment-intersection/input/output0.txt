@@ -1,7 +1,4 @@
-Value repeated: (50, 50)
-Value repeated: (50, 50)
-Value repeated: (50, 50)
-Intersection at: (20.614035087719298,58.175438596491226) -> s0 s1
-Intersection at: (50,50) -> s2 s3 s6
-Intersection at: (49.348684210526315,44.57236842105263) -> s5 s6
-Intersection at: (15.16197666437886,34.420041180507894) -> s0 s4
+Intersection at: (20.614035087719298,58.175438596491226) -> s1 s2
+Intersection at: (50,50) -> s7 s3 s4
+Intersection at: (49.348684210526315,44.57236842105263) -> s7 s6
+Intersection at: (15.16197666437886,34.420041180507894) -> s1 s5
