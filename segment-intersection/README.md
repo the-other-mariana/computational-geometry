@@ -4,9 +4,9 @@
 
 This preview shows how the algorithm makes the illusion of a 'sweep line' as it works through the structures of T and Q. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-02.gif) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-03.gif) <br />
 
-*Note: the program computes also intersections that happen in exact endings of segments as well, its up to you if you want them included or not. This preview, for example, include those.*
+*Note: the program computes also intersections that happen in exact endings of segments as well, its up to you if you want them included or not. This preview, for example, it includes those.*
 
 ## 1. Introduction
 
