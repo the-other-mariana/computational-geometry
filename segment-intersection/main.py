@@ -124,10 +124,10 @@ def processEvent(p):
 		R_segs.append([s.index for s in UCL])
 		# print output on the go
 		if live_output:
-			ucl = [s.index for s in UCL]
+			ucl = list(UCL)
 			segs_involved = ""
 			for j in range(len(ucl)):
-				segs_involved += "s" + str(ucl[j]) + " "
+				segs_involved += str(ucl[j].name) + " "
 			print(("Intersection at: ({x},{y}) -> " + segs_involved).format(x=p.x, y=p.y))
 
 	for s in (L.union(C)):
@@ -198,12 +198,12 @@ if __name__ == "__main__":
 	for line in flines[offset:]:
 		pts = line.split(' ')
 
-		segment = iteration
+		segmentName = iteration
 		# if file contains segment name (store it) or not (segment id is num of interation) at the end of line
 		try:
-			segment = int("".join(filter(str.isdigit, pts[len(pts) - 1]))) - 1
+			segmentName = pts[len(pts) - 1].rstrip("\n")
 		except:
-			segment = iteration
+			segmentName = iteration
 
 
 		seg = []
@@ -215,9 +215,9 @@ if __name__ == "__main__":
 			seg.append(pt)
 		seg_sorted = sorted(seg, key=lambda p: p.y, reverse=True)
 		for i in range(len(seg_sorted)):
-			e = Event(seg_sorted[i], segment, i)
+			e = Event(seg_sorted[i], iteration, i)
 			ev.append(e)
-		s = Segment(seg_sorted[0], seg_sorted[1], segment)
+		s = Segment(seg_sorted[0], seg_sorted[1], iteration, segmentName)
 		tot_seg.append(s)
 		iteration += 1
 
@@ -294,7 +294,7 @@ if __name__ == "__main__":
 			mid = Point.midPoint(tot_seg[i].start, tot_seg[i].end)
 			coord = tuple([mid.x, mid.y])
 			coordt = tuple([mid.x + 2, mid.y])
-			ax1.annotate("S{0}".format(i), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
+			ax1.annotate("{n}".format(n=tot_seg[i].name), xy=coord, xytext=coordt, size=10, arrowprops = dict(facecolor ='black',width=1,headwidth=4))
 
 		plt.show()
 

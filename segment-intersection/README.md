@@ -240,15 +240,15 @@ The input from the file [0.in](https://github.com/the-other-mariana/computationa
 ## Output
 The output are the corresponding intersections from the given set marked in red. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/output-final.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/output-final-02.png?raw=true) <br />
 
 The output from console looks as follows. <br />
 
 ```
-Intersection at: (20.614035087719298,58.175438596491226) -> s0 s1
-Intersection at: (50,50) -> s2 s3 s6
-Intersection at: (49.348684210526315,44.57236842105263) -> s5 s6
-Intersection at: (15.16197666437886,34.420041180507894) -> s0 s4
+Intersection at: (20.614035087719298,58.175438596491226) -> s1 s2
+Intersection at: (50,50) -> s3 s4 s7
+Intersection at: (49.348684210526315,44.57236842105263) -> s6 s7
+Intersection at: (15.16197666437886,34.420041180507894) -> s1 s5
 ```
 
 ## Handy Links

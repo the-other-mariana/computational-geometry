@@ -3,10 +3,11 @@ from glibrary import Point, Vector, Line
 eps = 10**-4
 
 class Segment():
-	def __init__(self, p1=Point(), p2=Point(), index=0):
+	def __init__(self, p1=Point(), p2=Point(), index=0, name=""):
 		self.start = p1
 		self.end = p2
 		self.index = index
+		self.name = name
 
 	def __repr__(self):
 		return f"S[start:{self.start} end:{self.end} idx:{self.index}]"
