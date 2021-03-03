@@ -81,19 +81,16 @@ if __name__ == "__main__":
     for line in vlines[4:]:
         data = re.sub(' +', ' ', line).split()
         v = Vertex(data[0], Point(data[1], data[2]))
-        verts.append(v)
         objMap[v.name] = v
 
     for line in elines[4:]:
         data = re.sub(' +', ' ', line).split()
         e = Edge(data[0])
-        edges.append(e)
         objMap[e.name] = e
 
     for line in flines[4:]:
         data = re.sub(' +', ' ', line).split()
         f = Face(data[0])
-        faces.append(f)
         objMap[f.name] = f
 
     # after none init in map, go back and fill
@@ -121,7 +118,10 @@ if __name__ == "__main__":
         objMap[name].internal = getMapValue(data[1], objMap)
         objMap[name].external = getMapValue(data[2], objMap)
 
-    #print(verts, edges, faces)
     printMap(objMap)
+    verts = [objMap[key] for key in objMap.keys() if "p" in key]
+    edges = [objMap[key] for key in objMap.keys() if "s" in key]
+    faces = [objMap[key] for key in objMap.keys() if "f" in key]
+    print(verts, edges, faces)
 
 
