@@ -1,6 +1,6 @@
-Archivo de vértices
+Vertex file
 #################################
-Nombre  x       y       Incidente
+Name    x       y       Incident
 #################################
 p1      0       10      s11
 p2      10      0       s12
