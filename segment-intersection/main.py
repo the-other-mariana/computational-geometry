@@ -4,11 +4,11 @@ from ttree import *
 import matplotlib.pyplot as plt
 from matplotlib import collections  as mc
 
-INPUT_FILE = 'input/test.in'
-fast = False
+INPUT_FILE = 'input/0.in'
+
 animated = False
 single_plot = True
-live_output = True
+live_output = True # prints output on the go or at the end
 
 # function that creates and saves a plot frame
 def paint(p):
@@ -177,6 +177,7 @@ if __name__ == "__main__":
 	flines = file1.readlines()
 	N = 0
 	offset = 1
+	fast = True
 
 	# support files with starting line with N or not
 	try:
@@ -201,7 +202,7 @@ if __name__ == "__main__":
 		pts = line.split(' ')
 
 		segmentName = iteration
-		# if file contains segment name (store it) or not (segment id is num of interation) at the end of line
+		# if file contains segment name (store it) or not (segment id is num of iteration) at the end of line
 		if "s" in pts[len(pts) - 1]:
 			segmentName = pts[len(pts) - 1].rstrip("\n")
 		else:
@@ -275,7 +276,7 @@ if __name__ == "__main__":
 				segs_involved += "s" + str(R_segs[i][j]) + " "
 			print(("Intersection at: ({x},{y}) -> " + segs_involved).format(x=R[i].x, y=R[i].y))
 
-	# PLOTTING
+	# plotting if single_plot is True
 	if not animated and single_plot:
 		plt_segs = []
 
