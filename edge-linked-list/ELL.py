@@ -13,10 +13,10 @@ class Vertex:
         self.incident = None # edge
 
     def __repr__(self):
-        return f"V[name:{self.name}, pos:{self.pos}, incident:{self.incident}]"
+        return f"V[name:{self.name}, pos:{self.pos}]"
 
     def __str__(self):
-        return "V[name:{n}, pos:{p}, incident:{i}]".format(n=self.name, p=self.pos, i=self.incident)
+        return "V[name:{n}, pos:{p}]".format(n=self.name, p=self.pos)
 
 class Edge:
     def __init__(self, ename=""):
@@ -28,10 +28,10 @@ class Edge:
         self.prev = None # egde
 
     def __repr__(self):
-        return f"E[name:{self.name}, origin:{self.origin}, mate:{self.mate}, face:{self.face}, next:{self.next}, prev:{self.prev}]"
+        return f"E[name:{self.name}]"
 
     def __str__(self):
-        return "E[name:{n}, origin:{o}, mate:{m}, face:{f}, next:{nx}, prev:{p}]]".format(n=self.name, o=self.origin, m=self.mate, f=self.face, nx=self.next, p=self.prev)
+        return "E[name:{n}]".format(n=self.name)
 
 class Face:
     def __init__(self, fname=""):
@@ -40,16 +40,26 @@ class Face:
         self.external = None # edge
 
     def __repr__(self):
-        return f"F[name:{self.name}, internal:{self.internal}, external:{self.external}]"
+        return f"F[name:{self.name}]"
 
     def __str__(self):
-        return "F[name:{n}, internal:{i}, external:{e}]".format(n=self.name, i=self.internal, e=self.external)
+        return "F[name:{n}]".format(n=self.name)
 
 
 
 def getMapValue(data, objMap):
     if data.rstrip("\n") != 'None': return objMap[data]
     else: return None
+
+def printMap(objMap):
+    for key in objMap.keys():
+        obj = objMap[key]
+        if "p" in obj.name: # vertex
+            print(key, 'incident:', obj.incident)
+        if "s" in obj.name: # edge
+            print(key, 'origin:', obj.origin, 'mate:', obj.mate, 'face:', obj.face, 'next:', obj.next, 'prev:', obj.prev)
+        if "f" in obj.name: # face
+            print(key, 'internal:', obj.internal, 'external:', obj.external)
 
 if __name__ == "__main__":
 
@@ -112,4 +122,6 @@ if __name__ == "__main__":
         objMap[name].external = getMapValue(data[2], objMap)
 
     #print(verts, edges, faces)
-    print(objMap.keys())
+    printMap(objMap)
+
+
