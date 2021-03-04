@@ -1,0 +1,53 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.3in]{geometry}
+\usepackage[ruled,vlined,linesnumbered]{algorithm2e}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+
+\renewcommand{\thealgocf}{}
+
+\SetAlgorithmName{Algorithm}{algorithm}{Algorithms}
+\SetKwFor{While}{\textcolor{RoyalBlue}{While}}{\textcolor{RoyalBlue}{:}}{}
+\SetKwIF{If}{ElseIf}{Else}{if}{then}{else if}{else}{end if} 
+\SetKwInput{KwResult}{\textcolor{olive}{Output}}
+\SetKwInput{KwData}{\textcolor{olive}{Input}}
+\SetKwFor{For}{\textcolor{RoyalBlue}{For}}{\textcolor{RoyalBlue}{:}}{}
+\SetKw{KwTo}{\textcolor{RoyalBlue}{until}}
+\SetKw{KwReturn}{\textcolor{RoyalBlue}{Return}}
+\SetKwInput{Return}{return}
+\SetKwRepeat{Repeat}{repeat}{while}
+\newcommand{\action}[1]{\textcolor{red}{\textbf {#1 }}}
+
+\let\oldnl\nl% Store \nl in \oldnl
+\newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line
+
+\begin{document}
+
+\section*{The Convex Hull}
+
+The Convex Hull of a shape (set of points) is the smallest convex set that contains it. It is a shape that has no holes and covers all the set of points. The points that are part of the Convex Hull contain all the remaining points of the set inside of the resulting shape.
+\\
+
+\begin{algorithm}[H]
+
+\SetAlgoLined
+\KwData{\textbf{P}: Set of points in a 2D plane}
+\KwResult{\textbf{CH}: List with the vertices of the \textit{Convex Hull} with orientation \textit CW }
+\nonl\hrulefill\\
+ \action{Sort} the points in lexicographic order, resulting in the sequence $p_1,\cdots,p_n$\\
+ \action{Append} the points $p_1$ and $p_2$ in a list $U$, with $p_1$ as the first point.\\
+ \For{$i\leftarrow 3$  \KwTo  $n$}{
+    \action{Append} $p_i$ to $U$\\
+    \While{$U$ has more than two points \textbf{and} the last three \textbf{do not} form a CCW turn}{
+        \action{Delete} the penultimate point of $U$
+    }
+  }  
+\action{Repeat} from step 2, but now with a new list $L$, starting from right to left, with starting points $p_n$ and $p_{n-1}$.\\
+\action{Delete} the first and last point of $L$ to avoid the duplicates in $U$.\\
+\action{Join} $U$ with $L$ to form the Convex Hull $CH$.\\
+\KwReturn $CH$ \\
+ 
+\caption{Convex Hull}
+
+\end{algorithm}
+\end{document}
