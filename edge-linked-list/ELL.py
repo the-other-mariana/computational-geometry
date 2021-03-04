@@ -2,9 +2,9 @@
 from glibrary import Point, Line, Vector
 import re
 
-INPUT_VERTEX = 'input/01/layer01.ver'
-INPUT_EDGE = 'input/01/layer01.ari'
-INPUT_FACE = 'input/01/layer01.car'
+INPUT_VERTEX = 'input/03/layer01.ver'
+INPUT_EDGE = 'input/03/layer01.ari'
+INPUT_FACE = 'input/03/layer01.car'
 
 class Vertex:
     def __init__(self, vname="", pos=Point()):
@@ -48,18 +48,13 @@ class Face:
 
 
 def getMapValue(data, objMap):
-    if data.rstrip("\n") != 'None': return objMap[data]
-    else: return None
-
-def printMap(objMap):
-    for key in objMap.keys():
-        obj = objMap[key]
-        if "p" in obj.name: # vertex
-            print(key, 'incident:', obj.incident)
-        if "s" in obj.name: # edge
-            print(key, 'origin:', obj.origin, 'mate:', obj.mate, 'face:', obj.face, 'next:', obj.next, 'prev:', obj.prev)
-        if "f" in obj.name: # face
-            print(key, 'internal:', obj.internal, 'external:', obj.external)
+    if "[" in data:
+        data = data[1:(len(data) - 1)].split(',')
+        return [objMap[d] for d in data]
+    elif data.rstrip("\n") != 'None':
+        return objMap[data]
+    else:
+        return None
 
 if __name__ == "__main__":
 
@@ -72,56 +67,67 @@ if __name__ == "__main__":
     faceFile = open(INPUT_FACE, 'r')
     flines = faceFile.readlines()
 
-    objMap = {}
+    vMap = {}
+    eMap = {}
+    fMap = {}
     verts = []
     edges = []
     faces = []
 
     # indexes 0 1 2 3 contain just headers
+    # vertex reading
     for line in vlines[4:]:
         data = re.sub(' +', ' ', line).split()
         v = Vertex(data[0], Point(data[1], data[2]))
-        objMap[v.name] = v
-
+        vMap[v.name] = v
+    # edges reading
     for line in elines[4:]:
         data = re.sub(' +', ' ', line).split()
         e = Edge(data[0])
-        objMap[e.name] = e
-
+        eMap[e.name] = e
+    # faces reading
     for line in flines[4:]:
         data = re.sub(' +', ' ', line).split()
         f = Face(data[0])
-        objMap[f.name] = f
+        fMap[f.name] = f
 
     # after none init in map, go back and fill
     # fill vertices
     for line in vlines[4:]:
         data = re.sub(' +', ' ', line).split()
         name = data[0]
-        objMap[name].incident = getMapValue(data[3], objMap)
+        vMap[name].incident = getMapValue(data[3], eMap)
 
     # fill edges
     for line in elines[4:]:
         data = re.sub(' +', ' ', line).split()
         name = data[0]
 
-        objMap[name].origin = getMapValue(data[1], objMap)
-        objMap[name].mate = getMapValue(data[2], objMap)
-        objMap[name].face = getMapValue(data[3], objMap)
-        objMap[name].next = getMapValue(data[4], objMap)
-        objMap[name].prev = getMapValue(data[5], objMap)
+        eMap[name].origin = getMapValue(data[1], vMap)
+        eMap[name].mate = getMapValue(data[2], eMap)
+        eMap[name].face = getMapValue(data[3], fMap)
+        eMap[name].next = getMapValue(data[4], eMap)
+        eMap[name].prev = getMapValue(data[5], eMap)
 
     # fill faces
     for line in flines[4:]:
         data = re.sub(' +', ' ', line).split()
         name = data[0]
-        objMap[name].internal = getMapValue(data[1], objMap)
-        objMap[name].external = getMapValue(data[2], objMap)
+        fMap[name].internal = getMapValue(data[1], eMap) # []
+        fMap[name].external = getMapValue(data[2], eMap)
 
-    printMap(objMap)
-    verts = [objMap[key] for key in objMap.keys() if "p" in key]
-    edges = [objMap[key] for key in objMap.keys() if "s" in key]
-    faces = [objMap[key] for key in objMap.keys() if "f" in key]
-    print(verts, edges, faces)
+    print("Enter face:")
+    inputFace = str(input()) # read external
+    extEdge = fMap[inputFace].external
+    edge = extEdge
+    while edge.next.name != extEdge.name:
+        p = edge.origin
+        edge = edge.next
+
+    #printMap(objMap)
+    #verts = [objMap[key] for key in objMap.keys() if "p" in key]
+    #edges = [objMap[key] for key in objMap.keys() if "s" in key]
+    #faces = [objMap[key] for key in objMap.keys() if "f" in key]
+    #print(verts, edges, faces)
 
 
