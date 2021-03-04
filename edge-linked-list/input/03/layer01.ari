@@ -1,0 +1,28 @@
+Archivo de aristas
+#############################################
+Nombre  Origen  Pareja  Cara    Sigue   Antes
+#############################################
+f1      A       f2      CARA1   i1      g1
+f2      D       f1      CARA2   g2      i2
+i1      D       i2      CARA1   h1      f1
+i2      C       i1      CARA2   f2      h2
+h1      C       h2      CARA1   g1      i1
+h2      B       h1      CARA2   i2      g2
+g1      B       g2      CARA1   f1      h1
+g2      A       g1      CARA2   h2      f2
+l1      E       l2      CARA1   k1      j1
+l2      G       l1      CARA3   j2      k2
+k1      G       k2      CARA1   j1      l1
+k2      F       k1      CARA3   l2      j2
+j1      F       j2      CARA1   l1      k1
+j2      E       j1      CARA3   k2      l2
+m1      I       m2      CARA1   r1      n1
+m2      H       m1      CARA4   n2      r2
+r1      H       r2      CARA1   q1      m1 
+r2      L       r1      CARA4   m2      q2
+q1      L       q2      CARA1   p1      r1
+q2      K       q1      CARA4   r2      p2
+p1      K       p2      CARA1   n1      q1
+p2      J       p1      CARA4   q2      n2
+n1      J       n2      CARA1   m1      p1
+n2      I       n1      CARA4   p2      m2
