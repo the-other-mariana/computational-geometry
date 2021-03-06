@@ -1,0 +1,10 @@
+Archivo de aristas
+#############################################
+Nombre  Origen  Pareja  Cara    Sigue   Antes
+#############################################
+s11     p1      s12     f1      s21     s31
+s12     p2      s11     f2      s32     s22
+s21     p2      s22     f1      s31     s11
+s22     p3      s21     f2      s12     s32
+s31     p3      s32     f1      s11     s21
+s32     p1      s31     f2      s22     s12
