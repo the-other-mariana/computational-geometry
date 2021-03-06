@@ -1,4 +1,4 @@
-'''Code that implements an Edge Linked List from input files'''
+'''Code that implements an Edge Linked List (map) from input files'''
 from glibrary import Point, Line, Vector
 import numpy as np
 from matplotlib import pyplot as plt
