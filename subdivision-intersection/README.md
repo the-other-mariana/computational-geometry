@@ -76,6 +76,10 @@ CARA4   None           m2
 
 These files will connect within each other, because faces contain edges, which contain vertices. Edges are supposed to have a **mate or pair**, which is also an edge starting and ending in the same points, but pointing in another orientation. This is because the faces can be the area of, for example, a polygon, or the area **surrounding** that polygon. <br />
 
+The three files shown above represent the following set: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/diagram.jpeg?raw=true)
+
 ### 1.1.1 Edge Linked List Queries
 
 To test the correct organization of the map (Edge Linked List), the [ELL.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/ELL.py) works as following:
