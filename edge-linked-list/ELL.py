@@ -1,5 +1,8 @@
 '''Code that implements an Edge Linked List from input files'''
 from glibrary import Point, Line, Vector
+import numpy as np
+from matplotlib import pyplot as plt
+from matplotlib.patches import Polygon
 import re
 
 INPUT_VERTEX = 'input/03/layer01.ver'
@@ -78,7 +81,9 @@ if __name__ == "__main__":
     # vertex reading
     for line in vlines[4:]:
         data = re.sub(' +', ' ', line).split()
-        v = Vertex(data[0], Point(data[1], data[2]))
+        x = float(data[1]) if '.' in data[1] else int(data[1])
+        y = float(data[2]) if '.' in data[2] else int(data[2])
+        v = Vertex(data[0], Point(x, y))
         vMap[v.name] = v
     # edges reading
     for line in elines[4:]:
@@ -118,12 +123,33 @@ if __name__ == "__main__":
 
     print("Enter face:")
     inputFace = str(input()) # read external
+    figs = []
     extEdge = fMap[inputFace].external
-    edge = extEdge
-    while edge.next.name != extEdge.name:
-        p = edge.origin
-        edge = edge.next
+    if extEdge != None:
+        edge = extEdge
+        started = False
+        pts = []
+        while edge.name != extEdge.name or not started:
+            started = True
+            v = edge.origin
+            print(v.name)
+            pts.append([v.pos.x, v.pos.y])
+            edge = edge.next
+        print(pts)
+        figs.append(pts)
 
+    fig = plt.figure()
+    fig.add_subplot()
+    ax1 = plt.gca()
+
+    for f in figs:
+        xp = [p[0] for p in f]
+        yp = [p[1] for p in f]
+        ax1.scatter(xp, yp,s=100, marker="o", zorder=10)
+        p = Polygon(np.array(f), facecolor = 'powderblue')
+        ax1.add_patch(p)
+
+    plt.show()
     #printMap(objMap)
     #verts = [objMap[key] for key in objMap.keys() if "p" in key]
     #edges = [objMap[key] for key in objMap.keys() if "s" in key]
