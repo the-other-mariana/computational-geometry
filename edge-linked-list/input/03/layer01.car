@@ -1,6 +1,6 @@
-Archivo de caras
+Face file
 #######################
-Nombre  Interno        Externo
+Name    Internal        External
 #######################
 CARA1   [f1,q1,l1]     None
 CARA2   None           g2

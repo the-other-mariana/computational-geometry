@@ -59,6 +59,20 @@ def getMapValue(data, objMap):
     else:
         return None
 
+def analyzeFig(figs, reqEdge):
+    edge = reqEdge
+    started = False
+    pts = []
+    while edge.name != reqEdge.name or not started:
+        started = True
+        v = edge.origin
+        print(v.name)
+        pts.append([v.pos.x, v.pos.y])
+        edge = edge.next
+    print(pts)
+    figs.append(pts)
+    return figs
+
 if __name__ == "__main__":
 
     vertFile = open(INPUT_VERTEX, 'r')
@@ -124,19 +138,24 @@ if __name__ == "__main__":
     print("Enter face:")
     inputFace = str(input()) # read external
     figs = []
-    extEdge = fMap[inputFace].external
-    if extEdge != None:
-        edge = extEdge
-        started = False
-        pts = []
-        while edge.name != extEdge.name or not started:
-            started = True
-            v = edge.origin
-            print(v.name)
-            pts.append([v.pos.x, v.pos.y])
-            edge = edge.next
-        print(pts)
-        figs.append(pts)
+    pts = []
+
+    # check externals
+    if fMap[inputFace].external != None:
+        reqEdge = fMap[inputFace].external
+        figs = analyzeFig(figs, reqEdge)
+
+    # check internals, list of figs inside
+    elif isinstance(fMap[inputFace].internal, list):
+        internalEdges = fMap[inputFace].internal
+        for i in range(len(internalEdges)):
+            reqEdge = internalEdges[i]
+            figs = analyzeFig(figs, reqEdge)
+
+    # check internals, one fig inside
+    elif fMap[inputFace].internal != None and not isinstance(fMap[inputFace].internal, list):
+        reqEdge = fMap[inputFace].internal
+        figs = analyzeFig(figs, reqEdge)
 
     fig = plt.figure()
     fig.add_subplot()

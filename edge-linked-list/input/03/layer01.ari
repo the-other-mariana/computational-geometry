@@ -1,6 +1,6 @@
-Archivo de aristas
+Edge file
 #############################################
-Nombre  Origen  Pareja  Cara    Sigue   Antes
+Name    Origin  Mate    Face    Next   Prev
 #############################################
 f1      A       f2      CARA1   i1      g1
 f2      D       f1      CARA2   g2      i2
