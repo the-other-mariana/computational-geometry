@@ -3,11 +3,12 @@ from glibrary import Point, Line, Vector
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.patches import Polygon
+from matplotlib.patches import PathPatch
 import re
 
-INPUT_VERTEX = 'input/03/layer01.ver'
-INPUT_EDGE = 'input/03/layer01.ari'
-INPUT_FACE = 'input/03/layer01.car'
+INPUT_VERTEX = 'input/01/layer02.ver'
+INPUT_EDGE = 'input/01/layer02.ari'
+INPUT_FACE = 'input/01/layer02.car'
 
 class Vertex:
     def __init__(self, vname="", pos=Point()):
@@ -164,9 +165,12 @@ if __name__ == "__main__":
     for f in figs:
         xp = [p[0] for p in f]
         yp = [p[1] for p in f]
-        ax1.scatter(xp, yp,s=100, marker="o", zorder=10)
+        ax1.scatter(xp, yp,s=100, marker="o", zorder=10, color='black')
         p = Polygon(np.array(f), facecolor = 'powderblue')
         ax1.add_patch(p)
+        path = p.get_path()
+        patch = PathPatch(path, facecolor='powderblue', lw=2)
+        ax1.add_patch(patch)
 
     plt.show()
     #printMap(objMap)
