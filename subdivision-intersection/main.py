@@ -1,14 +1,18 @@
 '''Code that implements an Edge Linked List (map) from input files'''
 from glibrary import Point, Line, Vector
+from segint.Segmento import Segmento
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.patches import Polygon
 from matplotlib.patches import PathPatch
 import re
 
+from segint.algoritmo import AlgoritmoBarrido
+
 LAYERS = 2
 INPUT_ID = '01'
-
+TOT_PTS = []
+TOT_SEGS = []
 
 class Vertex:
     def __init__(self, vname="", pos=Point()):
@@ -49,8 +53,6 @@ class Face:
     def __str__(self):
         return "F[name:{n}]".format(n=self.name)
 
-
-
 def getMapValue(data, objMap):
     if "[" in data:
         data = data[1:(len(data) - 1)].split(',')
@@ -61,16 +63,30 @@ def getMapValue(data, objMap):
         return None
 
 def analyzeFig(figs, reqEdge):
+    global TOT_PTS
+    global TOT_SEGS
+
     edge = reqEdge
     started = False
     pts = []
+    fig_segs = []
+    # get all the current figure's vertices
     while edge.name != reqEdge.name or not started:
         started = True
         v = edge.origin
         print(v.name)
-        pts.append([v.pos.x, v.pos.y])
+        pts.append([v.pos.x, v.pos.y]) # as list instead of Point for plot
+        TOT_PTS.append(v.pos)
         edge = edge.next
-    print(pts)
+
+    for i in range(len(pts) - 1):
+        start = pts[i % len(pts)]
+        end = pts[(i + 1) % len(pts)]
+        s = Segmento(Point(start[0], start[1]), Point(end[0], end[1]))
+        #fig_segs.append(s)
+        TOT_SEGS.append(s)
+
+    #TOT_SEGS.append(fig_segs)
     figs.append(pts)
     return figs
 
@@ -160,6 +176,15 @@ if __name__ == "__main__":
         if fMap[key].internal != None and not isinstance(fMap[key].internal, list):
             reqEdge = fMap[key].internal
             figs = analyzeFig(figs, reqEdge)
+
+    print("Points:",TOT_PTS)
+    print("Segments:",TOT_SEGS)
+
+    # CALL SEGMENT INTERSECTION ALGORITHM
+    barr = AlgoritmoBarrido(TOT_SEGS)
+    barr.barrer()
+    print("Output", barr.R, type(barr.R[0]))
+    [print("New vertex:",p) for p in barr.R if not isinstance(p, set)]
 
     # PLOTTING
     fig = plt.figure()

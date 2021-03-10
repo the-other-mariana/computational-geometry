@@ -1,6 +1,6 @@
-from Eventos import Eventos
-from LineaBarrido import LineaBarrido
-from Evento import Evento
+from segint.Eventos import Eventos
+from segint.LineaBarrido import LineaBarrido
+from segint.Evento import Evento
 from colorama import Fore as F
 from colorama import Style as S
 

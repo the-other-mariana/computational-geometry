@@ -1,14 +1,15 @@
-from Punto import Punto
+#from Punto import Punto
+from segint.glibrary import Point
 from math import inf
 from colorama import Fore as F
 from colorama import Style as S
 
 class Segmento:
-  def __init__(self, p1=Punto(),p2=Punto()):
+  def __init__(self, p1=Point(),p2=Point()):
     self.puntos = sorted([p1,p2])
     self.x = p1.x
   def __repr__(self):
-    return f"[{self.puntos[0]}, {self.puntos[1]}]"
+    return f"S[{self.puntos[0]}, {self.puntos[1]}]"
   def __hash__(self):
     return hash(tuple(self.puntos))
   def calcularX(self, y):
@@ -48,6 +49,6 @@ class Segmento:
         min(x1,x2)<= x <= max(x1,x2) and\
         min(x3,x4)<= x <= max(x3,x4):
           #print(f"\t{F.YELLOW}Intersección válida{S.RESET_ALL}")
-          return Punto(x,y)
+          return Point(x,y)
     else:
       return None

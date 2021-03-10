@@ -1,4 +1,4 @@
-from Constantes import eps
+from segint.Constantes import eps
 
 class Punto:
   def __init__(self, x=0, y=0):

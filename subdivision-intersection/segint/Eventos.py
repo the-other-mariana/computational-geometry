@@ -1,5 +1,5 @@
-from Cola import Cola
-from Evento import Evento
+from segint.Cola import Cola
+from segint.Evento import Evento
 
 class Eventos:
   def __init__(self):

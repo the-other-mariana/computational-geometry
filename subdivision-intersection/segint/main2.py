@@ -1,11 +1,12 @@
-from algoritmo import AlgoritmoBarrido
-from Punto import Punto
-from Segmento import Segmento
+from segint.algoritmo import AlgoritmoBarrido
+#from Punto import Punto
+from segint.glibrary import Point
+from segint.Segmento import Segmento
 
 def main():
 
-	s1 = Segmento(Punto(10,10), Punto(0,0))
-	s2 = Segmento(Punto(10,0), Punto(0,10))
+	s1 = Segmento(Point(10,10), Point(0,0))
+	s2 = Segmento(Point(10,0), Point(0,10))
 
 	INPUT_FILE = '1.in'
 
@@ -47,7 +48,7 @@ def main():
 		for i in range(0, len(pts) - 1, 2):
 			x = float(pts[i]) if '.' in pts[i] else int(pts[i])
 			y = float(pts[i + 1]) if '.' in pts[i + 1] else int(pts[i + 1])
-			pt = Punto(x, y)
+			pt = Point(x, y)
 			tot_pts.append(pt)
 			seg.append(pt)
 		for i in range(len(seg)):
@@ -71,7 +72,7 @@ def main():
 	barr = AlgoritmoBarrido(tot_seg)
 	barr.barrer()
 	print(barr.R)
-	[print(p) for p in barr.R if isinstance(p, Punto)]
+	[print(p) for p in barr.R if isinstance(p, Point)]
 
 if __name__=="__main__":
 	main()

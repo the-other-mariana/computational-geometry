@@ -1,7 +1,8 @@
-from Punto import Punto
+#from Punto import Punto
+from segint.glibrary import Point
 
 class Evento:
-  def __init__(self, c=Punto(0,0)):
+  def __init__(self, c=Point(0,0)):
     self.coord = c 
     self.I = set() #Inician en c
     self.T = set() #Terminan en c
