@@ -124,3 +124,14 @@ Outputs the plot: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/FACE4.png?raw=true)
 
+## 1.2 Layer Superposition
+
+Two layers superposition will involve updating their edges according to the intersections of the faces of each layers.
+
+The f1 face (a line) from [layer 01 from example 01](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/layer01.car) looks as follows: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f1-i01.png?raw=true) <br />
+
+The f2 face (another line) from [layer 02 from example 01](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/layer02.car) looks as follows: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f2-i01.png?raw=true)
