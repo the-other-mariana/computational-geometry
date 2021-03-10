@@ -134,4 +134,8 @@ The f1 face (a line) from [layer 01 from example 01](https://github.com/the-othe
 
 The f2 face (another line) from [layer 02 from example 01](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/layer02.car) looks as follows: <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f2-i01.png?raw=true)
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f2-i01.png?raw=true)<br />
+
+The [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py) now joins the vertices, edges and faces present each layer from an N number of layers. If we take [folder 01 (2 layers)](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/) and plot all the combined faces, we get the following. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f1-f2-i01.png?raw=true)<br />

@@ -1,4 +1,4 @@
-'''Code that implements an Edge Linked List (map) from input files'''
+'''Code that implements an Edge Linked List (map) from input files and allows queries'''
 from glibrary import Point, Line, Vector
 import numpy as np
 from matplotlib import pyplot as plt
@@ -147,14 +147,14 @@ if __name__ == "__main__":
         figs = analyzeFig(figs, reqEdge)
 
     # check internals, list of figs inside
-    elif isinstance(fMap[inputFace].internal, list):
+    if isinstance(fMap[inputFace].internal, list):
         internalEdges = fMap[inputFace].internal
         for i in range(len(internalEdges)):
             reqEdge = internalEdges[i]
             figs = analyzeFig(figs, reqEdge)
 
     # check internals, one fig inside
-    elif fMap[inputFace].internal != None and not isinstance(fMap[inputFace].internal, list):
+    if fMap[inputFace].internal != None and not isinstance(fMap[inputFace].internal, list):
         reqEdge = fMap[inputFace].internal
         figs = analyzeFig(figs, reqEdge)
 
