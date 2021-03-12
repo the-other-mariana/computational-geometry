@@ -59,6 +59,13 @@ def getEdge(s, eMap):
             return value
     return None
 
+def getIncident(p, eMap):
+    for key, value in eMap.items():
+        if value.origin.pos == p:
+            return value
+    return None
+
+
 def getMapValue(data, objMap):
     if "[" in data:
         data = data[1:(len(data) - 1)].split(',')
@@ -207,17 +214,47 @@ if __name__ == "__main__":
 
     names = len(vMap.keys())
     for nv in newverts:
-        vMap[str(names + 1)] = Vertex(str(names + 1), nv)
+        vert = Vertex(str(names + 1), nv)
+        vMap['p' + str(names + 1)] = Vertex(str(names + 1), nv)
         names += 1
 
-    for j in range(len(info)):
-        involved = list(barr.R[info[j] + 1]) # list of segments in intersection
-        for i in range(len(involved)):
-            e = getEdge(involved[i], eMap)
-            print(e)
-            e_prime = Edge(str(e.name + "p"))
-            e_bprime = Edge(str(e.name + "pp"))
+        # update edge file
+        for j in range(len(info)):
+            involved = list(barr.R[info[j] + 1]) # list of segments in intersection
 
+            aux = []
+
+            for i in range(len(involved)):
+                e = getEdge(involved[i], eMap)
+                name = str(e.name + "p")
+                e_prime = Edge(name)
+                e_prime.origin = e.origin
+                e_prime.face = e.face # ask teacher
+                neMap[name] = e_prime
+                aux.append(e_prime)
+
+                name = str(e.name + "pp")
+                e_bprime = Edge(name)
+                e_bprime.origin = vert
+                e_bprime.face = e.face
+                neMap[name] = e_bprime
+                aux.append(e_bprime)
+            t = 0
+            reversed = aux[::-1]
+            for i in range(len(involved)):
+                neMap[aux[t].name].mate = neMap[aux[len(aux) - 1 - t].name]
+                neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]
+                neMap[aux[t].name].prev = neMap[aux[(t - 1)].name]
+
+                t += 1
+        # update vertex file (incident edge)
+        keys = vMap.keys()
+        for k in keys:
+            vMap[k].incident = getIncident(vMap[k].pos, eMap)
+
+
+    print(neMap)
+    print(vMap)
 
     # PLOTTING
     fig = plt.figure()
