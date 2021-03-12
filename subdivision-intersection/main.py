@@ -53,6 +53,12 @@ class Face:
     def __str__(self):
         return "F[name:{n}]".format(n=self.name)
 
+def getEdge(s, eMap):
+    for key, value in eMap.items():
+        if value.origin.pos == s.puntos[0]:
+            return value
+    return None
+
 def getMapValue(data, objMap):
     if "[" in data:
         data = data[1:(len(data) - 1)].split(',')
@@ -184,7 +190,34 @@ if __name__ == "__main__":
     barr = AlgoritmoBarrido(TOT_SEGS)
     barr.barrer()
     print("Output", barr.R, type(barr.R[0]))
-    [print("New vertex:",p) for p in barr.R if not isinstance(p, set)]
+    newverts = [p for p in barr.R if not isinstance(p, set)]
+    info = []
+
+    for i in range(len(barr.R)):
+        if not isinstance(barr.R[i], set):
+            info.append(i)
+
+    [print("New vertex:",p) for p in newverts]
+
+    print(vMap)
+    print(eMap)
+    print(fMap)
+
+    neMap = {}
+
+    names = len(vMap.keys())
+    for nv in newverts:
+        vMap[str(names + 1)] = Vertex(str(names + 1), nv)
+        names += 1
+
+    for j in range(len(info)):
+        involved = list(barr.R[info[j] + 1]) # list of segments in intersection
+        for i in range(len(involved)):
+            e = getEdge(involved[i], eMap)
+            print(e)
+            e_prime = Edge(str(e.name + "p"))
+            e_bprime = Edge(str(e.name + "pp"))
+
 
     # PLOTTING
     fig = plt.figure()
