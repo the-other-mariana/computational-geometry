@@ -200,6 +200,7 @@ if __name__ == "__main__":
     newverts = [p for p in barr.R if not isinstance(p, set)]
     info = []
 
+    # put indexes of R where there is a point
     for i in range(len(barr.R)):
         if not isinstance(barr.R[i], set):
             info.append(i)
@@ -214,33 +215,37 @@ if __name__ == "__main__":
 
     names = len(vMap.keys())
     for nv in newverts:
-        vert = Vertex(str(names + 1), nv)
-        vMap['p' + str(names + 1)] = Vertex(str(names + 1), nv)
+        name = 'p' + str(names + 1)
+        vert = Vertex(name, nv)
+        # update vertex map
+        vMap[name] = Vertex(name, nv)
         names += 1
 
-        # update edge file
+        # update edge map
+        # for each new intersection point
         for j in range(len(info)):
-            involved = list(barr.R[info[j] + 1]) # list of segments in intersection
+            # list of segments in intersection response
+            involved = list(barr.R[info[j] + 1])
 
             aux = []
 
+            # for each segment involved in the curr intersection point
             for i in range(len(involved)):
                 e = getEdge(involved[i], eMap)
                 name = str(e.name + "p")
                 e_prime = Edge(name)
                 e_prime.origin = e.origin
-                e_prime.face = e.face # ask teacher
+                e_prime.face = None # will update later
                 neMap[name] = e_prime
                 aux.append(e_prime)
 
                 name = str(e.name + "pp")
                 e_bprime = Edge(name)
                 e_bprime.origin = vert
-                e_bprime.face = e.face
+                e_bprime.face = None # will update later
                 neMap[name] = e_bprime
                 aux.append(e_bprime)
             t = 0
-            reversed = aux[::-1]
             for i in range(len(involved)):
                 neMap[aux[t].name].mate = neMap[aux[len(aux) - 1 - t].name]
                 neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]

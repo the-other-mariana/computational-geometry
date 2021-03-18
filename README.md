@@ -4,4 +4,4 @@ This repo contains all my progress throughout learning and implementing famous c
 
 ## Specifications
 
-Language: `Python 3.6.2`
+Language: `Python 3.8.1`

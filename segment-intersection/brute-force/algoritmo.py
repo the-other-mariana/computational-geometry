@@ -30,7 +30,7 @@ class AlgoritmoBarrido():
   def procesar(self, evento):
     evento=evento[1]
     if not evento: return 
-    print(f"Procesando evento {evento}")
+    #print(f"Procesando evento {evento}")
     p = evento.coord
     # Agrega el evento a la solución como una intersección si hay por lo menos
     # dos líneas que participen en el evento.
@@ -47,9 +47,9 @@ class AlgoritmoBarrido():
     for s in self.T.segmentos:
       s.calcularX(p.y)
     self.T.ordenar()
-    print(f"{F.MAGENTA}Linea de barrido:\n{self.T}{S.RESET_ALL}")
+    #print(f"{F.MAGENTA}Linea de barrido:\n{self.T}{S.RESET_ALL}")
     nuevos = evento.I|evento.C
-    print(f"{F.GREEN}Eventos nuevos en la linea: {nuevos}{S.RESET_ALL}")
+    #print(f"{F.GREEN}Eventos nuevos en la linea: {nuevos}{S.RESET_ALL}")
     if not nuevos:
       si = self.T.izquierda(p.x)
       sd = self.T.derecha(p.x)
@@ -61,14 +61,14 @@ class AlgoritmoBarrido():
       spp= nuevos_ordenados[-1]
       si= self.T.izquierda(sp.x)
       sd= self.T.derecha(spp.x)
-      print(f"\t{F.BLUE}"   +f"Elementos nuevos a la izquierda: {sp} y derecha: {spp}"  +f"{S.RESET_ALL}")
-      print(f"\t\t{F.CYAN}" +f"Izquierda de {sp} es {si}"                     )
-      print(f"\t\t"         +f"Derecha de {sp} es {sd}"      +f"{S.RESET_ALL}")
+      #print(f"\t{F.BLUE}"   +f"Elementos nuevos a la izquierda: {sp} y derecha: {spp}"  +f"{S.RESET_ALL}")
+      #print(f"\t\t{F.CYAN}" +f"Izquierda de {sp} es {si}"                     )
+      #print(f"\t\t"         +f"Derecha de {sp} es {sd}"      +f"{S.RESET_ALL}")
       self.encontrarEvento(si,sp,p)
       self.encontrarEvento(spp,sd,p)
   def encontrarEvento(self, si, sd, p):
     if not si or not sd: return
-    print(f"Comprobar si hay nuevos eventos con {si} y {sd} en {p}")
+    #print(f"Comprobar si hay nuevos eventos con {si} y {sd} en {p}")
     interseccion = si.interseccion(sd)
     if not interseccion: return
     if p.y> interseccion.y:
