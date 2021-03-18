@@ -5,6 +5,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.patches import Polygon
 from matplotlib.patches import PathPatch
+import math
 import re
 
 from segint.algoritmo import AlgoritmoBarrido
@@ -53,11 +54,17 @@ class Face:
     def __str__(self):
         return "F[name:{n}]".format(n=self.name)
 
-def getEdge(s, eMap):
+class Item:
+    def __init__(self, name=""):
+        self.name = name
+        self.prev = None
+        self.next = None
+
+def getEdges(s, eMap):
     for key, value in eMap.items():
         if value.origin.pos == s.puntos[0]:
-            return value
-    return None
+            return value, value.mate
+    return None, None
 
 def getIncident(p, eMap):
     for key, value in eMap.items():
@@ -227,31 +234,106 @@ if __name__ == "__main__":
             # list of segments in intersection response
             involved = list(barr.R[info[j] + 1])
 
-            aux = []
+            primes = []
+            bprimes = []
+            both = []
 
             # for each segment involved in the curr intersection point
+            # update edge origins and primes.prev and bprimes.next
             for i in range(len(involved)):
-                e = getEdge(involved[i], eMap)
-                name = str(e.name + "p")
-                e_prime = Edge(name)
+                aux = []
+                e, e_mate = getEdges(involved[i], eMap)
+
+                # divide e in two
+                e_name = str(e.name + "p")
+                e_prime = Edge(e_name)
                 e_prime.origin = e.origin
+                neMap[e.prev.name] = e.prev
+                e_prime.prev = neMap[e.prev.name] # from eMap
                 e_prime.face = None # will update later
-                neMap[name] = e_prime
+                neMap[e_name] = e_prime
                 aux.append(e_prime)
+                # circular list
+                primes.append(e_prime)
+                both.append(e_prime)
 
-                name = str(e.name + "pp")
-                e_bprime = Edge(name)
+                e_name = str(e.name + "pp")
+                e_bprime = Edge(e_name)
                 e_bprime.origin = vert
+                neMap[e.next.name] = e.next
+                e_bprime.next = neMap[e.next.name] # from eMap
                 e_bprime.face = None # will update later
-                neMap[name] = e_bprime
+                neMap[e_name] = e_bprime
                 aux.append(e_bprime)
-            t = 0
-            for i in range(len(involved)):
-                neMap[aux[t].name].mate = neMap[aux[len(aux) - 1 - t].name]
-                neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]
-                neMap[aux[t].name].prev = neMap[aux[(t - 1)].name]
+                # circular list
+                bprimes.append(e_bprime)
+                both.append(e_bprime)
 
-                t += 1
+                # divide e_mate in two
+                em_name = str(e_mate.name + "p")
+                em_prime = Edge(em_name)
+                em_prime.origin = e_mate.origin
+                neMap[e_mate.prev.name] = e_mate.prev
+                em_prime.prev = neMap[e_mate.prev.name] # from eMap
+                em_prime.face = None
+                neMap[em_name] = em_prime
+                aux.append(em_prime)
+                # circular list
+                primes.append(em_prime)
+                both.append(em_prime)
+
+                em_name = str(e_mate.name + "pp")
+                em_bprime = Edge(em_name)
+                em_bprime.origin = vert
+                neMap[e_mate.next.name] = e_mate.next
+                em_bprime.next = neMap[e_mate.next.name] # from eMap
+                em_bprime.face = None
+                neMap[em_name] = em_bprime
+                aux.append(em_bprime)
+                # circular list
+                bprimes.append(em_bprime)
+                both.append(em_bprime)
+
+                # update edge mates
+                for i in range(len(aux)):
+                    neMap[aux[i].name].mate = neMap[aux[len(aux) - 1 - i].name]
+                #neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]
+                #neMap[aux[t].name].prev = neMap[aux[(t - 1)].name]
+
+            # make primes circular lists based on angles
+            circp = []
+            circbp = []
+            for p in range(len(primes)):
+                p1 = vert.pos
+                # primes
+                p2 = neMap[primes[p].name].origin.pos
+                angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
+                circp.append([angle, primes[p].name])
+                # bprimes
+                p2 = neMap[bprimes[p].next.name].origin.pos
+                angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
+                circbp.append([angle, bprimes[p].name])
+
+            # sort based on angle
+            circp = sorted(circp, key=lambda p: p[0])
+            circbp = sorted(circbp, key=lambda p: p[0])
+            circ = []
+            # make one list with prime bprime prime bprime ...
+            for i in range(len(circp)):
+                circ.append(circp[i][1])
+                circ.append(circbp[i][1])
+
+            # primes are even and need next
+            # bprimes are odd and need prev
+            for i in range(len(both)):
+                name = both[i].name
+                if i % 2 == 0:
+                    # primes
+                    neMap[name].next = neMap[circ[(circ.index(name) + 1) % len(circ)]]
+                if i % 2 == 1:
+                    # bprimes
+                    neMap[name].prev = neMap[circ[circ.index(name) - 1]]
+
         # update vertex file (incident edge)
         keys = vMap.keys()
         for k in keys:
