@@ -308,7 +308,7 @@ if __name__ == "__main__":
                 #neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]
                 #neMap[aux[t].name].prev = neMap[aux[(t - 1)].name]
 
-            # make primes circular lists based on angles
+            # make primes and bprimes circular lists based on angles
             circp = []
             circbp = []
             for p in range(len(primes)):
@@ -328,6 +328,7 @@ if __name__ == "__main__":
             circ = []
             # make one list with prime bprime prime bprime ...
             for i in range(len(circp)):
+                # append only names
                 circ.append(circp[i][1])
                 circ.append(circbp[i][1])
 
