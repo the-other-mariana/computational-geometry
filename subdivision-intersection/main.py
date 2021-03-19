@@ -248,7 +248,9 @@ if __name__ == "__main__":
                 e_name = str(e.name + "p")
                 e_prime = Edge(e_name)
                 e_prime.origin = e.origin
+                # data from previous map
                 neMap[e.prev.name] = e.prev
+                neMap[e.prev.name].next = e_prime
                 e_prime.prev = neMap[e.prev.name] # from eMap
                 e_prime.face = None # will update later
                 neMap[e_name] = e_prime
@@ -260,7 +262,9 @@ if __name__ == "__main__":
                 e_name = str(e.name + "pp")
                 e_bprime = Edge(e_name)
                 e_bprime.origin = vert
+                # data from previous map
                 neMap[e.next.name] = e.next
+                neMap[e.next.name].prev = e_bprime
                 e_bprime.next = neMap[e.next.name] # from eMap
                 e_bprime.face = None # will update later
                 neMap[e_name] = e_bprime
@@ -273,7 +277,9 @@ if __name__ == "__main__":
                 em_name = str(e_mate.name + "p")
                 em_prime = Edge(em_name)
                 em_prime.origin = e_mate.origin
+                # data from previous map
                 neMap[e_mate.prev.name] = e_mate.prev
+                neMap[e_mate.prev.name].next = em_prime
                 em_prime.prev = neMap[e_mate.prev.name] # from eMap
                 em_prime.face = None
                 neMap[em_name] = em_prime
@@ -285,7 +291,9 @@ if __name__ == "__main__":
                 em_name = str(e_mate.name + "pp")
                 em_bprime = Edge(em_name)
                 em_bprime.origin = vert
+                # data from previous map
                 neMap[e_mate.next.name] = e_mate.next
+                neMap[e_mate.next.name].prev = em_bprime
                 em_bprime.next = neMap[e_mate.next.name] # from eMap
                 em_bprime.face = None
                 neMap[em_name] = em_bprime
