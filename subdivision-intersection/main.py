@@ -265,7 +265,7 @@ if __name__ == "__main__":
                 e, e_mate = getEdges(involved[i], eMap)
 
                 # divide e in two
-                e_name = str(e.name) +"p"
+                e_name = str(e.name)
                 e_prime = Edge(e_name)
                 e_prime.origin = e.origin
                 # data from previous map
@@ -294,7 +294,7 @@ if __name__ == "__main__":
                 both.append(e_bprime)
 
                 # divide e_mate in two
-                em_name = str(e_mate.name)+"p"
+                em_name = str(e_mate.name)
                 em_prime = Edge(em_name)
                 em_prime.origin = e_mate.origin
                 # data from previous map
@@ -401,7 +401,7 @@ if __name__ == "__main__":
             pv = getValidName(ne.prev)
             content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
         writeFile("ari", content)
-        '''
+        ''' '''
         # update face map
         visitedEdges = {}
         keys = neMap.keys()
@@ -426,7 +426,7 @@ if __name__ == "__main__":
                     break
                 edge = edge.next
             cycles.append(cycle)
-        '''
+
 
     #print(cycles)
     print(neMap)
