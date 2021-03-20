@@ -1,6 +1,6 @@
-Archivo de aristas
+Edge file
 #############################################
-Nombre  Origen  Pareja  Cara    Sigue   Antes
+Name    Origin  Mate    Face    Next    Prev
 #############################################
 s21     p3      s22     f2      s22     s22
 s22     p4      s21     f2      s21     s21
