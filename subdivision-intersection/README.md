@@ -7,8 +7,8 @@ The next algorithm to construct will be one that outputs the intersection of sub
 ### 1.1 Edge Linked List (Map)
 
 The input for the program will be with 3 files: 
-- `.ver` file: Vertex file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.ver).
-
+- `.ver` file: Vertex object file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.ver) below.
+    - **Incident** is an Edge that *begins* at that line's vertex.
 ```
 Vertex file
 #################################
@@ -28,8 +28,12 @@ K      13      8        p1
 L      13      10.5     q1
 ```
 
-- `.ari` file: Edge file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.ari).
-
+- `.ari` file: Edge object file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.ari).
+    - **Origin** is a Vertex where the Edge begins.
+    - **Mate** is an Edge that is the same as the line's Edge, but with different orientation.
+    - **Face** is a Face where the Edge belongs to.
+    - **Next** is an Edge that goes next from this Edge in a shape's sequence.
+    - **Prev** is an Edge that goes before this Edge in a shape's sequence.
 ```
 Edge file
 #############################################
@@ -62,7 +66,8 @@ n2      I       n1      CARA4   p2      m2
 ```
 
 - `.car` file: Face file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.car).
-
+    - **Internal** contains the first Edge of each shape that is inside the line's Face. If there is a list, the first Edges of each figures are there.
+    - **External** contains the first Edge of each shape that is outside the line's Face. There cannot be lists.
 ```
 Face file
 #######################
@@ -126,7 +131,7 @@ Outputs the plot: <br />
 
 ## 1.2 Layer Superposition
 
-Two layers superposition will involve updating their edges according to the intersections of the faces of each layers.
+Two layers superposition will involve updating their edges according to the intersections of the faces of each layers. We will use a simpler example of layers so that the concept is understood.
 
 The f1 face (a line) from [layer 01 from example 01](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/layer01.car) looks as follows: <br />
 
