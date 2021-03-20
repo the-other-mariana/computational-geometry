@@ -265,7 +265,7 @@ if __name__ == "__main__":
                 e, e_mate = getEdges(involved[i], eMap)
 
                 # divide e in two
-                e_name = str(e.name + "p")
+                e_name = str(e.name) +"p"
                 e_prime = Edge(e_name)
                 e_prime.origin = e.origin
                 # data from previous map
@@ -294,7 +294,7 @@ if __name__ == "__main__":
                 both.append(e_bprime)
 
                 # divide e_mate in two
-                em_name = str(e_mate.name + "p")
+                em_name = str(e_mate.name)+"p"
                 em_prime = Edge(em_name)
                 em_prime.origin = e_mate.origin
                 # data from previous map
@@ -337,14 +337,17 @@ if __name__ == "__main__":
                 p2 = neMap[primes[p].name].origin.pos
                 angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
                 circp.append([angle, primes[p].name])
+                print(f"{primes[p].name}: {p1} -> {p2}, angle: {angle}")
                 # bprimes
                 p2 = neMap[bprimes[p].next.name].origin.pos
                 angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
                 circbp.append([angle, bprimes[p].name])
+                print(f"{bprimes[p].name}: {p1} -> {p2}, angle: {angle}")
 
             # sort based on angle
             circp = sorted(circp, key=lambda p: p[0])
             circbp = sorted(circbp, key=lambda p: p[0])
+
             circ = []
             # make one list with prime bprime prime bprime ...
             for i in range(len(circp)):
@@ -352,6 +355,8 @@ if __name__ == "__main__":
                 circ.append(circp[i][1])
                 circ.append(circbp[i][1])
 
+            circ.reverse()
+            print(circ)
             # primes are even and need next
             # bprimes are odd and need prev
             for i in range(len(both)):
