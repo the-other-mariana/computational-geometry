@@ -429,6 +429,25 @@ if __name__ == "__main__":
                 edge = edge.next
             # leave the left-most vertex as first element of an aux array
             extreme = sorted(cycle, key=lambda edge: edge.origin.pos.x, reverse=False)
+
+            # use the left-most edge and its previous to do a cross product to determine type
+            a1 = extreme[0].prev.origin.pos
+            a2 = extreme[0].prev.next.origin.pos
+            b1 = extreme[0].origin.pos
+            b2 = extreme[0].next.origin.pos
+
+            a = Vector.toVector(a1, a2)
+            b = Vector.toVector(b1, b2)
+
+            # cycle's last element says its type: internal or external
+            orientation = Vector.cross(a, b)
+            print(f"{a} x {b} = {orientation}, a = {extreme[0].prev.name} b = {extreme[0].name}")
+            if orientation >= 0:
+                # angle between a and b is larger than 180: external cycle
+                cycle.append("external")
+            if orientation < 0:
+                # angle between a and b is smaller than 180: internal cycle
+                cycle.append("internal")
             cycles.append(cycle)
             extremes.append(extreme[0])
         print("cycles", cycles)
