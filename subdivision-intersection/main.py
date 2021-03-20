@@ -406,6 +406,8 @@ if __name__ == "__main__":
         visitedEdges = {}
         keys = neMap.keys()
         cycles = []
+        # array that stores the leftmost edges of each cycle
+        extremes = []
         # init visited map (string, bool)
         for k in keys:
             visitedEdges[k] = False
@@ -425,8 +427,12 @@ if __name__ == "__main__":
                 if edge.next == None:
                     break
                 edge = edge.next
+            # leave the left-most vertex as first element of an aux array
+            extreme = sorted(cycle, key=lambda edge: edge.origin.pos.x, reverse=False)
             cycles.append(cycle)
+            extremes.append(extreme[0])
         print("cycles", cycles)
+        print("extremes", extremes)
 
 
 

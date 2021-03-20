@@ -232,9 +232,17 @@ With all three files of each layer, and output a third layer (layer03) with its 
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer03-draw.png?raw=true) <br />
 
-**Important ideas**
-- We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex.
-- Each Edge involved in a segment intersection will be divided into two Edges.
+**Vertices & Edges Update**
+- We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex. Add it to Vertex file, with Incident as None.
+- For each intersection point, we gather the two involved segments and its two mates. Then, each of these gathered Edges will be split into two Edges: the original will now be smaller, called *prime*, and the other half which we call *bprime* ("pp" named Edges).
+- Pattern: primes take its original Edge's Prev Edge, while bprimes take its original Edge's Next Edge. Now, we just update these Prev and Next originals in the new map with the new Edge as Next and Prev, respectively.
+- We build a **Circular List** for primes and another for bprimes: taking the new vertex as p1, and p2 will be the endpoint of the Edges there (cross's extremes, in the example), order the Edges in the list by the `atan2(p2.y - p1.y, p2.x - p1.x)` value (Edge endpoint's angle with respect to the new Vertex), and finally create a final Circular List by appending one prime and then one bprime and so on from each of the previously sorted lists.
+- Use the Circular List to update to the prime Edges its Next and to each of the bprime Edges its Prev, which were the values that were not taken from the old list.
+- Update the None Incident property of the new Vertex we left in the first step.
+
+**Face Update**
+- Loop over the Edge map to find **cycles**, that represent possible faces.
+    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
 
 The [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py) now joins the vertices, edges and faces present each layer from an N number of layers. If we take [folder 01 (2 layers)](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/) and plot all the combined faces, we get the following. <br />
 
