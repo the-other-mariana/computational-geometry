@@ -27,6 +27,11 @@ class Vertex:
     def __str__(self):
         return "V[name:{n}, pos:{p}]".format(n=self.name, p=self.pos)
 
+    def __eq__(self, other):
+        if other == None:
+            return False
+        return self.pos == other.pos and self.incident == other.incident
+
 class Edge:
     def __init__(self, ename=""):
         self.name = ename
@@ -42,6 +47,11 @@ class Edge:
     def __str__(self):
         return "E[name:{n}]".format(n=self.name)
 
+    def __eq__(self, other):
+        if other == None:
+            return False
+        return self.origin == other.origin and self.mate == other.mate and self.face == other.face and self.next == other.next and self.prev == other.prev
+
 class Face:
     def __init__(self, fname=""):
         self.name = fname
@@ -54,11 +64,10 @@ class Face:
     def __str__(self):
         return "F[name:{n}]".format(n=self.name)
 
-class Item:
-    def __init__(self, name=""):
-        self.name = name
-        self.prev = None
-        self.next = None
+    def __eq__(self, other):
+        if other == None:
+            return False
+        return self.internal == other.internal and self.external == other.internal
 
 def getEdges(s, eMap):
     for key, value in eMap.items():
@@ -81,6 +90,17 @@ def getMapValue(data, objMap):
         return objMap[data]
     else:
         return None
+
+def getValidName(mapVal):
+    if mapVal != None:
+        return mapVal.name
+    else:
+        return "None"
+
+def writeFile(ext, content):
+    outName = "layer{n}.{e}".format(n=LAYERS + 1, e=ext)
+    outFile = open(outName, "w")
+    outFile.write(content)
 
 def analyzeFig(figs, reqEdge):
     global TOT_PTS
@@ -346,9 +366,64 @@ if __name__ == "__main__":
         # update vertex file (incident edge)
         keys = vMap.keys()
         for k in keys:
-            vMap[k].incident = getIncident(vMap[k].pos, eMap)
+            vMap[k].incident = getIncident(vMap[k].pos, neMap)
 
+        # write vertex file
+        content = ""
+        content += "Vertex File\n"
+        content += "#################################\n"
+        content += "Name\tx\ty\tIncident\n"
+        content += "#################################\n"
+        for key, v in vMap.items():
+            n = getValidName(v)
+            xv = v.pos.x
+            yv = v.pos.y
+            inc = getValidName(v.incident)
+            content += f"{n}\t{xv}\t{yv}\t{inc}\n"
+        writeFile("ver", content)
+        # write edge file
+        content = ""
+        content += "Edge File\n"
+        content += "#################################\n"
+        content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
+        content += "#################################\n"
+        for key, ne in neMap.items():
+            n = getValidName(ne)
+            o = getValidName(ne.origin)
+            m = getValidName(ne.mate)
+            fc = getValidName(ne.face)
+            nx = getValidName(ne.next)
+            pv = getValidName(ne.prev)
+            content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
+        writeFile("ari", content)
+        '''
+        # update face map
+        visitedEdges = {}
+        keys = neMap.keys()
+        cycles = []
+        # init visited map (string, bool)
+        for k in keys:
+            visitedEdges[k] = False
+        for k in keys:
+            if visitedEdges[k]:
+                continue
+            cycle = []
+            started = False
+            edge = neMap[k]
+            first = edge
+            print("cycle")
+            while edge.next.name != first.name or not started:
+                print(edge)
+                started = True
+                cycle.append(edge)
+                visitedEdges[edge.name] = True
+                if edge.next == None:
+                    break
+                edge = edge.next
+            cycles.append(cycle)
+        '''
 
+    #print(cycles)
     print(neMap)
     print(vMap)
 

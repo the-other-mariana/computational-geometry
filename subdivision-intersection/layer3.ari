@@ -1,0 +1,14 @@
+Edge File
+#################################
+Name	Origin	Mate	Face	Next	Prev
+#################################
+s12	p2	s11	f1	s11p	s11pp
+s11p	p1	s12pp	None	s12pp	s12pp
+s11pp	p5	s12p	None	s12p	s12p
+s12p	p2	s11pp	None	s11pp	s11pp
+s12pp	p5	s11p	None	s11p	s11p
+s21	p3	s22	f2	s22p	s22pp
+s22p	p4	s21pp	None	s21pp	s21pp
+s22pp	p5	s21p	None	s21p	s21p
+s21p	p3	s22pp	None	s22pp	s22pp
+s21pp	p5	s22p	None	s22p	s22p
