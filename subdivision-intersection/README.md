@@ -2,6 +2,26 @@
 
 The next algorithm to construct will be one that outputs the intersection of subdivisions (polygons or figures).
 
+## General Ideas
+
+This algorithm will require three basic classes: Vertex, Edge and Face. Each of these objects' properties will be described in the example files with extennsions `.ver`, `.ari` and `.car` respectively for each object.<br />
+
+### Mates
+
+However, in the Edge object there is a property called **mate**. A mate of an Edge is an Edge that is the same as the current Edge, but with different orientation, as shown below. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/mates-draw.png?raw=true) <br />
+
+### Faces: Internals and Externals
+
+Another idea used for this algorithm is that a Face object contains **External** and **Internal** Edges as a property. 
+- **Internal** contains the first Edge of each shape that is inside the Face. If there is a list, the first Edges of each insider figure are there. 
+- **External** contains the first Edge of each shape that is outside the line's Face. There cannot be lists.
+
+These ideas can be best understood with the drawing below, where one face (F1) is the area of the figure and contains F2' first edge as external, and F2 would be a face containing the area surrounding the shape, while having F1's first edge as internal. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/faces-draw.png?raw=true) <br />
+
 ## Data Structures Needed
 
 ### 1.1 Edge Linked List (Map)
@@ -66,7 +86,7 @@ n2      I       n1      CARA4   p2      m2
 ```
 
 - `.car` file: Face file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.car).
-    - **Internal** contains the first Edge of each shape that is inside the line's Face. If there is a list, the first Edges of each figures are there.
+    - **Internal** contains the first Edge of each shape that is inside the line's Face. If there is a list, the first Edges of each figure are there.
     - **External** contains the first Edge of each shape that is outside the line's Face. There cannot be lists.
 ```
 Face file
@@ -131,16 +151,117 @@ Outputs the plot: <br />
 
 ## 1.2 Layer Superposition
 
-Two layers superposition will involve updating their edges according to the intersections of the faces of each layers. We will use a simpler example of layers so that the concept is understood.
+In order to output the intersection faces of two layers or more, we need to perform a layer superposition. <br />
+
+Two layers superposition will involve updating their Edge file, Vertex file and Face file according to the intersections of the faces of each layers. We will use a simpler example of layers so that the concept is understood.
 
 The f1 face (a line) from [layer 01 from example 01](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/layer01.car) looks as follows: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f1-i01.png?raw=true) <br />
 
+With the files:
+
+- `.ver` file (layer01.ver):
+```
+Vertex file
+#################################
+Name    x       y       Incident
+#################################
+p1      0       10      s11
+p2      10      0       s12
+```
+- `.ari` file (layer01.ari):
+```
+Edge file
+#############################################
+Name    Origin  Mate    Face    Next    Prev
+#############################################
+s11     p1      s12     f1      s12     s12
+s12     p2      s11     f1      s11     s11
+```
+- `.car` file (layer01.car):
+```
+Face file
+#######################
+Name    Internal  External
+#######################
+f1      s11     None
+```
+
 The f2 face (another line) from [layer 02 from example 01](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/layer02.car) looks as follows: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f2-i01.png?raw=true)<br />
 
+With the files:
+
+- `.ver` file (layer02.ver):
+```
+Vertex file
+#################################
+Name    x       y       Incident
+#################################
+p1      0       10      s11
+p2      10      0       s12
+```
+- `.ari` file (layer02.ari):
+```
+Edge file
+#############################################
+Name    Origin  Mate    Face    Next    Prev
+#############################################
+s21     p3      s22     f2      s22     s22
+s22     p4      s21     f2      s21     s21
+```
+- `.car` file (layer02.car):
+```
+Face file
+#######################
+Name    Internal External
+#######################
+f2      s21     None
+```
+Which basically have the information as follows. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer01-02-draw.png?raw=true) <br />
+
+Now, what is next is to perform: 
+
+**layer01 + layer 02 = layer03**
+
+With all three files of each layer, and output a third layer (layer03) with its three files. Layer 03 will basically look as below. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer03-draw.png?raw=true) <br />
+
+**Important ideas**
+- We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex.
+- Each Edge involved in a segment intersection will be divided into two Edges.
+
 The [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py) now joins the vertices, edges and faces present each layer from an N number of layers. If we take [folder 01 (2 layers)](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/) and plot all the combined faces, we get the following. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/f1-f2-i01.png?raw=true)<br />
+- `.ver` file (layer03.ver):
+```
+Vertex File
+#################################
+Name	x	y	Incident
+#################################
+p1	0	10	s11
+p2	10	0	s12
+p3	0	0	s21
+p4	10	10	s22
+p5	5.0	5.0	s11pp
+```
+- `.ari` file (layer03.ari):
+```
+Edge File
+#################################
+Name	Origin	Mate	Face	Next	Prev
+#################################
+s12	p2	s11pp	None	s22pp	s11pp
+s11	p1	s12pp	None	s21pp	s12pp
+s11pp	p5	s12	None	s12	s22
+s12pp	p5	s11	None	s11	s21
+s21	p3	s22pp	None	s12pp	s22pp
+s22	p4	s21pp	None	s11pp	s21pp
+s22pp	p5	s21	None	s21	s12
+s21pp	p5	s22	None	s22	s11
+```
