@@ -356,7 +356,7 @@ if __name__ == "__main__":
                 circ.append(circbp[i][1])
 
             circ.reverse()
-            print(circ)
+            print("circ list", circ)
             # primes are even and need next
             # bprimes are odd and need prev
             for i in range(len(both)):
@@ -416,9 +416,9 @@ if __name__ == "__main__":
             started = False
             edge = neMap[k]
             first = edge
-            print("cycle")
-            while edge.next.name != first.name or not started:
-                print(edge)
+            #print("cycle")
+            while edge.name != first.name or not started:
+                #print(edge)
                 started = True
                 cycle.append(edge)
                 visitedEdges[edge.name] = True
@@ -426,9 +426,10 @@ if __name__ == "__main__":
                     break
                 edge = edge.next
             cycles.append(cycle)
+        print("cycles", cycles)
 
 
-    #print(cycles)
+
     print(neMap)
     print(vMap)
 
