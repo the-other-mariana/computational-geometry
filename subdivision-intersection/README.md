@@ -10,7 +10,7 @@ This algorithm will require three basic classes: Vertex, Edge and Face. Each of 
 
 However, in the Edge object there is a property called **mate**. A mate of an Edge is an Edge that is the same as the current Edge, but with different orientation, as shown below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/mates-draw.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/mates-diag.png?raw=true) <br />
 
 ### Faces: Internals and Externals
 
@@ -20,7 +20,7 @@ Another idea used for this algorithm is that a Face object contains **External**
 
 These ideas can be best understood with the drawing below, where one face (F1) is the area of the figure and contains F2' first edge as external, and F2 would be a face containing the area surrounding the shape, while having F1's first edge as internal. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/faces-draw.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/faces-diag.png?raw=true) <br />
 
 ## Data Structures Needed
 
@@ -222,7 +222,7 @@ f2      s21     None
 ```
 Which basically have the information as follows. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer01-02-draw.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer01-02-diag.png?raw=true) <br />
 
 Now, what is next is to perform: 
 
@@ -230,7 +230,7 @@ Now, what is next is to perform:
 
 With all three files of each layer, and output a third layer (layer03) with its three files. Layer 03 will basically look as below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer03-draw.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer03-diag.png?raw=true) <br />
 
 **Vertices & Edges Update**
 1. We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex. Add it to Vertex file, with Incident as None.
