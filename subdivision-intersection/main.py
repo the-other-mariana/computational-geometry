@@ -224,12 +224,12 @@ if __name__ == "__main__":
     barr = AlgoritmoBarrido(TOT_SEGS)
     barr.barrer()
     print("Output", barr.R, type(barr.R[0]))
-    newverts = [p for p in barr.R if not isinstance(p, set)]
+    newverts = [p for p in barr.R if not isinstance(p, set) and p not in TOT_PTS]
     info = []
 
     # put indexes of R where there is a point
     for i in range(len(barr.R)):
-        if not isinstance(barr.R[i], set):
+        if not isinstance(barr.R[i], set) and barr.R[i] not in TOT_PTS:
             info.append(i)
 
     [print("New vertex:",p) for p in newverts]
@@ -237,8 +237,10 @@ if __name__ == "__main__":
     print(vMap)
     print(eMap)
     print(fMap)
+    print("info: ", info)
 
     neMap = {}
+    verts = []
 
     names = len(vMap.keys())
     for nv in newverts:
@@ -247,212 +249,217 @@ if __name__ == "__main__":
         # update vertex map
         vMap[name] = Vertex(name, nv)
         names += 1
+        verts.append(vert)
 
-        # update edge map
-        # for each new intersection point
-        for j in range(len(info)):
-            # list of segments in intersection response
-            involved = list(barr.R[info[j] + 1])
+    # update edge map
+    # for each new intersection point
+    for j in range(len(info)):
+        vert = verts[j]
+        # list of segments in intersection response
+        involved = list(barr.R[info[j] + 1])
 
-            primes = []
-            bprimes = []
-            both = []
+        primes = []
+        bprimes = []
+        both = []
 
-            # for each segment involved in the curr intersection point
-            # update edge origins and primes.prev and bprimes.next
-            for i in range(len(involved)):
-                aux = []
-                e, e_mate = getEdges(involved[i], eMap)
+        # for each segment involved in the curr intersection point
+        # update edge origins and primes.prev and bprimes.next
+        for i in range(len(involved)):
+            aux = []
+            e, e_mate = getEdges(involved[i], eMap)
 
-                # divide e in two
-                e_name = str(e.name)
-                e_prime = Edge(e_name)
-                e_prime.origin = e.origin
-                # data from previous map
-                neMap[e.prev.name] = e.prev
-                neMap[e.prev.name].next = e_prime
-                e_prime.prev = neMap[e.prev.name] # from eMap
-                e_prime.face = None # will update later
-                neMap[e_name] = e_prime
-                aux.append(e_prime)
-                # circular list
-                primes.append(e_prime)
-                both.append(e_prime)
+            # divide e in two
+            e_name = str(e.name)
+            e_prime = Edge(e_name)
+            e_prime.origin = e.origin
+            # data from previous map
+            neMap[e.prev.name] = e.prev
+            neMap[e.prev.name].next = e_prime
+            e_prime.prev = neMap[e.prev.name] # from eMap
+            e_prime.face = None # will update later
+            neMap[e_name] = e_prime
+            aux.append(e_prime)
+            # circular list
+            primes.append(e_prime)
+            both.append(e_prime)
 
-                e_name = str(e.name + "pp")
-                e_bprime = Edge(e_name)
-                e_bprime.origin = vert
-                # data from previous map
-                neMap[e.next.name] = e.next
-                neMap[e.next.name].prev = e_bprime
-                e_bprime.next = neMap[e.next.name] # from eMap
-                e_bprime.face = None # will update later
-                neMap[e_name] = e_bprime
-                aux.append(e_bprime)
-                # circular list
-                bprimes.append(e_bprime)
-                both.append(e_bprime)
+            e_name = str(e.name + "pp")
+            e_bprime = Edge(e_name)
+            e_bprime.origin = vert
+            # data from previous map
+            neMap[e.next.name] = e.next
+            neMap[e.next.name].prev = e_bprime
+            e_bprime.next = neMap[e.next.name] # from eMap
+            e_bprime.face = None # will update later
+            neMap[e_name] = e_bprime
+            aux.append(e_bprime)
+            # circular list
+            bprimes.append(e_bprime)
+            both.append(e_bprime)
 
-                # divide e_mate in two
-                em_name = str(e_mate.name)
-                em_prime = Edge(em_name)
-                em_prime.origin = e_mate.origin
-                # data from previous map
-                neMap[e_mate.prev.name] = e_mate.prev
-                neMap[e_mate.prev.name].next = em_prime
-                em_prime.prev = neMap[e_mate.prev.name] # from eMap
-                em_prime.face = None
-                neMap[em_name] = em_prime
-                aux.append(em_prime)
-                # circular list
-                primes.append(em_prime)
-                both.append(em_prime)
+            # divide e_mate in two
+            em_name = str(e_mate.name)
+            em_prime = Edge(em_name)
+            em_prime.origin = e_mate.origin
+            # data from previous map
+            neMap[e_mate.prev.name] = e_mate.prev
+            neMap[e_mate.prev.name].next = em_prime
+            em_prime.prev = neMap[e_mate.prev.name] # from eMap
+            em_prime.face = None
+            neMap[em_name] = em_prime
+            aux.append(em_prime)
+            # circular list
+            primes.append(em_prime)
+            both.append(em_prime)
 
-                em_name = str(e_mate.name + "pp")
-                em_bprime = Edge(em_name)
-                em_bprime.origin = vert
-                # data from previous map
-                neMap[e_mate.next.name] = e_mate.next
-                neMap[e_mate.next.name].prev = em_bprime
-                em_bprime.next = neMap[e_mate.next.name] # from eMap
-                em_bprime.face = None
-                neMap[em_name] = em_bprime
-                aux.append(em_bprime)
-                # circular list
-                bprimes.append(em_bprime)
-                both.append(em_bprime)
+            em_name = str(e_mate.name + "pp")
+            em_bprime = Edge(em_name)
+            em_bprime.origin = vert
+            # data from previous map
+            neMap[e_mate.next.name] = e_mate.next
+            neMap[e_mate.next.name].prev = em_bprime
+            em_bprime.next = neMap[e_mate.next.name] # from eMap
+            em_bprime.face = None
+            neMap[em_name] = em_bprime
+            aux.append(em_bprime)
+            # circular list
+            bprimes.append(em_bprime)
+            both.append(em_bprime)
 
-                # update edge mates
-                for i in range(len(aux)):
-                    neMap[aux[i].name].mate = neMap[aux[len(aux) - 1 - i].name]
-                #neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]
-                #neMap[aux[t].name].prev = neMap[aux[(t - 1)].name]
+            # update edge mates
+            for i in range(len(aux)):
+                neMap[aux[i].name].mate = neMap[aux[len(aux) - 1 - i].name]
+            #neMap[aux[t].name].next = neMap[aux[(t + 1) % len(aux)].name]
+            #neMap[aux[t].name].prev = neMap[aux[(t - 1)].name]
 
-            # make primes and bprimes circular lists based on angles
-            circp = []
-            circbp = []
-            for p in range(len(primes)):
-                p1 = vert.pos
+        # make primes and bprimes circular lists based on angles
+        circp = []
+        circbp = []
+        for p in range(len(primes)):
+            p1 = vert.pos
+            # primes
+            p2 = neMap[primes[p].name].origin.pos
+            angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
+            circp.append([angle, primes[p].name])
+            print(f"{primes[p].name}: {p1} -> {p2}, angle: {angle}")
+            # bprimes
+            p2 = neMap[bprimes[p].next.name].origin.pos
+            angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
+            circbp.append([angle, bprimes[p].name])
+            print(f"{bprimes[p].name}: {p1} -> {p2}, angle: {angle}")
+
+        # sort based on angle
+        circp = sorted(circp, key=lambda p: p[0])
+        circbp = sorted(circbp, key=lambda p: p[0])
+
+        circ = []
+        # make one list with prime bprime prime bprime ...
+        for i in range(len(circp)):
+            # append only names
+            circ.append(circp[i][1])
+            circ.append(circbp[i][1])
+
+        circ.reverse()
+        print("circ list", circ)
+        # primes are even and need next
+        # bprimes are odd and need prev
+        for i in range(len(both)):
+            name = both[i].name
+            if i % 2 == 0:
                 # primes
-                p2 = neMap[primes[p].name].origin.pos
-                angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
-                circp.append([angle, primes[p].name])
-                print(f"{primes[p].name}: {p1} -> {p2}, angle: {angle}")
+                neMap[name].next = neMap[circ[(circ.index(name) + 1) % len(circ)]]
+            if i % 2 == 1:
                 # bprimes
-                p2 = neMap[bprimes[p].next.name].origin.pos
-                angle = math.atan2(p2.y - p1.y, p2.x - p1.x)
-                circbp.append([angle, bprimes[p].name])
-                print(f"{bprimes[p].name}: {p1} -> {p2}, angle: {angle}")
+                neMap[name].prev = neMap[circ[circ.index(name) - 1]]
 
-            # sort based on angle
-            circp = sorted(circp, key=lambda p: p[0])
-            circbp = sorted(circbp, key=lambda p: p[0])
+    # update vertex file (incident edge)
+    keys = vMap.keys()
+    for k in keys:
+        vMap[k].incident = getIncident(vMap[k].pos, neMap)
 
-            circ = []
-            # make one list with prime bprime prime bprime ...
-            for i in range(len(circp)):
-                # append only names
-                circ.append(circp[i][1])
-                circ.append(circbp[i][1])
+    # write vertex file
+    content = ""
+    content += "Vertex File\n"
+    content += "#################################\n"
+    content += "Name\tx\ty\tIncident\n"
+    content += "#################################\n"
+    for key, v in vMap.items():
+        n = getValidName(v)
+        xv = v.pos.x
+        yv = v.pos.y
+        inc = getValidName(v.incident)
+        content += f"{n}\t{xv}\t{yv}\t{inc}\n"
+    writeFile("ver", content)
+    # write edge file
+    content = ""
+    content += "Edge File\n"
+    content += "#################################\n"
+    content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
+    content += "#################################\n"
+    for key, ne in neMap.items():
+        n = getValidName(ne)
+        o = getValidName(ne.origin)
+        m = getValidName(ne.mate)
+        fc = getValidName(ne.face)
+        nx = getValidName(ne.next)
+        pv = getValidName(ne.prev)
+        content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
+    writeFile("ari", content)
+    ''' '''
+    # update face map
+    visitedEdges = {}
+    keys = neMap.keys()
+    cycles = []
+    # array that stores the leftmost edges of each cycle
+    extremes = []
+    # init visited map (string, bool)
+    for k in keys:
+        visitedEdges[k] = False
+    for k in keys:
+        if visitedEdges[k]:
+            continue
+        cycle = []
+        started = False
+        edge = neMap[k]
+        first = edge
+        #print("cycle")
+        while edge.name != first.name or not started:
+            #print(edge)
+            started = True
+            cycle.append(edge)
+            visitedEdges[edge.name] = True
+            if edge.next == None:
+                break
+            edge = edge.next
+        # leave the left-most vertex as first element of an aux array
+        extreme = sorted(cycle, key=lambda edge: edge.origin.pos.x, reverse=False)
 
-            circ.reverse()
-            print("circ list", circ)
-            # primes are even and need next
-            # bprimes are odd and need prev
-            for i in range(len(both)):
-                name = both[i].name
-                if i % 2 == 0:
-                    # primes
-                    neMap[name].next = neMap[circ[(circ.index(name) + 1) % len(circ)]]
-                if i % 2 == 1:
-                    # bprimes
-                    neMap[name].prev = neMap[circ[circ.index(name) - 1]]
+        # use the left-most edge and its previous to do a cross product to determine type
+        a1 = extreme[0].prev.origin.pos
+        a2 = extreme[0].prev.next.origin.pos
+        b1 = extreme[0].origin.pos
+        b2 = extreme[0].next.origin.pos
 
-        # update vertex file (incident edge)
-        keys = vMap.keys()
-        for k in keys:
-            vMap[k].incident = getIncident(vMap[k].pos, neMap)
+        a = Vector.toVector(a1, a2)
+        b = Vector.toVector(b1, b2)
 
-        # write vertex file
-        content = ""
-        content += "Vertex File\n"
-        content += "#################################\n"
-        content += "Name\tx\ty\tIncident\n"
-        content += "#################################\n"
-        for key, v in vMap.items():
-            n = getValidName(v)
-            xv = v.pos.x
-            yv = v.pos.y
-            inc = getValidName(v.incident)
-            content += f"{n}\t{xv}\t{yv}\t{inc}\n"
-        writeFile("ver", content)
-        # write edge file
-        content = ""
-        content += "Edge File\n"
-        content += "#################################\n"
-        content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
-        content += "#################################\n"
-        for key, ne in neMap.items():
-            n = getValidName(ne)
-            o = getValidName(ne.origin)
-            m = getValidName(ne.mate)
-            fc = getValidName(ne.face)
-            nx = getValidName(ne.next)
-            pv = getValidName(ne.prev)
-            content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
-        writeFile("ari", content)
-        ''' '''
-        # update face map
-        visitedEdges = {}
-        keys = neMap.keys()
-        cycles = []
-        # array that stores the leftmost edges of each cycle
-        extremes = []
-        # init visited map (string, bool)
-        for k in keys:
-            visitedEdges[k] = False
-        for k in keys:
-            if visitedEdges[k]:
-                continue
-            cycle = []
-            started = False
-            edge = neMap[k]
-            first = edge
-            #print("cycle")
-            while edge.name != first.name or not started:
-                #print(edge)
-                started = True
-                cycle.append(edge)
-                visitedEdges[edge.name] = True
-                if edge.next == None:
-                    break
-                edge = edge.next
-            # leave the left-most vertex as first element of an aux array
-            extreme = sorted(cycle, key=lambda edge: edge.origin.pos.x, reverse=False)
+        # cycle's last element says its type: internal or external
+        # internals are always faces
+        orientation = Vector.cross(a, b)
+        print(f"{a} x {b} = {orientation}, a = {extreme[0].prev.name} b = {extreme[0].name}")
+        if orientation >= 0:
+            # angle between a and b is larger than 180: external cycle
+            cycle.append("external")
+        if orientation < 0:
+            # angle between a and b is smaller than 180: internal cycle
+            cycle.append("internal")
+        cycles.append(cycle)
+        extremes.append(extreme[0])
+    
+    print("cycles", cycles)
+    print("extremes", extremes)
 
-            # use the left-most edge and its previous to do a cross product to determine type
-            a1 = extreme[0].prev.origin.pos
-            a2 = extreme[0].prev.next.origin.pos
-            b1 = extreme[0].origin.pos
-            b2 = extreme[0].next.origin.pos
 
-            a = Vector.toVector(a1, a2)
-            b = Vector.toVector(b1, b2)
-
-            # cycle's last element says its type: internal or external
-            # internals are always faces
-            orientation = Vector.cross(a, b)
-            print(f"{a} x {b} = {orientation}, a = {extreme[0].prev.name} b = {extreme[0].name}")
-            if orientation >= 0:
-                # angle between a and b is larger than 180: external cycle
-                cycle.append("external")
-            if orientation < 0:
-                # angle between a and b is smaller than 180: internal cycle
-                cycle.append("internal")
-            cycles.append(cycle)
-            extremes.append(extreme[0])
-        print("cycles", cycles)
-        print("extremes", extremes)
 
 
 
