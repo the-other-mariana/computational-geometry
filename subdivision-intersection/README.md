@@ -250,6 +250,8 @@ With all three files of each layer, and output a third layer (layer03) with its 
 **Face Update**
 1. Loop over the Edge map to find **cycles**, that represent possible faces.
     -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
+2. For each cycle, obtain the Edge that has the left-most Origin Vertex.
+3. With this Edge obtained, called *a*, grab also its Prev Edge, called *b*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external**. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**.
 
 The [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py) now joins the vertices, edges and faces present each layer from an N number of layers. If we take [folder 01 (2 layers)](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/) and plot all the combined faces, we get the following. <br />
 

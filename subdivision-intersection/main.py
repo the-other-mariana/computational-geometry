@@ -440,6 +440,7 @@ if __name__ == "__main__":
             b = Vector.toVector(b1, b2)
 
             # cycle's last element says its type: internal or external
+            # internals are always faces
             orientation = Vector.cross(a, b)
             print(f"{a} x {b} = {orientation}, a = {extreme[0].prev.name} b = {extreme[0].name}")
             if orientation >= 0:
