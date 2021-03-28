@@ -11,8 +11,6 @@ keywords: [Markdown, Example]
 
 This preview shows how the algorithm makes the illusion of a 'sweep line' as it works through the structures of T and Q. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/anim-gif-03.gif) <br />
-
 *Note: the program computes also intersections that happen in exact endings of segments as well, its up to you if you want them included or not. This preview, for example, it includes those.*
 
 ## 1. Introduction
@@ -47,7 +45,7 @@ Using the code, an example tree would be the following:
 ```
 Which gives us the following tree: <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/tree-insert-example.png?raw=true) <br />
+![image](tree-insert-example.png) <br />
 
 If, for example, we delete the root node as below: <br />
 ```python
@@ -60,7 +58,8 @@ If, for example, we delete the root node as below: <br />
 11
 ```
 Giving us the following tree now: <br/>
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/tree-delete-example.png?raw=true) <br />
+
+![image](tree-delete-example.png) <br />
 
 *Note: the printBST() function prints an inorder traversed tree, so if we see the values in order, our tree works fine.*
 
@@ -80,7 +79,7 @@ Using this idea, if we simply create the following: <br />
 ```
 We have this tree: <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/unbalanced.png?raw=true) <br />
+![image](unbalanced.png) <br />
 
 Which, in theory is **unbalanced**: a balanced BST is one where their left and right subtree differ in height by at most 1. In the above tree, the left subtree has height is 4 and the right subtree has height 0. To balance it, we do the following: <br />
 
@@ -92,7 +91,7 @@ Which, in theory is **unbalanced**: a balanced BST is one where their left and r
 
 And now we have a balanced BST.
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/balanced.png?raw=true) <br />
+![image](balanced.png) <br />
 
 ### 1.2  Point Binary Search Tree
 
@@ -121,7 +120,7 @@ Now if we test it as follows: <br />
 ```
 Which gives us the tree below.<br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ptree.png?raw=true) <br />
+![image](ptree.png) <br />
 
 which we can also balance. <br />
 ```python
@@ -173,7 +172,7 @@ This tree will act as a **Queue of Events** but will be faster because of the BS
 ```
 Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 that goes from (9, 3) to (14, 1). This event tree will look like the diagram below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-02.png?raw=true) <br />
+![image](etree-02.png) <br />
 
 You delete nodes from an etree by **Point Object** values or by **Node Object**. <br />
 
@@ -194,7 +193,7 @@ You delete nodes from an etree by **Point Object** values or by **Node Object**.
 ```
 Giving us the tree below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/etree-delete-node-02.png?raw=true) <br />
+![image](etree-delete-node-02.png) <br />
 
 ### 2.2 Line Status Binary Search Tree
 
@@ -235,7 +234,7 @@ The implementation of this T tree is used like follows. <br />
 
 Which visually is the tree below. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/res/ttree.png?raw=true) <br />
+![image](ttree.png) <br />
 
 ## 3. Implementation
 
@@ -243,7 +242,7 @@ Which visually is the tree below. <br />
 
 The input from the file [0.in](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in) is plotted as follows. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/out-i0-p1-fixed.png?raw=true) <br />
+![image](out-i0-p1-fixed.png) <br />
 
 With the file being: <br />
 
@@ -265,7 +264,7 @@ Pseudocode: [SweepLine_psc.pdf](https://github.com/the-other-mariana/computation
 ## Output
 The output are the corresponding intersections from the given set marked in red. <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/output-final-02.png?raw=true) <br />
+![image](output-final-02.png) <br />
 
 The output from console looks as follows. <br />
 
