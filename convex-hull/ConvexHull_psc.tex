@@ -1,10 +1,11 @@
 \documentclass[11pt]{article}
-\usepackage[margin=1.3in]{geometry}
+\usepackage[margin=1in]{geometry}
 \usepackage[ruled,vlined,linesnumbered]{algorithm2e}
 \usepackage[utf8]{inputenc}
 \usepackage[dvipsnames]{xcolor}
 
 \renewcommand{\thealgocf}{}
+\pagenumbering{gobble}
 
 \SetAlgorithmName{Algorithm}{algorithm}{Algorithms}
 \SetKwFor{While}{\textcolor{RoyalBlue}{While}}{\textcolor{RoyalBlue}{:}}{}
@@ -21,9 +22,11 @@
 \let\oldnl\nl% Store \nl in \oldnl
 \newcommand{\nonl}{\renewcommand{\nl}{\let\nl\oldnl}}% Remove line number for one line
 
+\usepackage[default]{cantarell}
+
 \begin{document}
 
-\section*{The Convex Hull}
+\section*{\textsf{The Convex Hull}}
 
 The Convex Hull of a shape (set of points) is the smallest convex set that contains it. It is a shape that has no holes and covers all the set of points. The points that are part of the Convex Hull contain all the remaining points of the set inside of the resulting shape.
 \\
