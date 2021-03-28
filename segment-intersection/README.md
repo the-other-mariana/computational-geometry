@@ -161,7 +161,8 @@ This tree will act as a **Queue of Events** but will be faster because of the BS
 >>> etree.insert(Event(Point(14, 1), 1, 1))
 >>> in_array = Q.inorder(etree.root)
 >>> print(in_array)
-[E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (10, 5) Seg: 0 Pos: 0], E[Point: (9, 3) Seg: 1 Pos: 0], E[Point: (14, 1) Seg: 1 Pos: 1]]
+[E[Point: (10, 6) Seg: 0 Pos: 1], E[Point: (10, 5) Seg: 0 Pos: 0], E[Point: (9, 3) Seg: 1 Pos: 0]
+, E[Point: (14, 1) Seg: 1 Pos: 1]]
 ```
 Which involves two line segments: s0 that goes from (10, 5) to (10, 6), and s1 that goes from (9, 3) to (14, 1). This event tree will look like the diagram below. <br />
 
@@ -236,6 +237,23 @@ Which visually is the tree below. <br />
 The input from the file [0.in](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in) is plotted as follows. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/output/out-i0-p1-fixed.png?raw=true) <br />
+
+With the file being: <br />
+
+```
+7
+13 25 27 86 s1
+11 75 31 40 s2
+50 50 89 100 s3
+43 65 50 50 s4
+12 40 29 10 s5
+78 60 26 32 s6
+47 25 50 50 s7
+```
+
+### 3.2 The Algorithm
+
+Pseudocode: [SweepLine_psc.pdf](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in)
 
 ## Output
 The output are the corresponding intersections from the given set marked in red. <br />
