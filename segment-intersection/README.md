@@ -253,7 +253,7 @@ With the file being: <br />
 
 ### 3.2 The Algorithm
 
-Pseudocode: [SweepLine_psc.pdf](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/input/0.in)
+Pseudocode: [SweepLine_psc.pdf](https://github.com/the-other-mariana/computational-geometry/blob/master/segment-intersection/SweepLine_psc.pdf) <br />
 
 ## Output
 The output are the corresponding intersections from the given set marked in red. <br />
