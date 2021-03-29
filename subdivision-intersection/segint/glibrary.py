@@ -157,7 +157,7 @@ class Vector:
 
 	@staticmethod
 	def cross(a, b):
-		# returns the length of cross product vector
+		# returns the signed length of cross product vector
 		return ((a.x * b.y) - (a.y * b.x))
 
 	@staticmethod

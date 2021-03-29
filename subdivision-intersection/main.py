@@ -436,13 +436,16 @@ if __name__ == "__main__":
                 break
             edge = edge.next
         # leave the left-most vertex as first element of an aux array
-        extreme = sorted(cycle, key=lambda edge: edge.origin.pos.x, reverse=False)
+        extreme = sorted(cycle, key=lambda edge: (edge.origin.pos.x), reverse=False)
+        extreme = sorted(extreme, key=lambda edge: (edge.origin.pos.y), reverse=True)
 
         # use the left-most edge and its previous to do a cross product to determine type
-        a1 = extreme[0].prev.origin.pos
-        a2 = extreme[0].prev.next.origin.pos
+        print("Extreme:", extreme[0], "Previous:", extreme[0].prev, "Next:", extreme[0].next, "For cycle:", cycle)
+        a1 = extreme[0].origin.pos
+        a2 = extreme[0].prev.origin.pos
         b1 = extreme[0].origin.pos
         b2 = extreme[0].next.origin.pos
+        print(f"v1: {a1} -> {a2} v2: {b1} -> {b2}")
 
         a = Vector.toVector(a1, a2)
         b = Vector.toVector(b1, b2)
