@@ -414,6 +414,8 @@ if __name__ == "__main__":
     visitedEdges = {}
     keys = neMap.keys()
     cycles = []
+    ext_cycles = []
+    int_cycles = []
     # array that stores the leftmost edges of each cycle
     extremes = []
     # init visited map (string, bool)
@@ -440,7 +442,7 @@ if __name__ == "__main__":
         extreme = sorted(extreme, key=lambda edge: (edge.origin.pos.y), reverse=True)
 
         # use the left-most edge and its previous to do a cross product to determine type
-        print("Extreme:", extreme[0], "Previous:", extreme[0].prev, "Next:", extreme[0].next, "For cycle:", cycle)
+        print("Extreme vertex:", extreme[0].origin, "Extreme Edge:", extreme[0], "Previous:", extreme[0].prev, "Next:", extreme[0].next, "For cycle:", cycle)
         a1 = extreme[0].origin.pos
         a2 = extreme[0].prev.origin.pos
         b1 = extreme[0].origin.pos
@@ -456,22 +458,116 @@ if __name__ == "__main__":
         if orientation >= 0:
             # angle between a and b is larger than 180: external cycle
             cycle.append("external")
+            ext_cycles.append(cycle)
         if orientation < 0:
             # angle between a and b is smaller than 180: internal cycle
             cycle.append("internal")
+            int_cycles.append(cycle)
         cycles.append(cycle)
-        extremes.append(extreme[0])
+        extremes.append(extreme[0]) # fetch its origin to get extreme vertex of ith cycle
 
-        # internal cycles are always faces
-        # external cycles may be united with others and form a face
+    # internal cycles are always faces
+    # external cycles may be united with others and form a face
+    # we will represent the union graphs where cycles are vertices in a dict: keys are the vertices
+    graph = {}
+    for c in range(len(cycles)):
+        if cycles[c][len(cycles[c]) - 1] == "external":
+            # fill each key with an empty list that will be filled if that external cycle gets together with another
+            graph[f"c{c}"] = []
+    print("Graph:", graph)
+    for c in range(len(cycles)):
+        if cycles[c][len(cycles[c]) - 1] == "external":
+            extEdge = extremes[c]
+            horizontal = Line.points2Line(extEdge.origin.pos, Point(extEdge.origin.pos.x - 0.1, extEdge.origin.pos.y))
+            # with the line, check every external cycle and each of its edges to see if there is an intersection
+            for ec in ext_cycles:
+                for edge in ec[:len(ec) - 1]:
+                    tempLine = Line.points2Line(edge.origin.pos, edge.next.origin.pos)
+                    hit = horizontal.intersects(tempLine)
+                    # if the two lines intersect and the point is in left side of the extreme point of that cycle
+                    if isinstance(hit, Point) and hit.x < extEdge.origin.pos.x:
+                        # if hit point inside edge bounds
+                        if hit.x >= edge.origin.pos.x and hit.x <= edge.next.origin.pos.x and hit.y >= edge.origin.pos.y and hit.y <= edge.next.origin.pos.y:
+                            # connect it to the graph by appending the cycle index where that hitting edge is
+                            idx = cycles.index(ext_cycles[ext_cycles.index(ec)])
+                            print(f"Edge: {edge} in ext cycle: {ec} from ext cycles: {ext_cycles} at cycle index: {idx} from cycles array")
+                            graph[f"c{c}"].append(f"c{idx}")
 
+    print("Graph:", graph)
+    efMap = {}
+    ifMap = {}
+    f = 1
+    # make sure non repeating cycle ids are in graph
+    for cycleId, cList in graph.items():
+        notRepeating = set(graph[cycleId])
+        newList = list(notRepeating)
+        graph[cycleId] = newList
+        # if this cycle has a lits of cycles
+        if len(newList) > 0:
+            # check each of its cycles
+            for c in newList:
+                # if the graph value of these cycles has a list
+                if len(graph[c]) > 0:
+                    # append these and delete the cycle id
+                    graph[cycleId] += graph[c]
+                    idx = newList.index(c)
+                    del graph[cycleId][idx]
+
+    # make sure non repeating cycle ids are in graph
+    # add external cycles graph result to faces map
+    for cycleId, cList in graph.items():
+        notRepeating = set(graph[cycleId])
+        newList = list(notRepeating)
+        graph[cycleId] = newList
+        ifMap[f"f{f}"] = []
+        ifMap[f"f{f}"].append(int(cycleId.replace("c", "")))
+        for item in newList:
+            ifMap[f"f{f}"].append(int(item.replace("c", "")))
+        f += 1
+    # add all internal cycles as faces
+    for ic in int_cycles:
+        efMap[f"f{f}"] = []
+        efMap[f"f{f}"].append(cycles.index(ic))
+        f += 1
+
+    # write face file
+    content = ""
+    content += "Face File\n"
+    content += "#################################\n"
+    content += "Name\tInternal\tExternal\n"
+    content += "#################################\n"
+    # fill external field
+    for key, v in efMap.items():
+        # cannot have lists
+        idx = v[0] # cycle index
+        firstEdge = cycles[idx][0] # first edge of a cycle
+        n = firstEdge.name
+        content += f"{key}\tNone\t{n}\n"
+    # fill external field
+    for key, v in ifMap.items():
+        # can have lists
+        n = ""
+        if len(v) > 1:
+            n += "["
+            for item in range(len(v)):
+                idx = v[item] # cycle index
+                firstEdge = cycles[idx][0] # first edge of a cycle
+                if item < len(v) - 1:
+                    n += firstEdge.name + ","
+                if item == len(v) - 1:
+                    n += firstEdge.name + "]"
+        else:
+            idx = v[0]  # cycle index
+            firstEdge = cycles[idx][0]  # first edge of a cycle
+            n += firstEdge.name
+        content += f"{key}\t{n}\tNone\n"
+    writeFile("car", content)
+
+    print("Graph:", graph)
+    print("Faces:", efMap, ifMap)
     
     print("cycles", cycles)
     print("extremes", extremes)
-
-
-
-
 
     print(neMap)
     print(vMap)
