@@ -114,7 +114,7 @@ def analyzeFig(figs, reqEdge):
     while edge.name != reqEdge.name or not started:
         started = True
         v = edge.origin
-        print(v.name)
+        #print(v.name)
         pts.append([v.pos.x, v.pos.y]) # as list instead of Point for plot
         TOT_PTS.append(v.pos)
         edge = edge.next
@@ -496,6 +496,7 @@ if __name__ == "__main__":
     print("Graph:", graph)
     efMap = {}
     ifMap = {}
+    nfMap = {}
     f = 1
     # make sure non repeating cycle ids are in graph
     for cycleId, cList in graph.items():
@@ -542,13 +543,23 @@ if __name__ == "__main__":
         idx = v[0] # cycle index
         firstEdge = cycles[idx][0] # first edge of a cycle
         n = firstEdge.name
+        # new face map appending
+        nfMap[key] = Face(key)
+        nfMap[key].internal = None
+        nfMap[key].external = firstEdge
+
         content += f"{key}\tNone\t{n}\n"
     # fill external field
     for key, v in ifMap.items():
         # can have lists
         n = ""
+        # new face map appending
+        nfMap[key] = Face(key)
+
+        internals = 0
         if len(v) > 1:
             n += "["
+            internals = []
             for item in range(len(v)):
                 idx = v[item] # cycle index
                 firstEdge = cycles[idx][0] # first edge of a cycle
@@ -556,10 +567,15 @@ if __name__ == "__main__":
                     n += firstEdge.name + ","
                 if item == len(v) - 1:
                     n += firstEdge.name + "]"
+                internals.append(firstEdge)
         else:
             idx = v[0]  # cycle index
             firstEdge = cycles[idx][0]  # first edge of a cycle
             n += firstEdge.name
+            internals = firstEdge
+
+        nfMap[key].internal = internals
+        nfMap[key].external = None
         content += f"{key}\t{n}\tNone\n"
     writeFile("car", content)
 
@@ -573,18 +589,42 @@ if __name__ == "__main__":
     print(vMap)
 
     # PLOTTING
+
     fig = plt.figure()
     fig.add_subplot()
     ax1 = plt.gca()
 
+    figs = []
+    pts = []
+
+    for key in nfMap.keys():
+        # check externals
+        if nfMap[key].external != None:
+            reqEdge = nfMap[key].external
+            figs = analyzeFig(figs, reqEdge)
+
+        # check internals, list of figs inside
+        if isinstance(nfMap[key].internal, list):
+            internalEdges = nfMap[key].internal
+            for i in range(len(internalEdges)):
+                reqEdge = internalEdges[i]
+                figs = analyzeFig(figs, reqEdge)
+
+        # check internals, one fig inside
+        if nfMap[key].internal != None and not isinstance(nfMap[key].internal, list):
+            reqEdge = nfMap[key].internal
+            figs = analyzeFig(figs, reqEdge)
+    colorCont = 0
     for f in figs:
         xp = [p[0] for p in f]
         yp = [p[1] for p in f]
         ax1.scatter(xp, yp,s=100, marker="o", zorder=10, color='black')
-        p = Polygon(np.array(f), facecolor = 'powderblue')
+        p = Polygon(np.array(f), facecolor = 'powderblue', alpha=0.3)
         ax1.add_patch(p)
         path = p.get_path()
-        patch = PathPatch(path, facecolor='powderblue', lw=2)
+        patch = PathPatch(path, facecolor='powderblue', lw=2, alpha=0.3)
         ax1.add_patch(patch)
+        colorCont += 1
+        
 
     plt.show()
