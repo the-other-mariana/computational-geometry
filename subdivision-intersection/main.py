@@ -11,7 +11,7 @@ import re
 from segint.algoritmo import AlgoritmoBarrido
 
 LAYERS = 2
-INPUT_ID = '01'
+INPUT_ID = '02'
 TOT_PTS = []
 TOT_SEGS = []
 
@@ -71,7 +71,7 @@ class Face:
 
 def getEdges(s, eMap):
     for key, value in eMap.items():
-        if value.origin.pos == s.puntos[0]:
+        if value.origin.pos == s.puntos[0] and value.next.origin.pos == s.puntos[1]:
             return value, value.mate
     return None, None
 
@@ -231,6 +231,7 @@ if __name__ == "__main__":
     for i in range(len(barr.R)):
         if not isinstance(barr.R[i], set) and barr.R[i] not in TOT_PTS:
             info.append(i)
+            print(barr.R[i])
 
     [print("New vertex:",p) for p in newverts]
 
@@ -255,8 +256,10 @@ if __name__ == "__main__":
     # for each new intersection point
     for j in range(len(info)):
         vert = verts[j]
+
         # list of segments in intersection response
         involved = list(barr.R[info[j] + 1])
+        print("Intersection Processing ->", vert, "with segments:", involved)
 
         primes = []
         bprimes = []
@@ -267,6 +270,7 @@ if __name__ == "__main__":
         for i in range(len(involved)):
             aux = []
             e, e_mate = getEdges(involved[i], eMap)
+            print("Edges involved:", e, e_mate, involved[i])
 
             # divide e in two
             e_name = str(e.name)
@@ -444,7 +448,6 @@ if __name__ == "__main__":
         b = Vector.toVector(b1, b2)
 
         # cycle's last element says its type: internal or external
-        # internals are always faces
         orientation = Vector.cross(a, b)
         print(f"{a} x {b} = {orientation}, a = {extreme[0].prev.name} b = {extreme[0].name}")
         if orientation >= 0:
@@ -455,6 +458,10 @@ if __name__ == "__main__":
             cycle.append("internal")
         cycles.append(cycle)
         extremes.append(extreme[0])
+
+        # internal cycles are always faces
+        # external cycles may be united with others and form a face
+
     
     print("cycles", cycles)
     print("extremes", extremes)
