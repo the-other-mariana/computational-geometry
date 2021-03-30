@@ -321,7 +321,7 @@ And when we plot this layer 03 result, we get the following image: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/layer03-ex01.png?raw=true) <br />
 
-Folder 01 (Two Overlapped Triangles) Output Layer
+Folder 02 (Two Overlapped Triangles) Output Layer
 ----
 
 Following this logic, we will visualize how face update works with another example located on [folder 02](https://github.com/the-other-mariana/computational-geometry/tree/master/subdivision-intersection/input/02), since the mentioned example results in new face creation. <br />
