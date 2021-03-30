@@ -297,14 +297,14 @@ Edge File
 #################################
 Name	Origin	Mate	Face	Next	Prev
 #################################
-s12	p2	s11pp	None	s22pp	s11pp
-s11	p1	s12pp	None	s21pp	s12pp
-s11pp	p5	s12	None	s12	s22
-s12pp	p5	s11	None	s11	s21
-s21	p3	s22pp	None	s12pp	s22pp
-s22	p4	s21pp	None	s11pp	s21pp
-s22pp	p5	s21	None	s21	s12
-s21pp	p5	s22	None	s22	s11
+s12	p2	s11pp	f1	s22pp	s11pp
+s11	p1	s12pp	f1	s21pp	s12pp
+s11pp	p5	s12	f1	s12	s22
+s12pp	p5	s11	f1	s11	s21
+s21	p3	s22pp	f1	s12pp	s22pp
+s22	p4	s21pp	f1	s11pp	s21pp
+s22pp	p5	s21	f1	s21	s12
+s21pp	p5	s22	f1	s22	s11
 ```
 
 - `.car` file (layer03.car):
