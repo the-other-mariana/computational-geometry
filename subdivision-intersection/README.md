@@ -317,6 +317,13 @@ Name	Internal	External
 f1	s12	None
 ```
 
+And when we plot this layer 03 result, we get the following image: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/layer03-ex01.png?raw=true) <br />
+
+Folder 01 (Two Overlapped Triangles) Output Layer
+----
+
 Following this logic, we will visualize how face update works with another example located on [folder 02](https://github.com/the-other-mariana/computational-geometry/tree/master/subdivision-intersection/input/02), since the mentioned example results in new face creation. <br />
 
 The next example has the files:
@@ -405,5 +412,75 @@ Which basically have the information as follows. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/02-layers-diag.png?raw=true) <br />
 
+Then, after **Vertex, Edge and Face Map Update** due to its proper segment intersections, we get the following **layer03** output files: <br />
+
+- `.ver` file (layer02.ver):
+
+```
+Vertex File
+#################################
+Name    x       y       Incident
+#################################
+p1	0	0	s11
+p2	0	10	s21
+p3	8	5	s31
+p4	10	10	s62
+p5	10	0	s42
+p6	2	5	s52
+p7	5.0	6.875	s21pp
+p8	5.0	3.125	s31pp
+```
+
+- `.ari` file (layer02.ari):
+
+```
+Edge file
+#############################################
+Name    Origin  Mate    Face    Next    Prev
+#############################################
+s11	p1	s12	f1	s21	s31pp
+s21	p2	s22pp	None	s61pp	s11
+s31	p3	s32pp	None	s52pp	s21pp
+s21pp	p7	s22	None	s31	s62
+s32	p1	s31pp	None	s51pp	s12
+s22	p3	s21pp	None	s62pp	s32pp
+s12	p2	s11	f2	s32	s22pp
+s22pp	p7	s21	None	s12	s61
+s42	p5	s41	f4	s62	s52pp
+s62	p4	s61pp	None	s21pp	s42
+s52	p6	s51pp	None	s32pp	s62pp
+s62pp	p7	s61	None	s52	s22
+s51	p5	s52pp	None	s31pp	s41
+s61	p6	s62pp	None	s22pp	s51pp
+s41	p4	s42	f3	s51	s61pp
+s61pp	p7	s62	None	s41	s21
+s31pp	p8	s32	None	s11	s51
+s32pp	p8	s31	None	s22	s52
+s52pp	p8	s51	None	s42	s31
+s51pp	p8	s52	None	s61	s32
+```
+
+- `.car` file (layer02.car):
+
+```
+Face file
+#######################
+Name    Internal External
+#######################
+f2	None	s31
+f3	None	s32
+f4	None	s22
+f1	s11	None
+```
+ 
+And when we plot this layer 03 result, taking on account that: <br />
+
+- **External** faces will be polygons filled with continuous colors,
+- **Internal Unique** faces will be polygons filled with a hatch pattern,
+- **Internal Lists** faces will be polygons filled with a hatch pattern, all with the same tone per list,
+
+we get the following image: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/layer03-ex02.png?raw=true) <br />
 
 
