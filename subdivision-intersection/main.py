@@ -34,13 +34,13 @@ def analyzeFig(figs, reqEdge, hole=False):
         TOT_PTS.append(v.pos)
         edge = edge.next
 
+    # get all the current figure's segments
     for i in range(len(pts) - 1):
         start = pts[i % len(pts)]
         end = pts[(i + 1) % len(pts)]
         s = Segmento(Point(start[0], start[1]), Point(end[0], end[1]))
         TOT_SEGS.append(s)
 
-    # TOT_SEGS.append(fig_segs)
     figs.append(pts)
     return figs
 
@@ -66,7 +66,7 @@ if __name__ == "__main__":
         faceFile = open(INPUT_FACE, 'r')
         flines = faceFile.readlines()
 
-        # indexes 0 1 2 3 contain just headers
+        # lines indexes 0 1 2 3 contain just headers
         # vertex reading
         for line in vlines[4:]:
             data = re.sub(' +', ' ', line).split()
@@ -115,7 +115,7 @@ if __name__ == "__main__":
     pts = []
 
     for key in fMap.keys():
-        # check externals
+        # check externals, cannot have lists
         if fMap[key].external != None:
             reqEdge = fMap[key].external
             figs = analyzeFig(figs, reqEdge)
@@ -142,7 +142,7 @@ if __name__ == "__main__":
     newverts = [p for p in barr.R if not isinstance(p, set) and p not in TOT_PTS]
     info = []
 
-    # put indexes of R where there is a point
+    # put indexes of R where there is an intersection point
     for i in range(len(barr.R)):
         if not isinstance(barr.R[i], set) and barr.R[i] not in TOT_PTS:
             info.append(i)
@@ -174,7 +174,7 @@ if __name__ == "__main__":
 
         # list of segments in intersection response
         involved = list(barr.R[info[j] + 1])
-        print("Intersection Processing ->", vert, "with segments:", involved)
+        print("Intersection Processing ->", vert, "With Segments Involved:", involved)
 
         primes = []
         bprimes = []
@@ -272,7 +272,7 @@ if __name__ == "__main__":
         circbp = sorted(circbp, key=lambda p: p[0])
 
         circ = []
-        # make one list with prime bprime prime bprime ...
+        # make one list with prime bprime, prime bprime, ...
         for i in range(len(circp)):
             # append only names
             circ.append(circp[i][1])
@@ -331,7 +331,7 @@ if __name__ == "__main__":
     cycles = []
     ext_cycles = []
     int_cycles = []
-    # array that stores the leftmost edges of each cycle
+    # array that will store the leftmost edge of each cycle at index 0
     extremes = []
     # init visited map (string, bool)
     for k in keys:
@@ -362,7 +362,7 @@ if __name__ == "__main__":
         a2 = extreme[0].prev.origin.pos
         b1 = extreme[0].origin.pos
         b2 = extreme[0].next.origin.pos
-        print(f"v1: {a1} -> {a2} v2: {b1} -> {b2}")
+        print(f"a: {a1} -> {a2} b: {b1} -> {b2}")
 
         a = Vector.toVector(a1, a2)
         b = Vector.toVector(b1, b2)
@@ -382,7 +382,7 @@ if __name__ == "__main__":
         extremes.append(extreme[0]) # fetch its origin to get extreme vertex of ith cycle
 
     # internal cycles are always faces
-    # external cycles may be united with others and form a face
+    # external cycles may be united with others and form one face
     # we will represent the union graphs where cycles are vertices in a dict: keys are the vertices
     graph = {}
     for c in range(len(cycles)):
@@ -405,13 +405,13 @@ if __name__ == "__main__":
                         if hit.x >= edge.origin.pos.x and hit.x <= edge.next.origin.pos.x and hit.y >= edge.origin.pos.y and hit.y <= edge.next.origin.pos.y:
                             # connect it to the graph by appending the cycle index where that hitting edge is
                             idx = cycles.index(ext_cycles[ext_cycles.index(ec)])
-                            print(f"Edge: {edge} in ext cycle: {ec} from ext cycles: {ext_cycles} at cycle index: {idx} from cycles array")
+                            print(f"Union -> Edge: {edge} in ext cycle: {ec} from ext cycles: {ext_cycles} at cycle index: {idx} from cycles array")
                             graph[f"c{c}"].append(f"c{idx}")
 
     print("Graph:", graph)
-    efMap = {}
-    ifMap = {}
-    nfMap = {}
+    efMap = {} # externals face map
+    ifMap = {} # internals face map
+    nfMap = {} # new face map
     f = 1
     # make sure non repeating cycle ids are in graph
     for cycleId, cList in graph.items():
@@ -504,7 +504,6 @@ if __name__ == "__main__":
     print(vMap)
 
     # PLOTTING
-
     fig = plt.figure()
     fig.add_subplot()
     ax1 = plt.gca()
@@ -519,6 +518,8 @@ if __name__ == "__main__":
         if nfMap[key].external != None:
             reqEdge = nfMap[key].external
             figs = analyzeFig(figs, reqEdge)
+            # append at the end of a fig its type
+            figs[-1].append("external")
 
         # check internals, list of figs inside
         if isinstance(nfMap[key].internal, list):
@@ -526,23 +527,44 @@ if __name__ == "__main__":
             for i in range(len(internalEdges)):
                 reqEdge = internalEdges[i]
                 figs = analyzeFig(figs, reqEdge)
+                # append at the end of a fig its type
+                figs[-1].append("internal-list")
 
         # check internals, one fig inside
         if nfMap[key].internal != None and not isinstance(nfMap[key].internal, list):
             reqEdge = nfMap[key].internal
             figs = analyzeFig(figs, reqEdge, True)
+            # append at the end of a fig its type
+            figs[-1].append("internal-one")
             #figs.append(comp)
     colorCont = 0
+    listColor = False
+    hatch = False
     for f in figs[:]:
-        xp = [p[0] for p in f]
-        yp = [p[1] for p in f]
+        # all internal faces will be filled with a hatch pattern in the plot
+        if f[-1] == "internal-one":
+            hatch = True
+        # if f is an internal face that is part of a list, keep the same color
+        if f[-1] == "internal-list" and not listColor:
+            listColor = True
+            hatch = True
+        if f[-1] != "internal-list" and listColor:
+            listColor = False
+            hatch = False
+        fg = f[:-1]
+        xp = [p[0] for p in fg]
+        yp = [p[1] for p in fg]
         ax1.scatter(xp, yp, s=(50 * len(colors)) - 50 * colorCont, marker=markers[colorCont % len(colors)], zorder=5 * colorCont, color=colors[colorCont % len(colors)])
-        p = Polygon(np.array(f), facecolor=colors[colorCont % len(colors)], alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=(2 * len(colors)) - 1 * colorCont)
+        p = Polygon(np.array(fg), facecolor=colors[colorCont % len(colors)], alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=(2 * len(colors)) - 1 * colorCont)
+        if hatch:
+            p = Polygon(np.array(fg), facecolor='none', alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=4)
+            p.set_hatch('o')
         ax1.add_patch(p)
         #path = p.get_path()
         #patch = PathPatch(path, facecolor=colors[colorCont], lw=2, alpha=0.3)
         #ax1.add_patch(patch)
-        colorCont += 1
+        if not listColor:
+            colorCont += 1
     #plt.gca().axes.get_yaxis().set_visible(False)
 
     plt.show()
