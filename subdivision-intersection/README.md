@@ -162,6 +162,7 @@ The f1 face (a line) from [layer 01 from example 01](https://github.com/the-othe
 With the files:
 
 - `.ver` file (layer01.ver):
+
 ```
 Vertex file
 #################################
@@ -170,7 +171,9 @@ Name    x       y       Incident
 p1      0       10      s11
 p2      10      0       s12
 ```
+
 - `.ari` file (layer01.ari):
+
 ```
 Edge file
 #############################################
@@ -179,7 +182,9 @@ Name    Origin  Mate    Face    Next    Prev
 s11     p1      s12     f1      s12     s12
 s12     p2      s11     f1      s11     s11
 ```
+
 - `.car` file (layer01.car):
+
 ```
 Face file
 #######################
@@ -195,6 +200,7 @@ The f2 face (another line) from [layer 02 from example 01](https://github.com/th
 With the files:
 
 - `.ver` file (layer02.ver):
+
 ```
 Vertex file
 #################################
@@ -203,7 +209,9 @@ Name    x       y       Incident
 p1      0       10      s11
 p2      10      0       s12
 ```
+
 - `.ari` file (layer02.ari):
+
 ```
 Edge file
 #############################################
@@ -212,7 +220,9 @@ Name    Origin  Mate    Face    Next    Prev
 s21     p3      s22     f2      s22     s22
 s22     p4      s21     f2      s21     s21
 ```
+
 - `.car` file (layer02.car):
+
 ```
 Face file
 #######################
@@ -220,19 +230,24 @@ Name    Internal External
 #######################
 f2      s21     None
 ```
+
 Which basically have the information as follows. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer01-02-diag.png?raw=true) <br />
 
-Now, what is next is to perform: 
+Now, what is next is to perform: <br />
 
-**layer01 + layer 02 = layer03**
+| **layer01 + layer 02 = layer03** |
+|     :---:      |
 
 With all three files of each layer, and output a third layer (layer03) with its three files. Layer 03 will basically look as below. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer03-diag.png?raw=true) <br />
 
-**Vertices & Edges Update**
+### 1.2.1 Vertices & Edges Update
+
+Source Code: [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py)
+
 1. We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex. Add it to Vertex file, with Incident as None.
 
 2. For each intersection point, we gather the two involved segments and its two mates. Then, each of these gathered Edges will be split into two Edges: the original will now be smaller, called *prime*, and the other half which we call *bprime* ("pp" named Edges).
@@ -247,15 +262,8 @@ With all three files of each layer, and output a third layer (layer03) with its 
     - Primes get old Prev, but take Next from the Circular List.
     - BPrimes get old Next, but take Prev from the Circular List.
 
-**Face Update**
-1. Loop over the Edge map to find **cycles**, that represent possible faces.
-    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
-2. For each cycle, obtain the Edge that has the left-most Origin Vertex.
-3. With this Edge obtained, called *a*, grab also its Prev Edge, called *b*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external**. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**.
-
-The [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py) now joins the vertices, edges and faces present each layer from an N number of layers. If we take [folder 01 (2 layers)](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/01/) and plot all the combined faces, we get the following. <br />
-
 - `.ver` file (layer03.ver):
+
 ```
 Vertex File
 #################################
@@ -267,7 +275,9 @@ p3	0	0	s21
 p4	10	10	s22
 p5	5.0	5.0	s11pp
 ```
+
 - `.ari` file (layer03.ari):
+
 ```
 Edge File
 #################################
@@ -282,3 +292,101 @@ s22	p4	s21pp	None	s11pp	s21pp
 s22pp	p5	s21	None	s21	s12
 s21pp	p5	s22	None	s22	s11
 ```
+
+### 1.2.2 Face Update
+
+1. Loop over the Edge map to find **cycles**, that represent possible faces.
+    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
+2. For each cycle, obtain the Edge that has the left-most Origin Vertex.
+3. With this Edge obtained, called *a*, grab also its Prev Edge, called *b*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external**. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**.
+
+Following this logic, we will visualize how face update works with another example located on [folder 02](https://github.com/the-other-mariana/computational-geometry/tree/master/subdivision-intersection/input/02), since the mentioned example results in new face creation. <br />
+
+The next example has the files:
+
+### Layer 01
+
+- `.ver` file (layer01.ver):
+
+```
+Vertex File
+#################################
+Name    x       y       Incident
+#################################
+p1      0       0       s11
+p2      0       10      s21
+p3      8       5       s31
+```
+
+- `.ari` file (layer01.ari):
+
+```
+Edge file
+#############################################
+Name    Origin  Mate    Face    Next    Prev
+#############################################
+s11     p1      s12     f1      s21     s31
+s12     p2      s11     f2      s32     s22
+s21     p2      s22     f1      s31     s11
+s22     p3      s21     f2      s12     s32
+s31     p3      s32     f1      s11     s21
+s32     p1      s31     f2      s22     s12
+```
+
+- `.car` file (layer01.car):
+
+```
+Face file
+#######################
+Name    Internal External
+#######################
+f1      s11     None
+f2      None    s12
+```
+
+### Layer 02
+
+- `.ver` file (layer02.ver):
+
+```
+Vertex File
+#################################
+Name    x       y       Incident
+#################################
+p4      10      10      s41
+p5      10      0       s51
+p6      2       5       s61
+```
+
+- `.ari` file (layer02.ari):
+
+```
+Edge file
+#############################################
+Name    Origin  Mate    Face    Next    Prev
+#############################################
+s41     p4      s42     f3      s51     s61
+s42     p5      s41     f4      s62     s52
+s51     p5      s52     f3      s61     s41
+s52     p6      s51     f4      s42     s62
+s61     p6      s62     f3      s41     s51
+s62     p4      s61     f4      s52     s42
+```
+
+- `.car` file (layer02.car):
+
+```
+Face file
+#######################
+Name    Internal External
+#######################
+f3      s41     None
+f4      None    s42
+```
+
+Which basically have the information as follows. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/02-layers-diag.png?raw=true) <br />
+
+
+
