@@ -596,6 +596,8 @@ if __name__ == "__main__":
 
     figs = []
     pts = []
+    colors = ['darkred', 'mediumblue', 'limegreen', 'deeppink', 'tomato']
+    markers = ['s', 'o', 'D', '>']
 
     for key in nfMap.keys():
         # check externals
@@ -614,17 +616,26 @@ if __name__ == "__main__":
         if nfMap[key].internal != None and not isinstance(nfMap[key].internal, list):
             reqEdge = nfMap[key].internal
             figs = analyzeFig(figs, reqEdge)
+
+            pmin = min(TOT_PTS)
+            pmax = max(TOT_PTS)
+            comp = []
+            comp.append([pmin.x, pmin.y])
+            comp.append([pmin.x, pmax.y])
+            comp.append([pmax.x, pmax.y])
+            comp.append([pmax.x, pmin.y])
+            #figs.append(comp)
     colorCont = 0
     for f in figs:
         xp = [p[0] for p in f]
         yp = [p[1] for p in f]
-        ax1.scatter(xp, yp,s=100, marker="o", zorder=10, color='black')
-        p = Polygon(np.array(f), facecolor = 'powderblue', alpha=0.3)
+        ax1.scatter(xp, yp, s=(50 * len(colors)) - 50 * colorCont, marker=markers[colorCont], zorder=5 * colorCont, color=colors[colorCont])
+        p = Polygon(np.array(f), facecolor=colors[colorCont], alpha=0.3, edgecolor=colors[colorCont], lw=(2 * len(colors)) - 1 * colorCont)
         ax1.add_patch(p)
         path = p.get_path()
-        patch = PathPatch(path, facecolor='powderblue', lw=2, alpha=0.3)
-        ax1.add_patch(patch)
+        #patch = PathPatch(path, facecolor=colors[colorCont], lw=2, alpha=0.3)
+        #ax1.add_patch(patch)
         colorCont += 1
-        
+    #plt.gca().axes.get_yaxis().set_visible(False)
 
     plt.show()
