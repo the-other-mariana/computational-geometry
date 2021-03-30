@@ -138,7 +138,7 @@ if __name__ == "__main__":
     # CALL SEGMENT INTERSECTION ALGORITHM
     barr = AlgoritmoBarrido(TOT_SEGS)
     barr.barrer()
-    print("Sweep Line Output:", barr.R, type(barr.R[0]))
+    print("Sweep Line Output:", barr.R)
     newverts = [p for p in barr.R if not isinstance(p, set) and p not in TOT_PTS]
     info = []
 
@@ -157,6 +157,10 @@ if __name__ == "__main__":
 
     neMap = {}
     verts = []
+
+    noChanges = False
+    if len(newverts) == 0:
+        noChanges = True
 
     names = len(vMap.keys())
     for nv in newverts:
@@ -296,19 +300,20 @@ if __name__ == "__main__":
     for k in keys:
         vMap[k].incident = t.getIncident(vMap[k].pos, neMap)
 
-    # write vertex file
-    content = ""
-    content += "Vertex File\n"
-    content += "#################################\n"
-    content += "Name\tx\ty\tIncident\n"
-    content += "#################################\n"
-    for key, v in vMap.items():
-        n = t.getValidName(v)
-        xv = v.pos.x
-        yv = v.pos.y
-        inc = t.getValidName(v.incident)
-        content += f"{n}\t{xv}\t{yv}\t{inc}\n"
-    t.writeFile("ver", content, LAYERS)
+    if not noChanges:
+        # write vertex file
+        content = ""
+        content += "Vertex File\n"
+        content += "#################################\n"
+        content += "Name\tx\ty\tIncident\n"
+        content += "#################################\n"
+        for key, v in vMap.items():
+            n = t.getValidName(v)
+            xv = v.pos.x
+            yv = v.pos.y
+            inc = t.getValidName(v.incident)
+            content += f"{n}\t{xv}\t{yv}\t{inc}\n"
+        t.writeFile("ver", content, LAYERS)
 
     ''' '''
     # update face map
@@ -432,53 +437,54 @@ if __name__ == "__main__":
         efMap[f"f{f}"].append(cycles.index(ic))
         f += 1
 
-    # write face file
-    content = ""
-    content += "Face File\n"
-    content += "#################################\n"
-    content += "Name\tInternal\tExternal\n"
-    content += "#################################\n"
-    # fill external field
-    for key, v in efMap.items():
-        # cannot have lists
-        idx = v[0] # cycle index
-        firstEdge = cycles[idx][0] # first edge of a cycle
-        n = firstEdge.name
-        # new face map appending
-        nfMap[key] = Face(key)
-        nfMap[key].internal = None
-        nfMap[key].external = firstEdge
+    if not noChanges:
+        # write face file
+        content = ""
+        content += "Face File\n"
+        content += "#################################\n"
+        content += "Name\tInternal\tExternal\n"
+        content += "#################################\n"
+        # fill external field
+        for key, v in efMap.items():
+            # cannot have lists
+            idx = v[0] # cycle index
+            firstEdge = cycles[idx][0] # first edge of a cycle
+            n = firstEdge.name
+            # new face map appending
+            nfMap[key] = Face(key)
+            nfMap[key].internal = None
+            nfMap[key].external = firstEdge
 
-        content += f"{key}\tNone\t{n}\n"
-    # fill external field
-    for key, v in ifMap.items():
-        # can have lists
-        n = ""
-        # new face map appending
-        nfMap[key] = Face(key)
+            content += f"{key}\tNone\t{n}\n"
+        # fill external field
+        for key, v in ifMap.items():
+            # can have lists
+            n = ""
+            # new face map appending
+            nfMap[key] = Face(key)
 
-        internals = 0
-        if len(v) > 1:
-            n += "["
-            internals = []
-            for item in range(len(v)):
-                idx = v[item] # cycle index
-                firstEdge = cycles[idx][0] # first edge of a cycle
-                if item < len(v) - 1:
-                    n += firstEdge.name + ","
-                if item == len(v) - 1:
-                    n += firstEdge.name + "]"
-                internals.append(firstEdge)
-        else:
-            idx = v[0]  # cycle index
-            firstEdge = cycles[idx][0]  # first edge of a cycle
-            n += firstEdge.name
-            internals = firstEdge
+            internals = 0
+            if len(v) > 1:
+                n += "["
+                internals = []
+                for item in range(len(v)):
+                    idx = v[item] # cycle index
+                    firstEdge = cycles[idx][0] # first edge of a cycle
+                    if item < len(v) - 1:
+                        n += firstEdge.name + ","
+                    if item == len(v) - 1:
+                        n += firstEdge.name + "]"
+                    internals.append(firstEdge)
+            else:
+                idx = v[0]  # cycle index
+                firstEdge = cycles[idx][0]  # first edge of a cycle
+                n += firstEdge.name
+                internals = firstEdge
 
-        nfMap[key].internal = internals
-        nfMap[key].external = None
-        content += f"{key}\t{n}\tNone\n"
-    t.writeFile("car", content, LAYERS)
+            nfMap[key].internal = internals
+            nfMap[key].external = None
+            content += f"{key}\t{n}\tNone\n"
+        t.writeFile("car", content, LAYERS)
 
     # now that nfMap is complete, update face field in Edges map
     for keyEdge, ne in neMap.items():
@@ -500,20 +506,21 @@ if __name__ == "__main__":
         neMap[keyEdge].face = nfMap[faceKey]
 
     # write edge file
-    content = ""
-    content += "Edge File\n"
-    content += "#################################\n"
-    content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
-    content += "#################################\n"
-    for key, ne in neMap.items():
-        n = t.getValidName(ne)
-        o = t.getValidName(ne.origin)
-        m = t.getValidName(ne.mate)
-        fc = t.getValidName(ne.face)
-        nx = t.getValidName(ne.next)
-        pv = t.getValidName(ne.prev)
-        content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
-    t.writeFile("ari", content, LAYERS)
+    if not noChanges:
+        content = ""
+        content += "Edge File\n"
+        content += "#################################\n"
+        content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
+        content += "#################################\n"
+        for key, ne in neMap.items():
+            n = t.getValidName(ne)
+            o = t.getValidName(ne.origin)
+            m = t.getValidName(ne.mate)
+            fc = t.getValidName(ne.face)
+            nx = t.getValidName(ne.next)
+            pv = t.getValidName(ne.prev)
+            content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
+        t.writeFile("ari", content, LAYERS)
 
     print("Graph:", graph)
     print("Faces:", efMap, ifMap, nfMap)
@@ -533,6 +540,10 @@ if __name__ == "__main__":
     pts = []
     colors = ['darkred', 'mediumblue', 'limegreen', 'deeppink', 'tomato', 'powderblue']
     markers = ['s', 'o', 'D', '>', 'X', '<']
+
+    if noChanges:
+        nfMap = fMap
+        neMap = eMap
 
     for key in nfMap.keys():
         # check externals
@@ -584,9 +595,6 @@ if __name__ == "__main__":
             p = Polygon(np.array(fg), facecolor='none', alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=4, label=f[-2])
             p.set_hatch('o')
         ax1.add_patch(p)
-        #path = p.get_path()
-        #patch = PathPatch(path, facecolor=colors[colorCont], lw=2, alpha=0.3)
-        #ax1.add_patch(patch)
         if not listColor:
             colorCont += 1
     #plt.gca().axes.get_yaxis().set_visible(False)
