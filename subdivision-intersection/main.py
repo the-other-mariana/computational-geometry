@@ -24,7 +24,7 @@ def analyzeFig(figs, reqEdge, hole=False):
     edge = reqEdge
     started = False
     pts = []
-    fig_segs = []
+
     # get all the current figure's vertices
     while edge.name != reqEdge.name or not started:
         started = True
@@ -38,7 +38,6 @@ def analyzeFig(figs, reqEdge, hole=False):
         start = pts[i % len(pts)]
         end = pts[(i + 1) % len(pts)]
         s = Segmento(Point(start[0], start[1]), Point(end[0], end[1]))
-        # fig_segs.append(s)
         TOT_SEGS.append(s)
 
     # TOT_SEGS.append(fig_segs)

@@ -262,6 +262,20 @@ Source Code: [code main.py](https://github.com/the-other-mariana/computational-g
     - Primes get old Prev, but take Next from the Circular List.
     - BPrimes get old Next, but take Prev from the Circular List.
 
+### 1.2.2 Face Update
+
+1. Loop over the Edge map to find **cycles**, that represent possible faces.
+    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
+2. For each cycle, obtain the Edge that has the left-most Origin Vertex.
+3. With this Edge obtained, called *a*, grab also its Prev Edge, called *b*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external**. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**.
+
+### 1.2.3 Example Outputs
+
+From the update rules above, the example at [folder 01](https://github.com/the-other-mariana/computational-geometry/tree/master/subdivision-intersection/input/01) we should have as output the following layer: <br />
+
+Folder 01 (Cross Image) Output Layer
+----
+
 - `.ver` file (layer03.ver):
 
 ```
@@ -293,12 +307,15 @@ s22pp	p5	s21	None	s21	s12
 s21pp	p5	s22	None	s22	s11
 ```
 
-### 1.2.2 Face Update
+- `.car` file (layer03.car):
 
-1. Loop over the Edge map to find **cycles**, that represent possible faces.
-    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
-2. For each cycle, obtain the Edge that has the left-most Origin Vertex.
-3. With this Edge obtained, called *a*, grab also its Prev Edge, called *b*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external**. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**.
+```
+Face File
+#################################
+Name	Internal	External
+#################################
+f1	s12	None
+```
 
 Following this logic, we will visualize how face update works with another example located on [folder 02](https://github.com/the-other-mariana/computational-geometry/tree/master/subdivision-intersection/input/02), since the mentioned example results in new face creation. <br />
 
