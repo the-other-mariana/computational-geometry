@@ -7,100 +7,15 @@ from matplotlib.patches import Polygon
 from matplotlib.patches import PathPatch
 import math
 import re
-
 from segint.algoritmo import AlgoritmoBarrido
+from structures import Vertex, Edge, Face
+from tools import Tools as t
 
 LAYERS = 2
 INPUT_ID = '02'
 TOT_PTS = []
 TOT_SEGS = []
 
-class Vertex:
-    def __init__(self, vname="", pos=Point()):
-        self.name = vname
-        self.pos = pos
-        self.incident = None # edge
-
-    def __repr__(self):
-        return f"V[name:{self.name}, pos:{self.pos}]"
-
-    def __str__(self):
-        return "V[name:{n}, pos:{p}]".format(n=self.name, p=self.pos)
-
-    def __eq__(self, other):
-        if other == None:
-            return False
-        return self.pos == other.pos and self.incident == other.incident
-
-class Edge:
-    def __init__(self, ename=""):
-        self.name = ename
-        self.origin = None # vertex
-        self.mate = None # edge
-        self.face = None # face
-        self.next = None # edge
-        self.prev = None # egde
-
-    def __repr__(self):
-        return f"E[name:{self.name}]"
-
-    def __str__(self):
-        return "E[name:{n}]".format(n=self.name)
-
-    def __eq__(self, other):
-        if other == None:
-            return False
-        return self.origin == other.origin and self.mate == other.mate and self.face == other.face and self.next == other.next and self.prev == other.prev
-
-class Face:
-    def __init__(self, fname=""):
-        self.name = fname
-        self.internal = None # edge
-        self.external = None # edge
-
-    def __repr__(self):
-        return f"F[name:{self.name}]"
-
-    def __str__(self):
-        return "F[name:{n}]".format(n=self.name)
-
-    def __eq__(self, other):
-        if other == None:
-            return False
-        return self.internal == other.internal and self.external == other.internal
-
-def getEdges(s, eMap):
-    for key, value in eMap.items():
-        if value.origin.pos == s.puntos[0] and value.next.origin.pos == s.puntos[1]:
-            return value, value.mate
-    return None, None
-
-def getIncident(p, eMap):
-    for key, value in eMap.items():
-        if value.origin.pos == p:
-            return value
-    return None
-
-
-def getMapValue(data, objMap):
-    if "[" in data:
-        data = data[1:(len(data) - 1)].split(',')
-        return [objMap[d] for d in data]
-    elif data.rstrip("\n") != 'None':
-        return objMap[data]
-    else:
-        return None
-
-def getValidName(mapVal):
-    if mapVal != None:
-        return mapVal.name
-    else:
-        return "None"
-
-def writeFile(ext, content):
-    outName = "layer{n}.{e}".format(n=LAYERS + 1, e=ext)
-    outFile = open(outName, "w")
-    outFile.write(content)
 
 def analyzeFig(figs, reqEdge, hole=False):
     global TOT_PTS
@@ -114,8 +29,8 @@ def analyzeFig(figs, reqEdge, hole=False):
     while edge.name != reqEdge.name or not started:
         started = True
         v = edge.origin
-        #print(v.name)
-        pts.append([v.pos.x, v.pos.y]) # as list instead of Point for plot
+        # print(v.name)
+        pts.append([v.pos.x, v.pos.y])  # as list instead of Point for plot
         TOT_PTS.append(v.pos)
         edge = edge.next
 
@@ -123,12 +38,13 @@ def analyzeFig(figs, reqEdge, hole=False):
         start = pts[i % len(pts)]
         end = pts[(i + 1) % len(pts)]
         s = Segmento(Point(start[0], start[1]), Point(end[0], end[1]))
-        #fig_segs.append(s)
+        # fig_segs.append(s)
         TOT_SEGS.append(s)
 
-    #TOT_SEGS.append(fig_segs)
+    # TOT_SEGS.append(fig_segs)
     figs.append(pts)
     return figs
+
 
 if __name__ == "__main__":
 
@@ -175,25 +91,25 @@ if __name__ == "__main__":
         for line in vlines[4:]:
             data = re.sub(' +', ' ', line).split()
             name = data[0]
-            vMap[name].incident = getMapValue(data[3], eMap)
+            vMap[name].incident = t.getMapValue(data[3], eMap)
 
         # fill edges
         for line in elines[4:]:
             data = re.sub(' +', ' ', line).split()
             name = data[0]
 
-            eMap[name].origin = getMapValue(data[1], vMap)
-            eMap[name].mate = getMapValue(data[2], eMap)
-            eMap[name].face = getMapValue(data[3], fMap)
-            eMap[name].next = getMapValue(data[4], eMap)
-            eMap[name].prev = getMapValue(data[5], eMap)
+            eMap[name].origin = t.getMapValue(data[1], vMap)
+            eMap[name].mate = t.getMapValue(data[2], eMap)
+            eMap[name].face = t.getMapValue(data[3], fMap)
+            eMap[name].next = t.getMapValue(data[4], eMap)
+            eMap[name].prev = t.getMapValue(data[5], eMap)
 
         # fill faces
         for line in flines[4:]:
             data = re.sub(' +', ' ', line).split()
             name = data[0]
-            fMap[name].internal = getMapValue(data[1], eMap) # []
-            fMap[name].external = getMapValue(data[2], eMap)
+            fMap[name].internal = t.getMapValue(data[1], eMap) # []
+            fMap[name].external = t.getMapValue(data[2], eMap)
 
     print(fMap.keys())
     figs = []
@@ -269,7 +185,7 @@ if __name__ == "__main__":
         # update edge origins and primes.prev and bprimes.next
         for i in range(len(involved)):
             aux = []
-            e, e_mate = getEdges(involved[i], eMap)
+            e, e_mate = t.getEdges(involved[i], eMap)
             print("Edges involved:", e, e_mate, involved[i])
 
             # divide e in two
@@ -364,7 +280,7 @@ if __name__ == "__main__":
             circ.append(circbp[i][1])
 
         circ.reverse()
-        print("circ list", circ)
+        print("Circular list:", circ)
         # primes are even and need next
         # bprimes are odd and need prev
         for i in range(len(both)):
@@ -379,7 +295,7 @@ if __name__ == "__main__":
     # update vertex file (incident edge)
     keys = vMap.keys()
     for k in keys:
-        vMap[k].incident = getIncident(vMap[k].pos, neMap)
+        vMap[k].incident = t.getIncident(vMap[k].pos, neMap)
 
     # write vertex file
     content = ""
@@ -388,12 +304,12 @@ if __name__ == "__main__":
     content += "Name\tx\ty\tIncident\n"
     content += "#################################\n"
     for key, v in vMap.items():
-        n = getValidName(v)
+        n = t.getValidName(v)
         xv = v.pos.x
         yv = v.pos.y
-        inc = getValidName(v.incident)
+        inc = t.getValidName(v.incident)
         content += f"{n}\t{xv}\t{yv}\t{inc}\n"
-    writeFile("ver", content)
+    t.writeFile("ver", content, LAYERS)
     # write edge file
     content = ""
     content += "Edge File\n"
@@ -401,14 +317,14 @@ if __name__ == "__main__":
     content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
     content += "#################################\n"
     for key, ne in neMap.items():
-        n = getValidName(ne)
-        o = getValidName(ne.origin)
-        m = getValidName(ne.mate)
-        fc = getValidName(ne.face)
-        nx = getValidName(ne.next)
-        pv = getValidName(ne.prev)
+        n = t.getValidName(ne)
+        o = t.getValidName(ne.origin)
+        m = t.getValidName(ne.mate)
+        fc = t.getValidName(ne.face)
+        nx = t.getValidName(ne.next)
+        pv = t.getValidName(ne.prev)
         content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
-    writeFile("ari", content)
+    t.writeFile("ari", content, LAYERS)
     ''' '''
     # update face map
     visitedEdges = {}
@@ -577,7 +493,7 @@ if __name__ == "__main__":
         nfMap[key].internal = internals
         nfMap[key].external = None
         content += f"{key}\t{n}\tNone\n"
-    writeFile("car", content)
+    t.writeFile("car", content, LAYERS)
 
     print("Graph:", graph)
     print("Faces:", efMap, ifMap)
@@ -596,8 +512,8 @@ if __name__ == "__main__":
 
     figs = []
     pts = []
-    colors = ['darkred', 'mediumblue', 'limegreen', 'deeppink', 'tomato']
-    markers = ['s', 'o', 'D', '>']
+    colors = ['darkred', 'mediumblue', 'limegreen', 'deeppink', 'tomato', 'powderblue']
+    markers = ['s', 'o', 'D', '>', 'X', '<']
 
     for key in nfMap.keys():
         # check externals
@@ -621,8 +537,8 @@ if __name__ == "__main__":
     for f in figs[:]:
         xp = [p[0] for p in f]
         yp = [p[1] for p in f]
-        ax1.scatter(xp, yp, s=(50 * len(colors)) - 50 * colorCont, marker=markers[colorCont], zorder=5 * colorCont, color=colors[colorCont])
-        p = Polygon(np.array(f), facecolor=colors[colorCont], alpha=0.3, edgecolor=colors[colorCont], lw=(2 * len(colors)) - 1 * colorCont)
+        ax1.scatter(xp, yp, s=(50 * len(colors)) - 50 * colorCont, marker=markers[colorCont % len(colors)], zorder=5 * colorCont, color=colors[colorCont % len(colors)])
+        p = Polygon(np.array(f), facecolor=colors[colorCont % len(colors)], alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=(2 * len(colors)) - 1 * colorCont)
         ax1.add_patch(p)
         #path = p.get_path()
         #patch = PathPatch(path, facecolor=colors[colorCont], lw=2, alpha=0.3)
