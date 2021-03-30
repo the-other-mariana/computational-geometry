@@ -138,7 +138,7 @@ if __name__ == "__main__":
     # CALL SEGMENT INTERSECTION ALGORITHM
     barr = AlgoritmoBarrido(TOT_SEGS)
     barr.barrer()
-    print("Output", barr.R, type(barr.R[0]))
+    print("Sweep Line Output:", barr.R, type(barr.R[0]))
     newverts = [p for p in barr.R if not isinstance(p, set) and p not in TOT_PTS]
     info = []
 
@@ -309,21 +309,7 @@ if __name__ == "__main__":
         inc = t.getValidName(v.incident)
         content += f"{n}\t{xv}\t{yv}\t{inc}\n"
     t.writeFile("ver", content, LAYERS)
-    # write edge file
-    content = ""
-    content += "Edge File\n"
-    content += "#################################\n"
-    content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
-    content += "#################################\n"
-    for key, ne in neMap.items():
-        n = t.getValidName(ne)
-        o = t.getValidName(ne.origin)
-        m = t.getValidName(ne.mate)
-        fc = t.getValidName(ne.face)
-        nx = t.getValidName(ne.next)
-        pv = t.getValidName(ne.prev)
-        content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
-    t.writeFile("ari", content, LAYERS)
+
     ''' '''
     # update face map
     visitedEdges = {}
@@ -494,8 +480,43 @@ if __name__ == "__main__":
         content += f"{key}\t{n}\tNone\n"
     t.writeFile("car", content, LAYERS)
 
+    # now that nfMap is complete, update face field in Edges map
+    for keyEdge, ne in neMap.items():
+        faceKey = ""
+        idxCycle = 0
+        for c in cycles:
+            cnames = [e.name for e in c[:-1]]
+            if ne.name in cnames:
+                idxCycle = cycles.index(c)
+                break
+        for keyFace, e_f in efMap.items():
+            if idxCycle in efMap[keyFace]:
+                faceKey = keyFace
+                break
+        for keyFace, i_f in ifMap.items():
+            if idxCycle in ifMap[keyFace]:
+                faceKey = keyFace
+                break
+        neMap[keyEdge].face = nfMap[faceKey]
+
+    # write edge file
+    content = ""
+    content += "Edge File\n"
+    content += "#################################\n"
+    content += "Name\tOrigin\tMate\tFace\tNext\tPrev\n"
+    content += "#################################\n"
+    for key, ne in neMap.items():
+        n = t.getValidName(ne)
+        o = t.getValidName(ne.origin)
+        m = t.getValidName(ne.mate)
+        fc = t.getValidName(ne.face)
+        nx = t.getValidName(ne.next)
+        pv = t.getValidName(ne.prev)
+        content += f"{n}\t{o}\t{m}\t{fc}\t{nx}\t{pv}\n"
+    t.writeFile("ari", content, LAYERS)
+
     print("Graph:", graph)
-    print("Faces:", efMap, ifMap)
+    print("Faces:", efMap, ifMap, nfMap)
     
     print("cycles", cycles)
     print("extremes", extremes)
@@ -518,7 +539,8 @@ if __name__ == "__main__":
         if nfMap[key].external != None:
             reqEdge = nfMap[key].external
             figs = analyzeFig(figs, reqEdge)
-            # append at the end of a fig its type
+            # append at the end of a fig its label and type
+            figs[-1].append(key)
             figs[-1].append("external")
 
         # check internals, list of figs inside
@@ -527,16 +549,18 @@ if __name__ == "__main__":
             for i in range(len(internalEdges)):
                 reqEdge = internalEdges[i]
                 figs = analyzeFig(figs, reqEdge)
-                # append at the end of a fig its type
+                # append at the end of a fig its label and type
+                figs[-1].append(key)
                 figs[-1].append("internal-list")
 
         # check internals, one fig inside
         if nfMap[key].internal != None and not isinstance(nfMap[key].internal, list):
             reqEdge = nfMap[key].internal
             figs = analyzeFig(figs, reqEdge, True)
-            # append at the end of a fig its type
+            # append at the end of a fig its label and type
+            figs[-1].append(key)
             figs[-1].append("internal-one")
-            #figs.append(comp)
+
     colorCont = 0
     listColor = False
     hatch = False
@@ -551,13 +575,13 @@ if __name__ == "__main__":
         if f[-1] != "internal-list" and listColor:
             listColor = False
             hatch = False
-        fg = f[:-1]
+        fg = f[:-2]
         xp = [p[0] for p in fg]
         yp = [p[1] for p in fg]
         ax1.scatter(xp, yp, s=(50 * len(colors)) - 50 * colorCont, marker=markers[colorCont % len(colors)], zorder=5 * colorCont, color=colors[colorCont % len(colors)])
-        p = Polygon(np.array(fg), facecolor=colors[colorCont % len(colors)], alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=(2 * len(colors)) - 1 * colorCont)
+        p = Polygon(np.array(fg), facecolor=colors[colorCont % len(colors)], alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=(2 * len(colors)) - 1 * colorCont, label=f[-2])
         if hatch:
-            p = Polygon(np.array(fg), facecolor='none', alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=4)
+            p = Polygon(np.array(fg), facecolor='none', alpha=0.3, edgecolor=colors[colorCont % len(colors)], lw=4, label=f[-2])
             p.set_hatch('o')
         ax1.add_patch(p)
         #path = p.get_path()
@@ -566,5 +590,5 @@ if __name__ == "__main__":
         if not listColor:
             colorCont += 1
     #plt.gca().axes.get_yaxis().set_visible(False)
-
+    plt.legend(loc="lower center")
     plt.show()

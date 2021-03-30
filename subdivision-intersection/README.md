@@ -481,6 +481,6 @@ And when we plot this layer 03 result, taking on account that: <br />
 
 we get the following image: <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/layer03-ex02.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/layer03-ex02-legend.png?raw=true) <br />
 
 
