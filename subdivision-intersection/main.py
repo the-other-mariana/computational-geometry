@@ -102,7 +102,7 @@ def writeFile(ext, content):
     outFile = open(outName, "w")
     outFile.write(content)
 
-def analyzeFig(figs, reqEdge):
+def analyzeFig(figs, reqEdge, hole=False):
     global TOT_PTS
     global TOT_SEGS
 
@@ -615,24 +615,16 @@ if __name__ == "__main__":
         # check internals, one fig inside
         if nfMap[key].internal != None and not isinstance(nfMap[key].internal, list):
             reqEdge = nfMap[key].internal
-            figs = analyzeFig(figs, reqEdge)
-
-            pmin = min(TOT_PTS)
-            pmax = max(TOT_PTS)
-            comp = []
-            comp.append([pmin.x, pmin.y])
-            comp.append([pmin.x, pmax.y])
-            comp.append([pmax.x, pmax.y])
-            comp.append([pmax.x, pmin.y])
+            figs = analyzeFig(figs, reqEdge, True)
             #figs.append(comp)
     colorCont = 0
-    for f in figs:
+    for f in figs[:]:
         xp = [p[0] for p in f]
         yp = [p[1] for p in f]
         ax1.scatter(xp, yp, s=(50 * len(colors)) - 50 * colorCont, marker=markers[colorCont], zorder=5 * colorCont, color=colors[colorCont])
         p = Polygon(np.array(f), facecolor=colors[colorCont], alpha=0.3, edgecolor=colors[colorCont], lw=(2 * len(colors)) - 1 * colorCont)
         ax1.add_patch(p)
-        path = p.get_path()
+        #path = p.get_path()
         #patch = PathPatch(path, facecolor=colors[colorCont], lw=2, alpha=0.3)
         #ax1.add_patch(patch)
         colorCont += 1
