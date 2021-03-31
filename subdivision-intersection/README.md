@@ -250,7 +250,7 @@ Source Code: [code main.py](https://github.com/the-other-mariana/computational-g
 
 1. We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex. Add it to Vertex file, with Incident as None.
 
-2. For each intersection point (a for loop through `new verts`), we gather each of the involved segments (Edges) and its mate (another for loop through `involved`). Then, each of these gathered Edges (e and e_mate) will be split into two Edges: the original will now be the first half of the original length, called *prime*, and the other which we call *bprime* ("pp" named Edges) will cover the the reamining half. Each iteration of `involved` will have `e` split into `e_prime` and `e_bprime` and `e_mate` into `em_prime` and `em_bprime`. Therefore, in total we have 4 Edges being created on each iteration of `involved`, which is inside an iteration of `newverts`.
+2. For each intersection point (a for loop through `new verts`), we gather each of the involved segments (Edges) and its mate (another for loop through `involved`). Then, each of these gathered Edges (e and e_mate) will be split into two Edges: the original will now be the first half of the original length, called *prime*, and the other which we call *bprime* ("pp" named Edges) will cover the the remaining half. Each iteration of `involved` will have `e` split into `e_prime` and `e_bprime` and `e_mate` into `em_prime` and `em_bprime`. Therefore, in total we have 4 Edges being created on each iteration of `involved`, which is inside an iteration of `newverts`.
 
 3. Pattern: the primes' origin will be the origin from their original Edge. The bprimes's origin will be the new vertex with which we are iterating.
 
@@ -267,14 +267,27 @@ Source Code: [code main.py](https://github.com/the-other-mariana/computational-g
     - Primes get old Prev, but take Next from the Circular List.
     - BPrimes get old Next, but take Prev from the Circular List.
 
-9. Update the None Incident (Vertex file/map) property of the new Vertex we left in the first step. 
+9. Update the None Incident (Vertex file/map) property of the new Vertex we left in the first step. Now we can write the Vertex file.
 
 ## Face Update
 
-1. Loop over the Edge map to find **cycles**, that represent possible faces.
-    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
+1. Loop over the Edge map to find **cycles** based on their Next property, that represent possible faces. <br />
+
+    -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape. Whenever we visit an Edge an its Next and Next and Next until a cycle is done, we put these edges as visited in an auxiliar map.
+
 2. For each cycle, obtain the Edge that has the left-most Origin Vertex.
-3. With this Edge obtained, called *a*, grab also its Prev Edge, called *b*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external**. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**.
+
+3. With this Edge obtained, called *b*, grab also its Prev Edge, called *a*, and perform a cross product *a* x *b*. If the cross product length is >= 0, their angle is larger than 180°, and therefore it is an **external** cycle. If the cross product is < 0, then the angle is smaller than 180° and the cycle is **internal**. We append a string of "internal" or "external" at the end of each cycle to know this, and each cycle will be appended to a list `cycles`. At the same time, we maintain a list of `extremes`, where the Edge at extremes[0] will be this left-most Edge of cycle at cycles[0].
+
+4. Pattern: **Internal** cycles will always be output faces, but **External** cycles may be unified into other **External** cycles and form one face together. To know which of this external cycles will get unified into another or stay the same, we will use a *Graph*.
+
+5. We will represent this union graph with a Python dictionary, where the keys will be the graph's vertices and the dict value will be a list representing to which other vertices the current key (graph vertex) is connected.
+
+6. We will fill this union graph with the following idea: keys will be each cycle name as `c + index`, and we will append to its value list the cycle names with which its **Horizontal Line**, starting at that cycle's extreme Edge origin's Y value, hits other cycles. So we grab the current external cycle's extreme Edge and get its origin's Y value and construct a Horizontal Line and check of segment intersections with this line and the remaining cycle's edges. If there is a collision and this hit point is within segment bounds and its X value is smaller than the extreme Edge.origin X value, we add this cycle's name to the current cycle's value list in the dict.
+
+7. At the end of this external cycle loop, external cycles that will be unified with others and form a face will be those whose dict list length is larger than 0. Therefore, output faces will be: all internal cycles, all external cycles with dict value being an empty list, and one face per cycle that has a list of cycle collisions.
+
+8. Finally, we have the face map done and now we can update each Edge.face field of the Edge map that was left as None in the previous section. Now we write the Face and Edge file.
 
 ### 1.2.3 Example Outputs
 
