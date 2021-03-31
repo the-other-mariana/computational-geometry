@@ -1,4 +1,4 @@
-'''Code that implements an Edge Linked List (map) from input files'''
+''' Code that computes the intersection of polygons '''
 from glibrary import Point, Line, Vector
 from segint.Segmento import Segmento
 import numpy as np
@@ -575,7 +575,7 @@ if __name__ == "__main__":
     colorCont = 0
     listColor = False
     hatch = False
-    for f in figs[:]:
+    for f in figs:
         # all internal faces will be filled with a hatch pattern in the plot
         if f[-1] == "internal-one":
             hatch = True
@@ -597,6 +597,7 @@ if __name__ == "__main__":
         ax1.add_patch(p)
         if not listColor:
             colorCont += 1
+
     #plt.gca().axes.get_yaxis().set_visible(False)
     plt.legend(loc="lower center")
     plt.show()

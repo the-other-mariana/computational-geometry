@@ -1,6 +1,6 @@
 # Subdivision Intersection
 
-The next algorithm to construct will be one that outputs the intersection of subdivisions (polygons or figures).
+The next algorithm to construct will be one that outputs the intersection of subdivisions (polygons or figures): This program will receive 'layers', where each layer contains polygons, and compute the intersections of the segments of each polygon with the other layer's polygons and output a resulting layer containing the polygons formed due to the intersections. <br />
 
 ## General Ideas
 
@@ -24,7 +24,7 @@ These ideas can be best understood with the drawing below, where one face (F1) i
 
 ## Data Structures Needed
 
-### 1.1 Edge Linked List (Map)
+### 1. Edge Linked List (Map)
 
 The input for the program will be with 3 files: 
 - `.ver` file: Vertex object file. The format is shown in the [example](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/input/03/layer01.ver) below.
@@ -105,7 +105,7 @@ The three files shown above represent the following set: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/diagram.jpeg?raw=true)
 
-### 1.1.1 Edge Linked List Queries
+### 1.1 Edge Linked List Queries
 
 To test the correct organization of the map (Edge Linked List), the [ELL.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/ELL.py) works as following:
 
@@ -149,7 +149,7 @@ Outputs the plot: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/output/FACE4.png?raw=true)
 
-## 1.2 Layer Superposition
+## Layer Superposition
 
 In order to output the intersection faces of two layers or more, we need to perform a layer superposition. <br />
 
@@ -244,25 +244,32 @@ With all three files of each layer, and output a third layer (layer03) with its 
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/res/layer03-diag.png?raw=true) <br />
 
-### 1.2.1 Vertices & Edges Update
+## Vertices & Edges Update
 
 Source Code: [code main.py](https://github.com/the-other-mariana/computational-geometry/blob/master/subdivision-intersection/main.py)
 
 1. We check for intersections with the Segment Intersection algorithm. If there are intersections, each hit point becomes a new Vertex. Add it to Vertex file, with Incident as None.
 
-2. For each intersection point, we gather the two involved segments and its two mates. Then, each of these gathered Edges will be split into two Edges: the original will now be smaller, called *prime*, and the other half which we call *bprime* ("pp" named Edges).
+2. For each intersection point (a for loop through `new verts`), we gather each of the involved segments (Edges) and its mate (another for loop through `involved`). Then, each of these gathered Edges (e and e_mate) will be split into two Edges: the original will now be the first half of the original length, called *prime*, and the other which we call *bprime* ("pp" named Edges) will cover the the reamining half. Each iteration of `involved` will have `e` split into `e_prime` and `e_bprime` and `e_mate` into `em_prime` and `em_bprime`. Therefore, in total we have 4 Edges being created on each iteration of `involved`, which is inside an iteration of `newverts`.
 
-3. Pattern: primes take its original Edge's Prev Edge, while bprimes take its original Edge's Next Edge. Now, we just update these Prev and Next originals in the new map with the new Edge as Next and Prev, respectively.
+3. Pattern: the primes' origin will be the origin from their original Edge. The bprimes's origin will be the new vertex with which we are iterating.
 
-4. We build a **Circular List** for primes and another for bprimes: taking the new vertex as p1, and p2 will be the endpoint of the Edges there (cross's extremes, in the example), order the Edges in the list by the `atan2(p2.y - p1.y, p2.x - p1.x)` value (Edge endpoint's angle with respect to the new Vertex), and finally create a final Circular List by appending one prime and then one bprime and so on from each of the previously sorted lists.
+4. Pattern: primes take its original Edge's Prev Edge, while bprimes take its original Edge's Next Edge. Now, we just update these Prev and Next originals in the new map with the new Edge as Next and Prev, respectively. In other words, the Prev and Next will be copied into the primes and bprimes respectively, but *those* Edges need an update in their Next (for Prev in primes) and Prev (for Next in bprimes).
 
-5. Use the Circular List to update to the prime Edges its Next and to each of the bprime Edges its Prev, which were the values that were not taken from the old list during step 3.
+5. While this happens, we store the 4 Edges in an `aux` list created at each iteration of `involved`. We also append them corresponding to a list of `primes`, `bprimes` and `both`. These are created at each iteration of `newverts`, because we want the primes and bprimes from all the involved segments (8 Edges), while the `aux` list will only store the four Edges of a segment. 
 
-6. Update the None Incident property of the new Vertex we left in the first step. Summarizing:
+6. Pattern: at the end of each iteration of `involved`, we update the `mate` field of the recent 4 Edges with a pattern of: aux[0] with aux[4], aux[1] with aux[3], etc.
+
+7. We build a **Circular List** for primes and another for bprimes: taking the new vertex as p1, and p2 will be the endpoint of the Edges there (cross's extremes, in the example), order the Edges in the list by the `atan2(p2.y - p1.y, p2.x - p1.x)` value (Edge endpoint's angle with respect to the new Vertex), and finally create a final Circular List by appending one prime and then one bprime and so on from each of the previously sorted lists.
+
+8. Use the Circular List to update to the prime Edges its Next and to each of the bprime Edges its Prev, which were the values that were not taken from the old list during step 4. Summarizing: <br />
+
     - Primes get old Prev, but take Next from the Circular List.
     - BPrimes get old Next, but take Prev from the Circular List.
 
-### 1.2.2 Face Update
+9. Update the None Incident (Vertex file/map) property of the new Vertex we left in the first step. 
+
+## Face Update
 
 1. Loop over the Edge map to find **cycles**, that represent possible faces.
     -  A cycle is made by finding the next *unvisited* Edge in the map that makes a shape.
