@@ -16,7 +16,7 @@
 $ python main.py
 ```
 
-4. Go to: `output > files` and you will find the resulting files (.ari, .ver, .car) that the program writes. Inside output folder, there are also the plot images of the result.
+4. Go to: `output > files` and you will find the resulting files (.ari, .ver, .car) that the program writes. Inside output folder, there are also the plot images of the result and the output files for each example layers.
 
 5. To change the example folder that the program uses, go to main.py, and on the line 16, write the folder name (01 or 02) of the example you want to run.
 
