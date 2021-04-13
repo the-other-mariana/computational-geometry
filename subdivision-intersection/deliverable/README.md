@@ -20,3 +20,4 @@ $ python main.py
 
 5. To change the example folder that the program uses, go to main.py, and on the line 16, write the folder name (01 or 02) of the example you want to run.
 
+If there is any problem, all source code and instructions are on the link: https://github.com/the-other-mariana/computational-geometry/tree/master/subdivision-intersection
