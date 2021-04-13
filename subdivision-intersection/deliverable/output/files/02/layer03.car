@@ -1,0 +1,8 @@
+Face File
+#################################
+Name	Internal	External
+#################################
+f2	None	s31
+f3	None	s32
+f4	None	s22
+f1	s11	None
