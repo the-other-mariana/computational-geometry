@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6d7f6ab9-680f-4e1c-ba63-da49656c82c1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/segment-intersection/brute-force/Segmento.py" beforeDir="false" afterPath="$PROJECT_DIR$/segment-intersection/brute-force/Segmento.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/segment-intersection/brute-force/algoritmo.py" beforeDir="false" afterPath="$PROJECT_DIR$/segment-intersection/brute-force/algoritmo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/segment-intersection/brute-force/main2.py" beforeDir="false" afterPath="$PROJECT_DIR$/segment-intersection/brute-force/main2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CG_Cover.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/CG_Cover.pdf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
