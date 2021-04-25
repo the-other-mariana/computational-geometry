@@ -1,10 +1,12 @@
 from glibrary import Point, Line, Vector
 import numpy as np
+import math
 from matplotlib import pyplot as plt
 
+STEPS = 50
 f = 0
 
-def paint(p, input):
+def paint(input):
     global f
 
     xs = [p.x for p in input]
@@ -17,8 +19,29 @@ def paint(p, input):
     ax1.scatter(xs, ys, s=20, zorder=10, color='blue')
 
     # plot horizontal sweep line
+    plt.setp(ax1, xlim=(2.5, 8), ylim=(0, 10))
     xlim = ax1.get_xlim()
-    ax1.plot(list(xlim), [p.y, p.y], color="red")
+    ylim = ax1.get_ylim()
+    yRange = abs(ylim[1] - ylim[0])
+    dy = yRange / (STEPS * 1.0)
+
+    yValue = ylim[1] - (f * dy)
+    ax1.plot(list(xlim), [yValue, yValue], color="red")
+
+
+    for p in input:
+        if yValue <= p.y:
+            xp = list(np.linspace(xlim[0], xlim[1], STEPS))
+            yp = []
+            for x in xp:
+                try:
+                    y = ( (x - p.x)**2 + (p.y)**2 - (yValue)**2 ) / (2 * (p.y - yValue))
+                    yp.append(y)
+                except ZeroDivisionError:
+                    yp.append(math.inf)
+
+            ax1.plot(xp, yp, linewidth=2)
+
 
     figure = plt.gcf()
     figure.set_size_inches(10, 8)
@@ -30,9 +53,9 @@ def main():
     input = [Point(3, 3), Point(5, 8), Point(7, 1)]
     sorts = sorted(input, key=lambda p: p.y, reverse=True)
     print(sorts)
-    for p in sorts:
+    for i in range(STEPS):
         # PLOT
-        paint(p, sorts)
+        paint(sorts)
 
 if __name__ == "__main__":
     main()
