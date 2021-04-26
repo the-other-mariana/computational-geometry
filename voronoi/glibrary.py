@@ -23,7 +23,7 @@ class Point:
 		return "({x}, {y})".format(x=self.x, y=self.y)
 
 	def __hash__(self):
-		return self.x << 8 + self.y
+		return hash((self.x, self.y))
 
 	def rotate(self, deg):
 		return Point(self.x * cos(deg * pi/180) - self.y * sin(deg * pi/180), self.x * sin(deg * pi/180) + self.y * cos(deg * pi/180))

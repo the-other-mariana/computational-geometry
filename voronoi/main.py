@@ -1,10 +1,13 @@
-from glibrary import Point, Line, Vector
+from glibrary import Point, Line, Vector, eps
 import numpy as np
 import math
 from matplotlib import pyplot as plt
 
-STEPS = 50
+STEPS = 100
 f = 0
+gap = 10
+xhits = []
+yhits = []
 
 def paint(input):
     global f
@@ -18,8 +21,12 @@ def paint(input):
 
     ax1.scatter(xs, ys, s=20, zorder=10, color='blue')
 
+    # set plot limits according to points
+    xMin, xMax = min(input, key=lambda p: p.x).x, max(input, key=lambda p: p.x).x
+    yMin, yMax = min(input, key=lambda p: p.y).y, max(input, key=lambda p: p.y).y
+    plt.setp(ax1, xlim=(xMin - gap, xMax + gap), ylim=(yMin - gap, yMax + gap))
+
     # plot horizontal sweep line
-    plt.setp(ax1, xlim=(2.5, 8), ylim=(0, 10))
     xlim = ax1.get_xlim()
     ylim = ax1.get_ylim()
     yRange = abs(ylim[1] - ylim[0])
@@ -28,21 +35,38 @@ def paint(input):
     yValue = ylim[1] - (f * dy)
     ax1.plot(list(xlim), [yValue, yValue], color="red")
 
-
+    yps = []
+    xp = list(np.linspace(xlim[0], xlim[1], 100))
     for p in input:
         if yValue <= p.y:
-            xp = list(np.linspace(xlim[0], xlim[1], STEPS))
+
             yp = []
             for x in xp:
                 try:
                     y = ( (x - p.x)**2 + (p.y)**2 - (yValue)**2 ) / (2 * (p.y - yValue))
                     yp.append(y)
-                except ZeroDivisionError:
-                    yp.append(math.inf)
 
+                except ZeroDivisionError:
+                    y = math.inf
+                    yp.append(y)
+            yps.append(yp)
             ax1.plot(xp, yp, linewidth=2)
 
+    global xhits
+    global yhits
 
+    for i in range(len(yps) - 1):
+        idx = np.argwhere(np.diff(np.sign(np.array(yps[i]) - np.array(yps[i + 1])))).flatten()
+        x = np.array(xp)
+        y = np.array(yps[i])
+
+        for k in range(len(y[idx])):
+            xhits.append(x[idx][k])
+            yhits.append(y[idx][k])
+
+        #ax1.plot(x[idx], y[idx], 'ro')
+
+    ax1.scatter(xhits, yhits, s=10, color='black', zorder=50)
     figure = plt.gcf()
     figure.set_size_inches(10, 8)
     plt.savefig("frames/anim_{0}.png".format(f), bbox_inches='tight', dpi=100)
@@ -50,7 +74,7 @@ def paint(input):
     #plt.show()
 
 def main():
-    input = [Point(3, 3), Point(5, 8), Point(7, 1)]
+    input = [Point(-5, 5), Point(7, 18), Point(18, 0)]
     sorts = sorted(input, key=lambda p: p.y, reverse=True)
     print(sorts)
     for i in range(STEPS):
