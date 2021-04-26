@@ -22,6 +22,13 @@ class Point:
 	def __str__(self):
 		return "({x}, {y})".format(x=self.x, y=self.y)
 
+	# less than
+	def __lt__(self, other):
+		if self.y == other.y:
+			return self.x < other.x
+		else:
+			return self.y > other.y
+
 	def __hash__(self):
 		return hash((self.x, self.y))
 
