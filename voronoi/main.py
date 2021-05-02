@@ -1,11 +1,11 @@
-from queue import Node, Q
+from queue import Event, Q
 from glibrary import Point, Line, Vector, eps
 
 def main():
     q = Q()
-    s1 = Node(Point(-5, 5))
-    s2 = Node(Point(7, 18))
-    s3 = Node(Point(18, 0))
+    s1 = Event(Point(-5, 5))
+    s2 = Event(Point(7, 18))
+    s3 = Event(Point(18, 0))
 
     q.push(s1)
     q.push(s2)

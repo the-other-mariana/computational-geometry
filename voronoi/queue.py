@@ -1,11 +1,11 @@
 import heapq
 
-class Node():
+class Event():
     def __init__(self, value):
         self.value = value
 
     def __repr__(self):
-        return f"N[value = {self.value}]"
+        return f"E[value = {self.value}]"
 
     def __lt__(self, other):
         return self.value < other.value
