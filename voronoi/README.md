@@ -30,7 +30,11 @@ This will be the Sweep Line that will travel from top to bottom, and we will cal
 
 This is how the tree will represent the Beach Line: <br />
 
-![image]()
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/T-structure.png?raw=true) <br />
+
+which, by looking at the tree traversals' theory:
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/tree-traversals.png?raw=true) <br />
 
 To search in the tree
 
