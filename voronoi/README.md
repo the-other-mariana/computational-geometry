@@ -32,11 +32,19 @@ This is how the tree will represent the Beach Line: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/T-structure.png?raw=true) <br />
 
-which, by looking at the tree traversals' theory:
+which, by looking at the tree traversals' theory,
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/tree-traversals.png?raw=true) <br />
 
-To search in the tree
+we can say that the Beach Line order can be achieved by an inorder traversal of the tree T.
+
+To search in the tree, we need the sweep line Y level. The beach line structure, no matter h, will **remain the same** unless an event happens, no matter h. 
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/h-level.png?raw=true) <br />
+
+But, for example, if we want to search for x = 5 in the tree T, we can have the following situation, where the structure does not change but **where to look for** does change.
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/search-x5.png?raw=true) <br />
 
 ## 2. Algorithm
 
