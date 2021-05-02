@@ -1,8 +1,14 @@
 import heapq
 
 class Event():
-    def __init__(self, value):
+    def __init__(self, value, center=None, radius=0, pointer=None):
+        # no matter the type of event, always a point
         self.value = value
+        # in case is a circle event
+        self.center = center
+        self.radius = radius
+        self.pointer = pointer
+
 
     def __repr__(self):
         return f"E[value = {self.value}]"
