@@ -38,7 +38,7 @@ which, by looking at the tree traversals' theory,
 
 we can say that the Beach Line order can be achieved by an inorder traversal of the tree T.
 
-To search in the tree, we need the sweep line Y level. The beach line structure, no matter h, will **remain the same** unless an event happens, no matter h. 
+To search in the tree T, we need the sweep line Y level. The beach line structure, no matter h, will **remain the same** unless an event happens, no matter h. 
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/h-level.png?raw=true) <br />
 
@@ -46,19 +46,44 @@ But, for example, if we want to search for x = 5 in the tree T, we can have the 
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/search-x5.png?raw=true) <br />
 
+Therefore, whenever we are searching in the tree T and we find an **intersection node** with the tuple (s1, s2), we will need a function that returns the X value of the point of intersection between the two parabolas with focus on s1 and s2 and directrix at h, where the sent params are f(s1, s2, h). Depending on that returned x, you will know if to move to the left (x=5 is smaller than that x) or to the right (x=5 is bigger than that x) when you look for x = 5.
+
 ## 2. Algorithm
 
 
 ### Main Function
 
-1. Add to Q all the given points.
+1. Add to Q all the given points
 2. For every height h of the Beach Line:
-3. Check if there is an event in Q at height h.
+3. Check if there is an event in Q at height h
 4. If there is an event:
-5. Remove the firt event of Q. Do a Q pop basically and call it p.
+5. Remove the firt event of Q. Do a Q pop basically and call it p
 6. If the event is a place event: <br />
-    -> *activatePlace(p)*
+    -> *ActivatePlace(p)*
 7. Else: it is a circle event: <br />
-    -> *activateCircle(p)*
-8. Draw T.
+    -> *ActivateCircle(p)*
+8. *Draw(T)*.
 9. End for.
+
+### ActivatePlace
+
+1. If T is empty, then: <br />
+   -> Add p as root of T <br />
+   -> return
+2. Else: <br />
+3. Search in T the parabola arc (leaf), we call it a, that corresponds to p.x
+4. If a points to a circle event: <br />
+   -> Delete the pointed event from Q
+5. End if.
+6. Replace a with the subtree, <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/subtree.png?raw=true) <br />
+
+where a and p are places or points
+
+7. Insert new circle events with the generated arcs: <br />
+
+    1. CircleEvent(left_neighbour(1.), 1., 2.), this means to find where does this circle event happens (lowest point of the circle). If there is no left neighbour, there will be no circle event.
+    2. CircleEvent(2., 3., right_neighbour(3.)), same with this step. If there is no right neighbour, there will be no circle event.
+
+8. Update pointers between T and Q, because each new leaf will point to a new circle event. In the previous step, this means that 7.1, if there's a circle event, leaf 1 will point to it and teh circle event will point to leaf 1. In the same way, if there's a circle event in step 7.2, leaf 3 will point to it and the circle event will point to leaf 3.
