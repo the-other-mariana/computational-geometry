@@ -14,7 +14,7 @@ There are two types of Events:
 
 - **Point (Place) Events** and circle events. Point events are basically each one of the given points the algorithm must visit. This is an event where there will be an addition in T, which represents when a new parabola is found and its added to the beach line. This type of object will store the point as its value.
 
-- **Circle Events** are the ones where three points form a circle, and the lowest point of this circle is the circle event. This is an event where there will be a deletion from T, which represents that its parabola disappears from the beach line. This type of object will store the lowest point of the circle formed by three consecutive points as its value. Additionally to the point it will store:
+- **Circle Events** are the ones where three points form a circle, and the lowest point of this circle is the circle event. This is an event where there will be a deletion from T, which represents that its parabola disappears from the beach line. This type of object will store the lowest point of the circle (circun-radius substracted in the center's Y coordinate) formed by three consecutive points as its value. Additionally to the point it will store:
 
     - Its center. Depends on h.
     - Its radius. Depends on h.
@@ -28,6 +28,12 @@ This will be the Sweep Line that will travel from top to bottom, and we will cal
 
 - **External Node** is any node that is a leaf in the tree, which means it does not have any child. This node will store a value of just one point, representing the parabola defined by that point and the known sweep line Y level. It will also hold a pointer to its circle event where it will disappear from the sweep line.
 
+This is how the tree will represent the Beach Line: <br />
+
+![image]()
+
+To search in the tree
+
 ## 2. Algorithm
 
 
@@ -38,4 +44,9 @@ This will be the Sweep Line that will travel from top to bottom, and we will cal
 3. Check if there is an event in Q at height h.
 4. If there is an event:
 5. Remove the firt event of Q. Do a Q pop basically and call it p.
-6. If the event is a place event: *activatePlace(p)*
+6. If the event is a place event: <br />
+    -> *activatePlace(p)*
+7. Else: it is a circle event: <br />
+    -> *activateCircle(p)*
+8. Draw T.
+9. End for.
