@@ -28,6 +28,12 @@ This will be the Sweep Line that will travel from top to bottom, and we will cal
 
 - **External Node** is any node that is a leaf in the tree, which means it does not have any child. This node will store a value of just one point, representing the parabola defined by that point and the known sweep line Y level. It will also hold a pointer to its circle event where it will disappear from the sweep line.
 
+As a side note, you can define a parabola from a point (x1, y1) and a sweep line Y level, called d, with the following parametric formula: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/formula.png?raw=true) <br />
+
+where x are all the posible x's of the domain and y is the range of the parabola, which together (x, y) form every point of said parabola. <br />
+
 This is how the tree will represent the Beach Line: <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/T-structure.png?raw=true) <br />

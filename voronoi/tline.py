@@ -6,5 +6,5 @@ class Node():
         # external: parabola (point)
         self.value = value
         # internal: pointer to its edge
-        # external: pointer to its circle event where it will disappear
+        # external: pointer to its circle event where it will disappear, can be None
         self.pointer = pointer
