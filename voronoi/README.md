@@ -86,4 +86,24 @@ where a and p are places or points
     1. CircleEvent(left_neighbour(1.), 1., 2.), this means to find where does this circle event happens (lowest point of the circle). If there is no left neighbour, there will be no circle event.
     2. CircleEvent(2., 3., right_neighbour(3.)), same with this step. If there is no right neighbour, there will be no circle event.
 
-8. Update pointers between T and Q, because each new leaf will point to a new circle event. In the previous step, this means that 7.1, if there's a circle event, leaf 1 will point to it and teh circle event will point to leaf 1. In the same way, if there's a circle event in step 7.2, leaf 3 will point to it and the circle event will point to leaf 3.
+8. Update pointers between T and Q, because each new leaf will point to a new circle event. In the previous step, this means that 7.1, if there's a circle event, leaf 1 will point to it and the circle event will point to leaf 1. In the same way, if there's a circle event in step 7.2, leaf 3 will point to it and the circle event will point to leaf 3.
+
+### ActivateCircle
+
+1. Obtain the parabola segment that is in between, which will disappear from T. This refers to the parabola that will disappear with the circle event. The circle event contains this pointer that points to the leaf of T, that we will call g. In this example, g points to p1 which is exactly the segment that will disappear from T when the directrix reaches a circle event height. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/parabola-inbetween.png?raw=true) <br />
+
+2. Delete g from T. When you erase g from T, you will also delete its two intersection parents, <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/erase-from-T.png?raw=true) <br />
+
+and substitute all these erased nodes with one intersection: (p2, p3) which represents the first element of the parent intersection and the last element of the grandparent intersection. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/substitute-T.png?raw=true) <br />
+
+At last, hang the other son of the father, in this case p2, as the other son of this substitute intersection. When you finish this deletion, you have: <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/erased.png?raw=true) <br />
+
+where the two sided lines represent the four links of father-son that you need to update. Note that there will be no cases where there is no grandparent, because these pseudo-circle-events where deleted in the previous function.
