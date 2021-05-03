@@ -30,7 +30,7 @@ This will be the Sweep Line that will travel from top to bottom, and we will cal
 
 As a side note, you can define a parabola from a point (x1, y1) and a sweep line Y level, called d, with the following parametric formula: <br />
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/formula.png?raw=true) <br />
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/formula-p.png?raw=true) <br />
 
 where x are all the posible x's of the domain and y is the range of the parabola, which together (x, y) form every point of said parabola. <br />
 
