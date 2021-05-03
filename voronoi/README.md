@@ -90,7 +90,7 @@ where a and p are places or points
 
 ### ActivateCircle
 
-1. Obtain the parabola segment that is in between, which will disappear from T. This refers to the parabola that will disappear with the circle event. The circle event contains this pointer that points to the leaf of T, that we will call g. In this example, g points to p1 which is exactly the segment that will disappear from T when the directrix reaches a circle event height. <br />
+1. Obtain the parabola segment that is in between, which will disappear from T. This refers to the parabola that will disappear with the circle event. The circle event contains this pointer that points to the leaf of T, that we will call g. In this example, g points to p1 which is exactly the segment that will disappear from T when the directrix reaches that circle event height. <br />
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/parabola-inbetween.png?raw=true) <br />
 
@@ -107,3 +107,21 @@ At last, hang the other son of the father, in this case p2, as the other son of 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/erased.png?raw=true) <br />
 
 where the two sided lines represent the four links of father-son that you need to update. Note that there will be no cases where there is no grandparent, because these pseudo-circle-events where deleted in the previous function.
+
+3. Delete all the circle events that involve the g arc (tree leaf). This means to erase from Q all the circle events where their pointer points to this leaf g. For that, you need to only check the event pointer of the previous and next leaf of g arc in T before the deletion, that is, check the circle event pointers of p2 as prev and p3 as next.
+
+4. Mark the center of the circle as a **vertex** of the Voronoi diagram.
+
+5. Check that the new triplet of consecutive arcs that formed in T as we removed g, converge in one new circle event and add it to Q. If this new circle opens upwards, it will not generate a true circle event.  If the circle opens downwards, you have a new circle event. To know this just check if the center of this circle is higher than the directrix (no event) or not (new event). Check this also with the 'center' parabola being the left and right neighbours from the new leaf generated from the deletion.
+
+6. Update links between T and Q accordingly. This means that this new circle event points to its center parabola arc in T and this arc in T points to this circle event in Q.
+
+### Draw
+
+This function mainly draws the beach line T. As we have seen before, the inorder traversal of T is the beach line from left to right, with an example order below. <br />
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/draw.png?raw=true) <br />
+
+With the parabolas' equations you will calculate the x's of the intersections in T.
+
+Do not draw the parabolas' segments cumulatively, but do so with their intersections, because they will paint the edges of the Voronoi diagram.
