@@ -15,6 +15,29 @@ class T():
         self.root = None
 
     @staticmethod
+    def getParabolaCoeff(f, d):
+        a = 1.0 / (2 * (f.y - d))
+        b = (-1 * 2 * f.x) / (2 *(f.y - d))
+        c = d + ((2 * (f.y - d)) / (4.0)) + ((f.x * f.x) / (2 * (f.y - d)))
+        return a, b, c
+
+    @staticmethod
+    def parabIntersection(a1, b1, c1, a2, b2, c2):
+        xHit = (-1 * (a2 * c1 - a1 * c2)) / (a2 * b1 - a1 * b2)
+        return xHit
+
+    @staticmethod
+    def moveLeft(xVal, inode, h):
+        p1 = inode[0]
+        p2 = inode[1]
+        a1, b1, c1 = T.getParabolaCoeff(p1, h)
+        a2, b2, c2 = T.getParabolaCoeff(p2, h)
+        x = T.parabIntersection(a1, b2, c1, a2, b2, c2)
+        if xVal <= x:
+            return True
+        return False
+
+    @staticmethod
     def isLessThan(p1, p2):
         if p1.y > p2.y:
             return True
