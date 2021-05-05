@@ -11,6 +11,10 @@ class Node():
         # external: pointer to its circle event where it will disappear, can be None
         self.pointer = pointer
 
+        self.left_child = None
+        self.right_child = None
+        self.parent = None
+
 class T():
     def __init__(self):
         self.root = None
@@ -64,13 +68,14 @@ class T():
         return False
     '''
 
-    def insert(self, value):
+    def insert(self, p, h):
         if self.root == None:
-            self.root = Node(value)
+            self.root = Node([p.value])
         else:
-            self._insert(value, self.root)
+            self._insert(p, self.root, h)
 
-    def _insert(self, value, curr_node):
+    def _insert(self, p, curr_node, h):
+        '''
         if T.isLessThan(value, curr_node.value):
             if curr_node.left_child == None:
                 curr_node.left_child = Node(value)
@@ -85,26 +90,52 @@ class T():
                 self._insert(value, curr_node.right_child)
         else:
             print("Value repeated.")
+        '''
+        # if you found a leaf (only one value)
+        if len(curr_node.value) == 1:
+            a = curr_node
+            # replace node with subtree
+            curr_node = Node([a.value, p.value])
 
-    def find(self, value):
+            curr_node.left_child = Node([a.value])
+            curr_node.left_child.parent = curr_node
+            curr_node.right_child = Node([p.value, a.value])
+            curr_node.right_child.parent = curr_node
+
+            curr_node.right_child.left_child = Node([p.value])
+            curr_node.right_child.left_child.parent = curr_node.right_child
+            curr_node.right_child.right_child = Node([a.value])
+            curr_node.right_child.right_child.parent = curr_node.right_child
+
+        # else it must be a 2 value node, keep searching
+        elif T.isLessThan(p.value.x, curr_node, h) and curr_node.left_child != None:
+            self._find(p, curr_node.left_child, h)
+        elif not T.isLessThan(p.value.x, curr_node, h) and curr_node.right_child != None:
+            self._find(p.value.x, curr_node.right_child, h)
+
+    def find(self, p, h):
         if self.root != None:
-            return self._find(value, self.root)
+            return self._find(p.value.x, self.root, h)
         else:
             return None
 
-    def _find(self, value, curr_node):
-        if value == curr_node.value:
+    def _find(self, x, curr_node, h):
+        if curr_node == None:
+            return None
+        # if you found a leaf (only one value)
+        if len(curr_node.value) == 1:
             return curr_node
-        elif T.isLessThan(value, curr_node.value) and curr_node.left_child != None:
-            return self._find(value, curr_node.left_child)
-        elif not T.isLessThan(value, curr_node.value) and curr_node.right_child != None:
-            return self._find(value, curr_node.right_child)
+        # else it must be a 2 value node
+        elif T.isLessThan(x, curr_node, h) and curr_node.left_child != None:
+            return self._find(x, curr_node.left_child, h)
+        elif not T.isLessThan(x, curr_node, h) and curr_node.right_child != None:
+            return self._find(x, curr_node.right_child, h)
 
-    def delete_value(self, value):
-        return self.delete_node(self.find(value))
+    def delete_value(self, p, h):
+        return self.delete_node(self.find(p, h))
 
-    def delete_node(self, node):
-        if node == None or self.find(node.value) == None:
+    def delete_node(self, node, p):
+        if node == None or self.find(node.value, p) == None:
             print("Node is not found to delete")
             return None
 
