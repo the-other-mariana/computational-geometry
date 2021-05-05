@@ -131,3 +131,7 @@ This function mainly draws the beach line T. As we have seen before, the inorder
 With the parabolas' equations you will calculate the x's of the intersections in T.
 
 Do not draw the parabolas' segments cumulatively, but do so with their intersections, because they will paint the edges of the Voronoi diagram.
+
+## Handy Links
+
+- https://codereview.stackexchange.com/questions/51011/calculating-the-point-of-intersection-of-two-parabolas <br />

@@ -1,5 +1,6 @@
 """ Implementation of a Binary Tree that stores internal/external nodes as values """
 from glibrary import Line, Vector, Point, eps
+import math
 
 class Node():
     def __init__(self, value, pointer=None):
@@ -18,25 +19,42 @@ class T():
     def getParabolaCoeff(f, d):
         a = 1.0 / (2 * (f.y - d))
         b = (-1 * 2 * f.x) / (2 *(f.y - d))
-        c = d + ((2 * (f.y - d)) / (4.0)) + ((f.x * f.x) / (2 * (f.y - d)))
+        c = ((f.x * f.x) + (f.y * f.y) - (d * d)) / (2 * (f.y - d))
         return a, b, c
 
     @staticmethod
-    def parabIntersection(a1, b1, c1, a2, b2, c2):
-        xHit = (-1 * (a2 * c1 - a1 * c2)) / (a2 * b1 - a1 * b2)
-        return xHit
+    def findIntersect(a1, b1, c1, a2, b2, c2):
+        a = a1 - a2
+        b = b1 - b2
+        c = c1 - c2
+
+        inner_calc = b ** 2 - 4 * a * c
+
+        # Check if `inner_cal` is negative. If so, there are no real solutions.
+        # Thus, return the empty set.
+        if inner_calc < 0:
+            return set()
+
+        square = math.sqrt(inner_calc)
+        double_a = 2 * a
+        answers = [(-b + square) / double_a, (-b - square) / double_a]
+
+        # Using `set()` removes any possible duplicates.
+        return set(answers)
 
     @staticmethod
-    def moveLeft(xVal, inode, h):
+    def isLessThan(xVal, inode, h):
         p1 = inode[0]
         p2 = inode[1]
         a1, b1, c1 = T.getParabolaCoeff(p1, h)
         a2, b2, c2 = T.getParabolaCoeff(p2, h)
-        x = T.parabIntersection(a1, b2, c1, a2, b2, c2)
+        xResult = T.findIntersect(a1, b2, c1, a2, b2, c2)
+        xResult = list(xResult)
+        x = min(xResult)
         if xVal <= x:
             return True
         return False
-
+    '''
     @staticmethod
     def isLessThan(p1, p2):
         if p1.y > p2.y:
@@ -44,6 +62,7 @@ class T():
         if (abs(p1.y - p2.y) < eps) and (p1.x < p2.x):
             return True
         return False
+    '''
 
     def insert(self, value):
         if self.root == None:
