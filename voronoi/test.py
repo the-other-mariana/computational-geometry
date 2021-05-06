@@ -36,8 +36,8 @@ fig.add_subplot()
 ax1 = plt.gca()
 
 yValue = 1
-input1 = [Point(-5, 5), Point(7, 18)]
-input2 = [Point(7, 18), Point(-5, 5)]
+input1 = [Point(5, 5), Point(7, 18)]
+input2 = [Point(7, 18), Point(5, 5)]
 xs = [p.x for p in input1]
 ys = [p.y for p in input1]
 

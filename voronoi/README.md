@@ -186,11 +186,31 @@ so when we have:
 ```
 f1 = Point(7, 18)
 f2 = Point(-5, 5)
-[-19.914643830668854, 2.530028446053469]
-[30.80582507446356, 10.0876660497968]
+x = [-19.914643830668854, 2.530028446053469]
+y = [30.80582507446356, 10.0876660497968]
 ```
 
-![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test.png?raw=true)
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test.png?raw=true) <br />
+
+Another example: <br />
+
+```
+f1 = Point(5, 5)
+f2 = Point(7, 18)
+x = [12.72784422335769, -3.9586134541269216]
+y = [10.464947042560352, 13.032094377557986]
+```
+
+then:
+
+```
+f1 = Point(7, 18)
+f2 = Point(5, 5)
+x = [-3.9586134541269216, 12.72784422335769]
+y = [13.032094377557987, 10.464947042560356]
+```
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test2.png?raw=true) <br />
 
 ## Handy Links
 
