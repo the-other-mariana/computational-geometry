@@ -8,7 +8,7 @@ class Node():
         # external: parabola (point)
         self.value = value
         # internal: pointer to its edge
-        # external: pointer to its circle event where it will disappear, can be None
+        # external: pointer to its circle event where it will disappear, can be None # ask teacher
         self.pointer = pointer
 
         self.left_child = None
@@ -22,8 +22,8 @@ class T():
     @staticmethod
     def getParabolaCoeff(f, d):
         a = 1.0 / (2 * (f.y - d))
-        b = (-1 * 2 * f.x) / (2 *(f.y - d))
-        c = ((f.x * f.x) + (f.y * f.y) - (d * d)) / (2 * (f.y - d))
+        b = (-1.0 * 2 * f.x) / (2 *(f.y - d))
+        c = ((f.x * f.x) + (f.y * f.y) - (d * d)) / (2.0 * (f.y - d))
         return a, b, c
 
     @staticmethod
@@ -58,15 +58,6 @@ class T():
         if xVal <= x:
             return True
         return False
-    '''
-    @staticmethod
-    def isLessThan(p1, p2):
-        if p1.y > p2.y:
-            return True
-        if (abs(p1.y - p2.y) < eps) and (p1.x < p2.x):
-            return True
-        return False
-    '''
 
     def insert(self, p, h):
         if self.root == None:
@@ -75,22 +66,6 @@ class T():
             self._insert(p, self.root, h)
 
     def _insert(self, p, curr_node, h):
-        '''
-        if T.isLessThan(value, curr_node.value):
-            if curr_node.left_child == None:
-                curr_node.left_child = Node(value)
-                curr_node.left_child.parent = curr_node
-            else:
-                self._insert(value, curr_node.left_child)
-        elif not T.isLessThan(value, curr_node.value):
-            if curr_node.right_child == None:
-                curr_node.right_child = Node(value)
-                curr_node.right_child.parent = curr_node
-            else:
-                self._insert(value, curr_node.right_child)
-        else:
-            print("Value repeated.")
-        '''
         # if you found a leaf (only one value)
         if len(curr_node.value) == 1:
             a = curr_node
@@ -109,9 +84,9 @@ class T():
 
         # else it must be a 2 value node, keep searching
         elif T.isLessThan(p.value.x, curr_node, h) and curr_node.left_child != None:
-            self._find(p, curr_node.left_child, h)
+            self._insert(p, curr_node.left_child, h)
         elif not T.isLessThan(p.value.x, curr_node, h) and curr_node.right_child != None:
-            self._find(p.value.x, curr_node.right_child, h)
+            self._insert(p, curr_node.right_child, h)
 
     def find(self, p, h):
         if self.root != None:

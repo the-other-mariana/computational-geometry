@@ -132,6 +132,66 @@ With the parabolas' equations you will calculate the x's of the intersections in
 
 Do not draw the parabolas' segments cumulatively, but do so with their intersections, because they will paint the edges of the Voronoi diagram.
 
+## Notes
+
+Let f1 and f2 be two parabolas' focuses, and a directrix height of d. To compute the a,b and c of the parabola's general formula, we have: 
+
+```python
+def getParabolaCoeff(f, d):
+    a = 1.0 / (2 * (f.y - d))
+    b = (-1.0 * 2 * f.x) / (2 * (f.y - d))
+    c = ((f.x * f.x) + (f.y * f.y) - (d * d)) / (2.0 * (f.y - d))
+    return a, b, c
+```
+
+Then, once we have a1, b1 and c1 of parabola 1 and a2, b2 and c2 of parabola 2, we can fin the x's of their two intersections with the quadratic formula:
+
+```python
+def findIntersect(a1, b1, c1, a2, b2, c2):
+    a = a1 - a2
+    b = b1 - b2
+    c = c1 - c2
+
+    inner_calc = b ** 2 - 4 * a * c
+
+    # Check if `inner_cal` is negative. If so, there are no real solutions.
+    # Thus, return the empty list.
+    if inner_calc < 0:
+        return []
+
+    square = math.sqrt(inner_calc)
+    double_a = 2 * a
+    answers = [(-b + square) / double_a, (-b - square) / double_a]
+
+    return answers
+```
+
+To get the y's, you just: 
+
+```python
+yhits = [a1*x*x + b1*x + c1 for x in xhits]
+```
+
+The important thing is that, depending on the order of the focuses, the order of the hit points change,
+
+```
+f1 = Point(-5, 5)
+f2 = Point(7, 18)
+x = [2.530028446053469, -19.914643830668854]
+y = [10.087666049796802, 30.805825074463563]
+```
+
+so when we have:
+
+```
+f1 = Point(7, 18)
+f2 = Point(-5, 5)
+[-19.914643830668854, 2.530028446053469]
+[30.80582507446356, 10.0876660497968]
+```
+
+![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test.png?raw=true)
+
 ## Handy Links
 
 - https://codereview.stackexchange.com/questions/51011/calculating-the-point-of-intersection-of-two-parabolas <br />

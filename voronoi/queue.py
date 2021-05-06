@@ -2,12 +2,12 @@ import heapq
 
 class Event():
     def __init__(self, value, center=None, radius=0, pointer=None):
-        # no matter the type of event, always a point
+        # no matter the type of event, always a point and a pointer
         self.value = value
+        self.pointer = pointer # site event has a pointer?
         # in case is a circle event
         self.center = center
         self.radius = radius
-        self.pointer = pointer
 
 
     def __repr__(self):
