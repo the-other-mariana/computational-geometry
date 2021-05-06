@@ -43,10 +43,11 @@ class T():
         double_a = 2 * a
         answers = [(-b - square) / double_a, (-b + square) / double_a]
 
-        if f1.x <= f2.x and f1.y <= f2.x:
-            # points ordered from left to right, which means first answer is the rightmost hit point
+        if f1.x <= f2.x:
+            # points ordered from left to right, which means hit point from f1,f2 is the first element
+            return answers[0]
 
-        return set(answers)
+        return answers[1]
 
     @staticmethod
     def isLessThan(xVal, inode, h):
@@ -54,10 +55,8 @@ class T():
         p2 = inode[1]
         a1, b1, c1 = T.getParabolaCoeff(p1, h)
         a2, b2, c2 = T.getParabolaCoeff(p2, h)
-        xResult = T.findIntersect(a1, b2, c1, a2, b2, c2)
-        xResult = list(xResult)
-        x = min(xResult)
-        if xVal <= x:
+        xHit = T.findIntersect(a1, b2, c1, a2, b2, c2)
+        if xVal <= xHit:
             return True
         return False
 
