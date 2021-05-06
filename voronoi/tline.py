@@ -27,7 +27,7 @@ class T():
         return a, b, c
 
     @staticmethod
-    def findIntersect(a1, b1, c1, a2, b2, c2):
+    def findIntersect(a1, b1, c1, a2, b2, c2, f1, f2):
         a = a1 - a2
         b = b1 - b2
         c = c1 - c2
@@ -35,15 +35,17 @@ class T():
         inner_calc = b ** 2 - 4 * a * c
 
         # Check if `inner_cal` is negative. If so, there are no real solutions.
-        # Thus, return the empty set.
+        # Thus, return the empty list.
         if inner_calc < 0:
             return set()
 
         square = math.sqrt(inner_calc)
         double_a = 2 * a
-        answers = [(-b + square) / double_a, (-b - square) / double_a]
+        answers = [(-b - square) / double_a, (-b + square) / double_a]
 
-        # Using `set()` removes any possible duplicates.
+        if f1.x <= f2.x and f1.y <= f2.x:
+            # points ordered from left to right, which means first answer is the rightmost hit point
+
         return set(answers)
 
     @staticmethod

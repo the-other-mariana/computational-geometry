@@ -25,7 +25,7 @@ def findIntersect(a1, b1, c1, a2, b2, c2):
 
     square = math.sqrt(inner_calc)
     double_a = 2 * a
-    answers = [(-b + square) / double_a, (-b - square) / double_a]
+    answers = [(-b - square) / double_a, (-b + square) / double_a]
 
     return answers
 
@@ -63,8 +63,8 @@ for p in input1:
             yp.append(y)
     ax1.plot(xp, yp, lw=2)
 
-a1, b1, c1 = getParabolaCoeff(input2[0], yValue)
-a2, b2, c2 = getParabolaCoeff(input2[1], yValue)
+a1, b1, c1 = getParabolaCoeff(input1[0], yValue)
+a2, b2, c2 = getParabolaCoeff(input1[1], yValue)
 
 xhits = findIntersect(a1, b1, c1, a2, b2, c2)
 xhits = xhits

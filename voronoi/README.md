@@ -161,7 +161,7 @@ def findIntersect(a1, b1, c1, a2, b2, c2):
 
     square = math.sqrt(inner_calc)
     double_a = 2 * a
-    answers = [(-b + square) / double_a, (-b - square) / double_a]
+    answers = [(-b - square) / double_a, (-b + square) / double_a]
 
     return answers
 ```
@@ -177,8 +177,8 @@ The important thing is that, depending on the order of the focuses, the order of
 ```
 f1 = Point(-5, 5)
 f2 = Point(7, 18)
-x = [2.530028446053469, -19.914643830668854]
-y = [10.087666049796802, 30.805825074463563]
+x = [-19.914643830668854, 2.530028446053469]
+y = [30.80582507446356, 10.0876660497968]
 ```
 
 so when we have:
@@ -186,8 +186,8 @@ so when we have:
 ```
 f1 = Point(7, 18)
 f2 = Point(-5, 5)
-x = [-19.914643830668854, 2.530028446053469]
-y = [30.80582507446356, 10.0876660497968]
+x = [2.530028446053469, -19.914643830668854]
+y = [10.087666049796802, 30.805825074463563]
 ```
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test.png?raw=true) <br />
@@ -197,8 +197,8 @@ Another example: <br />
 ```
 f1 = Point(5, 5)
 f2 = Point(7, 18)
-x = [12.72784422335769, -3.9586134541269216]
-y = [10.464947042560352, 13.032094377557986]
+x = [-3.9586134541269216, 12.72784422335769]
+y = [13.032094377557987, 10.464947042560356]
 ```
 
 then:
@@ -206,8 +206,8 @@ then:
 ```
 f1 = Point(7, 18)
 f2 = Point(5, 5)
-x = [-3.9586134541269216, 12.72784422335769]
-y = [13.032094377557987, 10.464947042560356]
+x = [12.72784422335769, -3.9586134541269216]
+y = [10.464947042560352, 13.032094377557986]
 ```
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test2.png?raw=true) <br />
