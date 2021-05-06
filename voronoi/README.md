@@ -24,7 +24,7 @@ There are two types of Events:
 
 This will be the Sweep Line that will travel from top to bottom, and we will call it T. This will be implemented as a Binary Search Tree, where the three can have two types of nodes:
 
-- **Internal Node** is any node that is not a leaf. This will contain a value that will be a tuple of points (Left point, R point) that will represent the intersection of two parabolas defined by the point and the sweep line Y level. It will also hold a pointer to its edge in the diagram.
+- **Internal Node** is any node that is not a leaf. This will contain a value that will be a tuple of points (Left point, R point) that will represent the intersection of two parabolas defined by the point and the sweep line Y level. It will not have a pointer.
 
 - **External Node** is any node that is a leaf in the tree, which means it does not have any child. This node will store a value of just one point, representing the parabola defined by that point and the known sweep line Y level. It will also hold a pointer to its circle event where it will disappear from the sweep line.
 

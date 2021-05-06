@@ -7,13 +7,17 @@ class Node():
         # internal: intersection of parabolas (L point, R point)
         # external: parabola (point)
         self.value = value
-        # internal: pointer to its edge
         # external: pointer to its circle event where it will disappear, can be None # ask teacher
         self.pointer = pointer
-
         self.left_child = None
         self.right_child = None
         self.parent = None
+
+    def __eq__(self, other):
+        for i in range(len(self.value)):
+            if self.value[i] != other.value[i]:
+                return False
+        return True
 
 class T():
     def __init__(self):
@@ -73,21 +77,40 @@ class T():
             # replace node with subtree
             curr_node = Node([a.value, p.value])
 
-            curr_node.left_child = Node([a.value])
+            curr_node.left_child = Node([a.value]) # ext
             curr_node.left_child.parent = curr_node
             curr_node.right_child = Node([p.value, a.value])
             curr_node.right_child.parent = curr_node
 
-            curr_node.right_child.left_child = Node([p.value])
+            curr_node.right_child.left_child = Node([p.value]) # ext
             curr_node.right_child.left_child.parent = curr_node.right_child
-            curr_node.right_child.right_child = Node([a.value])
+            curr_node.right_child.right_child = Node([a.value]) # ext
             curr_node.right_child.right_child.parent = curr_node.right_child
+
+            return curr_node.left_child, curr_node.right_child.right_child
 
         # else it must be a 2 value node, keep searching
         elif T.isLessThan(p.value.x, curr_node, h) and curr_node.left_child != None:
-            self._insert(p, curr_node.left_child, h)
+            return self._insert(p, curr_node.left_child, h)
         elif not T.isLessThan(p.value.x, curr_node, h) and curr_node.right_child != None:
-            self._insert(p, curr_node.right_child, h)
+            return self._insert(p, curr_node.right_child, h)
+
+    def getLeft(self, node):
+        sNode = node
+        # node = node.parent
+        if node.parent.right_child == node and node.parent.left_child != None:
+            return node.parent.left_child
+        if node.parent.left_child == node or node.parent.left_child == None:
+            node = node.parent
+            while node.parent.left_child != None and node.parent.left_child != node:
+                node = node.parent
+            node = node.right_child
+            while node.right_child != None:
+                node = node.right_child
+            if node.left_child == None and node.right_child == None:
+                return node
+            else:
+                return node.left_child
 
     def find(self, p, h):
         if self.root != None:
