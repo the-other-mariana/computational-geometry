@@ -4,8 +4,9 @@ class Event():
     def __init__(self, value, center=None, radius=0, pointer=None):
         # no matter the type of event, always a point and a pointer
         self.value = value
-        self.pointer = pointer # site event has a pointer?
+        # site event has a pointer?
         # in case is a circle event
+        self.pointer = pointer
         self.center = center
         self.radius = radius
 
@@ -30,8 +31,12 @@ class Q():
     def isEmpty(self):
         return not bool(len(self.data))
 
+    def show(self):
+        return self.data[0]
+
     def printq(self):
         print(self.data)
+
 
 
 
