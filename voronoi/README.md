@@ -114,6 +114,12 @@ At last, hang the other son of the father, in this case p2, as the other son of 
 
 where the two sided lines represent the four links of father-son that you need to update. Note that there will be no cases where there is no grandparent, because these pseudo-circle-events where deleted in the previous function.
 
+*Note*: You can do this using the classic **delete** function of a BST, by performing:
+
+- Following the example, delete the grandpa of p1 node. But store it before deleting it.
+- Substitute the parent node of p1 with the new node that has the combination of the intersection of the parent and grandpa parabolas.
+- Finally, delete p1 node. Update p2's parent link.
+
 3. Delete all the circle events that involve the g arc (tree leaf). This means to erase from Q all the circle events where their pointer points to this leaf g. For that, you need to only check the event pointer of the previous and next leaf of g arc in T before the deletion, that is, check the circle event pointers of p2 as prev and p3 as next.
 
 4. Mark the center of the circle as a **vertex** of the Voronoi diagram.
@@ -215,3 +221,5 @@ y = [10.464947042560352, 13.032094377557986]
 ## Handy Links
 
 - https://codereview.stackexchange.com/questions/51011/calculating-the-point-of-intersection-of-two-parabolas <br />
+
+- https://stackoverflow.com/questions/56224824/how-do-i-find-the-circumcenter-of-the-triangle-using-python-without-external-lib <br />

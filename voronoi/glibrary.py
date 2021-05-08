@@ -43,6 +43,14 @@ class Point:
 	def midPoint(p1, p2):
 		return Point((p1.x + p2.x)/2.0, (p1.y + p2.y)/2.0)
 
+	@staticmethod
+	def getCircumcenter(a, b, c):
+		d = 2 * (a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y))
+		ux = ((a.x * a.x + a.y * a.y) * (b.y - c.y) + (b.x * b.x + b.y * b.y) * (c.y - a.y) + (c.x * c.x + c.y * c.y) * (a.y - b.y)) / d
+		uy = ((a.x * a.x + a.y * a.y) * (c.x - b.x) + (b.x * b.x + b.y * b.y) * (a.x - c.x) + (c.x * c.x + c.y * c.y) * (b.x - a.x)) / d
+		return (ux, uy)
+
+
 class Line:
 	def __init__(self, a=0, b=0, c=0):
 		self.a = a * 1.0

@@ -201,7 +201,7 @@ class T():
         return self.delete_node(self.find(p, h))
 
     def delete_node(self, node, p):
-        if node == None or self.find(node.value, p) == None:
+        if not node or not self.find(node.value, p):
             print("Node is not found to delete")
             return None
 
