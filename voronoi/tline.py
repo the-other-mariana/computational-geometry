@@ -22,6 +22,9 @@ class Node():
     def isLeaf(self):
         return self.right_child == None and self.left_child == None
 
+    def isRoot(self):
+        return self.parent == None
+
 class T():
     def __init__(self):
         self.root = None
@@ -99,25 +102,28 @@ class T():
             return self._insert(p, curr_node.right_child, h)
 
     def getLeft(self, node):
-        sNode = node
-        # node = node.parent
-        if node.parent.right_child == node and node.parent.left_child != None:
-            return node.parent.left_child
-        if node.parent.left_child == node or node.parent.left_child == None:
-            node = node.parent
-            while node.parent.left_child != None:
-                if node.parent.left_child == node:
-                    node = node.parent
-                if node.parent.left_child != None and node.parent.left_child != node:
-                    node = node.parent
-                    break
-            node = node.left_child
-            while node.right_child != None:
-                node = node.right_child
-            if node.isLeaf():
-                return node
-            else:
-                return node.left_child
+        if node.isRoot():
+            return None
+        else:
+            if node.parent.right_child == node and node.parent.left_child != None:
+                return node.parent.left_child
+            if node.parent.left_child == node or node.parent.left_child == None:
+                node = node.parent
+                while node.parent.left_child:
+                    if node.parent and node.parent.left_child == node:
+                        node = node.parent
+                    if node.parent and node.parent.left_child and node.parent.left_child != node:
+                        node = node.parent
+                        break
+                    if node.isRoot():
+                        return None
+                node = node.left_child
+                while node.right_child:
+                    node = node.right_child
+                if node.isLeaf():
+                    return node
+                else:
+                    return node.left_child
 
     def find(self, p, h):
         if self.root != None:
