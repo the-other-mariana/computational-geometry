@@ -105,9 +105,22 @@ class T():
         if node.isRoot():
             return None
         else:
-            if node.parent.right_child == node and node.parent.left_child != None:
-                return node.parent.left_child
-            if node.parent.left_child == node or node.parent.left_child == None:
+            if node.parent.right_child == node and node.parent.left_child and node.parent.left_child.isLeaf():
+                node = node.parent.left_child
+                while node.right_child:
+                    node = node.right_child
+                if node.isLeaf():
+                    return node
+                else:
+                    while node.right_child or node.left_child:
+                        if node.right_child:
+                            node = node.right_child
+                            continue
+                        if node.left_child:
+                            node.left_child
+                            continue
+                    return node
+            if node.parent.left_child == node or not node.parent.left_child:
                 node = node.parent
                 while node.parent.left_child:
                     if node.parent and node.parent.left_child == node:
@@ -123,7 +136,48 @@ class T():
                 if node.isLeaf():
                     return node
                 else:
-                    return node.left_child
+                    while node.left_child:
+                        node = node.left_child
+                    return node
+
+    def getRight(self, node):
+        if node.isRoot():
+            return None
+        else:
+            if node.parent.left_child == node and node.parent.right_child:
+                node = node.parent.right_child
+                while node.left_child:
+                    node = node.left_child
+                if node.isLeaf():
+                    return node
+                else:
+                    while node.right_child or node.left_child:
+                        if node.left_child:
+                            node = node.left_child
+                            continue
+                        if node.right_child:
+                            node.right_child
+                            continue
+                    return node
+            if node.parent.right_child == node or not node.parent.right_child:
+                node = node.parent
+                while node.parent.right_child:
+                    if node.parent and node.parent.right_child == node:
+                        node = node.parent
+                    if node.parent and node.parent.right_child and node.parent.right_child != node:
+                        node = node.parent
+                        break
+                    if node.isRoot():
+                        return None
+                node = node.right_child
+                while node.left_child:
+                    node = node.left_child
+                if node.isLeaf():
+                    return node
+                else:
+                    while node.right_child:
+                        node = node.right_child
+                    return node
 
     def find(self, p, h):
         if self.root != None:
