@@ -92,6 +92,10 @@ where a and p are places or points
     1. CircleEvent(left_neighbour(1.), 1., 2.), this means to find where does this circle event happens (lowest point of the circle). If there is no left neighbour, there will be no circle event.
     2. CircleEvent(2., 3., right_neighbour(3.)), same with this step. If there is no right neighbour, there will be no circle event.
 
+    *Note*: the circumcenter from 3 given points give us the chance to calculate a circle event. <br />
+
+    ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/circumcenter.png?raw=true) <br />
+
 8. Update pointers between T and Q, because each new leaf will point to a new circle event. In the previous step, this means that 7.1, if there's a circle event, leaf 1 will point to it and the circle event will point to leaf 1. In the same way, if there's a circle event in step 7.2, leaf 3 will point to it and the circle event will point to leaf 3.
 
 ### ActivateCircle
