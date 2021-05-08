@@ -19,6 +19,9 @@ class Node():
                 return False
         return True
 
+    def isLeaf(self):
+        return self.right_child == None and self.left_child == None
+
 class T():
     def __init__(self):
         self.root = None
@@ -102,12 +105,16 @@ class T():
             return node.parent.left_child
         if node.parent.left_child == node or node.parent.left_child == None:
             node = node.parent
-            while node.parent.left_child != None and node.parent.left_child != node:
-                node = node.parent
-            node = node.right_child
+            while node.parent.left_child != None:
+                if node.parent.left_child == node:
+                    node = node.parent
+                if node.parent.left_child != None and node.parent.left_child != node:
+                    node = node.parent
+                    break
+            node = node.left_child
             while node.right_child != None:
                 node = node.right_child
-            if node.left_child == None and node.right_child == None:
+            if node.isLeaf():
                 return node
             else:
                 return node.left_child
