@@ -43,6 +43,7 @@ class Point:
 	def midPoint(p1, p2):
 		return Point((p1.x + p2.x)/2.0, (p1.y + p2.y)/2.0)
 
+	# function that returns the circumcenter and circumradius given 3 points
 	@staticmethod
 	def getCircumCenterRadius(a, b, c):
 		d = 2 * (a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y))
