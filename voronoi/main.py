@@ -6,7 +6,7 @@ from matplotlib import pyplot as plt
 # main code that runs the voronoi algorithm
 
 STEPS = 100
-gap = 5
+gap = 5 # limits
 
 def main():
     q = Q()
