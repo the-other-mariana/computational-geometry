@@ -3,6 +3,8 @@ from tline import Node, T
 from glibrary import Point, Line, Vector, eps
 from matplotlib import pyplot as plt
 
+# main code that runs the voronoi algorithm
+
 STEPS = 100
 gap = 5
 
@@ -44,8 +46,6 @@ def main():
             next = q.show()
             popped = q.pop()
             print("Pop:", popped)
-
-
 
     plt.show()
 
