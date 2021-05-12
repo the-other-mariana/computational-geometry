@@ -10,9 +10,18 @@ gap = 5 # limits
 q = Q()
 t = T()
 
-def activatePlace(p):
+def activatePlace(p, h):
     if not t.root:
         t.root = Node([p.value])
+        return
+    else:
+        a = t.find(p, h)
+        if a.pointer:
+            circle_event = a.pointer
+            q.delete(circle_event)
+        n1, n3 = t.insert(p, h)
+        
+
 
 def main():
 
@@ -52,7 +61,7 @@ def main():
             p = q.pop()
             print("Pop Event:", p)
             if not p.center:
-                activatePlace(p)
+                activatePlace(p, h)
 
 
     plt.show()

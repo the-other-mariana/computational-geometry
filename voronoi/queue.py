@@ -6,7 +6,7 @@ class Event():
         self.value = value
         # site event has a pointer?
         # in case is a circle event
-        self.pointer = pointer
+        self.pointer = pointer # must be an Event obj
         self.center = center
         self.radius = radius
 
@@ -36,6 +36,11 @@ class Q():
 
     def printq(self):
         print(self.data)
+
+    def delete(self, node):
+        self.data.remove(node)
+        heapq.heapify(self.data)
+
 
 
 
