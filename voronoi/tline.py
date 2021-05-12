@@ -1,11 +1,11 @@
-""" Implementation of a Binary Tree that stores internal/external nodes as values """
+""" Implementation of a Binary Search Tree that stores internal/external nodes as values """
 from glibrary import Line, Vector, Point, eps
 import math
 
 class Node():
     def __init__(self, value, pointer=None):
-        # internal: intersection of parabolas (L point, R point)
-        # external: parabola (point)
+        # internal: intersection of parabolas [L point, R point]
+        # external: parabola [point]
         self.value = value
         # external: pointer to its circle event where it will disappear, can be None # ask teacher
         self.pointer = pointer

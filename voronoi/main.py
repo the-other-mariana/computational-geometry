@@ -7,10 +7,15 @@ from matplotlib import pyplot as plt
 
 STEPS = 100
 gap = 5 # limits
+q = Q()
+t = T()
+
+def activatePlace(p):
+    if not t.root:
+        t.root = Node([p.value])
 
 def main():
-    q = Q()
-    t = T()
+
     input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
@@ -41,11 +46,14 @@ def main():
 
     while h > (ylim[0] - gap):
         h -= dh
-        print("-> h:", h)
+        # print("-> h:", h)
         if abs(h - next.value.y) < dh and not q.isEmpty():
             next = q.show()
-            popped = q.pop()
-            print("Pop:", popped)
+            p = q.pop()
+            print("Pop Event:", p)
+            if not p.center:
+                activatePlace(p)
+
 
     plt.show()
 
