@@ -93,7 +93,7 @@ class T():
             curr_node.right_child.right_child = Node([a.value]) # ext
             curr_node.right_child.right_child.parent = curr_node.right_child
 
-            return curr_node.left_child, curr_node.right_child.right_child
+            return curr_node.left_child, curr_node.right_child.left_child, curr_node.right_child.right_child
 
         # else it must be a 2 value node, keep searching
         elif T.isLessThan(p.value.x, curr_node, h) and curr_node.left_child != None:
