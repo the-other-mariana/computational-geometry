@@ -63,7 +63,7 @@ Therefore, whenever we are searching in the tree T and we find an **intersection
 2. For every height h of the Beach Line:
 3. Check if there is an event in Q at height h
 4. If there is an event:
-5. Remove the firt event of Q. Do a Q pop basically and call it p
+5. Remove the first event of Q. Do a Q pop basically and call it p
 6. If the event is a place event: <br />
     -> *ActivatePlace(p)*
 7. Else: it is a circle event: <br />
@@ -120,9 +120,11 @@ where the two sided lines represent the four links of father-son that you need t
 
 *Note*: You can do this using the classic **delete** function of a BST, by performing:
 
-- Following the example, delete the grandpa of p1 node. But store it before deleting it.
-- Substitute the parent node of p1 with the new node that has the combination of the intersection of the parent and grandpa parabolas.
-- Finally, delete p1 node. Update p2's parent link.
+- Delete p1 node.
+- Now, delete the grandpa of p1 node. But store it before deleting it.
+- Substitute the parent node of p2 with the new node that has the combination of the intersection of the parent and grandpa parabolas.
+- Update links so that the new node is parent of p2 and grandpa's right child. Subtree right child should now be this new node.
+
 
 3. Delete all the circle events that involve the g arc (tree leaf). This means to erase from Q all the circle events where their pointer points to this leaf g. For that, you need to only check the event pointer of the previous and next leaf of g arc in T before the deletion, that is, check the circle event pointers of p2 as prev and p3 as next.
 

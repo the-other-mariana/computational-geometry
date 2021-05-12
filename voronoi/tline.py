@@ -32,7 +32,7 @@ class T():
     @staticmethod
     def getParabolaCoeff(f, d):
         a = 1.0 / (2 * (f.y - d))
-        b = (-1.0 * 2 * f.x) / (2 *(f.y - d))
+        b = (-1.0 * 2 * f.x) / (2 * (f.y - d))
         c = ((f.x * f.x) + (f.y * f.y) - (d * d)) / (2.0 * (f.y - d))
         return a, b, c
 
@@ -198,10 +198,10 @@ class T():
             return self._find(x, curr_node.right_child, h)
 
     def delete_value(self, p, h):
-        return self.delete_node(self.find(p, h))
+        return self.delete_node(self.find(p, h), h)
 
-    def delete_node(self, node, p):
-        if not node or not self.find(node.value, p):
+    def delete_node(self, node, h):
+        if not node or not self.find(node.value, h):
             print("Node is not found to delete")
             return None
 

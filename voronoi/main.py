@@ -10,6 +10,31 @@ gap = 5 # limits
 q = Q()
 t = T()
 
+
+def activateCircle(p, h):
+    if p.pointer:
+        # this is the leaf in t that will disappear when h reaches the circle event height
+        g = p.pointer
+        if g.parent.parent:
+            grandpa = g.parent.parent
+            subtree_root = grandpa.parent
+            parent = g.parent
+
+            t.delete_node(g, h)
+            t.delete_node(grandpa, h)
+
+            new_node = Node([parent.value[0], grandpa.value[1]])
+
+            # update links
+            subtree_root.left_child = new_node
+            new_node.parent = subtree_root
+            new_node.left_child = parent.left_child
+            new_node.left_child.parent = new_node
+            new_node.right_child = grandpa.right_child
+            new_node.right_child.parent = new_node
+
+            
+
 def activatePlace(p, h):
     if not t.root:
         t.root = Node([p.value])
@@ -36,7 +61,7 @@ def activatePlace(p, h):
             # n3 in t points to event in q
             n3.pointer = new_event2
             q.push(new_event2)
-
+        return
 
 
 def main():
@@ -78,6 +103,8 @@ def main():
             print("Pop Event:", p)
             if not p.center:
                 activatePlace(p, h)
+            else:
+                activateCircle(p, h)
 
 
     plt.show()
