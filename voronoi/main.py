@@ -23,12 +23,18 @@ def activatePlace(p, h):
         if n1:
             left = t.getLeft(n1)
             cc, cr = Point.getCircumCenterRadius(left, n1, n2)
-            new_event1 = Event(Point(cc.x, cc.y - cr), cc, cr, n2)
+            # new circle event in q points to n1 in t
+            new_event1 = Event(Point(cc.x, cc.y - cr), cc, cr, n1)
+            # n1 in t points to event in q
+            n1.pointer = new_event1
             q.push(new_event1)
         if n3:
             right = t.getRight(n3)
             cc, cr, = Point.getCircumCenterRadius(n2, n3, right)
-            new_event2 = Event(Point(cc.x, cc.y - cr), cc, cr, n2)
+            # new circle event in q points to n3 in t
+            new_event2 = Event(Point(cc.x, cc.y - cr), cc, cr, n3)
+            # n3 in t points to event in q
+            n3.pointer = new_event2
             q.push(new_event2)
 
 
