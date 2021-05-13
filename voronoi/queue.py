@@ -17,6 +17,9 @@ class Event():
     def __lt__(self, other):
         return self.value < other.value
 
+    def __eq__(self, other):
+        return self.value == other.value and self.pointer == other.pointer and abs(self.center - other.center) and abs(self.center - other.center)
+
 class Q():
     def __init__(self, data=[]):
         heapq.heapify(data)

@@ -9,6 +9,7 @@ STEPS = 100
 gap = 5 # limits
 q = Q()
 t = T()
+voronoi = []
 
 
 def activateCircle(p, h):
@@ -33,7 +34,17 @@ def activateCircle(p, h):
             new_node.right_child = grandpa.right_child
             new_node.right_child.parent = new_node
 
-            
+            prev = new_node.left_child
+            next = new_node.right_child.left_child
+
+            if prev.pointer == g:
+                q.delete(prev.pointer)
+            if next.pointer == g:
+                q.delete(next.pointer)
+
+            # mark the center of the circle as a vertex of the voronoi
+            voronoi.append(p.center)
+
 
 def activatePlace(p, h):
     if not t.root:
