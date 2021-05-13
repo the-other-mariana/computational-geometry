@@ -12,6 +12,17 @@ t = T()
 voronoi = []
 
 
+def checkCircleEvent(l, c, r, h):
+    cc, cr = Point.getCircumCenterRadius(l.value[0], c.value[0], r.value[0])
+    if cc.y <= h:
+        # new circle event
+        low_point = Point(cc.x, cc.y - cr)
+        e = Event(low_point, cc, cr, c)
+        c.pointer = e
+        return e
+    else:
+        return None
+
 def activateCircle(p, h):
     if p.pointer:
         # this is the leaf in t that will disappear when h reaches the circle event height
@@ -41,9 +52,28 @@ def activateCircle(p, h):
                 q.delete(prev.pointer)
             if next.pointer == g:
                 q.delete(next.pointer)
-
+            q.delete(g)
             # mark the center of the circle as a vertex of the voronoi
             voronoi.append(p.center)
+
+            nleft = new_node.parent.left_child
+            ncenter = new_node.right_child
+            nright = new_node.right_child.left_child
+            e = checkCircleEvent(nleft, ncenter, nright, h)
+            if e:
+                q.push(e)
+
+            leftleft = t.getLeft(nleft)
+            if leftleft:
+                e = checkCircleEvent(leftleft, nleft, ncenter, h)
+                if e:
+                    q.push(e)
+            rightright = t.getRight(nright)
+            if rightright:
+                e = checkCircleEvent(ncenter, nright, rightright, h)
+                if e:
+                    q.push(e)
+
 
 
 def activatePlace(p, h):
