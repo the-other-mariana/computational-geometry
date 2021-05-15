@@ -12,7 +12,9 @@ class Event():
 
 
     def __repr__(self):
-        return f"E[value = {self.value}]"
+        return f"E[value:{self.value} pointer:{self.pointer} center:{self.center}]"
+    def __str__(self):
+        return "E[value:{v} pointer:{p} center:{c}]".format(v=self.value, p=self.pointer, c=self.center)
 
     def __lt__(self, other):
         return self.value < other.value

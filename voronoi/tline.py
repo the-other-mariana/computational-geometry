@@ -14,10 +14,18 @@ class Node():
         self.parent = None
 
     def __eq__(self, other):
+        if not other:
+            return False
         for i in range(len(self.value)):
             if self.value[i] != other.value[i]:
                 return False
         return True
+
+    def __repr__(self):
+        return f"N[value:{self.value} pointer:{self.pointer}]"
+
+    def __str__(self):
+        return "N[value:{v} pointer:{p}]".format(v=self.value, p=self.pointer)
 
     def isLeaf(self):
         return self.right_child == None and self.left_child == None
@@ -73,27 +81,29 @@ class T():
     def insert(self, p, h):
         if self.root == None:
             self.root = Node([p.value])
+            return [None, self.root, None]
         else:
-            self._insert(p, self.root, h)
+            return self._insert(p, self.root, h)
 
     def _insert(self, p, curr_node, h):
         # if you found a leaf (only one value)
         if len(curr_node.value) == 1:
             a = curr_node
             # replace node with subtree
-            curr_node = Node([a.value, p.value])
+            curr_node = Node([a.value[0], p.value])
 
-            curr_node.left_child = Node([a.value]) # ext
+            curr_node.left_child = Node([a.value[0]]) # ext
             curr_node.left_child.parent = curr_node
-            curr_node.right_child = Node([p.value, a.value])
+            curr_node.right_child = Node([p.value, a.value[0]])
             curr_node.right_child.parent = curr_node
 
             curr_node.right_child.left_child = Node([p.value]) # ext
             curr_node.right_child.left_child.parent = curr_node.right_child
-            curr_node.right_child.right_child = Node([a.value]) # ext
+            curr_node.right_child.right_child = Node([a.value[0]]) # ext
             curr_node.right_child.right_child.parent = curr_node.right_child
 
-            return curr_node.left_child, curr_node.right_child.left_child, curr_node.right_child.right_child
+            print([curr_node.left_child, curr_node.right_child.left_child, curr_node.right_child.right_child])
+            return [curr_node.left_child, curr_node.right_child.left_child, curr_node.right_child.right_child]
 
         # else it must be a 2 value node, keep searching
         elif T.isLessThan(p.value.x, curr_node, h) and curr_node.left_child != None:
@@ -122,6 +132,7 @@ class T():
                     return node
             if node.parent.left_child == node or not node.parent.left_child:
                 node = node.parent
+                if not node.parent: return None
                 while node.parent.left_child:
                     if node.parent and node.parent.left_child == node:
                         node = node.parent
@@ -161,6 +172,7 @@ class T():
                     return node
             if node.parent.right_child == node or not node.parent.right_child:
                 node = node.parent
+                if not node.parent: return None
                 while node.parent.right_child:
                     if node.parent and node.parent.right_child == node:
                         node = node.parent

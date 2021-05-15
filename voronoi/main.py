@@ -1,4 +1,4 @@
-from queue import Event, Q
+from pqueue import Event, Q
 from tline import Node, T
 from glibrary import Point, Line, Vector, eps
 from matplotlib import pyplot as plt
@@ -24,6 +24,9 @@ def checkCircleEvent(l, c, r, h):
         return None
 
 def activateCircle(p, h):
+    global t
+    global q
+    global voronoi
     if p.pointer:
         # this is the leaf in t that will disappear when h reaches the circle event height
         g = p.pointer
@@ -56,6 +59,7 @@ def activateCircle(p, h):
             # mark the center of the circle as a vertex of the voronoi
             voronoi.append(p.center)
 
+
             nleft = new_node.parent.left_child
             ncenter = new_node.right_child
             nright = new_node.right_child.left_child
@@ -77,6 +81,8 @@ def activateCircle(p, h):
 
 
 def activatePlace(p, h):
+    global t
+    global q
     if not t.root:
         t.root = Node([p.value])
         return
@@ -85,9 +91,15 @@ def activatePlace(p, h):
         if a.pointer:
             circle_event = a.pointer
             q.delete(circle_event)
-        n1, n2, n3 = t.insert(p, h)
+        nodes = t.insert(p, h)
+        print(nodes)
+
+        n1 = nodes[0]
+        n2 = nodes[1]
+        n3 = nodes[2]
         if n1:
             left = t.getLeft(n1)
+            if not left: return
             cc, cr = Point.getCircumCenterRadius(left, n1, n2)
             # new circle event in q points to n1 in t
             new_event1 = Event(Point(cc.x, cc.y - cr), cc, cr, n1)
@@ -96,6 +108,7 @@ def activatePlace(p, h):
             q.push(new_event1)
         if n3:
             right = t.getRight(n3)
+            if not right: return
             cc, cr, = Point.getCircumCenterRadius(n2, n3, right)
             # new circle event in q points to n3 in t
             new_event2 = Event(Point(cc.x, cc.y - cr), cc, cr, n3)
@@ -106,6 +119,8 @@ def activatePlace(p, h):
 
 
 def main():
+    global t
+    global q
 
     input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
     xs = [p.x for p in input]
@@ -147,6 +162,10 @@ def main():
             else:
                 activateCircle(p, h)
 
+    voronoi_x = [p.x for p in voronoi]
+    voronoi_y = [p.y for p in voronoi]
+    print(voronoi)
+    ax1.scatter(voronoi_x, voronoi_y, s=30, zorder=10, color='red')
 
     plt.show()
 
