@@ -132,7 +132,7 @@ class T():
                     return node
             if node.parent.left_child == node or not node.parent.left_child:
                 node = node.parent
-                if not node.parent: return None
+                if node.isRoot(): return None
                 while node.parent.left_child:
                     if node.parent and node.parent.left_child == node:
                         node = node.parent
@@ -172,7 +172,7 @@ class T():
                     return node
             if node.parent.right_child == node or not node.parent.right_child:
                 node = node.parent
-                if not node.parent: return None
+                if node.isRoot(): return None
                 while node.parent.right_child:
                     if node.parent and node.parent.right_child == node:
                         node = node.parent

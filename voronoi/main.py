@@ -99,22 +99,22 @@ def activatePlace(p, h):
         n3 = nodes[2]
         if n1:
             left = t.getLeft(n1)
-            if not left: return
-            cc, cr = Point.getCircumCenterRadius(left, n1, n2)
-            # new circle event in q points to n1 in t
-            new_event1 = Event(Point(cc.x, cc.y - cr), cc, cr, n1)
-            # n1 in t points to event in q
-            n1.pointer = new_event1
-            q.push(new_event1)
+            if left:
+                cc, cr = Point.getCircumCenterRadius(left, n1, n2)
+                # new circle event in q points to n1 in t
+                new_event1 = Event(Point(cc.x, cc.y - cr), cc, cr, n1)
+                # n1 in t points to event in q
+                n1.pointer = new_event1
+                q.push(new_event1)
         if n3:
             right = t.getRight(n3)
-            if not right: return
-            cc, cr, = Point.getCircumCenterRadius(n2, n3, right)
-            # new circle event in q points to n3 in t
-            new_event2 = Event(Point(cc.x, cc.y - cr), cc, cr, n3)
-            # n3 in t points to event in q
-            n3.pointer = new_event2
-            q.push(new_event2)
+            if right:
+                cc, cr, = Point.getCircumCenterRadius(n2, n3, right)
+                # new circle event in q points to n3 in t
+                new_event2 = Event(Point(cc.x, cc.y - cr), cc, cr, n3)
+                # n3 in t points to event in q
+                n3.pointer = new_event2
+                q.push(new_event2)
         return
 
 
@@ -151,16 +151,19 @@ def main():
     next = q.show()
 
     while h > (ylim[0] - gap):
-        h -= dh
-        # print("-> h:", h)
+
+        print("-> h:", h)
         if abs(h - next.value.y) < dh and not q.isEmpty():
-            next = q.show()
             p = q.pop()
-            print("Pop Event:", p)
+            if not q.isEmpty():
+                next = q.show()
+            print("Pop Event:", p, "height:", h, "dh:", dh, "next:", next)
             if not p.center:
                 activatePlace(p, h)
             else:
                 activateCircle(p, h)
+
+        h -= dh
 
     voronoi_x = [p.x for p in voronoi]
     voronoi_y = [p.y for p in voronoi]
