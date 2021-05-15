@@ -100,7 +100,7 @@ def activatePlace(p, h):
         if n1:
             left = t.getLeft(n1)
             if left:
-                cc, cr = Point.getCircumCenterRadius(left, n1, n2)
+                cc, cr = Point.getCircumCenterRadius(left.value[0], n1.value[0], n2.value[0])
                 # new circle event in q points to n1 in t
                 new_event1 = Event(Point(cc.x, cc.y - cr), cc, cr, n1)
                 # n1 in t points to event in q
@@ -109,7 +109,7 @@ def activatePlace(p, h):
         if n3:
             right = t.getRight(n3)
             if right:
-                cc, cr, = Point.getCircumCenterRadius(n2, n3, right)
+                cc, cr, = Point.getCircumCenterRadius(n2.value[0], n3.value[0], right.value[0])
                 # new circle event in q points to n3 in t
                 new_event2 = Event(Point(cc.x, cc.y - cr), cc, cr, n3)
                 # n3 in t points to event in q
@@ -151,18 +151,16 @@ def main():
     next = q.show()
 
     while h > (ylim[0] - gap):
-
-        print("-> h:", h)
+        # print("-> h:", h)
         if abs(h - next.value.y) < dh and not q.isEmpty():
             p = q.pop()
             if not q.isEmpty():
                 next = q.show()
-            print("Pop Event:", p, "height:", h, "dh:", dh, "next:", next)
+            #print("Pop Event:", p, "height:", h, "dh:", dh, "next:", next)
             if not p.center:
                 activatePlace(p, h)
             else:
                 activateCircle(p, h)
-
         h -= dh
 
     voronoi_x = [p.x for p in voronoi]

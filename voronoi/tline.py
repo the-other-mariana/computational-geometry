@@ -33,6 +33,20 @@ class Node():
     def isRoot(self):
         return self.parent == None
 
+    def isRightChild(self):
+        if not self.parent: return False
+        if self.parent.right_child == self:
+            return True
+        else:
+            return False
+
+    def isLeftChild(self):
+        if not self.parent: return False
+        if self.parent.left_child == self:
+            return True
+        else:
+            return False
+
 class T():
     def __init__(self):
         self.root = None
@@ -55,7 +69,7 @@ class T():
         # Check if `inner_cal` is negative. If so, there are no real solutions.
         # Thus, return the empty list.
         if inner_calc < 0:
-            return set()
+            return None
 
         square = math.sqrt(inner_calc)
         double_a = 2 * a
@@ -69,28 +83,33 @@ class T():
 
     @staticmethod
     def isLessThan(xVal, inode, h):
-        p1 = inode[0]
-        p2 = inode[1]
+        p1 = inode.value[0]
+        p2 = inode.value[1]
         a1, b1, c1 = T.getParabolaCoeff(p1, h)
         a2, b2, c2 = T.getParabolaCoeff(p2, h)
-        xHit = T.findIntersect(a1, b2, c1, a2, b2, c2)
-        if xVal <= xHit:
-            return True
-        return False
+        xHit = T.findIntersect(a1, b2, c1, a2, b2, c2, p1, p2)
+        if xHit:
+            if xVal <= xHit:
+                return True
+            return False
+        else:
+            return False
 
     def insert(self, p, h):
         if self.root == None:
             self.root = Node([p.value])
             return [None, self.root, None]
         else:
-            return self._insert(p, self.root, h)
+            return self._insert(p, self.root, None, h)
 
-    def _insert(self, p, curr_node, h):
+    def _insert(self, p, curr_node, parent, h):
         # if you found a leaf (only one value)
         if len(curr_node.value) == 1:
             a = curr_node
             # replace node with subtree
-            curr_node = Node([a.value[0], p.value])
+            # curr_node = Node([a.value[0], p.value])
+            curr_node.value = [a.value[0], p.value]
+            curr_node.parent = parent
 
             curr_node.left_child = Node([a.value[0]]) # ext
             curr_node.left_child.parent = curr_node
@@ -107,9 +126,9 @@ class T():
 
         # else it must be a 2 value node, keep searching
         elif T.isLessThan(p.value.x, curr_node, h) and curr_node.left_child != None:
-            return self._insert(p, curr_node.left_child, h)
+            return self._insert(p, curr_node.left_child, curr_node, h)
         elif not T.isLessThan(p.value.x, curr_node, h) and curr_node.right_child != None:
-            return self._insert(p, curr_node.right_child, h)
+            return self._insert(p, curr_node.right_child, curr_node, h)
 
     def getLeft(self, node):
         if node.isRoot():
@@ -204,9 +223,9 @@ class T():
         if len(curr_node.value) == 1:
             return curr_node
         # else it must be a 2 value node
-        elif T.isLessThan(x, curr_node, h) and curr_node.left_child != None:
+        elif T.isLessThan(x, curr_node, h) and curr_node.left_child:
             return self._find(x, curr_node.left_child, h)
-        elif not T.isLessThan(x, curr_node, h) and curr_node.right_child != None:
+        elif not T.isLessThan(x, curr_node, h) and curr_node.right_child:
             return self._find(x, curr_node.right_child, h)
 
     def delete_value(self, p, h):
@@ -270,3 +289,14 @@ class T():
             node.value = successor.value
             # delete the inorder successor now that value is saved
             self.delete_node(successor)
+
+    def printT(self):
+        if self.root != None:
+            self._printT(self.root)
+
+    def _printT(self, curr_node):
+        # in order traversal printing: all numbers sorted
+        if curr_node != None:
+            self._printT(curr_node.left_child)
+            print(curr_node)
+            self._printT(curr_node.right_child)
