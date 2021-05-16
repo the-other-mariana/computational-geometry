@@ -44,18 +44,20 @@ def activateCircle(p, h):
             subtree_root.left_child = new_node
             new_node.parent = subtree_root
             new_node.left_child = parent.left_child
-            new_node.left_child.parent = new_node
+            if new_node.left_child:
+                new_node.left_child.parent = new_node
             new_node.right_child = grandpa.right_child
-            new_node.right_child.parent = new_node
+            if new_node.right_child:
+                new_node.right_child.parent = new_node
 
             prev = new_node.left_child
             next = new_node.right_child.left_child
 
-            if prev.pointer == g:
-                q.delete(prev.pointer)
-            if next.pointer == g:
-                q.delete(next.pointer)
-            q.delete(g)
+            if prev and prev.pointer == g:
+                q.delete(prev)
+            if next and next.pointer == g:
+                q.delete(next)
+            # q.delete(p)
             # mark the center of the circle as a vertex of the voronoi
             voronoi.append(p.center)
 
@@ -122,7 +124,8 @@ def main():
     global t
     global q
 
-    input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
+    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
+    input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 
@@ -156,7 +159,7 @@ def main():
             p = q.pop()
             if not q.isEmpty():
                 next = q.show()
-            #print("Pop Event:", p, "height:", h, "dh:", dh, "next:", next)
+            # print("Pop Event:", p, "height:", h, "dh:", dh, "next:", next)
             if not p.center:
                 activatePlace(p, h)
             else:

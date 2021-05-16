@@ -1,4 +1,4 @@
-from math import sin, cos, sqrt, pi, acos
+from math import sin, cos, sqrt, pi, acos, inf
 
 eps = 10**-4
 
@@ -47,8 +47,16 @@ class Point:
 	@staticmethod
 	def getCircumCenterRadius(a, b, c):
 		d = 2 * (a.x * (b.y - c.y) + b.x * (c.y - a.y) + c.x * (a.y - b.y))
-		ux = ((a.x * a.x + a.y * a.y) * (b.y - c.y) + (b.x * b.x + b.y * b.y) * (c.y - a.y) + (c.x * c.x + c.y * c.y) * (a.y - b.y)) / d
-		uy = ((a.x * a.x + a.y * a.y) * (c.x - b.x) + (b.x * b.x + b.y * b.y) * (a.x - c.x) + (c.x * c.x + c.y * c.y) * (b.x - a.x)) / d
+		ux = 0
+		uy = 0
+		try:
+			ux = ((a.x * a.x + a.y * a.y) * (b.y - c.y) + (b.x * b.x + b.y * b.y) * (c.y - a.y) + (c.x * c.x + c.y * c.y) * (a.y - b.y)) / d
+		except ZeroDivisionError:
+			ux = inf
+		try:
+			uy = ((a.x * a.x + a.y * a.y) * (c.x - b.x) + (b.x * b.x + b.y * b.y) * (a.x - c.x) + (c.x * c.x + c.y * c.y) * (b.x - a.x)) / d
+		except ZeroDivisionError:
+			uy = inf
 		cc = Point(ux, uy)
 		cr = Point.distance(a, cc)
 		return cc, cr

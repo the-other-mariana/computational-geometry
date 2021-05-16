@@ -232,9 +232,6 @@ class T():
         return self.delete_node(self.find(p, h), h)
 
     def delete_node(self, node, h):
-        if not node or not self.find(node.value, h):
-            print("Node is not found to delete")
-            return None
 
         # returns the node with min value in tree rooted at input node
         def min_value_node(n):
@@ -288,7 +285,7 @@ class T():
             successor = min_value_node(node.right_child)
             node.value = successor.value
             # delete the inorder successor now that value is saved
-            self.delete_node(successor)
+            self.delete_node(successor, h)
 
     def printT(self):
         if self.root != None:

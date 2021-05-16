@@ -1,4 +1,5 @@
 import heapq
+from glibrary import eps
 
 class Event():
     def __init__(self, value, center=None, radius=0, pointer=None):
@@ -20,7 +21,7 @@ class Event():
         return self.value < other.value
 
     def __eq__(self, other):
-        return self.value == other.value and self.pointer == other.pointer and abs(self.center - other.center) and abs(self.center - other.center)
+        return self.value == other.value
 
 class Q():
     def __init__(self, data=[]):
