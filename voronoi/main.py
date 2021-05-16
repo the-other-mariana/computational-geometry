@@ -125,7 +125,7 @@ def main():
     global q
 
     # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
-    input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1)]
+    input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 
