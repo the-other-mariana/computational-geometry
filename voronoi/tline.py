@@ -297,3 +297,16 @@ class T():
             self._printT(curr_node.left_child)
             print(curr_node)
             self._printT(curr_node.right_child)
+
+    @staticmethod
+    def inorder(root):
+        a = []
+        if root != None:
+            T._inorder(root, a)
+        return a
+
+    def _inorder(curr_node, array):
+        if curr_node != None:
+            T._inorder(curr_node.left_child, array)
+            array.append(curr_node.value)
+            T._inorder(curr_node.right_child, array)

@@ -11,6 +11,9 @@ q = Q()
 t = T()
 voronoi = []
 
+fig = plt.figure()
+fig.add_subplot()
+ax1 = plt.gca()
 
 def checkCircleEvent(l, c, r, h):
     cc, cr = Point.getCircumCenterRadius(l.value[0], c.value[0], r.value[0])
@@ -80,8 +83,6 @@ def activateCircle(p, h):
                 if e:
                     q.push(e)
 
-
-
 def activatePlace(p, h):
     global t
     global q
@@ -123,9 +124,11 @@ def activatePlace(p, h):
 def main():
     global t
     global q
+    global ax1
 
     # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
-    input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
+    # input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
+    input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1),]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 
@@ -134,9 +137,7 @@ def main():
     yMin, yMax = min(input, key=lambda p: p.y).y, max(input, key=lambda p: p.y).y
 
     # for plot
-    fig = plt.figure()
-    fig.add_subplot()
-    ax1 = plt.gca()
+
 
     ax1.scatter(xs, ys, s=30, zorder=10, color='tab:blue')
     plt.setp(ax1, xlim=(xMin - gap, xMax + gap), ylim=(yMin - gap, yMax + gap))
@@ -164,6 +165,8 @@ def main():
                 activatePlace(p, h)
             else:
                 activateCircle(p, h)
+            tree = T.inorder(t.root)
+            print(tree)
         h -= dh
 
     voronoi_x = [p.x for p in voronoi]
