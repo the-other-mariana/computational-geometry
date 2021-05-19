@@ -38,14 +38,19 @@ def activateCircle(p, h):
             subtree_root = grandpa.parent
             parent = g.parent
 
-            leftBro = t.getLeft(g)
+            left_bro = t.getLeft(g)
+            right_subtree = t.getRightSubtree(g)
             t.delete_node(g, h)
             isLeft = True
             if grandpa.isRightChild():
                 isLeft = False
             t.delete_node(grandpa, h)
 
-            new_node = Node([parent.value[0], grandpa.value[1]])
+            first = parent.value[0]
+            sec = grandpa.value[1]
+            if first == sec:
+                first, sec = sec, first
+            new_node = Node([first, sec])
 
             # update links
             if isLeft:
@@ -54,10 +59,11 @@ def activateCircle(p, h):
                 subtree_root.right_child = new_node
 
             new_node.parent = subtree_root
-            new_node.left_child = leftBro
+            new_node.left_child = left_bro
             if new_node.left_child:
                 new_node.left_child.parent = new_node
-            new_node.right_child = grandpa.right_child # bug here, get root of right subtree
+            # new_node.right_child = grandpa.right_child # bug here, get root of right subtree
+            new_node.right_child = right_subtree
             if new_node.right_child:
                 new_node.right_child.parent = new_node
 
@@ -74,22 +80,22 @@ def activateCircle(p, h):
 
 
             nleft = new_node.parent.left_child
-            ncenter = new_node.right_child
+            ncenter = new_node.left_child
             nright = new_node.right_child.left_child
-            e = checkCircleEvent(nleft, ncenter, nright, h)
-            if e:
-                q.push(e)
-
-            leftleft = t.getLeft(nleft)
-            if leftleft:
-                e = checkCircleEvent(leftleft, nleft, ncenter, h)
+            if nleft.isLeaf() and ncenter.isLeaf() and nright.isLeaf():
+                e = checkCircleEvent(nleft, ncenter, nright, h)
                 if e:
                     q.push(e)
-            rightright = t.getRight(nright)
-            if rightright:
-                e = checkCircleEvent(ncenter, nright, rightright, h)
-                if e:
-                    q.push(e)
+                leftleft = t.getLeft(nleft)
+                if leftleft:
+                    e = checkCircleEvent(leftleft, nleft, ncenter, h)
+                    if e:
+                        q.push(e)
+                rightright = t.getRight(nright)
+                if rightright:
+                    e = checkCircleEvent(ncenter, nright, rightright, h)
+                    if e:
+                        q.push(e)
 
 def activatePlace(p, h):
     global t
@@ -161,6 +167,7 @@ def main():
     dh = (height * 1.0) / STEPS
     h = ylim[1] + gap
     next = q.show()
+    hits = []
 
     while h > (ylim[0] - gap):
         # print("-> h:", h)
@@ -173,14 +180,24 @@ def main():
                 activatePlace(p, h)
             else:
                 activateCircle(p, h)
-            tree = T.inorder(t.root)
-            print(tree)
+        tree = T.inorder(t.root)
+        # print(tree)
+        for n in tree:
+            if len(n) > 1:
+                a1, b1, c1 = T.getParabolaCoeff(n[0], h)
+                a2, b2, c2 = T.getParabolaCoeff(n[1], h)
+                hitx = T.findIntersect(a1, b1, c1, a2, b2, c2, n[0], n[1])
+                if hitx:
+                    hits.append([hitx, a1 * hitx * hitx + b1 * hitx + c1])
+
         h -= dh
 
     voronoi_x = [p.x for p in voronoi]
     voronoi_y = [p.y for p in voronoi]
     print(voronoi)
     ax1.scatter(voronoi_x, voronoi_y, s=30, zorder=10, color='red')
+    for hit in hits:
+        ax1.scatter([hit[0]], [hit[1]], s=5, zorder=5, color='black')
 
     plt.show()
 

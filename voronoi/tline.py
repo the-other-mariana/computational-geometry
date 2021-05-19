@@ -28,6 +28,7 @@ class Node():
         return "N[value:{v} pointer:{p}]".format(v=self.value, p=self.pointer)
 
     def isLeaf(self):
+        if not self: return False
         return self.right_child == None and self.left_child == None
 
     def isRoot(self):
@@ -77,9 +78,9 @@ class T():
 
         if f1.x <= f2.x:
             # points ordered from left to right, which means hit point from f1,f2 is the first element
-            return answers[0]
+            return answers[1]
 
-        return answers[1]
+        return answers[0]
 
     @staticmethod
     def isLessThan(xVal, inode, h):
@@ -133,6 +134,8 @@ class T():
     def getLeft(self, node):
         if node.isRoot():
             return None
+        elif node.parent.isRoot() and node.isLeftChild():
+            return None
         else:
             if node.parent.right_child == node and node.parent.left_child and node.parent.left_child.isLeaf():
                 node = node.parent.left_child
@@ -173,6 +176,8 @@ class T():
     def getRight(self, node):
         if node.isRoot():
             return None
+        elif node.parent.isRoot() and node.isRightChild():
+            return None
         else:
             if node.parent.left_child == node and node.parent.right_child:
                 node = node.parent.right_child
@@ -209,6 +214,12 @@ class T():
                     while node.right_child:
                         node = node.right_child
                     return node
+
+    def getRightSubtree(self, node):
+        while node.parent and node.parent.right_child == node:
+            node = node.parent
+        node = node.parent.right_child
+        return node
 
     def find(self, p, h):
         if self.root != None:
