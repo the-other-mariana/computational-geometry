@@ -38,18 +38,26 @@ def activateCircle(p, h):
             subtree_root = grandpa.parent
             parent = g.parent
 
+            leftBro = t.getLeft(g)
             t.delete_node(g, h)
+            isLeft = True
+            if grandpa.isRightChild():
+                isLeft = False
             t.delete_node(grandpa, h)
 
             new_node = Node([parent.value[0], grandpa.value[1]])
 
             # update links
-            subtree_root.left_child = new_node
+            if isLeft:
+                subtree_root.left_child = new_node
+            else:
+                subtree_root.right_child = new_node
+
             new_node.parent = subtree_root
-            new_node.left_child = parent.left_child
+            new_node.left_child = leftBro
             if new_node.left_child:
                 new_node.left_child.parent = new_node
-            new_node.right_child = grandpa.right_child
+            new_node.right_child = grandpa.right_child # bug here, get root of right subtree
             if new_node.right_child:
                 new_node.right_child.parent = new_node
 
