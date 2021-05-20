@@ -52,7 +52,7 @@ def activateCircle(p, h):
             first = parent.value[0]
             sec = grandpa.value[1]
             if first == sec:
-                first, sec = parent.value[1], grandpa.value[0]
+                first, sec = grandpa.value[0], parent.value[1]
             new_node = Node([first, sec])
 
             left_bro = t.getLeft(g)
