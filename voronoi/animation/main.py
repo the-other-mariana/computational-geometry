@@ -86,7 +86,7 @@ def paint(input):
 
 
 def main():
-    input = [Point(-5, 5), Point(7, 18), Point(18, 0)]
+    input = [Point(4, 1), Point(-3, 15), Point(14, 0)]
     input.sort()
     print(input)
 

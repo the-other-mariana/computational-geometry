@@ -196,10 +196,12 @@ def main():
 
     print(q.isEmpty())
     print(len(q.data))
+    p = q.pop()
     voronoi_x = [p.x for p in voronoi]
     voronoi_y = [p.y for p in voronoi]
     print(voronoi)
     ax1.scatter(voronoi_x, voronoi_y, s=30, zorder=10, color='red')
+    ax1.scatter([p.value.x], [p.value.y], s=30, zorder=10, color='red')
     for hit in hits:
         ax1.scatter([hit[0]], [hit[1]], s=5, zorder=5, color='black')
 

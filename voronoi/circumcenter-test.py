@@ -10,7 +10,7 @@ fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
-input = [Point(6, 6), Point(8, 4), Point(4, 5)]
+input = [Point(-3, 15), Point(10, 10), Point(4, 1)]
 
 xs = [p.x for p in input]
 ys = [p.y for p in input]
@@ -34,5 +34,6 @@ for i in range(len(input)):
 
 plt.annotate('cc',xy=(cc.x + txt_offset, cc.y + txt_offset))
 plt.annotate('circle event',xy=(low_point.x + txt_offset, low_point.y + txt_offset), color='r')
+print("ce:", low_point)
 
 plt.show()
