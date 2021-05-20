@@ -15,6 +15,17 @@ fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
+def plotEdges(tree, h, hits):
+    for n in tree:
+        if len(n) > 1:
+            a1, b1, c1 = T.getParabolaCoeff(n[0], h)
+            a2, b2, c2 = T.getParabolaCoeff(n[1], h)
+            hitx = T.findIntersect(a1, b1, c1, a2, b2, c2, n[0], n[1])
+            if hitx:
+                hits.append([hitx, a1 * hitx * hitx + b1 * hitx + c1])
+    return hits
+
+
 def checkCircleEvent(l, c, r, h):
     cc, cr = Point.getCircumCenterRadius(l.value[0], c.value[0], r.value[0])
     if cc.y <= h:
@@ -38,6 +49,12 @@ def activateCircle(p, h):
             subtree_root = grandpa.parent
             parent = g.parent
 
+            first = parent.value[0]
+            sec = grandpa.value[1]
+            if first == sec:
+                first, sec = parent.value[1], grandpa.value[0]
+            new_node = Node([first, sec])
+
             left_bro = t.getLeft(g)
             right_subtree = t.getRightSubtree(g)
             t.delete_node(g, h)
@@ -45,12 +62,6 @@ def activateCircle(p, h):
             if grandpa.isRightChild():
                 isLeft = False
             t.delete_node(grandpa, h)
-
-            first = parent.value[0]
-            sec = grandpa.value[1]
-            if first == sec:
-                first, sec = sec, first
-            new_node = Node([first, sec])
 
             # update links
             if isLeft:
@@ -77,7 +88,6 @@ def activateCircle(p, h):
             # q.delete(p)
             # mark the center of the circle as a vertex of the voronoi
             voronoi.append(p.center)
-
 
             nleft = new_node.parent.left_child
             ncenter = new_node.left_child
@@ -142,7 +152,7 @@ def main():
 
     # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
     # input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
-    input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1),]
+    input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 
@@ -151,8 +161,6 @@ def main():
     yMin, yMax = min(input, key=lambda p: p.y).y, max(input, key=lambda p: p.y).y
 
     # for plot
-
-
     ax1.scatter(xs, ys, s=30, zorder=10, color='tab:blue')
     plt.setp(ax1, xlim=(xMin - gap, xMax + gap), ylim=(yMin - gap, yMax + gap))
 
@@ -182,16 +190,12 @@ def main():
                 activateCircle(p, h)
         tree = T.inorder(t.root)
         # print(tree)
-        for n in tree:
-            if len(n) > 1:
-                a1, b1, c1 = T.getParabolaCoeff(n[0], h)
-                a2, b2, c2 = T.getParabolaCoeff(n[1], h)
-                hitx = T.findIntersect(a1, b1, c1, a2, b2, c2, n[0], n[1])
-                if hitx:
-                    hits.append([hitx, a1 * hitx * hitx + b1 * hitx + c1])
+        hits = plotEdges(tree, h, hits)
 
         h -= dh
 
+    print(q.isEmpty())
+    print(len(q.data))
     voronoi_x = [p.x for p in voronoi]
     voronoi_y = [p.y for p in voronoi]
     print(voronoi)
