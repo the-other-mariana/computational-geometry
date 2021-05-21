@@ -74,6 +74,9 @@ def activateCircle(p, h):
             if new_node.left_child:
                 new_node.left_child.parent = new_node
             # new_node.right_child = grandpa.right_child # bug here, get root of right subtree
+            # new_node.right_child = right_subtree
+            right_subtree.value[1] = new_node.value[0]
+            right_subtree.right_child.value[0] = right_subtree.value[1]
             new_node.right_child = right_subtree
             if new_node.right_child:
                 new_node.right_child.parent = new_node

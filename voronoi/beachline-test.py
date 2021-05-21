@@ -33,7 +33,7 @@ fig = plt.figure()
 fig.add_subplot()
 ax1 = plt.gca()
 
-yValue = -2
+yValue = -0.2
 input1 = [Point(-3, 15), Point(10, 10), Point(4,1), Point(-3,15), Point(14,0), Point(-3,15)]
 xs = [p.x for p in input1]
 ys = [p.y for p in input1]
