@@ -92,20 +92,24 @@ def activateCircle(p, h):
             # mark the center of the circle as a vertex of the voronoi
             voronoi.append(p.center)
 
-            nleft = new_node.parent.left_child
             ncenter = new_node.left_child
-            nright = new_node.right_child.left_child
-            if nleft.isLeaf() and ncenter.isLeaf() and nright.isLeaf():
+            if not ncenter.isLeaf():
+                ncenter = new_node.right_child
+            nleft = t.getLeft(ncenter)
+            nright = t.getRight(ncenter)
+            if nleft and ncenter and nright:
                 e = checkCircleEvent(nleft, ncenter, nright, h)
                 if e:
                     q.push(e)
                 leftleft = t.getLeft(nleft)
                 if leftleft:
+                    # e = checkCircleEvent(leftleft, nleft, nright, h)
                     e = checkCircleEvent(leftleft, nleft, ncenter, h)
                     if e:
                         q.push(e)
                 rightright = t.getRight(nright)
                 if rightright:
+                    # e = checkCircleEvent(nleft, nright, rightright, h)
                     e = checkCircleEvent(ncenter, nright, rightright, h)
                     if e:
                         q.push(e)
@@ -153,9 +157,10 @@ def main():
     global q
     global ax1
 
-    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
-    # input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
+    #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
+    #input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
     input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1)]
+    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(20, 7)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 
@@ -177,20 +182,22 @@ def main():
     height = abs((ylim[1] + gap) - (ylim[0] - gap))
     dh = (height * 1.0) / STEPS
     h = ylim[1] + gap
-    next = q.show()
+    #next = q.show()
     hits = []
 
     while h > (ylim[0] - gap):
         # print("-> h:", h)
+        if not q.isEmpty():
+            next = q.show()
         if abs(h - next.value.y) < dh and not q.isEmpty():
             p = q.pop()
-            if not q.isEmpty():
-                next = q.show()
+
             # print("Pop Event:", p, "height:", h, "dh:", dh, "next:", next)
             if not p.center:
                 activatePlace(p, h)
             else:
                 activateCircle(p, h)
+
         tree = T.inorder(t.root)
         # print(tree)
         hits = plotEdges(tree, h, hits)
@@ -199,12 +206,11 @@ def main():
 
     print(q.isEmpty())
     print(len(q.data))
-    p = q.pop()
+    #p = q.pop()
     voronoi_x = [p.x for p in voronoi]
     voronoi_y = [p.y for p in voronoi]
     print(voronoi)
     ax1.scatter(voronoi_x, voronoi_y, s=30, zorder=10, color='red')
-    ax1.scatter([p.value.x], [p.value.y], s=30, zorder=10, color='red')
     for hit in hits:
         ax1.scatter([hit[0]], [hit[1]], s=5, zorder=5, color='black')
 
