@@ -55,8 +55,11 @@ def activateCircle(p, h):
                 first, sec = grandpa.value[0], parent.value[1]
             new_node = Node([first, sec])
 
-            left_bro = t.getLeft(g)
-            right_subtree = t.getRightSubtree(g)
+            bro = t.getLeft(g)
+            subtree = t.getRightSubtree(g)
+            if g.isRightChild():
+                bro = t.getRight(g)
+                subtree = t.getLeftSubtree(g)
             t.delete_node(g, h)
             isLeft = True
             if grandpa.isRightChild():
@@ -70,19 +73,25 @@ def activateCircle(p, h):
                 subtree_root.right_child = new_node
 
             new_node.parent = subtree_root
-            new_node.left_child = left_bro
+            new_node.left_child = bro
             if new_node.left_child:
                 new_node.left_child.parent = new_node
             # new_node.right_child = grandpa.right_child # bug here, get root of right subtree
             # new_node.right_child = right_subtree
-            right_subtree.value[1] = new_node.value[0]
-            right_subtree.right_child.value[0] = right_subtree.value[1]
-            new_node.right_child = right_subtree
-            if new_node.right_child:
-                new_node.right_child.parent = new_node
+            if subtree:
+                subtree.value[1] = new_node.value[0]
+                if subtree.right_child:
+                    subtree.right_child.value[0] = subtree.value[1]
 
-            prev = new_node.left_child
-            next = new_node.right_child.left_child
+                new_node.right_child = subtree
+                if new_node.right_child:
+                    new_node.right_child.parent = new_node
+
+            prev, next = None, None
+            if new_node.left_child:
+                prev = new_node.left_child
+            if new_node.right_child and new_node.right_child.left_child:
+                next = new_node.right_child.left_child
 
             if prev and prev.pointer == g:
                 q.delete(prev)
@@ -160,7 +169,8 @@ def main():
     #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
     #input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
     input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1)]
-    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(20, 7)]
+    #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(20, 7)]
+    #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 

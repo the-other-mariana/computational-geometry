@@ -219,7 +219,17 @@ class T():
         while node.parent and node.parent.right_child == node:
             node = node.parent
         node = node.parent.right_child
-        return node
+        if not node.isLeaf():
+            return node
+        return None
+
+    def getLeftSubtree(self, node):
+        while node.parent and node.parent.left_child == node:
+            node = node.parent
+        node = node.parent.left_child
+        if not node.isLeaf():
+            return node
+        return None
 
     def find(self, p, h):
         if self.root != None:

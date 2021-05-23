@@ -229,3 +229,5 @@ y = [10.464947042560352, 13.032094377557986]
 - https://codereview.stackexchange.com/questions/51011/calculating-the-point-of-intersection-of-two-parabolas <br />
 
 - https://stackoverflow.com/questions/56224824/how-do-i-find-the-circumcenter-of-the-triangle-using-python-without-external-lib <br />
+
+- https://cs.nyu.edu/yap/bks/egc/09/7Vor.pdf
