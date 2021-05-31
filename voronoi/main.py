@@ -8,7 +8,7 @@ import math
 # main code that runs the voronoi algorithm
 
 STEPS = 100
-DRAW_BEACHLINE = True
+DRAW_BEACHLINE = False
 gap = 5  # limits
 q = Q()
 t = T()
@@ -111,7 +111,7 @@ def paint(input, tree, h):
     figure = plt.gcf()
     figure.set_size_inches(10, 8)
 
-    plt.savefig("frames/anim_{0}.png".format(f), bbox_inches='tight', dpi=100)
+    plt.savefig("frames-original/anim_{0}.png".format(f), bbox_inches='tight', dpi=100)
     f += 1
 
 
