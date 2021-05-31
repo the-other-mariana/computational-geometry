@@ -224,6 +224,12 @@ y = [10.464947042560352, 13.032094377557986]
 
 ![image](https://github.com/the-other-mariana/computational-geometry/blob/master/voronoi/res/hit-test2.png?raw=true) <br />
 
+## Make The Video
+
+Run the following command:
+
+python3 video_utils.py -action join -fps 5 out.mp4 frames-folder
+
 ## Handy Links
 
 - https://codereview.stackexchange.com/questions/51011/calculating-the-point-of-intersection-of-two-parabolas <br />
