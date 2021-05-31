@@ -2,20 +2,120 @@ from pqueue import Event, Q
 from tline import Node, T
 from glibrary import Point, Line, Vector, eps
 from matplotlib import pyplot as plt
+import numpy as np
+import math
 
 # main code that runs the voronoi algorithm
 
 STEPS = 100
-gap = 5 # limits
+DRAW_BEACHLINE = True
+gap = 5  # limits
 q = Q()
 t = T()
 voronoi = []
 
-fig = plt.figure()
-fig.add_subplot()
-ax1 = plt.gca()
 
-def plotEdges(tree, h, hits):
+f = 0
+edge_hits = []
+
+# function that creates and saves a plot frame
+def paint(input, tree, h):
+
+    global f
+    global edge_hits
+    xhits = []
+
+    input.sort()
+
+    print(f"Generating frame {f}, h: {h}")
+
+    xs = [p.x for p in input]
+    ys = [p.y for p in input]
+
+    fig = plt.figure()
+    fig.add_subplot()
+    ax1 = plt.gca()
+
+    ax1.scatter(xs, ys, s=20, zorder=10, color='blue')
+
+    xMin, xMax = min(input, key=lambda p: p.x).x, max(input, key=lambda p: p.x).x
+    yMin, yMax = min(input, key=lambda p: p.y).y, max(input, key=lambda p: p.y).y
+
+    plt.setp(ax1, xlim=(xMin - gap, xMax + gap), ylim=(yMin - gap, yMax + gap))
+
+    # plot sweep line
+    xlim = ax1.get_xlim()
+    ylim = ax1.get_ylim()
+
+    yRange = abs(ylim[1] - ylim[0])
+    dy = yRange / (STEPS * 1.0)
+
+    yValue = h
+    ax1.plot(list(xlim), [yValue, yValue], color="black")
+
+    yps = []
+    xp = list(np.linspace(xlim[0], xlim[1], 100))
+    for p in input:
+        if h <= p.y:
+            yp = []
+            for x in xp:
+                try:
+                    y = ((x - p.x) ** 2 + (p.y) ** 2 - (h) ** 2) / (2 * (p.y - h))
+                    yp.append(y)
+                except ZeroDivisionError:
+                    y = 1000000
+                    yp.append(y)
+            yps.append(yp)
+            ax1.plot(xp, yp, lw=2)
+
+        else:
+            break
+
+    edge_hits, xhits = plotEdges(tree, h, edge_hits, xhits)
+    voronoi_x = [p.x for p in voronoi]
+    voronoi_y = [p.y for p in voronoi]
+    #print(voronoi)
+    ax1.scatter(voronoi_x, voronoi_y, s=30, zorder=10, color='red')
+    for hit in edge_hits:
+        ax1.scatter([hit[0]], [hit[1]], s=5, zorder=5, color='black')
+
+    idx = 0
+    bl = []
+    x_bl = []
+
+    focuses = [n for n in tree if len(n) == 1]
+    result = []
+    result = getIntersections(tree, h, result)
+    dx = xp[1] - xp[0]
+    if len(result) > 1 and DRAW_BEACHLINE:
+        for x in xp:
+
+            if changeIdx(result, x, dx):
+                if (idx + 1) < len(focuses):
+                    idx += 1
+            focus = focuses[idx][0]
+            try:
+                y = ((x - focus.x) ** 2 + (focus.y) ** 2 - (h) ** 2) / (2 * (focus.y - h))
+                bl.append(y)
+                x_bl.append(x)
+            except ZeroDivisionError:
+                y = 1000000
+                bl.append(y)
+                x_bl.append(x)
+
+        ax1.plot(x_bl, bl, lw=2, color="cyan")
+
+
+
+
+    figure = plt.gcf()
+    figure.set_size_inches(10, 8)
+
+    plt.savefig("frames/anim_{0}.png".format(f), bbox_inches='tight', dpi=100)
+    f += 1
+
+
+def plotEdges(tree, h, hits, xhits):
     for n in tree:
         if len(n) > 1:
             a1, b1, c1 = T.getParabolaCoeff(n[0], h)
@@ -23,7 +123,24 @@ def plotEdges(tree, h, hits):
             hitx = T.findIntersect(a1, b1, c1, a2, b2, c2, n[0], n[1])
             if hitx:
                 hits.append([hitx, a1 * hitx * hitx + b1 * hitx + c1])
-    return hits
+                xhits.append(hitx)
+    return hits, xhits
+
+def getIntersections(tree, h, result):
+    for n in tree:
+        if len(n) > 1:
+            a1, b1, c1 = T.getParabolaCoeff(n[0], h)
+            a2, b2, c2 = T.getParabolaCoeff(n[1], h)
+            hitx = T.findIntersect(a1, b1, c1, a2, b2, c2, n[0], n[1])
+            if hitx:
+                result.append(hitx)
+    return result
+
+def changeIdx(hits, x, dx):
+    for h in hits:
+        if (h - x) <= (dx) and h > x:
+            return True
+    return False
 
 
 def checkCircleEvent(l, c, r, h):
@@ -36,6 +153,7 @@ def checkCircleEvent(l, c, r, h):
         return e
     else:
         return None
+
 
 def activateCircle(p, h):
     global t
@@ -123,6 +241,7 @@ def activateCircle(p, h):
                     if e:
                         q.push(e)
 
+
 def activatePlace(p, h):
     global t
     global q
@@ -164,13 +283,16 @@ def activatePlace(p, h):
 def main():
     global t
     global q
-    global ax1
 
-    #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
-    #input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
+    fig = plt.figure()
+    fig.add_subplot()
+    ax1 = plt.gca()
+
+    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6), Point(7, 18)]
+    # input = [Point(10, 10), Point(-3, 15), Point(4, 1)]
     input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1)]
-    #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(20, 7)]
-    #input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6)]
+    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(20, 7)]
+    # input = [Point(14, 0), Point(10, 10), Point(-3, 15), Point(4, 1), Point(-5, 6)]
     xs = [p.x for p in input]
     ys = [p.y for p in input]
 
@@ -192,8 +314,9 @@ def main():
     height = abs((ylim[1] + gap) - (ylim[0] - gap))
     dh = (height * 1.0) / STEPS
     h = ylim[1] + gap
-    #next = q.show()
+    # next = q.show()
     hits = []
+    xhits = []
 
     while h > (ylim[0] - gap):
         # print("-> h:", h)
@@ -210,21 +333,25 @@ def main():
 
         tree = T.inorder(t.root)
         # print(tree)
-        hits = plotEdges(tree, h, hits)
+        paint(input, tree, h)
+        hits, xhits = plotEdges(tree, h, hits, xhits)
 
         h -= dh
 
     print(q.isEmpty())
     print(len(q.data))
-    #p = q.pop()
+    # p = q.pop()
     voronoi_x = [p.x for p in voronoi]
     voronoi_y = [p.y for p in voronoi]
     print(voronoi)
+    '''
     ax1.scatter(voronoi_x, voronoi_y, s=30, zorder=10, color='red')
     for hit in hits:
         ax1.scatter([hit[0]], [hit[1]], s=5, zorder=5, color='black')
 
-    plt.show()
+    #plt.show()
+    '''
+
 
 if __name__ == "__main__":
     main()
